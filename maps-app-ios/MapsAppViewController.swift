@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class MapsAppViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,4 +22,3 @@ class ViewController: UIViewController {
 
 
 }
-
