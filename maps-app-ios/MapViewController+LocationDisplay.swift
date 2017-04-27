@@ -20,10 +20,6 @@ extension MapViewController {
             print("New autoPanMode: \(newAutoPanMode)")
             self.gpsButton.setImage(self.mapView.locationDisplay.getImage(), for: .normal)
         }
-        
-        mapView.locationDisplay.locationChangedHandler = { newLocation in
-            print("Location course is \(newLocation.course)")
-        }
     }
     
     @IBAction func nextGPSMode(_ sender: Any) {

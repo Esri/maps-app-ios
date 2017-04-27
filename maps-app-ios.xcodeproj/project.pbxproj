@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D90DF4141EAD8A3300EC0960 /* AGSRouteTask+DefaultParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90DF4131EAD8A3300EC0960 /* AGSRouteTask+DefaultParameters.swift */; };
+		D90DF41B1EAE595000EC0960 /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90DF41A1EAE595000EC0960 /* MainMenuViewController.swift */; };
 		D928724A1E942CFB00112A53 /* Feedback.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D92872491E942CFB00112A53 /* Feedback.xcassets */; };
 		D928724C1E944BC700112A53 /* MapsAppMode+MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D928724B1E944BC700112A53 /* MapsAppMode+MapView.swift */; };
 		D92E2C1A1E94A39800138F7D /* MapViewController+Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92E2C191E94A39800138F7D /* MapViewController+Preferences.swift */; };
@@ -16,6 +17,11 @@
 		D93381B01E90BBD900A0F93E /* Feedback.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D93381AF1E90BBD900A0F93E /* Feedback.storyboard */; };
 		D9513A321E98181C007B36C8 /* RouteResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9513A311E98181C007B36C8 /* RouteResultView.swift */; };
 		D9513A341E985D49007B36C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D9513A331E985D49007B36C8 /* Assets.xcassets */; };
+		D963879B1EB2547600764D8D /* LoginStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = D963879A1EB2547600764D8D /* LoginStatus.swift */; };
+		D96387A11EB2FA7300764D8D /* MapsAppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96387A01EB2FA7300764D8D /* MapsAppSettings.swift */; };
+		D96387A31EB2FBC500764D8D /* MapsAppDelegate+PortalOAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96387A21EB2FBC500764D8D /* MapsAppDelegate+PortalOAuth.swift */; };
+		D96387A51EB2FBFD00764D8D /* MapsAppDelegate+PortalAutoLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96387A41EB2FBFD00764D8D /* MapsAppDelegate+PortalAutoLogin.swift */; };
+		D96387A71EB2FC6700764D8D /* MapsAppDelegate+LoginNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96387A61EB2FC6700764D8D /* MapsAppDelegate+LoginNotifications.swift */; };
 		D96A77551E8594C000F441D3 /* MapsAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96A77541E8594C000F441D3 /* MapsAppDelegate.swift */; };
 		D96A77571E8594C000F441D3 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96A77561E8594C000F441D3 /* MapViewController.swift */; };
 		D96A775A1E8594C000F441D3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D96A77581E8594C000F441D3 /* Main.storyboard */; };
@@ -29,6 +35,9 @@
 		D9822A111EA2EFEE009FA0E5 /* MapViewController+LocationDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9822A101EA2EFEE009FA0E5 /* MapViewController+LocationDisplay.swift */; };
 		D98F78B31E89B9A100E7CBC2 /* AGSAppPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = D98F78B21E89B9A100E7CBC2 /* AGSAppPreferences.swift */; };
 		D98F78B51E89CEEA00E7CBC2 /* UIViewController+Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = D98F78B41E89CEEA00E7CBC2 /* UIViewController+Alerts.swift */; };
+		D9B5074F1EB23399006BA131 /* URL+QueryString.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9B5074E1EB23399006BA131 /* URL+QueryString.swift */; };
+		D9B507511EB23400006BA131 /* AGSPortal+AutoLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9B507501EB23400006BA131 /* AGSPortal+AutoLogin.swift */; };
+		D9B507531EB23C3A006BA131 /* MapsAppDelegate+PortalLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9B507521EB23C3A006BA131 /* MapsAppDelegate+PortalLogin.swift */; };
 		D9BE57C41E95912D00934D30 /* AGSLocationDisplay+MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BE57C31E95912D00934D30 /* AGSLocationDisplay+MapView.swift */; };
 		D9CBE33D1E8B4F2A00776053 /* RouteResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CBE3381E8B4F2A00776053 /* RouteResultViewController.swift */; };
 		D9CBE33E1E8B4F2A00776053 /* EmptySegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CBE3391E8B4F2A00776053 /* EmptySegue.swift */; };
@@ -37,8 +46,7 @@
 		D9CBE3411E8B4F2A00776053 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CBE33C1E8B4F2A00776053 /* SearchViewController.swift */; };
 		D9CBE3471E8B6DF300776053 /* Debouncer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CBE3461E8B6DF300776053 /* Debouncer.swift */; };
 		D9CBE34A1E8B74EC00776053 /* SearchNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CBE3491E8B74EC00776053 /* SearchNotifications.swift */; };
-		D9CBE34E1E8B77AC00776053 /* AGSAppPreferences+MapsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CBE34D1E8B77AC00776053 /* AGSAppPreferences+MapsApp.swift */; };
-		D9CBE3501E8B7E0E00776053 /* AGSAppPreferenceKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CBE34F1E8B7E0E00776053 /* AGSAppPreferenceKey.swift */; };
+		D9CBE34E1E8B77AC00776053 /* MapsAppPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CBE34D1E8B77AC00776053 /* MapsAppPreferences.swift */; };
 		D9CBE3531E8BF2C900776053 /* MapViewController+Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CBE3521E8BF2C900776053 /* MapViewController+Search.swift */; };
 		D9CBE3551E8C3ACA00776053 /* MapViewController+Feedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CBE3541E8C3ACA00776053 /* MapViewController+Feedback.swift */; };
 		D9CF2A6F1E9034A80019701F /* MapViewController+Routing.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CF2A6E1E9034A80019701F /* MapViewController+Routing.swift */; };
@@ -66,6 +74,7 @@
 
 /* Begin PBXFileReference section */
 		D90DF4131EAD8A3300EC0960 /* AGSRouteTask+DefaultParameters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AGSRouteTask+DefaultParameters.swift"; sourceTree = "<group>"; };
+		D90DF41A1EAE595000EC0960 /* MainMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenuViewController.swift; sourceTree = "<group>"; };
 		D92872491E942CFB00112A53 /* Feedback.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Feedback.xcassets; sourceTree = "<group>"; };
 		D928724B1E944BC700112A53 /* MapsAppMode+MapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MapsAppMode+MapView.swift"; sourceTree = "<group>"; };
 		D92E2C191E94A39800138F7D /* MapViewController+Preferences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MapViewController+Preferences.swift"; sourceTree = "<group>"; };
@@ -74,6 +83,11 @@
 		D93381AF1E90BBD900A0F93E /* Feedback.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Feedback.storyboard; sourceTree = "<group>"; };
 		D9513A311E98181C007B36C8 /* RouteResultView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteResultView.swift; sourceTree = "<group>"; };
 		D9513A331E985D49007B36C8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D963879A1EB2547600764D8D /* LoginStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginStatus.swift; sourceTree = "<group>"; };
+		D96387A01EB2FA7300764D8D /* MapsAppSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapsAppSettings.swift; sourceTree = "<group>"; };
+		D96387A21EB2FBC500764D8D /* MapsAppDelegate+PortalOAuth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MapsAppDelegate+PortalOAuth.swift"; sourceTree = "<group>"; };
+		D96387A41EB2FBFD00764D8D /* MapsAppDelegate+PortalAutoLogin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MapsAppDelegate+PortalAutoLogin.swift"; sourceTree = "<group>"; };
+		D96387A61EB2FC6700764D8D /* MapsAppDelegate+LoginNotifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MapsAppDelegate+LoginNotifications.swift"; sourceTree = "<group>"; };
 		D96A77511E8594C000F441D3 /* maps-app-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "maps-app-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D96A77541E8594C000F441D3 /* MapsAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapsAppDelegate.swift; sourceTree = "<group>"; };
 		D96A77561E8594C000F441D3 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -93,6 +107,9 @@
 		D9822A101EA2EFEE009FA0E5 /* MapViewController+LocationDisplay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MapViewController+LocationDisplay.swift"; sourceTree = "<group>"; };
 		D98F78B21E89B9A100E7CBC2 /* AGSAppPreferences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AGSAppPreferences.swift; sourceTree = "<group>"; };
 		D98F78B41E89CEEA00E7CBC2 /* UIViewController+Alerts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alerts.swift"; sourceTree = "<group>"; };
+		D9B5074E1EB23399006BA131 /* URL+QueryString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URL+QueryString.swift"; sourceTree = "<group>"; };
+		D9B507501EB23400006BA131 /* AGSPortal+AutoLogin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AGSPortal+AutoLogin.swift"; sourceTree = "<group>"; };
+		D9B507521EB23C3A006BA131 /* MapsAppDelegate+PortalLogin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MapsAppDelegate+PortalLogin.swift"; sourceTree = "<group>"; };
 		D9BE57C31E95912D00934D30 /* AGSLocationDisplay+MapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AGSLocationDisplay+MapView.swift"; sourceTree = "<group>"; };
 		D9CBE3381E8B4F2A00776053 /* RouteResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteResultViewController.swift; sourceTree = "<group>"; };
 		D9CBE3391E8B4F2A00776053 /* EmptySegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptySegue.swift; sourceTree = "<group>"; };
@@ -101,8 +118,7 @@
 		D9CBE33C1E8B4F2A00776053 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		D9CBE3461E8B6DF300776053 /* Debouncer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Debouncer.swift; sourceTree = "<group>"; };
 		D9CBE3491E8B74EC00776053 /* SearchNotifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchNotifications.swift; sourceTree = "<group>"; };
-		D9CBE34D1E8B77AC00776053 /* AGSAppPreferences+MapsApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AGSAppPreferences+MapsApp.swift"; sourceTree = "<group>"; };
-		D9CBE34F1E8B7E0E00776053 /* AGSAppPreferenceKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AGSAppPreferenceKey.swift; sourceTree = "<group>"; };
+		D9CBE34D1E8B77AC00776053 /* MapsAppPreferences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapsAppPreferences.swift; sourceTree = "<group>"; };
 		D9CBE3521E8BF2C900776053 /* MapViewController+Search.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MapViewController+Search.swift"; sourceTree = "<group>"; };
 		D9CBE3541E8C3ACA00776053 /* MapViewController+Feedback.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MapViewController+Feedback.swift"; sourceTree = "<group>"; };
 		D9CF2A6E1E9034A80019701F /* MapViewController+Routing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MapViewController+Routing.swift"; sourceTree = "<group>"; };
@@ -160,6 +176,26 @@
 			name = MapViewController;
 			sourceTree = "<group>";
 		};
+		D963879E1EB2554500764D8D /* App Status */ = {
+			isa = PBXGroup;
+			children = (
+				D9B507541EB24859006BA131 /* Portal Login */,
+				D9D1F12F1E8E1016007BE50D /* MapsAppMode.swift */,
+				D963879A1EB2547600764D8D /* LoginStatus.swift */,
+			);
+			name = "App Status";
+			sourceTree = "<group>";
+		};
+		D963879F1EB255B800764D8D /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				D93381B11E9184FD00A0F93E /* MapViewController */,
+				D9CBE3421E8B4F3200776053 /* Feedback Panel */,
+				D90DF41A1EAE595000EC0960 /* MainMenuViewController.swift */,
+			);
+			name = UI;
+			sourceTree = "<group>";
+		};
 		D96A77481E8594BF00F441D3 = {
 			isa = PBXGroup;
 			children = (
@@ -183,15 +219,11 @@
 		D96A77531E8594C000F441D3 /* maps-app-ios */ = {
 			isa = PBXGroup;
 			children = (
-				D96A77581E8594C000F441D3 /* Main.storyboard */,
-				D9513A331E985D49007B36C8 /* Assets.xcassets */,
 				D96A77541E8594C000F441D3 /* MapsAppDelegate.swift */,
-				D9D1F12F1E8E1016007BE50D /* MapsAppMode.swift */,
-				D93381B11E9184FD00A0F93E /* MapViewController */,
-				D9CBE3421E8B4F3200776053 /* Feedback Panel */,
-				D9CBE3511E8B7E2500776053 /* AppPreferences */,
+				D963879E1EB2554500764D8D /* App Status */,
+				D9CBE3511E8B7E2500776053 /* App Preferences */,
+				D963879F1EB255B800764D8D /* UI */,
 				D9CF2A6D1E90346A0019701F /* Extensions */,
-				D9CBE34B1E8B751B00776053 /* ArcGIS Extensions */,
 				D9CBE34C1E8B752F00776053 /* Resources */,
 			);
 			path = "maps-app-ios";
@@ -213,6 +245,18 @@
 				D96A77761E8594C000F441D3 /* Info.plist */,
 			);
 			path = "maps-app-iosUITests";
+			sourceTree = "<group>";
+		};
+		D9B507541EB24859006BA131 /* Portal Login */ = {
+			isa = PBXGroup;
+			children = (
+				D9B507521EB23C3A006BA131 /* MapsAppDelegate+PortalLogin.swift */,
+				D96387A41EB2FBFD00764D8D /* MapsAppDelegate+PortalAutoLogin.swift */,
+				D96387A21EB2FBC500764D8D /* MapsAppDelegate+PortalOAuth.swift */,
+				D96387A61EB2FC6700764D8D /* MapsAppDelegate+LoginNotifications.swift */,
+				D9B507501EB23400006BA131 /* AGSPortal+AutoLogin.swift */,
+			);
+			name = "Portal Login";
 			sourceTree = "<group>";
 		};
 		D9BE57C11E9590F800934D30 /* MapViewController+Routing */ = {
@@ -274,26 +318,30 @@
 			isa = PBXGroup;
 			children = (
 				D96A775D1E8594C000F441D3 /* LaunchScreen.storyboard */,
+				D96A77581E8594C000F441D3 /* Main.storyboard */,
+				D9513A331E985D49007B36C8 /* Assets.xcassets */,
 				D96A77601E8594C000F441D3 /* Info.plist */,
 				D96A77821E8598DF00F441D3 /* ArcGIS.bundle */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
 		};
-		D9CBE3511E8B7E2500776053 /* AppPreferences */ = {
+		D9CBE3511E8B7E2500776053 /* App Preferences */ = {
 			isa = PBXGroup;
 			children = (
-				D9CBE34F1E8B7E0E00776053 /* AGSAppPreferenceKey.swift */,
+				D9CBE34D1E8B77AC00776053 /* MapsAppPreferences.swift */,
+				D96387A01EB2FA7300764D8D /* MapsAppSettings.swift */,
 				D98F78B21E89B9A100E7CBC2 /* AGSAppPreferences.swift */,
-				D9CBE34D1E8B77AC00776053 /* AGSAppPreferences+MapsApp.swift */,
 			);
-			name = AppPreferences;
+			name = "App Preferences";
 			sourceTree = "<group>";
 		};
 		D9CF2A6D1E90346A0019701F /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				D9CBE34B1E8B751B00776053 /* ArcGIS Extensions */,
 				D98F78B41E89CEEA00E7CBC2 /* UIViewController+Alerts.swift */,
+				D9B5074E1EB23399006BA131 /* URL+QueryString.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -440,16 +488,21 @@
 			files = (
 				D92E2C1A1E94A39800138F7D /* MapViewController+Preferences.swift in Sources */,
 				D9CBE3551E8C3ACA00776053 /* MapViewController+Feedback.swift in Sources */,
+				D9B5074F1EB23399006BA131 /* URL+QueryString.swift in Sources */,
 				D9CBE3411E8B4F2A00776053 /* SearchViewController.swift in Sources */,
+				D96387A51EB2FBFD00764D8D /* MapsAppDelegate+PortalAutoLogin.swift in Sources */,
 				D96A77571E8594C000F441D3 /* MapViewController.swift in Sources */,
+				D963879B1EB2547600764D8D /* LoginStatus.swift in Sources */,
 				D9CF2A6F1E9034A80019701F /* MapViewController+Routing.swift in Sources */,
+				D96387A71EB2FC6700764D8D /* MapsAppDelegate+LoginNotifications.swift in Sources */,
 				D9CF2A731E9045A70019701F /* AGSStopProvider.swift in Sources */,
 				D96A77851E86E88600F441D3 /* AGSLicense+CustomStringConvertible.swift in Sources */,
-				D9CBE34E1E8B77AC00776053 /* AGSAppPreferences+MapsApp.swift in Sources */,
+				D96387A31EB2FBC500764D8D /* MapsAppDelegate+PortalOAuth.swift in Sources */,
+				D9CBE34E1E8B77AC00776053 /* MapsAppPreferences.swift in Sources */,
 				D98F78B31E89B9A100E7CBC2 /* AGSAppPreferences.swift in Sources */,
+				D9B507531EB23C3A006BA131 /* MapsAppDelegate+PortalLogin.swift in Sources */,
 				D9513A321E98181C007B36C8 /* RouteResultView.swift in Sources */,
 				D9D1F1301E8E1016007BE50D /* MapsAppMode.swift in Sources */,
-				D9CBE3501E8B7E0E00776053 /* AGSAppPreferenceKey.swift in Sources */,
 				D9CBE33F1E8B4F2A00776053 /* FeedbackViewController.swift in Sources */,
 				D9CBE34A1E8B74EC00776053 /* SearchNotifications.swift in Sources */,
 				D9CBE3531E8BF2C900776053 /* MapViewController+Search.swift in Sources */,
@@ -460,13 +513,16 @@
 				D9822A0B1EA2EA35009FA0E5 /* MapViewController+Routing+Config.swift in Sources */,
 				D90DF4141EAD8A3300EC0960 /* AGSRouteTask+DefaultParameters.swift in Sources */,
 				D98F78B51E89CEEA00E7CBC2 /* UIViewController+Alerts.swift in Sources */,
+				D90DF41B1EAE595000EC0960 /* MainMenuViewController.swift in Sources */,
 				D9CBE33D1E8B4F2A00776053 /* RouteResultViewController.swift in Sources */,
 				D93381AC1E90742900A0F93E /* FeedbackViewController+ChildVCs.swift in Sources */,
 				D9822A0F1EA2EC06009FA0E5 /* MapViewController+Search+Config.swift in Sources */,
 				D92E2C1C1E94A4F900138F7D /* MapViewController+Touch.swift in Sources */,
 				D96A77551E8594C000F441D3 /* MapsAppDelegate.swift in Sources */,
+				D96387A11EB2FA7300764D8D /* MapsAppSettings.swift in Sources */,
 				D9822A111EA2EFEE009FA0E5 /* MapViewController+LocationDisplay.swift in Sources */,
 				D928724C1E944BC700112A53 /* MapsAppMode+MapView.swift in Sources */,
+				D9B507511EB23400006BA131 /* AGSPortal+AutoLogin.swift in Sources */,
 				D9CF2A711E9041EA0019701F /* RouteNotifications.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

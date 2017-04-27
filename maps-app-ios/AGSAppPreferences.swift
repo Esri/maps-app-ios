@@ -41,6 +41,14 @@ class AGSAppPreferences: NSObject {
         }
     }
     
+    func get(forKey key:AGSAppPreferenceKey) -> Any? {
+        return UserDefaults.standard.object(forKey: key.rawValue)
+    }
+    
+    func set(value: Any?, forKey key:AGSAppPreferenceKey) {
+        UserDefaults.standard.set(value, forKey: key.rawValue)
+    }
+    
     private func writeToPreferences<T:AGSJSONSerializable>(agsObject:T, withKey key:String) {
         do {
             let json = try agsObject.toJSON()

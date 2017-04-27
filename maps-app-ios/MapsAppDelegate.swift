@@ -9,25 +9,15 @@
 import UIKit
 import ArcGIS
 
-let licenseKey:String = (Bundle.main.infoDictionary?["AGSLicenseKey"] as? String) ?? ""
-let clientID:String = (Bundle.main.infoDictionary?["AppClientID"] as? String) ?? ""
-
-let worldRoutingServiceURL = URL(string: "https://route.arcgis.com/arcgis/rest/services/World/Route/NAServer/Route_World")!
-let worldGeocoderURL = URL(string:"https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer")!
-
-enum LoginStatus {
-    case loggedIn(user:AGSPortalUser)
-    case loggedOut
-}
+private let worldRoutingServiceURL = URL(string: "https://route.arcgis.com/arcgis/rest/services/World/Route/NAServer/Route_World")!
+private let worldGeocoderURL = URL(string:"https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer")!
 
 @UIApplicationMain
 class MapsAppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     
-    var loginStatus:LoginStatus = .loggedOut
-    
-    var preferences = AGSAppPreferences()
+    var preferences = MapsAppPreferences()
     
     var locator = AGSLocatorTask(url: worldGeocoderURL)
 
@@ -36,31 +26,54 @@ class MapsAppDelegate: UIResponder, UIApplicationDelegate {
 
     var currentPortal:AGSPortal? {
         didSet {
+            AGSAuthenticationManager.shared().oAuthConfigurations.removeAllObjects()
+
             // When the portal switches, update service tasks
             if let portal = currentPortal {
-                setServicesForPortal(portal: portal)
+                
+                let oauthConfig = AGSOAuthConfiguration(portalURL: portal.url, clientID: MapsAppSettings.clientID, redirectURL: "\(MapsAppSettings.appSchema)://\(MapsAppSettings.authURLPath)")
+                AGSAuthenticationManager.shared().oAuthConfigurations.add(oauthConfig)
+
+                portal.load() { error in
+                    guard error == nil else {
+                        print("Error loading the portal: \(error!.localizedDescription)")
+                        return
+                    }
+
+                    self.setServicesForPortal(portal: portal)
+                    
+                    if let user = portal.user {
+                        self.loginStatus = .loggedIn(user: user)
+                    } else {
+                        self.loginStatus = .loggedOut
+                    }
+                }
             }
         }
     }
     
+    var loginStatus:LoginStatus = .loggedOut {
+        didSet {
+            loginChanged()
+        }
+    }
+    
+    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+        return portalAuth(app, open: url, options: options)
+    }
+
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
-        
         // License the runtime
         do {
-            try AGSArcGISRuntimeEnvironment.setLicenseKey(licenseKey)
+            try AGSArcGISRuntimeEnvironment.setLicenseKey(MapsAppSettings.licenseKey)
         } catch {
             print("Error licensing app: \(error.localizedDescription)")
         }
         print("ArcGIS Runtime License: \(AGSArcGISRuntimeEnvironment.license())")
-        
-        
-        // Ensure that credentials are cached in the Keychain.
-        AGSAuthenticationManager.shared().credentialCache.enableAutoSyncToKeychain(withIdentifier: "MapsAppiOS", accessGroup: nil, acrossDevices: false)
- 
 
-        currentPortal = AGSPortal.arcGISOnline(withLoginRequired: false)
-        
+        setPortalOnAppStart()
+
         return true
     }
 
@@ -110,6 +123,6 @@ var mapsApp:MapsAppDelegate {
     return UIApplication.shared.delegate as! MapsAppDelegate
 }
 
-var mapsAppPrefs:AGSAppPreferences {
+var mapsAppPrefs:MapsAppPreferences {
     return mapsApp.preferences
 }

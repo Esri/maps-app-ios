@@ -17,7 +17,7 @@ extension MapViewController {
             return
         }
 
-        locator.suggest(withSearchText: searchText) { (results, error) in
+        locator.suggest(withSearchText: searchText, parameters: mapsAppSuggestParameters) { (results, error) in
             guard error == nil else {
                 print("Error getting suggestions for \"\(searchText)\": \(error!.localizedDescription)")
                 return
@@ -33,7 +33,7 @@ extension MapViewController {
 
     // Geocode
     func search(searchText:String) {
-        locator.geocode(withSearchText: searchText) { (results, error) in
+        locator.geocode(withSearchText: searchText, parameters: mapsAppGeocoderParameters) { (results, error) in
             guard error == nil else {
                 print("Error performing search! \(error!.localizedDescription)")
                 return
@@ -63,4 +63,19 @@ extension MapViewController {
         }
     }
 
+    var mapsAppSuggestParameters:AGSSuggestParameters {
+        let params = AGSSuggestParameters()
+        if let mapVP = self.mapView.currentViewpoint(with: .centerAndScale), let center = mapVP.targetGeometry as? AGSPoint {
+            params.preferredSearchLocation = center
+        }
+        return params
+    }
+    
+    var mapsAppGeocoderParameters:AGSGeocodeParameters {
+        let params = AGSGeocodeParameters()
+        if let mapVP = self.mapView.currentViewpoint(with: .centerAndScale), let center = mapVP.targetGeometry as? AGSPoint {
+            params.preferredSearchLocation = center
+        }
+        return params
+    }
 }

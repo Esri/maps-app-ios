@@ -37,6 +37,13 @@ extension MapsAppMode {
         switch self {
         case .geocodeResult(let result):
             return result.extent
+        case .routeResult:
+            if let extent = self.graphic?.geometry?.extent {
+                let builder = extent.toBuilder()
+                builder.expand(byFactor: 1.2)
+                return builder.toGeometry()
+            }
+            fallthrough
         default:
             return self.graphic?.geometry?.extent
         }
