@@ -211,17 +211,6 @@
 			path = "App Status";
 			sourceTree = "<group>";
 		};
-		D963879F1EB255B800764D8D /* UI */ = {
-			isa = PBXGroup;
-			children = (
-				D920A57D1EB6B12D00D565E2 /* MapViewMode */,
-				D93381B11E9184FD00A0F93E /* MapViewController */,
-				D9CBE3421E8B4F3200776053 /* Feedback Panel */,
-				D90DF41A1EAE595000EC0960 /* MainMenuViewController.swift */,
-			);
-			path = UI;
-			sourceTree = "<group>";
-		};
 		D96A77481E8594BF00F441D3 = {
 			isa = PBXGroup;
 			children = (
@@ -249,7 +238,10 @@
 				D963879E1EB2554500764D8D /* App Status */,
 				D9CBE3511E8B7E2500776053 /* App Preferences */,
 				D920A5801EB6CA0200D565E2 /* App Notifications */,
-				D963879F1EB255B800764D8D /* UI */,
+				D920A57D1EB6B12D00D565E2 /* MapViewMode */,
+				D93381B11E9184FD00A0F93E /* MapViewController */,
+				D9CBE3421E8B4F3200776053 /* Feedback Panel */,
+				D90DF41A1EAE595000EC0960 /* MainMenuViewController.swift */,
 				D9CF2A6D1E90346A0019701F /* Extensions */,
 				D9CBE34C1E8B752F00776053 /* Resources */,
 			);
