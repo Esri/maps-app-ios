@@ -28,17 +28,17 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ay3-0t-kAq">
-                                <rect key="frame" x="16" y="610" width="39" height="30"/>
+                                <rect key="frame" x="16" y="603" width="39" height="30"/>
                                 <state key="normal" title="Menu"/>
                                 <connections>
                                     <segue destination="U40-Ed-8C5" kind="presentation" modalPresentationStyle="overFullScreen" id="ef3-3b-eVL"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LC1-IV-Vga">
-                                <rect key="frame" x="323" y="607" width="36" height="36"/>
+                                <rect key="frame" x="309" y="593" width="50" height="50"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0ng-Np-3qj">
-                                        <rect key="frame" x="8" y="8" width="22" height="22"/>
+                                        <rect key="frame" x="15" y="15" width="22" height="22"/>
                                         <state key="normal" image="GPS Off"/>
                                         <connections>
                                             <action selector="nextGPSMode:" destination="BYZ-38-t0r" eventType="touchUpInside" id="PaQ-l1-kHo"/>
@@ -48,12 +48,12 @@
                                 <color key="backgroundColor" white="0.74252479927880422" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="LC1-IV-Vga" secondAttribute="height" multiplier="1:1" id="8aq-AY-j58"/>
-                                    <constraint firstAttribute="width" constant="36" id="PTj-aw-LXV" userLabel="Width 36"/>
+                                    <constraint firstAttribute="width" constant="50" id="PTj-aw-LXV" userLabel="Width 36"/>
                                     <constraint firstItem="0ng-Np-3qj" firstAttribute="centerY" secondItem="LC1-IV-Vga" secondAttribute="centerY" constant="0.5" id="XKL-Ks-FeD"/>
                                     <constraint firstItem="0ng-Np-3qj" firstAttribute="centerX" secondItem="LC1-IV-Vga" secondAttribute="centerX" constant="0.5" id="yJa-as-L7S"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="18"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="25"/>
                                     <userDefinedRuntimeAttribute type="string" keyPath="layer.borderWidth" value="1"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
