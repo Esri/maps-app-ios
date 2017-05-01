@@ -16,12 +16,12 @@ class MapViewController: UIViewController {
     
     var graphicsOverlays:[String:AGSGraphicsOverlay] = [:]
     
-    var mode:MapsAppMode = .none {
+    var mode:MapViewMode = .none {
         didSet {
             updateMapForMode()
 
             // Announce that the mode has changed (the Feedback Panel UI listens to this)
-            NotificationCenter.default.post(name: NSNotification.Name("ModeChanged"), object: self, userInfo: [NSKeyValueChangeKey.oldKey:oldValue, NSKeyValueChangeKey.newKey:mode])
+            MapsAppNotifications.postModeChangeNotification(oldMode: oldValue, newMode: mode)
         }
     }
 

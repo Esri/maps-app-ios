@@ -101,7 +101,7 @@
                         <viewControllerLayoutGuide type="top" id="L6Y-L5-MDj"/>
                         <viewControllerLayoutGuide type="bottom" id="Mmq-vO-fhg"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="2Jv-Fy-BWe" customClass="RouteResultView" customModule="maps_app_ios" customModuleProvider="target">
+                    <view key="view" contentMode="scaleToFill" id="2Jv-Fy-BWe">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>

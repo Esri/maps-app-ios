@@ -1,5 +1,5 @@
 //
-//  MapsAppMode.swift
+//  MapViewMode.swift
 //  maps-app-ios
 //
 //  Created by Nicholas Furness on 3/31/17.
@@ -10,13 +10,11 @@ import ArcGIS
 
 infix operator ~==
 
-enum MapsAppMode: Equatable, CustomStringConvertible {
+enum MapViewMode: Equatable, CustomStringConvertible {
     case none
     case search
     case routeResult(AGSRoute)
     case geocodeResult(AGSGeocodeResult)
-    
-    static let defaultMode:MapsAppMode = .search
     
     var description: String {
         switch self {
@@ -31,7 +29,7 @@ enum MapsAppMode: Equatable, CustomStringConvertible {
         }
     }
     
-    static func ==(lhs:MapsAppMode, rhs:MapsAppMode) -> Bool {
+    static func ==(lhs:MapViewMode, rhs:MapViewMode) -> Bool {
         switch (lhs,rhs) {
         case (.none,.none), (.search,.search):
             return true
@@ -44,7 +42,7 @@ enum MapsAppMode: Equatable, CustomStringConvertible {
         }
     }
     
-    static func ~==(lhs:MapsAppMode, rhs:MapsAppMode) -> Bool {
+    static func ~==(lhs:MapViewMode, rhs:MapViewMode) -> Bool {
         switch (lhs,rhs) {
         case (.none,.none), (.search,.search), (.routeResult,.routeResult), (.geocodeResult, .geocodeResult):
             return true

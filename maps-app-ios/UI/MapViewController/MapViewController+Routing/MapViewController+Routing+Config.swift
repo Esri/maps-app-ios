@@ -51,7 +51,7 @@ extension MapViewController {
     func setupRouting() {
         self.mapView.graphicsOverlays.add(self.routeResultsOverlay)
         
-        NotificationCenter.default.addObserver(forName: RouteNotifications.Names.Route, object: nil, queue: nil) { (notification) in
+        NotificationCenter.default.addObserver(forName: MapsAppNotifications.Names.Route, object: nil, queue: nil) { (notification) in
             guard let to = notification.routeTo else {
                 print("No destination provided in the Route Notification!")
                 return

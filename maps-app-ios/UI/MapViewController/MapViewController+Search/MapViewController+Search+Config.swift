@@ -51,13 +51,13 @@ extension MapViewController {
     func setupSearch() {
         mapView.graphicsOverlays.add(geocodeResultsOverlay)
         
-        NotificationCenter.default.addObserver(forName: SearchNotifications.Names.Search, object: nil, queue: nil) { (notification) in
+        NotificationCenter.default.addObserver(forName: MapsAppNotifications.Names.Search, object: nil, queue: nil) { (notification) in
             if let searchText = notification.searchText {
                 self.search(searchText:searchText)
             }
         }
         
-        NotificationCenter.default.addObserver(forName: SearchNotifications.Names.Suggest, object: nil, queue: nil) { (notification) in
+        NotificationCenter.default.addObserver(forName: MapsAppNotifications.Names.Suggest, object: nil, queue: nil) { (notification) in
             if let searchText = notification.searchText {
                 self.getSuggestions(forSearchText: searchText)
             }

@@ -33,11 +33,11 @@ class MainMenuViewController: UIViewController {
         userThumbnailView.layer.borderWidth = 3
         userThumbnailView.clipsToBounds = true
         
-        NotificationCenter.default.addObserver(forName: NSNotification.Name("MapsAppLogin"), object: nil, queue: nil) { notification in
+        NotificationCenter.default.addObserver(forName: MapsAppNotifications.Names.AppLogin, object: nil, queue: nil) { notification in
             self.setLoginUI()
         }
         
-        NotificationCenter.default.addObserver(forName: NSNotification.Name("MapsAppLogout"), object: nil, queue: nil) { notification in
+        NotificationCenter.default.addObserver(forName: MapsAppNotifications.Names.AppLogout, object: nil, queue: nil) { notification in
             self.setLoginUI()
         }
     }

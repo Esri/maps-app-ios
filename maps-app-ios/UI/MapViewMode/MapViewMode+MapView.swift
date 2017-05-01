@@ -1,5 +1,5 @@
 //
-//  MapsAppMode+MapView.swift
+//  MapViewMode+MapView.swift
 //  maps-app-ios
 //
 //  Created by Nicholas Furness on 4/4/17.
@@ -8,7 +8,7 @@
 
 import ArcGIS
 
-extension MapsAppMode {
+extension MapViewMode {
     var symbol:AGSSymbol? {
         switch self {
         case .routeResult:
