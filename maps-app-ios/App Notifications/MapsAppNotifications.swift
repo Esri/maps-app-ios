@@ -8,6 +8,7 @@
 
 import Foundation
 
+// Intentionally blank structure. Additional Swift Files will extend this.
 struct MapsAppNotifications {
     struct Names {
     }

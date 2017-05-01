@@ -29,8 +29,8 @@ class AGSAppPreferences: NSObject {
         
         if let agsLoadableObject = agsObject as? AGSLoadable {
             agsLoadableObject.load() { error in
-                if let error = error {
-                    print("Error loading the \(T.self) while waiting to serialize to preference \"\(key)!\" \(error.localizedDescription)")
+                guard error == nil else {
+                    print("Error loading the \(T.self) while waiting to serialize to preference \"\(key)!\" \(error!.localizedDescription)")
                     return
                 }
                 

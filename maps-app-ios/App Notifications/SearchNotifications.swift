@@ -8,13 +8,9 @@
 
 import UIKit
 
-fileprivate struct SearchNotifications {
-    static let searchKey = "searchText"
-}
-
 extension MapsAppNotifications.Names {
-    static let Search = Notification.Name("AGSSearchNotification")
-    static let Suggest = Notification.Name("AGSSuggestNotification")
+    static let Search = Notification.Name("MapsAppSearchNotification")
+    static let Suggest = Notification.Name("MapsAppSuggestNotification")
 }
 
 extension MapsAppNotifications {
@@ -43,4 +39,8 @@ extension Notification {
             return nil
         }
     }
+}
+
+fileprivate struct SearchNotifications {
+    static let searchKey = "searchText"
 }

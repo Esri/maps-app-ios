@@ -154,7 +154,7 @@
                                                     <constraint firstItem="EiZ-mq-GSx" firstAttribute="width" secondItem="hM3-MJ-sui" secondAttribute="width" id="ozm-M4-od6"/>
                                                 </constraints>
                                             </stackView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qHO-px-KAB">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Full Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qHO-px-KAB">
                                                 <rect key="frame" x="0.0" y="148" width="343" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
@@ -182,9 +182,9 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="fullNameView" destination="qHO-px-KAB" id="UIx-jD-KZG"/>
                         <outlet property="loggedInView" destination="efU-kB-aFW" id="alx-3K-Fl1"/>
                         <outlet property="loggedOutView" destination="NLy-8a-DXM" id="qnB-Lk-O5p"/>
-                        <outlet property="userNameView" destination="qHO-px-KAB" id="7Jv-Qp-TLw"/>
                         <outlet property="userThumbnailView" destination="3SM-QR-Fah" id="EDy-dO-gGV"/>
                     </connections>
                 </viewController>

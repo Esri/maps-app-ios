@@ -10,9 +10,9 @@ import ArcGIS
 
 extension AGSPortal {
     static func bestPortalFromCachedCredentials(portalURL: URL?, completion: @escaping ((AGSPortal, Bool) -> Void)) {
-        // We want to get an AGSPortal and automatically log in based off cached credentials.
+        // We want to get the "most logged-in portal" we can, based off cached credentials.
         // 
-        // If a custom portal URL is provided, we'll run with that, but otherwise we'll use ArcGIS Online.
+        // If a custom portal URL is provided, we'll use that, but otherwise we'll use ArcGIS Online.
         //
         // If we don't have cached credentials that automatically log us in to that portal, then we connect to 
         // the portal anonymously.

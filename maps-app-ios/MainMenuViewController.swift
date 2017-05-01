@@ -15,7 +15,7 @@ class MainMenuViewController: UIViewController {
     @IBOutlet weak var loggedOutView: UIStackView!
     
     @IBOutlet weak var userThumbnailView: UIImageView!
-    @IBOutlet weak var userNameView: UILabel!
+    @IBOutlet weak var fullNameView: UILabel!
     
     private var loginStatus:LoginStatus {
         get {
@@ -51,7 +51,7 @@ class MainMenuViewController: UIViewController {
             loggedInUser.thumbnail?.load() { _ in
                 self.userThumbnailView.image = loggedInUser.thumbnail?.image ?? #imageLiteral(resourceName: "User")
             }
-            userNameView.text = loggedInUser.fullName ?? "Jack Doegerman"
+            fullNameView.text = loggedInUser.fullName ?? "Unknown User"
         }
         loggedOutView.isHidden = !loggedInView.isHidden
     }

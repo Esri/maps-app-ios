@@ -8,9 +8,8 @@
 
 import ArcGIS
 
-fileprivate struct RouteNotifications {
-    static let fromKey = "fromObject"
-    static let toKey = "toObject"
+extension MapsAppNotifications.Names {
+    static let Route = Notification.Name("MapsAppRouteNotification")
 }
 
 extension MapsAppNotifications {
@@ -27,11 +26,6 @@ extension MapsAppNotifications {
         NotificationCenter.default.post(notification)
     }
 }
-
-extension MapsAppNotifications.Names {
-    static let Route = Notification.Name("MapsAppRouteNotification")
-}
-
 
 extension Notification {
     var routeFrom:AGSStopProvider? {
@@ -53,3 +47,7 @@ extension Notification {
     }
 }
 
+fileprivate struct RouteNotifications {
+    static let fromKey = "fromObject"
+    static let toKey = "toObject"
+}

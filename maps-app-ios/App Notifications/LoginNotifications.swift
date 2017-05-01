@@ -8,8 +8,9 @@
 
 import ArcGIS
 
-fileprivate struct LoginNotifications {
-    static let userKey = "user"
+extension MapsAppNotifications.Names {
+    static let AppLogin = Notification.Name("MapsAppLoginNotification")
+    static let AppLogout = Notification.Name("MapsAppLogoutNotification")
 }
 
 extension MapsAppNotifications {
@@ -22,7 +23,6 @@ extension MapsAppNotifications {
     }
 }
 
-extension MapsAppNotifications.Names {
-    static let AppLogin = Notification.Name("MapsAppLogin")
-    static let AppLogout = Notification.Name("MapsAppLogout")
+fileprivate struct LoginNotifications {
+    static let userKey = "user"
 }

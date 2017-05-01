@@ -1,5 +1,5 @@
 //
-//  MapViewMode+Notifications.swift
+//  MapViewModeNotifications.swift
 //  maps-app-ios
 //
 //  Created by Nicholas Furness on 4/30/17.

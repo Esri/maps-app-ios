@@ -1,5 +1,5 @@
 //
-//  MapsAppDelegate+PortalAutoLogin.swift
+//  MapsAppDelegate+AutoLogin.swift
 //  maps-app-ios
 //
 //  Created by Nicholas Furness on 4/28/17.
@@ -9,14 +9,10 @@
 import ArcGIS
 
 extension MapsAppDelegate {
-    func setPortalOnAppStart() {
-        // Ensure that credentials are cached in the Keychain.
+    func setInitialPortal() {
+        // Ensure credentials are cached in the Keychain. Cached credentials could automatically log us in to a portal.
         AGSAuthenticationManager.shared().credentialCache.enableAutoSyncToKeychain(withIdentifier: "MapsAppiOS", accessGroup: nil, acrossDevices: false)
-        
-        logInOnAppStartIfPossible()
-    }
-    
-    func logInOnAppStartIfPossible() {
+
         // Use a custom Portal URL if we've got one saved
         let savedPortalURL = mapsAppPrefs.portalURL
         
