@@ -28,5 +28,8 @@ extension MapsAppDelegate {
         } else {
             currentPortal = AGSPortal.arcGISOnline(withLoginRequired: false)
         }
+        
+        self.routeTask.credential = nil
+        self.locator.credential = nil
     }
 }

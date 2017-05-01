@@ -107,11 +107,11 @@ class MapsAppDelegate: UIResponder, UIApplicationDelegate {
             }
             
             if let svcs = portal.portalInfo?.helperServices {
-                if let geocoderURL = svcs.geocodeServiceURLs?.first {
+                if let geocoderURL = svcs.geocodeServiceURLs?.first, geocoderURL != self.locator.url {
                     self.locator = AGSLocatorTask(url: geocoderURL)
                 }
                 
-                if let routeTaskURL = svcs.routeServiceURL {
+                if let routeTaskURL = svcs.routeServiceURL, routeTaskURL != self.routeTask.url {
                     self.routeTask = AGSRouteTask(url: routeTaskURL)
                 }
             }
