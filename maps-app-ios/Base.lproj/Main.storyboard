@@ -138,7 +138,7 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="101.5" height="140"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     </view>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" image="User" translatesAutoresizingMaskIntoConstraints="NO" id="3SM-QR-Fah">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" image="User" translatesAutoresizingMaskIntoConstraints="NO" id="3SM-QR-Fah">
                                                         <rect key="frame" x="101.5" y="0.0" width="140" height="140"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="140" id="lvY-mG-TCl"/>
@@ -171,10 +171,20 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
+                            <containerView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qHd-QS-vFy">
+                                <rect key="frame" x="16" y="302" width="343" height="345"/>
+                                <connections>
+                                    <segue destination="OtM-nG-brQ" kind="embed" id="MxD-ww-T5f"/>
+                                </connections>
+                            </containerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="qHd-QS-vFy" firstAttribute="leading" secondItem="LzA-AB-cky" secondAttribute="leadingMargin" id="3IN-e9-4w1"/>
+                            <constraint firstItem="qHd-QS-vFy" firstAttribute="top" secondItem="fjD-qU-6NA" secondAttribute="bottom" constant="7.5" id="Fbr-Hr-Lxc"/>
+                            <constraint firstItem="DQq-Sm-5an" firstAttribute="top" secondItem="qHd-QS-vFy" secondAttribute="bottom" id="J82-Jk-9Bu"/>
                             <constraint firstItem="fjD-qU-6NA" firstAttribute="top" secondItem="2Kv-Pr-2c9" secondAttribute="bottom" constant="8" id="MDN-VK-uEm"/>
+                            <constraint firstItem="qHd-QS-vFy" firstAttribute="trailing" secondItem="LzA-AB-cky" secondAttribute="trailingMargin" id="P9N-Fz-fNz"/>
                             <constraint firstAttribute="trailingMargin" secondItem="fjD-qU-6NA" secondAttribute="trailing" id="dXn-D0-27l"/>
                             <constraint firstItem="2Kv-Pr-2c9" firstAttribute="top" secondItem="sN1-zu-1Vr" secondAttribute="bottom" id="dZV-xR-ta3"/>
                             <constraint firstItem="fjD-qU-6NA" firstAttribute="leading" secondItem="LzA-AB-cky" secondAttribute="leadingMargin" id="qIO-t4-n9f"/>
@@ -185,6 +195,7 @@
                         <outlet property="fullNameView" destination="qHO-px-KAB" id="UIx-jD-KZG"/>
                         <outlet property="loggedInView" destination="efU-kB-aFW" id="alx-3K-Fl1"/>
                         <outlet property="loggedOutView" destination="NLy-8a-DXM" id="qnB-Lk-O5p"/>
+                        <outlet property="portalItemsView" destination="qHd-QS-vFy" id="LPg-ej-OaO"/>
                         <outlet property="userThumbnailView" destination="3SM-QR-Fah" id="EDy-dO-gGV"/>
                     </connections>
                 </viewController>
@@ -200,8 +211,69 @@
             </objects>
             <point key="canvasLocation" x="1258" y="-372"/>
         </scene>
+        <!--Portal Item Collection View Controller-->
+        <scene sceneID="EAh-eU-Rxp">
+            <objects>
+                <collectionViewController id="OtM-nG-brQ" customClass="PortalItemCollectionViewController" customModule="maps_app_ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="6Pf-nu-E3z">
+                        <rect key="frame" x="0.0" y="0.0" width="343" height="345"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="YBU-SC-o7C">
+                            <size key="itemSize" width="163" height="112"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PortalItem" id="OY7-zD-JUI" customClass="PortalItemCollectionCell" customModule="maps_app_ios" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="163" height="112"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="163" height="112"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Item Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KcC-AR-R7q">
+                                            <rect key="frame" x="8" y="80" width="147" height="24"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Default Item Image" translatesAutoresizingMaskIntoConstraints="NO" id="AIY-IY-NeO">
+                                            <rect key="frame" x="8" y="8" width="108.5" height="72"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="AIY-IY-NeO" secondAttribute="height" multiplier="200:133" id="riT-bn-mhc"/>
+                                            </constraints>
+                                        </imageView>
+                                    </subviews>
+                                </view>
+                                <constraints>
+                                    <constraint firstItem="AIY-IY-NeO" firstAttribute="top" secondItem="OY7-zD-JUI" secondAttribute="topMargin" id="Tv7-yC-GOG"/>
+                                    <constraint firstItem="KcC-AR-R7q" firstAttribute="top" secondItem="AIY-IY-NeO" secondAttribute="bottom" id="ZKp-Lv-JwM"/>
+                                    <constraint firstItem="AIY-IY-NeO" firstAttribute="leading" secondItem="KcC-AR-R7q" secondAttribute="leading" id="hqz-0m-wS2"/>
+                                    <constraint firstItem="KcC-AR-R7q" firstAttribute="leading" secondItem="OY7-zD-JUI" secondAttribute="leadingMargin" id="iS5-sf-6Gp"/>
+                                    <constraint firstAttribute="bottomMargin" secondItem="KcC-AR-R7q" secondAttribute="bottom" id="o1v-hq-KXa"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="KcC-AR-R7q" secondAttribute="trailing" id="zLt-ZM-c6S"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="itemTitle" destination="KcC-AR-R7q" id="Wah-4h-1vq"/>
+                                    <outlet property="thumbnailView" destination="AIY-IY-NeO" id="pJ7-8R-9J1"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="OtM-nG-brQ" id="tT7-nT-1w4"/>
+                            <outlet property="delegate" destination="OtM-nG-brQ" id="aQS-i9-cWr"/>
+                        </connections>
+                    </collectionView>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2Sh-CJ-Of3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2149.5999999999999" y="101.19940029985008"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="Default Item Image" width="108" height="72"/>
         <image name="GPS Off" width="22" height="22"/>
         <image name="User" width="44" height="44"/>
     </resources>

@@ -42,6 +42,7 @@
 		D9B507531EB23C3A006BA131 /* MapsAppDelegate+PortalLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9B507521EB23C3A006BA131 /* MapsAppDelegate+PortalLogin.swift */; };
 		D9BCC5F01EB7A172000C0587 /* MapViewMode+Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BCC5EF1EB7A172000C0587 /* MapViewMode+Equatable.swift */; };
 		D9BCC5F21EB7A1BB000C0587 /* MapViewMode+CustomStringConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BCC5F11EB7A1BB000C0587 /* MapViewMode+CustomStringConvertible.swift */; };
+		D9BCC5F41EB7CCCB000C0587 /* PortalItemCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BCC5F31EB7CCCB000C0587 /* PortalItemCollectionViewController.swift */; };
 		D9BE57C41E95912D00934D30 /* AGSLocationDisplay+MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BE57C31E95912D00934D30 /* AGSLocationDisplay+MapView.swift */; };
 		D9CBE33D1E8B4F2A00776053 /* RouteResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CBE3381E8B4F2A00776053 /* RouteResultViewController.swift */; };
 		D9CBE33E1E8B4F2A00776053 /* EmptySegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CBE3391E8B4F2A00776053 /* EmptySegue.swift */; };
@@ -118,6 +119,7 @@
 		D9B507521EB23C3A006BA131 /* MapsAppDelegate+PortalLogin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MapsAppDelegate+PortalLogin.swift"; sourceTree = "<group>"; };
 		D9BCC5EF1EB7A172000C0587 /* MapViewMode+Equatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MapViewMode+Equatable.swift"; sourceTree = "<group>"; };
 		D9BCC5F11EB7A1BB000C0587 /* MapViewMode+CustomStringConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MapViewMode+CustomStringConvertible.swift"; sourceTree = "<group>"; };
+		D9BCC5F31EB7CCCB000C0587 /* PortalItemCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PortalItemCollectionViewController.swift; sourceTree = "<group>"; };
 		D9BE57C31E95912D00934D30 /* AGSLocationDisplay+MapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AGSLocationDisplay+MapView.swift"; sourceTree = "<group>"; };
 		D9CBE3381E8B4F2A00776053 /* RouteResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteResultViewController.swift; sourceTree = "<group>"; };
 		D9CBE3391E8B4F2A00776053 /* EmptySegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptySegue.swift; sourceTree = "<group>"; };
@@ -246,6 +248,7 @@
 				D93381B11E9184FD00A0F93E /* MapViewController */,
 				D9CBE3421E8B4F3200776053 /* Feedback Panel */,
 				D90DF41A1EAE595000EC0960 /* MainMenuViewController.swift */,
+				D9BCC5F31EB7CCCB000C0587 /* PortalItemCollectionViewController.swift */,
 				D9CF2A6D1E90346A0019701F /* Extensions */,
 				D9CBE34C1E8B752F00776053 /* Resources */,
 			);
@@ -534,6 +537,7 @@
 				D9D1F1301E8E1016007BE50D /* MapViewMode.swift in Sources */,
 				D9CBE33F1E8B4F2A00776053 /* FeedbackViewController.swift in Sources */,
 				D9CBE34A1E8B74EC00776053 /* SearchNotifications.swift in Sources */,
+				D9BCC5F41EB7CCCB000C0587 /* PortalItemCollectionViewController.swift in Sources */,
 				D9CBE3531E8BF2C900776053 /* MapViewController+Search.swift in Sources */,
 				D9CBE3471E8B6DF300776053 /* Debouncer.swift in Sources */,
 				D920A57C1EB6B10600D565E2 /* MapViewModeNotifications.swift in Sources */,
