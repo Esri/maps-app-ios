@@ -9,7 +9,7 @@
 import Foundation
 
 extension MapsAppNotifications.Names {
-    static let MapViewModeChanged = NSNotification.Name("MapViewModeChanged")
+    static let MapViewModeChanged = NSNotification.Name("MapViewModeChangedNotification")
 }
 
 extension MapsAppNotifications {

@@ -30,27 +30,13 @@ class PortalItemCollectionViewController: UICollectionViewController {
         if let cell = cell as? PortalItemCollectionCell, indexPath.row <= items.count {
             cell.item = items[indexPath.row]
         }
-        
-        cell.layer.cornerRadius = 5
-        
+
         return cell
     }
-}
-
-class PortalItemCollectionCell: UICollectionViewCell {
-    @IBOutlet weak var thumbnailView: UIImageView!
-    @IBOutlet weak var itemTitle: UILabel!
     
-    var item:AGSPortalItem? {
-        didSet {
-            item?.thumbnail?.load() { error in
-                if let error = error {
-                    print("Couldn't get thumb for Portal Item Cell: \(error.localizedDescription)")
-                }
-                self.thumbnailView.image = self.item!.thumbnail?.image ?? #imageLiteral(resourceName: "Default Item Image")
-            }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
 
-            itemTitle.text = item?.title ?? "Unknown Item"
-        }
+        mapsApp.currentItem = (sender as? PortalItemCollectionCell)?.item
     }
 }

@@ -64,6 +64,21 @@ class MapsAppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
+    var currentUser:AGSPortalUser? {
+        switch self.loginStatus {
+        case .loggedIn(let user):
+            return user
+        case .loggedOut:
+            return nil
+        }
+    }
+    
+    var currentItem:AGSPortalItem? {
+        didSet {
+            MapsAppNotifications.postPortalItemChangeNotification()
+        }
+    }
+    
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
         return handlePortalAuthOpenURL(app, open: url, options: options)
     }

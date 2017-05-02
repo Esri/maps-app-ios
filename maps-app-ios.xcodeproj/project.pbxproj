@@ -19,6 +19,8 @@
 		D92E2C1C1E94A4F900138F7D /* MapViewController+Touch.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92E2C1B1E94A4F900138F7D /* MapViewController+Touch.swift */; };
 		D93381AC1E90742900A0F93E /* FeedbackViewController+ChildVCs.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93381AB1E90742900A0F93E /* FeedbackViewController+ChildVCs.swift */; };
 		D93381B01E90BBD900A0F93E /* Feedback.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D93381AF1E90BBD900A0F93E /* Feedback.storyboard */; };
+		D93807751EB83EEB00E03A2F /* PortalItemCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93807741EB83EEB00E03A2F /* PortalItemCollectionCell.swift */; };
+		D93807771EB8575400E03A2F /* ItemNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93807761EB8575400E03A2F /* ItemNotifications.swift */; };
 		D9513A341E985D49007B36C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D9513A331E985D49007B36C8 /* Assets.xcassets */; };
 		D963879B1EB2547600764D8D /* LoginStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = D963879A1EB2547600764D8D /* LoginStatus.swift */; };
 		D96387A11EB2FA7300764D8D /* MapsAppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96387A01EB2FA7300764D8D /* MapsAppSettings.swift */; };
@@ -90,6 +92,8 @@
 		D92E2C1B1E94A4F900138F7D /* MapViewController+Touch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MapViewController+Touch.swift"; sourceTree = "<group>"; };
 		D93381AB1E90742900A0F93E /* FeedbackViewController+ChildVCs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FeedbackViewController+ChildVCs.swift"; sourceTree = "<group>"; };
 		D93381AF1E90BBD900A0F93E /* Feedback.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Feedback.storyboard; sourceTree = "<group>"; };
+		D93807741EB83EEB00E03A2F /* PortalItemCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PortalItemCollectionCell.swift; sourceTree = "<group>"; };
+		D93807761EB8575400E03A2F /* ItemNotifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemNotifications.swift; sourceTree = "<group>"; };
 		D9513A331E985D49007B36C8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D963879A1EB2547600764D8D /* LoginStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginStatus.swift; sourceTree = "<group>"; };
 		D96387A01EB2FA7300764D8D /* MapsAppSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapsAppSettings.swift; sourceTree = "<group>"; };
@@ -171,6 +175,16 @@
 			path = "MapViewController+GPS";
 			sourceTree = "<group>";
 		};
+		D90E7DFC1EB8602100EE520E /* Main Menu */ = {
+			isa = PBXGroup;
+			children = (
+				D90DF41A1EAE595000EC0960 /* MainMenuViewController.swift */,
+				D9BCC5F31EB7CCCB000C0587 /* PortalItemCollectionViewController.swift */,
+				D93807741EB83EEB00E03A2F /* PortalItemCollectionCell.swift */,
+			);
+			path = "Main Menu";
+			sourceTree = "<group>";
+		};
 		D920A57D1EB6B12D00D565E2 /* MapViewMode */ = {
 			isa = PBXGroup;
 			children = (
@@ -190,6 +204,7 @@
 				D920A5811EB6CFCF00D565E2 /* LoginNotifications.swift */,
 				D9CBE3491E8B74EC00776053 /* SearchNotifications.swift */,
 				D9CF2A701E9041EA0019701F /* RouteNotifications.swift */,
+				D93807761EB8575400E03A2F /* ItemNotifications.swift */,
 			);
 			path = "App Notifications";
 			sourceTree = "<group>";
@@ -247,8 +262,7 @@
 				D920A57D1EB6B12D00D565E2 /* MapViewMode */,
 				D93381B11E9184FD00A0F93E /* MapViewController */,
 				D9CBE3421E8B4F3200776053 /* Feedback Panel */,
-				D90DF41A1EAE595000EC0960 /* MainMenuViewController.swift */,
-				D9BCC5F31EB7CCCB000C0587 /* PortalItemCollectionViewController.swift */,
+				D90E7DFC1EB8602100EE520E /* Main Menu */,
 				D9CF2A6D1E90346A0019701F /* Extensions */,
 				D9CBE34C1E8B752F00776053 /* Resources */,
 			);
@@ -519,6 +533,7 @@
 			files = (
 				D92E2C1A1E94A39800138F7D /* MapViewController+Preferences.swift in Sources */,
 				D9CBE3551E8C3ACA00776053 /* MapViewController+Feedback.swift in Sources */,
+				D93807771EB8575400E03A2F /* ItemNotifications.swift in Sources */,
 				D9B5074F1EB23399006BA131 /* URL+QueryString.swift in Sources */,
 				D9CBE3411E8B4F2A00776053 /* SearchViewController.swift in Sources */,
 				D96387A51EB2FBFD00764D8D /* MapsAppDelegate+AutoLogin.swift in Sources */,
@@ -539,6 +554,7 @@
 				D9CBE34A1E8B74EC00776053 /* SearchNotifications.swift in Sources */,
 				D9BCC5F41EB7CCCB000C0587 /* PortalItemCollectionViewController.swift in Sources */,
 				D9CBE3531E8BF2C900776053 /* MapViewController+Search.swift in Sources */,
+				D93807751EB83EEB00E03A2F /* PortalItemCollectionCell.swift in Sources */,
 				D9CBE3471E8B6DF300776053 /* Debouncer.swift in Sources */,
 				D920A57C1EB6B10600D565E2 /* MapViewModeNotifications.swift in Sources */,
 				D9CBE33E1E8B4F2A00776053 /* EmptySegue.swift in Sources */,

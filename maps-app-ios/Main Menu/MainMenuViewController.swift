@@ -19,6 +19,8 @@ class MainMenuViewController: UIViewController {
     
     @IBOutlet weak var portalItemsView: UIView!
     
+    @IBOutlet weak var folderButton: UIButton!
+    
     private var loginStatus:LoginStatus {
         get {
             return mapsApp.loginStatus
@@ -53,7 +55,8 @@ class MainMenuViewController: UIViewController {
                 self.userThumbnailView.image = loggedInUser.thumbnail?.image ?? #imageLiteral(resourceName: "User")
             }
             fullNameView.text = loggedInUser.fullName ?? "Unknown User"
-            getContent(forUser: loggedInUser)
+            setCurrentFolderUI()
+            getContent()
         }
         loggedOutView.isHidden = !loggedInView.isHidden
     }
@@ -70,21 +73,63 @@ class MainMenuViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
-    var folders:[AGSPortalFolder]? = nil
+    var folders:[AGSPortalFolder]? = nil {
+        didSet {
+            folderButton.isUserInteractionEnabled = (folders?.count ?? 0) > 0
+        }
+    }
     var folderItems:[AGSPortalItem]? = nil
-    var currentFolder:AGSPortalFolder? = nil
+    var currentFolder:AGSPortalFolder? = nil {
+        didSet {
+            setCurrentFolderUI()
+            if mapsApp.currentUser != nil {
+                getContent()
+            }
+        }
+    }
+    
+    func setCurrentFolderUI() {
+        folderButton.setTitle(currentFolder?.title ?? "Root Folder", for: .normal)
+    }
+    
+    @IBAction func folderNameTapped(_ sender: Any) {
+        let picker = UIAlertController(title: "Select Folder", message: nil, preferredStyle: .actionSheet)
+        
+        picker.addAction(UIAlertAction(title: "Root Folder", style: .default, handler: { _ in
+            self.currentFolder = nil
+        }))
+        
+        if let folders = folders {
+            for folder in folders {
+                let folderAction = UIAlertAction(title: folder.title ?? "Unknown Folder", style: .default, handler: { action in
+                    self.currentFolder = folder
+                })
+                picker.addAction(folderAction)
+            }
+        }
+        
+        self.present(picker, animated: true, completion: nil)
+    }
     
     var cachedContent:PortalContent? = PortalContent()
     
-    func getContent(forUser user:AGSPortalUser, folder:AGSPortalFolder? = nil) {
-        if let folderID = folder?.folderID {
+    func getContent() {
+        guard let user = mapsApp.currentUser else {
+            return
+        }
+        
+        contentVC?.items = []
+        
+        if let folderID = currentFolder?.folderID {
             user.fetchContent(inFolder: folderID) { items, error in
                 guard error == nil else {
                     let username = user.username ?? "Unknown"
-                    let title = folder?.title ?? "Unknown"
+                    let title = self.currentFolder?.title ?? "Unknown"
                     print("Error getting portal items for user \(username), folder \(title): \(error!.localizedDescription)")
                     return
                 }
+                
+                self.showContent(items: items)
             }
         } else {
             user.fetchContent() { items, folders, error in
@@ -94,26 +139,35 @@ class MainMenuViewController: UIViewController {
                     return
                 }
                 
-                self.contentVC?.items = items?.filter({ item in
-                    return item.type == AGSPortalItemType.webMap
-                }) ?? []
+                self.folders = folders
+
+                self.showContent(items: items)
                 
-                if let folders = folders {
-                    for folder in folders {
-                        if let folderID = folder.folderID {
-                            self.cachedContent?.folders[folderID] = PortalContent.PortalFolder(agsFolder: folder, agsItems: nil)
-                        }
-                    }
-                }
-                self.currentFolder = nil
+//                if let folders = folders {
+//                    for folder in folders {
+//                        if let folderID = folder.folderID {
+//                            self.cachedContent?.folders[folderID] = PortalContent.PortalFolder(agsFolder: folder, agsItems: nil)
+//                        }
+//                    }
+//                }
             }
         }
+    }
+    
+    func showContent(items:[AGSPortalItem]?) {
+        self.contentVC?.items = items?.filter({ item in
+            return item.type == AGSPortalItemType.webMap
+        }) ?? []
     }
     
     var contentVC:PortalItemCollectionViewController? {
         get {
             return self.childViewControllers.filter({ $0 is PortalItemCollectionViewController }).first as? PortalItemCollectionViewController
         }
+    }
+    
+    @IBAction func closeMainMenu(_ segue:UIStoryboardSegue) {
+        self.dismiss(animated: true, completion: nil)
     }
 }
 
