@@ -59,6 +59,7 @@ class MainMenuViewController: UIViewController {
             getContent()
         }
         loggedOutView.isHidden = !loggedInView.isHidden
+        portalItemsView.isHidden = loggedInView.isHidden
     }
     
     @IBAction func logIn(_ sender: Any) {

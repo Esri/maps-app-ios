@@ -223,13 +223,13 @@
 			path = MapViewController;
 			sourceTree = "<group>";
 		};
-		D963879E1EB2554500764D8D /* App Status */ = {
+		D963879E1EB2554500764D8D /* App Login Status */ = {
 			isa = PBXGroup;
 			children = (
 				D963879A1EB2547600764D8D /* LoginStatus.swift */,
 				D9B507541EB24859006BA131 /* Portal Login */,
 			);
-			path = "App Status";
+			path = "App Login Status";
 			sourceTree = "<group>";
 		};
 		D96A77481E8594BF00F441D3 = {
@@ -256,7 +256,7 @@
 			isa = PBXGroup;
 			children = (
 				D96A77541E8594C000F441D3 /* MapsAppDelegate.swift */,
-				D963879E1EB2554500764D8D /* App Status */,
+				D963879E1EB2554500764D8D /* App Login Status */,
 				D9CBE3511E8B7E2500776053 /* App Preferences */,
 				D920A5801EB6CA0200D565E2 /* App Notifications */,
 				D920A57D1EB6B12D00D565E2 /* MapViewMode */,

@@ -75,6 +75,7 @@ class MapsAppDelegate: UIResponder, UIApplicationDelegate {
     
     var currentItem:AGSPortalItem? {
         didSet {
+            // We picked a new web map to open. Now let's ask any map views to reflect this change.
             MapsAppNotifications.postPortalItemChangeNotification()
         }
     }
