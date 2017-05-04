@@ -110,7 +110,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="631"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="NLy-8a-DXM" userLabel="Logged Out View">
-                                                <rect key="frame" x="0.0" y="0.0" width="343" height="30"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="343" height="31"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VwK-rr-A8Y">
                                                         <rect key="frame" x="0.0" y="0.0" width="343" height="30"/>
@@ -119,10 +119,18 @@
                                                             <action selector="logIn:" destination="U40-Ed-8C5" eventType="touchUpInside" id="TjU-CN-gak"/>
                                                         </connections>
                                                     </button>
+                                                    <view contentMode="scaleToFill" verticalHuggingPriority="1" verticalCompressionResistancePriority="1" translatesAutoresizingMaskIntoConstraints="NO" id="0Xn-w5-rM7">
+                                                        <rect key="frame" x="0.0" y="30" width="343" height="1"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" priority="250" constant="1" id="0KF-ZR-ZOt"/>
+                                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" id="fhE-53-ppa"/>
+                                                        </constraints>
+                                                    </view>
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="efU-kB-aFW">
-                                                <rect key="frame" x="0.0" y="30" width="343" height="198.5"/>
+                                                <rect key="frame" x="0.0" y="31" width="343" height="198.5"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="33i-Qr-KIp">
                                                         <rect key="frame" x="0.0" y="0.0" width="343" height="140"/>
@@ -131,8 +139,9 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="101.5" height="140"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             </view>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" image="User" translatesAutoresizingMaskIntoConstraints="NO" id="3SM-QR-Fah">
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="3SM-QR-Fah">
                                                                 <rect key="frame" x="101.5" y="0.0" width="140" height="140"/>
+                                                                <color key="backgroundColor" white="0.74252479930000004" alpha="1" colorSpace="calibratedWhite"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="80" id="5R4-Tx-FPK"/>
                                                                     <constraint firstAttribute="width" secondItem="3SM-QR-Fah" secondAttribute="height" multiplier="1:1" id="Jpl-5O-kDr"/>
@@ -164,7 +173,7 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Hej-dI-gOJ">
-                                                <rect key="frame" x="0.0" y="228.5" width="343" height="402.5"/>
+                                                <rect key="frame" x="0.0" y="229.5" width="343" height="401.5"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oPD-4R-Nn2">
                                                         <rect key="frame" x="0.0" y="0.0" width="343" height="1"/>
@@ -174,7 +183,7 @@
                                                         </constraints>
                                                     </view>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="VT3-ik-tjo" userLabel="Content Stack View">
-                                                        <rect key="frame" x="0.0" y="9" width="343" height="393.5"/>
+                                                        <rect key="frame" x="0.0" y="9" width="343" height="392.5"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dyG-J8-l9f">
                                                                 <rect key="frame" x="0.0" y="0.0" width="343" height="30"/>
@@ -188,7 +197,7 @@
                                                                 </connections>
                                                             </button>
                                                             <containerView opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="qHd-QS-vFy">
-                                                                <rect key="frame" x="0.0" y="34" width="343" height="359.5"/>
+                                                                <rect key="frame" x="0.0" y="34" width="343" height="358.5"/>
                                                                 <connections>
                                                                     <segue destination="OtM-nG-brQ" kind="embed" id="MxD-ww-T5f"/>
                                                                 </connections>
@@ -227,7 +236,7 @@
                         <outlet property="fullNameView" destination="qHO-px-KAB" id="UIx-jD-KZG"/>
                         <outlet property="loggedInView" destination="efU-kB-aFW" id="alx-3K-Fl1"/>
                         <outlet property="loggedOutView" destination="NLy-8a-DXM" id="qnB-Lk-O5p"/>
-                        <outlet property="portalItemsView" destination="qHd-QS-vFy" id="LPg-ej-OaO"/>
+                        <outlet property="portalItemsView" destination="VT3-ik-tjo" id="OYk-rZ-MHi"/>
                         <outlet property="userThumbnailView" destination="3SM-QR-Fah" id="EDy-dO-gGV"/>
                     </connections>
                 </viewController>
@@ -248,7 +257,7 @@
             <objects>
                 <collectionViewController id="OtM-nG-brQ" customClass="PortalItemCollectionViewController" customModule="maps_app_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="6Pf-nu-E3z">
-                        <rect key="frame" x="0.0" y="0.0" width="343" height="359.5"/>
+                        <rect key="frame" x="0.0" y="0.0" width="343" height="358.5"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="YBU-SC-o7C">
@@ -310,6 +319,5 @@
         <image name="Folder" width="30" height="30"/>
         <image name="GPS Off" width="22" height="22"/>
         <image name="Loading Item Image" width="108" height="72"/>
-        <image name="User" width="44" height="44"/>
     </resources>
 </document>

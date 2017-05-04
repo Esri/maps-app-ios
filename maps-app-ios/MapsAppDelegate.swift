@@ -30,6 +30,8 @@ class MapsAppDelegate: UIResponder, UIApplicationDelegate {
                 // Ensure the Runtime knows how to authenticate against this portal should the need arise.
                 let oauthConfig = AGSOAuthConfiguration(portalURL: portal.url, clientID: MapsAppSettings.clientID, redirectURL: "\(MapsAppSettings.appSchema)://\(MapsAppSettings.authURLPath)")
                 AGSAuthenticationManager.shared().oAuthConfigurations.add(oauthConfig)
+                
+                print("Portal updated")
 
                 portal.load() { error in
                     guard error == nil else {
@@ -56,12 +58,18 @@ class MapsAppDelegate: UIResponder, UIApplicationDelegate {
             switch loginStatus {
             case .loggedIn(let user):
                 print("Logged in as user \(user)")
+                self.rootFolder = PortalUserFolder.rootFolder(forUser: user)
                 MapsAppNotifications.postLoginNotification(user: user)
             case .loggedOut:
                 print("Logged out")
+                self.rootFolder = nil
                 MapsAppNotifications.postLogoutNotification()
             }
         }
+    }
+    
+    var isLoggedIn:Bool {
+        return self.currentUser != nil
     }
     
     var currentUser:AGSPortalUser? {
@@ -72,6 +80,13 @@ class MapsAppDelegate: UIResponder, UIApplicationDelegate {
             return nil
         }
     }
+    
+    var rootFolder:PortalUserFolder? {
+        didSet {
+            currentFolder = rootFolder
+        }
+    }
+    var currentFolder:PortalUserFolder?
     
     var currentItem:AGSPortalItem? {
         didSet {
@@ -137,6 +152,20 @@ class MapsAppDelegate: UIResponder, UIApplicationDelegate {
                     self.routeTask = AGSRouteTask(url: routeTaskURL)
                 }
             }
+        }
+    }
+}
+
+extension UIViewController {
+    func warnAboutLoginIfLoggedOut(message: String, continueHandler: @escaping (()->Void), cancelHandler: (()->Void)? = nil) {
+        if mapsApp.isLoggedIn {
+            continueHandler()
+        } else {
+            let alert = UIAlertController(title: "Login Required", message: message, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Login", style: .default, handler: { action in continueHandler() }))
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { action in cancelHandler?() }))
+            self.present(alert, animated: true, completion: nil)
+            return
         }
     }
 }
