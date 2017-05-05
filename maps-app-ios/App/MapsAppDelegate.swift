@@ -9,6 +9,14 @@
 import UIKit
 import ArcGIS
 
+var mapsApp:MapsAppDelegate {
+    return UIApplication.shared.delegate as! MapsAppDelegate
+}
+
+var mapsAppPrefs:MapsAppPreferences {
+    return mapsApp.preferences
+}
+
 @UIApplicationMain
 class MapsAppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -30,6 +38,8 @@ class MapsAppDelegate: UIResponder, UIApplicationDelegate {
                 // Ensure the Runtime knows how to authenticate against this portal should the need arise.
                 let oauthConfig = AGSOAuthConfiguration(portalURL: portal.url, clientID: MapsAppSettings.clientID, redirectURL: "\(MapsAppSettings.appSchema)://\(MapsAppSettings.authURLPath)")
                 AGSAuthenticationManager.shared().oAuthConfigurations.add(oauthConfig)
+                
+                print("Portal updated")
 
                 portal.load() { error in
                     guard error == nil else {
@@ -56,11 +66,44 @@ class MapsAppDelegate: UIResponder, UIApplicationDelegate {
             switch loginStatus {
             case .loggedIn(let user):
                 print("Logged in as user \(user)")
+                self.rootFolder = PortalUserFolder.rootFolder(forUser: user)
                 MapsAppNotifications.postLoginNotification(user: user)
             case .loggedOut:
                 print("Logged out")
+                self.rootFolder = nil
                 MapsAppNotifications.postLogoutNotification()
             }
+        }
+    }
+    
+    var isLoggedIn:Bool {
+        return self.currentUser != nil
+    }
+    
+    var currentUser:AGSPortalUser? {
+        switch self.loginStatus {
+        case .loggedIn(let user):
+            return user
+        case .loggedOut:
+            return nil
+        }
+    }
+    
+    var rootFolder:PortalUserFolder? {
+        didSet {
+            currentFolder = rootFolder
+        }
+    }
+    
+    var currentFolder:PortalUserFolder? {
+        didSet {
+            MapsAppNotifications.postCurrentFolderChangeNotification()
+        }
+    }
+    
+    var currentItem:AGSPortalItem? {
+        didSet {
+            MapsAppNotifications.postPortalItemChangeNotification()
         }
     }
     
@@ -123,12 +166,4 @@ class MapsAppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
-}
-
-var mapsApp:MapsAppDelegate {
-    return UIApplication.shared.delegate as! MapsAppDelegate
-}
-
-var mapsAppPrefs:MapsAppPreferences {
-    return mapsApp.preferences
 }

@@ -37,6 +37,27 @@ class MapViewController: UIViewController {
         setupTouch()
 
         mode = .search
+        
+        NotificationCenter.default.addObserver(forName: MapsAppNotifications.Names.PortalItemChanged, object: nil, queue: nil) { notification in
+            if let item = mapsApp.currentItem, item.type == .webMap {
+                let map = AGSMap(item: item)
+                map.load() { error in
+                    guard error == nil else {
+                        print("Error opening the map! \(error!.localizedDescription)")
+                        return
+                    }
+
+                    // Possible bug around having LocationDisplay on.
+                    if let ext = map.item?.extent, self.mapView.locationDisplay.started {
+                        defer {
+                            self.mapView.setViewpoint(AGSViewpoint(targetExtent: ext))
+                        }
+                    }
+                    
+                    self.mapView.map = map
+                }
+            }
+        }
     }
     
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {

@@ -10,7 +10,6 @@ import ArcGIS
 
 extension MapViewController {
 
-    
     // MARK: Routing Operations
     func route(to:AGSStop) {
         let from = self.mapView.routeStop(inSpatialReference: self.mapView.spatialReference!)
@@ -18,7 +17,12 @@ extension MapViewController {
     }
 
     func route(from:AGSStop, to:AGSStop) {
-
+        warnAboutLoginIfLoggedOut(message: "Getting directions requires a login and consumes credits.", continueHandler: {
+            self.requestRoute(from: from, to: to)
+        })
+    }
+    
+    func requestRoute(from:AGSStop, to:AGSStop) {
         if let params = defaultRouteParameters {
 
             // To make best use of the service, we will base our request off the service's default parameters.
