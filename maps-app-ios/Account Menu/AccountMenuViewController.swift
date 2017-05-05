@@ -59,11 +59,6 @@ class AccountMenuViewController: UIViewController {
         }
         
         NotificationCenter.default.addObserver(forName: MapsAppNotifications.Names.CurrentFolderChanged, object: nil, queue: nil) { notification in
-            guard let currentFolder = mapsApp.currentFolder else {
-                self.showContent()
-                return
-            }
-            
             self.showContent()
         }
     }
