@@ -1,5 +1,5 @@
 //
-//  MainMenuViewController.swift
+//  AccountMenuViewController.swift
 //  maps-app-ios
 //
 //  Created by Nicholas Furness on 4/24/17.
@@ -9,41 +9,62 @@
 import ArcGIS
 import UIKit
 
-class MainMenuViewController: UIViewController {
+class AccountMenuViewController: UIViewController {
 
     @IBOutlet weak var loggedInView: UIStackView!
     @IBOutlet weak var loggedOutView: UIStackView!
-    
     @IBOutlet weak var userThumbnailView: UIImageView!
     @IBOutlet weak var fullNameView: UILabel!
-    
     @IBOutlet weak var folderButton: UIButton!
-
     @IBOutlet weak var portalItemsView: UIStackView!
     
     private var loginStatus:LoginStatus {
+        return mapsApp.loginStatus
+    }
+    
+    var currentFolder:PortalUserFolder? {
         get {
-            return mapsApp.loginStatus
+            return mapsApp.currentFolder
         }
+        set {
+            mapsApp.currentFolder = newValue
+        }
+    }
+    
+    var subFolders:[PortalUserFolder] {
+        return mapsApp.rootFolder?.subFolders ?? []
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        setLoginUI()
-        
-        self.currentFolder = mapsApp.currentFolder
-        
         userThumbnailView.layer.cornerRadius = userThumbnailView.frame.size.width/2
         userThumbnailView.layer.borderColor = UIColor.darkGray.cgColor
         userThumbnailView.layer.borderWidth = 3
         
+        listenToAppNofications()
+        
+        setLoginUI()
+        
+        showContent()
+    }
+    
+    private func listenToAppNofications() {
         NotificationCenter.default.addObserver(forName: MapsAppNotifications.Names.AppLogin, object: nil, queue: nil) { notification in
             self.setLoginUI()
         }
         
         NotificationCenter.default.addObserver(forName: MapsAppNotifications.Names.AppLogout, object: nil, queue: nil) { notification in
             self.setLoginUI()
+        }
+        
+        NotificationCenter.default.addObserver(forName: MapsAppNotifications.Names.CurrentFolderChanged, object: nil, queue: nil) { notification in
+            guard let currentFolder = mapsApp.currentFolder else {
+                self.showContent()
+                return
+            }
+            
+            self.showContent()
         }
     }
     
@@ -71,49 +92,40 @@ class MainMenuViewController: UIViewController {
     }
     
     @IBAction func closePanel(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+        dismiss(animated: true, completion: nil)
     }
     
-    var currentFolder:PortalUserFolder? {
-        get {
-            return mapsApp.currentFolder
-        }
-        set {
-            mapsApp.currentFolder = newValue
-            
-            guard let currentFolder = mapsApp.currentFolder else {
-                self.showContent()
-                return
-            }
-            
-            currentFolder.load { error in
+    @IBAction func folderNameTapped(_ sender: Any) {
+        showFolderPicker()
+    }
+    
+    func showContent() {
+        if let folder = currentFolder {
+            self.folderButton.setTitle(folder.title, for: .normal)
+            folder.load { error in
                 guard error == nil else {
                     print("Error loading currentFolder content: \(error!.localizedDescription)")
                     return
                 }
                 
-                self.showContent()
+                self.contentVC?.items = folder.webMaps
             }
+        } else {
+            self.contentVC?.items = []
         }
     }
     
-    var subFolders:[PortalUserFolder] {
-        get {
-            return mapsApp.rootFolder?.subFolders ?? []
-        }
-    }
-    
-    @IBAction func folderNameTapped(_ sender: Any) {
+    func showFolderPicker() {
         mapsApp.rootFolder?.load() { error in
             let picker = UIAlertController(title: "Select Folder", message: nil, preferredStyle: .actionSheet)
+            
+            defer {
+                self.present(picker, animated: true, completion: nil)
+            }
             
             picker.addAction(UIAlertAction(title: "Root Folder", style: .default, handler: { _ in
                 self.currentFolder = mapsApp.rootFolder
             }))
-
-            defer {
-                self.present(picker, animated: true, completion: nil)
-            }
             
             guard error == nil else {
                 picker.addAction(UIAlertAction(title: "Error loading subfolders!", style: .cancel, handler: nil))
@@ -129,16 +141,6 @@ class MainMenuViewController: UIViewController {
                     picker.addAction(folderAction)
                 }
             }
-            
-        }
-    }
-    
-    func showContent() {
-        if let folder = currentFolder {
-            self.folderButton.setTitle(folder.title, for: .normal)
-            self.contentVC?.items = folder.webMaps
-        } else {
-            self.contentVC?.items = []
         }
     }
     
@@ -149,28 +151,7 @@ class MainMenuViewController: UIViewController {
     }
     
     @IBAction func closeMainMenu(_ segue:UIStoryboardSegue) {
+        // Unwind/Exit segue target
         self.dismiss(animated: true, completion: nil)
     }
-}
-
-struct PortalContent {
-    typealias FolderID = String
-    
-    struct PortalFolder {
-        let agsFolder:AGSPortalFolder
-        let agsItems:[AGSPortalItem]?
-        
-        var webmaps:[AGSPortalItem]? {
-            if let items = agsItems {
-                return items.filter({ item in
-                    return item.type == .webMap
-                })
-            }
-            return nil
-        }
-    }
-    
-    var rootItems:[AGSPortalItem]?
-    
-    var folders:[FolderID:PortalFolder] = [:]
 }

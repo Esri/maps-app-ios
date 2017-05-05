@@ -15,11 +15,11 @@ extension MapsAppNotifications.Names {
 
 extension MapsAppNotifications {
     static func postLoginNotification(user:AGSPortalUser) {
-        NotificationCenter.default.post(name: MapsAppNotifications.Names.AppLogin, object: self, userInfo: [LoginNotifications.userKey:user])
+        NotificationCenter.default.post(name: MapsAppNotifications.Names.AppLogin, object: mapsApp, userInfo: [LoginNotifications.userKey:user])
     }
     
     static func postLogoutNotification() {
-        NotificationCenter.default.post(name: MapsAppNotifications.Names.AppLogout, object: nil)
+        NotificationCenter.default.post(name: MapsAppNotifications.Names.AppLogout, object: mapsApp)
     }
 }
 

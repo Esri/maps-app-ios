@@ -9,6 +9,14 @@
 import UIKit
 import ArcGIS
 
+var mapsApp:MapsAppDelegate {
+    return UIApplication.shared.delegate as! MapsAppDelegate
+}
+
+var mapsAppPrefs:MapsAppPreferences {
+    return mapsApp.preferences
+}
+
 @UIApplicationMain
 class MapsAppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -86,11 +94,15 @@ class MapsAppDelegate: UIResponder, UIApplicationDelegate {
             currentFolder = rootFolder
         }
     }
-    var currentFolder:PortalUserFolder?
+    
+    var currentFolder:PortalUserFolder? {
+        didSet {
+            MapsAppNotifications.postCurrentFolderChangeNotification()
+        }
+    }
     
     var currentItem:AGSPortalItem? {
         didSet {
-            // We picked a new web map to open. Now let's ask any map views to reflect this change.
             MapsAppNotifications.postPortalItemChangeNotification()
         }
     }
@@ -154,26 +166,4 @@ class MapsAppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
-}
-
-extension UIViewController {
-    func warnAboutLoginIfLoggedOut(message: String, continueHandler: @escaping (()->Void), cancelHandler: (()->Void)? = nil) {
-        if mapsApp.isLoggedIn {
-            continueHandler()
-        } else {
-            let alert = UIAlertController(title: "Login Required", message: message, preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Login", style: .default, handler: { action in continueHandler() }))
-            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { action in cancelHandler?() }))
-            self.present(alert, animated: true, completion: nil)
-            return
-        }
-    }
-}
-
-var mapsApp:MapsAppDelegate {
-    return UIApplication.shared.delegate as! MapsAppDelegate
-}
-
-var mapsAppPrefs:MapsAppPreferences {
-    return mapsApp.preferences
 }

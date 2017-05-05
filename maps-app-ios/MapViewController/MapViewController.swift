@@ -14,8 +14,6 @@ class MapViewController: UIViewController {
     @IBOutlet weak var mapView: AGSMapView!
     @IBOutlet weak var gpsButton:UIButton!
     
-    var map:AGSMap?
-    
     var graphicsOverlays:[String:AGSGraphicsOverlay] = [:]
     
     var mode:MapViewMode = .none {
@@ -42,16 +40,21 @@ class MapViewController: UIViewController {
         
         NotificationCenter.default.addObserver(forName: MapsAppNotifications.Names.PortalItemChanged, object: nil, queue: nil) { notification in
             if let item = mapsApp.currentItem, item.type == .webMap {
-                self.map = AGSMap(item: item)
-                self.map?.load() { error in
+                let map = AGSMap(item: item)
+                map.load() { error in
                     guard error == nil else {
                         print("Error opening the map! \(error!.localizedDescription)")
                         return
                     }
+
+                    // Possible bug around having LocationDisplay on.
+                    if let ext = map.item?.extent, self.mapView.locationDisplay.started {
+                        defer {
+                            self.mapView.setViewpoint(AGSViewpoint(targetExtent: ext))
+                        }
+                    }
                     
-                    print("Map loaded!")
-                    
-                    self.mapView.map = self.map
+                    self.mapView.map = map
                 }
             }
         }
@@ -82,5 +85,5 @@ class MapViewController: UIViewController {
         if let targetExtent = mode.extent {
             mapView.setViewpointGeometry(targetExtent)
         }
-    }    
+    }
 }
