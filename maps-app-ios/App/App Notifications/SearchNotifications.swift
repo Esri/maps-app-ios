@@ -17,15 +17,15 @@ extension MapsAppNotifications {
     // MARK: Post Notifications
     static func postSearchNotification(searchBar:UISearchBar) {
         if let searchText = searchBar.text {
-            let notification = Notification(name: MapsAppNotifications.Names.Search, object: nil, userInfo: [SearchNotifications.searchKey: searchText])
-            NotificationCenter.default.post(notification)
+            NotificationCenter.default.post(name: MapsAppNotifications.Names.Search, object: nil,
+                                            userInfo: [SearchNotifications.searchKey: searchText])
         }
     }
     
     static func postSuggestNotification(searchBar:UISearchBar) {
         if let suggestText = searchBar.text, suggestText.characters.count > 0 {
-            let notification = Notification(name: MapsAppNotifications.Names.Suggest, object: nil, userInfo: [SearchNotifications.searchKey: suggestText])
-            NotificationCenter.default.post(notification)
+            NotificationCenter.default.post(name: MapsAppNotifications.Names.Suggest, object: nil,
+                                            userInfo: [SearchNotifications.searchKey: suggestText])
         }
     }
 }

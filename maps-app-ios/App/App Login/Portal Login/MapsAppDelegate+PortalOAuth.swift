@@ -38,7 +38,7 @@ extension MapsAppDelegate {
             // That is, we got here because the AuthenticationManager is being called back from some  in-line OAuth
             // success based off a call to a service (an explicit login would leave portal.user != nil).
             if let portal = self.currentPortal, let portalURL = portal.url, portal.user == nil {
-                AGSPortal.bestPortalFromCachedCredentials(portalURL: portalURL) { (newPortalInstance, didLogIn) in
+                AGSPortal.bestPortalFromCachedCredentials(portalURL: portalURL) { newPortalInstance, didLogIn in
                     if didLogIn {
                         // And only update the current portal if we managed to log in.
                         self.currentPortal = newPortalInstance

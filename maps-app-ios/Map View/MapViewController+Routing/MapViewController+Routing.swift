@@ -28,7 +28,7 @@ extension MapViewController {
             // To make best use of the service, we will base our request off the service's default parameters.
             params.setStops([from,to])
 
-            self.routeTask.solveRoute(with: params) { (result, error) in
+            self.routeTask.solveRoute(with: params) { result, error in
                 guard error == nil else {
                     print("Error solving route between \(from) and \(to): \(error!.localizedDescription)")
                     return
@@ -73,7 +73,7 @@ extension MapViewController {
     //MARK: Default parameter fetch logic
     private func loadDefaultParametersThenRoute(from:AGSStop, to:AGSStop) {
         
-        routeTask.loadCachedDefaultParameters() { (params, error) in
+        routeTask.loadCachedDefaultParameters() { params, error in
             defer {
                 if let defaultParams = self.defaultRouteParameters {
                     defaultParams.outputSpatialReference = self.mapView.spatialReference

@@ -13,6 +13,7 @@ class PortalItemCollectionViewController: UICollectionViewController {
     var items:[AGSPortalItem] = [] {
         didSet {
             collectionView?.reloadData()
+            collectionView?.setContentOffset(CGPoint.zero, animated: false)
         }
     }
     

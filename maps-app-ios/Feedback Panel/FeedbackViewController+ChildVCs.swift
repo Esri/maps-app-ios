@@ -10,20 +10,14 @@ import UIKit
 
 extension FeedbackViewController {
     var searchViewController:SearchViewController? {
-        get {
-            return self.childViewControllers.filter({ $0 is SearchViewController }).first as? SearchViewController
-        }
+        return self.childViewControllers.filter({ $0 is SearchViewController }).first as? SearchViewController
     }
     
     var geocodeResultViewController:GeocodeResultViewController? {
-        get {
-            return self.childViewControllers.filter({ $0 is GeocodeResultViewController }).first as? GeocodeResultViewController
-        }
+        return self.childViewControllers.filter({ $0 is GeocodeResultViewController }).first as? GeocodeResultViewController
     }
     
     var routeResultViewController:RouteResultViewController? {
-        get {
-            return self.childViewControllers.filter({ $0 is RouteResultViewController }).first as? RouteResultViewController
-        }
+        return self.childViewControllers.filter({ $0 is RouteResultViewController }).first as? RouteResultViewController
     }
 }

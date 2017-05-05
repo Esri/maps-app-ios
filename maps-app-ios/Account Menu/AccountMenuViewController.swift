@@ -18,21 +18,12 @@ class AccountMenuViewController: UIViewController {
     @IBOutlet weak var folderButton: UIButton!
     @IBOutlet weak var portalItemsView: UIStackView!
     
-    private var loginStatus:LoginStatus {
-        return mapsApp.loginStatus
-    }
-    
-    var currentFolder:PortalUserFolder? {
-        get {
-            return mapsApp.currentFolder
-        }
-        set {
-            mapsApp.currentFolder = newValue
-        }
-    }
-    
     var subFolders:[PortalUserFolder] {
         return mapsApp.rootFolder?.subFolders ?? []
+    }
+    
+    var contentVC:PortalItemCollectionViewController? {
+        return self.childViewControllers.filter({ $0 is PortalItemCollectionViewController }).first as? PortalItemCollectionViewController
     }
     
     override func viewDidLoad() {
@@ -42,11 +33,11 @@ class AccountMenuViewController: UIViewController {
         userThumbnailView.layer.borderColor = UIColor.darkGray.cgColor
         userThumbnailView.layer.borderWidth = 3
         
-        listenToAppNofications()
-        
         setLoginUI()
         
         showContent()
+        
+        listenToAppNofications()
     }
     
     private func listenToAppNofications() {
@@ -63,8 +54,9 @@ class AccountMenuViewController: UIViewController {
         }
     }
     
+    // MARK: UI Display
     private func setLoginUI() {
-        switch self.loginStatus {
+        switch mapsApp.loginStatus {
         case .loggedOut:
             loggedInView.isHidden = true
         case .loggedIn(let loggedInUser):
@@ -78,24 +70,8 @@ class AccountMenuViewController: UIViewController {
         portalItemsView.isHidden = loggedInView.isHidden
     }
     
-    @IBAction func logIn(_ sender: Any) {
-        mapsApp.logIn(portalURL: nil)
-    }
-    
-    @IBAction func logOut(_ sender: Any) {
-        mapsApp.logOut()
-    }
-    
-    @IBAction func closePanel(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
-    }
-    
-    @IBAction func folderNameTapped(_ sender: Any) {
-        showFolderPicker()
-    }
-    
-    func showContent() {
-        if let folder = currentFolder {
+    private func showContent() {
+        if let folder = mapsApp.currentFolder {
             self.folderButton.setTitle(folder.title, for: .normal)
             folder.load { error in
                 guard error == nil else {
@@ -119,7 +95,7 @@ class AccountMenuViewController: UIViewController {
             }
             
             picker.addAction(UIAlertAction(title: "Root Folder", style: .default, handler: { _ in
-                self.currentFolder = mapsApp.rootFolder
+                mapsApp.currentFolder = mapsApp.rootFolder
             }))
             
             guard error == nil else {
@@ -131,20 +107,32 @@ class AccountMenuViewController: UIViewController {
             if let subFolders = mapsApp.rootFolder?.subFolders {
                 for folder in subFolders {
                     let folderAction = UIAlertAction(title: folder.title, style: .default, handler: { action in
-                        self.currentFolder = folder
+                        mapsApp.currentFolder = folder
                     })
                     picker.addAction(folderAction)
                 }
             }
         }
     }
-    
-    var contentVC:PortalItemCollectionViewController? {
-        get {
-            return self.childViewControllers.filter({ $0 is PortalItemCollectionViewController }).first as? PortalItemCollectionViewController
-        }
+
+    // MARK: UI Actions
+    @IBAction func logIn(_ sender: Any) {
+        mapsApp.logIn(portalURL: nil)
     }
     
+    @IBAction func logOut(_ sender: Any) {
+        mapsApp.logOut()
+    }
+    
+    @IBAction func closePanel(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func folderNameTapped(_ sender: Any) {
+        showFolderPicker()
+    }
+    
+    // MARK: Exit Segues
     @IBAction func closeMainMenu(_ segue:UIStoryboardSegue) {
         // Unwind/Exit segue target
         self.dismiss(animated: true, completion: nil)

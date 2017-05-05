@@ -8,71 +8,10 @@
 
 import ArcGIS
 
-enum PortalUserFolderType: Hashable, Equatable, CustomStringConvertible {
-    case rootFolder(subFolders:[AGSPortalFolder])
-    case folder(agsFolder: AGSPortalFolder)
-    
-    var hashValue: Int {
-        switch self {
-        case .rootFolder:
-            return 0
-        case .folder(let agsFolder):
-            return agsFolder.hash
-        }
-    }
-    
-    static func ==(lhs:PortalUserFolderType, rhs:PortalUserFolderType) -> Bool {
-        return lhs.hashValue == rhs.hashValue
-    }
-    
-    var description: String {
-        switch self {
-        case .rootFolder: return "Root Folder"
-        case .folder(let folder): return folder.title ?? "Unknown"
-        }
-    }
-    
-    var isRoot:Bool {
-        switch self {
-        case .rootFolder:
-            return true
-        default:
-            return false
-        }
-    }
-}
-
 class PortalUserFolder: AGSLoadableBase {
     let user:AGSPortalUser
+
     let containerType:PortalUserFolderType
-    var subFolders:[PortalUserFolder]? = nil
-    var items:[AGSPortalItem] = []
-    var webMaps:[AGSPortalItem] {
-        get {
-            return items.filter() { $0.type == .webMap }
-        }
-    }
-    
-    static func rootFolder(forUser user:AGSPortalUser) -> PortalUserFolder {
-        return PortalUserFolder(user: user, type: .rootFolder(subFolders: []))
-    }
-    
-    init(user:AGSPortalUser, type:PortalUserFolderType) {
-        self.user = user
-        self.containerType = type
-    }
-    
-    override var hashValue: Int {
-        return containerType.hashValue
-    }
-    
-    static func ==(lhs:PortalUserFolder, rhs:PortalUserFolder) -> Bool {
-        return lhs.containerType == rhs.containerType
-    }
-    
-    override func doStartLoading(_ retrying: Bool) {
-        loadFromPortal()
-    }
     
     var title:String {
         switch self.containerType {
@@ -81,6 +20,22 @@ class PortalUserFolder: AGSLoadableBase {
         case .folder(let agsFolder):
             return agsFolder.title ?? "No Folder Name"
         }
+    }
+    
+    var subFolders:[PortalUserFolder]? = nil
+    var items:[AGSPortalItem] = []
+    var webMaps:[AGSPortalItem] {
+        return items.filter() { $0.type == .webMap }
+    }
+    
+    init(user:AGSPortalUser, type:PortalUserFolderType) {
+        self.user = user
+        self.containerType = type
+    }
+    
+    // MARK: AGSLoadable
+    override func doStartLoading(_ retrying: Bool) {
+        loadFromPortal()
     }
     
     private func loadFromPortal() {
@@ -111,5 +66,19 @@ class PortalUserFolder: AGSLoadableBase {
                 self.loadDidFinishWithError(nil)
             }
         }
+    }
+    
+    // MARK: Hashable
+    override var hashValue: Int {
+        return containerType.hashValue
+    }
+    
+    static func ==(lhs:PortalUserFolder, rhs:PortalUserFolder) -> Bool {
+        return lhs.containerType == rhs.containerType
+    }
+    
+    // MARK: Static Factory Methods
+    static func rootFolder(forUser user:AGSPortalUser) -> PortalUserFolder {
+        return PortalUserFolder(user: user, type: .rootFolder(subFolders: []))
     }
 }

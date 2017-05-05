@@ -22,28 +22,23 @@ extension MapsAppNotifications {
         
         userInfo[RouteNotifications.toKey] = to
         
-        let notification = Notification(name: MapsAppNotifications.Names.Route, object: nil, userInfo: userInfo)
-        NotificationCenter.default.post(notification)
+        NotificationCenter.default.post(name: MapsAppNotifications.Names.Route, object: nil, userInfo: userInfo)
     }
 }
 
 extension Notification {
     var routeFrom:AGSStopProvider? {
-        get {
-            if self.name == MapsAppNotifications.Names.Route {
-                return self.userInfo?[RouteNotifications.fromKey] as? AGSStopProvider
-            }
-            return nil
+        if self.name == MapsAppNotifications.Names.Route {
+            return self.userInfo?[RouteNotifications.fromKey] as? AGSStopProvider
         }
+        return nil
     }
 
     var routeTo:AGSStopProvider? {
-        get {
-            if self.name == MapsAppNotifications.Names.Route {
-                return self.userInfo?[RouteNotifications.toKey] as? AGSStopProvider
-            }
-            return nil
+        if self.name == MapsAppNotifications.Names.Route {
+            return self.userInfo?[RouteNotifications.toKey] as? AGSStopProvider
         }
+        return nil
     }
 }
 

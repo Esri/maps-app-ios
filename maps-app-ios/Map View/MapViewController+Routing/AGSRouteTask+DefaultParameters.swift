@@ -10,12 +10,11 @@
 import ArcGIS
 
 extension AGSRouteTask {
-    
     fileprivate struct AssociatedKeys {
         static var cachedDefaultParametersKey = "geodev_cachedDefaultParameters"
     }
     
-    var cachedDefaultParameters:AGSRouteParameters? {
+    fileprivate var cachedDefaultParameters:AGSRouteParameters? {
         get {
             return objc_getAssociatedObject(self, &AssociatedKeys.cachedDefaultParametersKey) as? AGSRouteParameters
         }
@@ -30,12 +29,12 @@ extension AGSRouteTask {
         if let params = cachedDefaultParameters {
             completion(params, nil)
         } else {
-            self.defaultRouteParameters(completion: { (params, error) in
+            self.defaultRouteParameters() { params, error in
                 if error == nil {
                     self.cachedDefaultParameters = params
                 }
                 completion(params, error)
-            })
+            }
         }
     }
 }

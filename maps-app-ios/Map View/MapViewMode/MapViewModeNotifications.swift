@@ -14,9 +14,24 @@ extension MapsAppNotifications.Names {
 
 extension MapsAppNotifications {
     static func postModeChangeNotification(oldMode:MapViewMode, newMode:MapViewMode) {
-        NotificationCenter.default.post(name: MapsAppNotifications.Names.MapViewModeChanged, object: nil, userInfo: [
-            NSKeyValueChangeKey.oldKey:oldMode,
-            NSKeyValueChangeKey.newKey:newMode
-        ])
+        let userInfo = [NSKeyValueChangeKey.oldKey:oldMode, NSKeyValueChangeKey.newKey:newMode]
+        NotificationCenter.default.post(name: MapsAppNotifications.Names.MapViewModeChanged, object: nil, userInfo: userInfo)
     }
 }
+
+extension Notification {
+    var oldMapViewMode:MapViewMode? {
+        if self.name == MapsAppNotifications.Names.MapViewModeChanged {
+            return self.userInfo?[NSKeyValueChangeKey.oldKey] as? MapViewMode
+        }
+        return nil
+    }
+
+    var newMapViewMode:MapViewMode? {
+        if self.name == MapsAppNotifications.Names.MapViewModeChanged {
+            return self.userInfo?[NSKeyValueChangeKey.newKey] as? MapViewMode
+        }
+        return nil
+    }
+}
+

@@ -36,7 +36,8 @@ class MapsAppDelegate: UIResponder, UIApplicationDelegate {
             if let portal = currentPortal {
 
                 // Ensure the Runtime knows how to authenticate against this portal should the need arise.
-                let oauthConfig = AGSOAuthConfiguration(portalURL: portal.url, clientID: MapsAppSettings.clientID, redirectURL: "\(MapsAppSettings.appSchema)://\(MapsAppSettings.authURLPath)")
+                let oauthConfig = AGSOAuthConfiguration(portalURL: portal.url, clientID: MapsAppSettings.clientID,
+                                                        redirectURL: "\(MapsAppSettings.appSchema)://\(MapsAppSettings.authURLPath)")
                 AGSAuthenticationManager.shared().oAuthConfigurations.add(oauthConfig)
                 
                 print("Portal updated")
@@ -103,7 +104,7 @@ class MapsAppDelegate: UIResponder, UIApplicationDelegate {
     
     var currentItem:AGSPortalItem? {
         didSet {
-            MapsAppNotifications.postPortalItemChangeNotification()
+            MapsAppNotifications.postCurrentItemChangeNotification()
         }
     }
     

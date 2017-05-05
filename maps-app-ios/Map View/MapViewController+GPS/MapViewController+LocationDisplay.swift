@@ -10,11 +10,11 @@ import ArcGIS
 
 extension MapViewController {
     func setupLocationDisplay() {
-        mapView.locationDisplay.start(completion: { (error) in
+        mapView.locationDisplay.start() { error in
             if let error = error {
                 self.showDefaultAlert(title: "Unable to start GPS", message: error.localizedDescription, okButtonText: "OK")
             }
-        })
+        }
         
         mapView.locationDisplay.autoPanModeChangedHandler = { newAutoPanMode in
             print("New autoPanMode: \(newAutoPanMode)")

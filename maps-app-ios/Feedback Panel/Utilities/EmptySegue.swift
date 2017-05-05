@@ -11,5 +11,6 @@ import UIKit
 class EmptySegue : UIStoryboardSegue {
     // Code stolen from https://github.com/mluton/EmbeddedSwapping
     override func perform() {
+        // Using this custom (blank) segue ensures that we control how the destination view will appear. 
     }
 }

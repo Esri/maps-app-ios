@@ -36,7 +36,7 @@ extension FeedbackViewController {
         // Moving from one thing to another
         from.willMove(toParentViewController: nil)
         self.addChildViewController(to)
-        self.transition(from: from, to: to, duration: 0.3, options: .transitionCrossDissolve, animations: nil) { (finished) in
+        self.transition(from: from, to: to, duration: 0.3, options: .transitionCrossDissolve, animations: nil) { finished in
             from.removeFromParentViewController()
             to.didMove(toParentViewController: self)
         }

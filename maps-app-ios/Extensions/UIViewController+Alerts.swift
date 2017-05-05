@@ -14,14 +14,14 @@ extension UIViewController {
             continueHandler()
         } else {
             let alert = UIAlertController(title: "Login Required", message: message, preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Login", style: .default, handler: { action in continueHandler() }))
-            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { action in cancelHandler?() }))
+            alert.addAction(UIAlertAction(title: "Login", style: .default, handler: { _ in continueHandler() }))
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { _ in cancelHandler?() }))
             self.present(alert, animated: true)
         }
     }
     
     func showError(title:String, message:String) {
-        print("Error: \(message)")
+        print("\(title): \(message)")
         showDefaultAlert(title: title, message: message)
     }
 

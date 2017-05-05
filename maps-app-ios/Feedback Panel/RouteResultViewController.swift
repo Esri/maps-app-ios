@@ -28,21 +28,29 @@ class RouteResultViewController : UIViewController {
                     self.toLabel.text = to.name
                 }
 
-                let durationFormatter = DateComponentsFormatter()
-                durationFormatter.unitsStyle = .short
-                durationFormatter.allowedUnits = [.hour, .minute]
-                durationFormatter.allowsFractionalUnits = false
                 let time = durationFormatter.string(from: result.totalTime*60) ?? ""
                 
-                let distanceFormatter = MeasurementFormatter()
-                distanceFormatter.unitOptions = .naturalScale
-                distanceFormatter.unitStyle = .long
-                distanceFormatter.numberFormatter.numberStyle = .decimal
-                distanceFormatter.numberFormatter.maximumFractionDigits = 1
                 let distance = distanceFormatter.string(from: Measurement(value: result.totalLength, unit: UnitLength.meters))
                 
                 self.summaryLabel.text = "\(time) (\(distance))"
             }
         }
     }
+    
+    private lazy var durationFormatter:DateComponentsFormatter = {
+        let formatter = DateComponentsFormatter()
+        formatter.unitsStyle = .short
+        formatter.allowedUnits = [.hour, .minute]
+        formatter.allowsFractionalUnits = false
+        return formatter
+    }()
+    
+    private lazy var distanceFormatter:MeasurementFormatter = {
+        let formatter = MeasurementFormatter()
+        formatter.unitOptions = .naturalScale
+        formatter.unitStyle = .long
+        formatter.numberFormatter.numberStyle = .decimal
+        formatter.numberFormatter.maximumFractionDigits = 1
+        return formatter
+    }()
 }
