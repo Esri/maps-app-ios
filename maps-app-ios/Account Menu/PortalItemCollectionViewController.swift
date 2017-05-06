@@ -40,6 +40,6 @@ class PortalItemCollectionViewController: UICollectionViewController {
         super.prepare(for: segue, sender: sender)
 
         // Tell the mapsApp that we've picked a web map to open.
-        mapsApp.currentItem = (sender as? PortalItemCollectionCell)?.item
+        mapsAppState.currentItem = (sender as? PortalItemCollectionCell)?.item
     }
 }

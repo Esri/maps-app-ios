@@ -9,8 +9,8 @@
 import ArcGIS
 
 class AGSAppPreferences: NSObject {
-    func getAGS<T:AGSJSONSerializable>(type:T.Type, forKey key:AGSAppPreferenceKey) -> T? {
-        if let json = UserDefaults.standard.object(forKey: key.rawValue) {
+    func getAGS<T:AGSJSONSerializable, K:RawRepresentable>(type:T.Type, forKey key:K) -> T? where K.RawValue == String {
+        if let json = AppSettings.preferencesStore.object(forKey: key.rawValue) {
             do {
                 let agsObject = try T.fromJSON(json) as! T
                 return agsObject
@@ -21,9 +21,9 @@ class AGSAppPreferences: NSObject {
         return nil
     }
     
-    func setAGS<T:AGSJSONSerializable>(agsObject:T?, withKey key:AGSAppPreferenceKey) {
+    func setAGS<T:AGSJSONSerializable, K:RawRepresentable>(agsObject:T?, withKey key:K) where K.RawValue == String {
         if agsObject == nil {
-            UserDefaults.standard.removeObject(forKey: key.rawValue)
+            AppSettings.preferencesStore.removeObject(forKey: key.rawValue)
             return
         }
         
@@ -41,18 +41,18 @@ class AGSAppPreferences: NSObject {
         }
     }
     
-    func get(forKey key:AGSAppPreferenceKey) -> Any? {
-        return UserDefaults.standard.object(forKey: key.rawValue)
+    func get<K:RawRepresentable>(forKey key:K) -> Any? where K.RawValue == String {
+        return AppSettings.preferencesStore.object(forKey: key.rawValue)
     }
     
-    func set(value: Any?, forKey key:AGSAppPreferenceKey) {
-        UserDefaults.standard.set(value, forKey: key.rawValue)
+    func set<K:RawRepresentable>(value: Any?, forKey key:K) where K.RawValue == String {
+        AppSettings.preferencesStore.set(value, forKey: key.rawValue)
     }
     
     private func writeToPreferences<T:AGSJSONSerializable>(agsObject:T, withKey key:String) {
         do {
             let json = try agsObject.toJSON()
-            UserDefaults.standard.set(json, forKey: key)
+            AppSettings.preferencesStore.set(json, forKey: key)
         } catch {
             print("Unable to save item \(T.self) to preference \"\(key)\"! \(error.localizedDescription)")
         }

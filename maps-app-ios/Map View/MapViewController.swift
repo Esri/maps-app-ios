@@ -10,12 +10,15 @@ import UIKit
 import ArcGIS
 
 class MapViewController: UIViewController {
+    
     // MARK: UI Outlets
     @IBOutlet weak var mapView: AGSMapView!
     @IBOutlet weak var gpsButton:UIButton!
     
+    // MARK: Map feedback layers
     var graphicsOverlays:[String:AGSGraphicsOverlay] = [:]
     
+    // MARK: MapView Mode
     var mode:MapViewMode = .none {
         didSet {
             updateMapViewForMode()
@@ -25,23 +28,25 @@ class MapViewController: UIViewController {
         }
     }
 
+    // MARK: View initialization
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        mapView.map = mapsAppPrefs.map ?? AGSMap(basemapType: .topographicVector, latitude: 40.7128, longitude: -74.0059, levelOfDetail: 10)
+        if let storedMap = mapsAppPrefs.map {
+            mapView.map = storedMap
+        } else {
+            // Default fallback
+            mapView.map = AGSMap(basemapType: .topographicVector, latitude: 40.7128, longitude: -74.0059, levelOfDetail: 10)
+        }
 
         setupAppPreferences()
         setupTouch()
-
         setupRouting()
         setupSearch()
-        
         setupLocationDisplay()
-        
         setupCurrentItemWatcher()
 
         mode = .search
-        
     }
     
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {

@@ -1,5 +1,5 @@
 //
-//  MapViewMode+MapView.swift
+//  MapViewMode+ResultsDisplay.swift
 //  maps-app-ios
 //
 //  Created by Nicholas Furness on 4/4/17.

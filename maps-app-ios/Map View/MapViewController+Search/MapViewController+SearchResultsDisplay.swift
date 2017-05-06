@@ -1,5 +1,5 @@
 //
-//  MapViewController+Search+Config.swift
+//  MapViewController+SearchResultsDisplay.swift
 //  maps-app-ios
 //
 //  Created by Nicholas Furness on 4/15/17.
@@ -11,13 +11,6 @@ import ArcGIS
 private let geocodeResultLayerName = "geocodeResultsGraphicsLayer"
 
 extension MapViewController {
-    
-    
-    // MARK: AGS Components
-    var locator:AGSLocatorTask {
-        return mapsApp.locator
-    }
-    
     
     // MARK: Map Feedback
     var geocodeResultsOverlay:AGSGraphicsOverlay {
@@ -33,7 +26,6 @@ extension MapViewController {
         }
     }
     
-    
     // MARK: UI Feedback
     func showSuggestions(suggestions:[AGSSuggestResult]) {
         guard suggestions.count > 0 else {
@@ -45,25 +37,4 @@ extension MapViewController {
             print("\(index + 1): \(suggestion.label)")
         }
     }
-    
-    
-    // MARK: Setup
-    func setupSearch() {
-        mapView.graphicsOverlays.add(geocodeResultsOverlay)
-        
-        NotificationCenter.default.addObserver(forName: MapsAppNotifications.Names.Search, object: nil, queue: nil) { notification in
-            if let searchText = notification.searchText {
-                self.search(searchText:searchText)
-            }
-        }
-        
-        NotificationCenter.default.addObserver(forName: MapsAppNotifications.Names.Suggest, object: nil, queue: nil) { notification in
-            if let searchText = notification.searchText {
-                self.getSuggestions(forSearchText: searchText)
-            }
-        }
-    }
-    
-    
 }
-

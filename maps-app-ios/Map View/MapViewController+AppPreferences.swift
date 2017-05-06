@@ -1,5 +1,5 @@
 //
-//  MapViewController+Preferences.swift
+//  MapViewController+AppPreferences.swift
 //  maps-app-ios
 //
 //  Created by Nicholas Furness on 4/5/17.
@@ -8,7 +8,7 @@
 
 import ArcGIS
 
-private let navigationPropertyKey = "navigating"
+fileprivate let navigationPropertyKey = "navigating"
 
 extension MapViewController {
     func setupAppPreferences() {

@@ -1,5 +1,5 @@
 //
-//  AGSRouteTask+DefaultParameters.swift
+//  AGSRouteTask+DefaultParametersUtils.swift
 //  maps-app-ios
 //
 //  Created by Nicholas Furness on 4/23/17.
@@ -26,6 +26,7 @@ extension AGSRouteTask {
     }
     
     public func loadCachedDefaultParameters(completion:@escaping (AGSRouteParameters?, Error?) -> Void) {
+        // A simple wrapper that holds on to the default parameters and reuses them as appropriate.
         if let params = cachedDefaultParameters {
             completion(params, nil)
         } else {

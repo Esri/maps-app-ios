@@ -16,7 +16,7 @@ extension MapViewController {
     }
     
     func displayCurrentItem() {
-        if let item = mapsApp.currentItem, item.type == .webMap {
+        if let item = mapsAppState.currentItem, item.type == .webMap {
             let map = AGSMap(item: item)
             map.load() { error in
                 guard error == nil else {
@@ -24,7 +24,9 @@ extension MapViewController {
                     return
                 }
                 
-                // Possible bug around having LocationDisplay on.
+                // Workaround: Runtime v100 bug.
+                // If LocationDisplay is on, setting the map does not update the extent.
+                // Target release for fix: Update 1.
                 if let ext = map.item?.extent, self.mapView.locationDisplay.started {
                     defer {
                         self.mapView.setViewpoint(AGSViewpoint(targetExtent: ext))

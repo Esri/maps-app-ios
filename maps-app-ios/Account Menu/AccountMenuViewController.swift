@@ -19,7 +19,7 @@ class AccountMenuViewController: UIViewController {
     @IBOutlet weak var portalItemsView: UIStackView!
     
     var subFolders:[PortalUserFolder] {
-        return mapsApp.rootFolder?.subFolders ?? []
+        return mapsAppState.rootFolder?.subFolders ?? []
     }
     
     var contentVC:PortalItemCollectionViewController? {
@@ -56,7 +56,7 @@ class AccountMenuViewController: UIViewController {
     
     // MARK: UI Display
     private func setLoginUI() {
-        switch mapsApp.loginStatus {
+        switch mapsAppState.loginStatus {
         case .loggedOut:
             loggedInView.isHidden = true
         case .loggedIn(let loggedInUser):
@@ -71,7 +71,7 @@ class AccountMenuViewController: UIViewController {
     }
     
     private func showContent() {
-        if let folder = mapsApp.currentFolder {
+        if let folder = mapsAppState.currentFolder {
             self.folderButton.setTitle(folder.title, for: .normal)
             folder.load { error in
                 guard error == nil else {
@@ -87,7 +87,7 @@ class AccountMenuViewController: UIViewController {
     }
     
     func showFolderPicker() {
-        mapsApp.rootFolder?.load() { error in
+        mapsAppState.rootFolder?.load() { error in
             let picker = UIAlertController(title: "Select Folder", message: nil, preferredStyle: .actionSheet)
             
             defer {
@@ -95,7 +95,7 @@ class AccountMenuViewController: UIViewController {
             }
             
             picker.addAction(UIAlertAction(title: "Root Folder", style: .default, handler: { _ in
-                mapsApp.currentFolder = mapsApp.rootFolder
+                mapsAppState.currentFolder = mapsAppState.rootFolder
             }))
             
             guard error == nil else {
@@ -104,10 +104,10 @@ class AccountMenuViewController: UIViewController {
                 return
             }
             
-            if let subFolders = mapsApp.rootFolder?.subFolders {
+            if let subFolders = mapsAppState.rootFolder?.subFolders {
                 for folder in subFolders {
                     let folderAction = UIAlertAction(title: folder.title, style: .default, handler: { action in
-                        mapsApp.currentFolder = folder
+                        mapsAppState.currentFolder = folder
                     })
                     picker.addAction(folderAction)
                 }

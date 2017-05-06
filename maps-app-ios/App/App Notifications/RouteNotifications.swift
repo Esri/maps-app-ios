@@ -9,40 +9,51 @@
 import ArcGIS
 
 extension MapsAppNotifications.Names {
-    static let Route = Notification.Name("MapsAppRouteNotification")
+    static let RouteRequested = Notification.Name("MapsAppRouteNotification")
 }
 
 extension MapsAppNotifications {
-    static func postRouteNotification(from:AGSStopProvider?, to:AGSStopProvider) {
+    static func postRouteNotification(from:MapsAppStopProvider?, to:MapsAppStopProvider) {
         var userInfo:[AnyHashable:Any] = [:]
         
         if let from = from {
-            userInfo[RouteNotifications.fromKey] = from
+            userInfo[RouteNotificationKeys.from] = from
         }
         
-        userInfo[RouteNotifications.toKey] = to
+        userInfo[RouteNotificationKeys.to] = to
         
-        NotificationCenter.default.post(name: MapsAppNotifications.Names.Route, object: nil, userInfo: userInfo)
+        NotificationCenter.default.post(name: MapsAppNotifications.Names.RouteRequested, object: nil, userInfo: userInfo)
+    }
+    
+    static func observeRoutingNotifications(routeNotificationHandler:@escaping ((_ fromStop:MapsAppStopProvider?, _ toStop:MapsAppStopProvider)->Void)) {
+        NotificationCenter.default.addObserver(forName: MapsAppNotifications.Names.RouteRequested, object: nil, queue: nil) { notification in
+            guard let to = notification.routeTo else {
+                print("No destination provided in the Route Notification!")
+                return
+            }
+
+            routeNotificationHandler(notification.routeFrom, to)
+        }
     }
 }
 
 extension Notification {
-    var routeFrom:AGSStopProvider? {
-        if self.name == MapsAppNotifications.Names.Route {
-            return self.userInfo?[RouteNotifications.fromKey] as? AGSStopProvider
+    var routeFrom:MapsAppStopProvider? {
+        if self.name == MapsAppNotifications.Names.RouteRequested {
+            return self.userInfo?[RouteNotificationKeys.from] as? MapsAppStopProvider
         }
         return nil
     }
 
-    var routeTo:AGSStopProvider? {
-        if self.name == MapsAppNotifications.Names.Route {
-            return self.userInfo?[RouteNotifications.toKey] as? AGSStopProvider
+    var routeTo:MapsAppStopProvider? {
+        if self.name == MapsAppNotifications.Names.RouteRequested {
+            return self.userInfo?[RouteNotificationKeys.to] as? MapsAppStopProvider
         }
         return nil
     }
 }
 
-fileprivate struct RouteNotifications {
-    static let fromKey = "fromObject"
-    static let toKey = "toObject"
+fileprivate struct RouteNotificationKeys {
+    static let from = "fromObject"
+    static let to = "toObject"
 }

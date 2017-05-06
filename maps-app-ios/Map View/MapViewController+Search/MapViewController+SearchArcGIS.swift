@@ -1,5 +1,5 @@
 //
-//  MapViewController+Search.swift
+//  MapViewController+ArcGISSearch.swift
 //  maps-app-ios
 //
 //  Created by Nicholas Furness on 3/29/17.
@@ -10,30 +10,19 @@ import ArcGIS
 
 extension MapViewController {
     
-    // MARK: ArcGIS Operations
-    // Suggestions
-    func getSuggestions(forSearchText searchText:String) {
-        if locator.locatorInfo?.supportsSuggestions == false {
-            return
-        }
-
-        locator.suggest(withSearchText: searchText, parameters: mapsAppSuggestParameters) { results, error in
-            guard error == nil else {
-                print("Error getting suggestions for \"\(searchText)\": \(error!.localizedDescription)")
-                return
-            }
-            
-            guard let results = results else {
-                return
-            }
-            
-            self.showSuggestions(suggestions: results)
-        }
+    // MARK: ArcGIS Task
+    var locator:AGSLocatorTask {
+        return mapsAppState.locator
     }
-
-    // Geocode
+    
+    // MARK: ArcGIS Operations
     func search(searchText:String) {
-        locator.geocode(withSearchText: searchText, parameters: mapsAppGeocoderParameters) { results, error in
+        let params = AGSGeocodeParameters()
+        if let mapVP = self.mapView.currentViewpoint(with: .centerAndScale), let center = mapVP.targetGeometry as? AGSPoint {
+            params.preferredSearchLocation = center
+        }
+
+        locator.geocode(withSearchText: searchText, parameters: params) { results, error in
             guard error == nil else {
                 print("Error performing search! \(error!.localizedDescription)")
                 return
@@ -47,7 +36,6 @@ extension MapViewController {
         }
     }
     
-    // Reverse Geocode
     func getAddressForPoint(point:AGSPoint) {
         locator.reverseGeocode(withLocation: point) { results, error in
             guard error == nil else {
@@ -63,19 +51,27 @@ extension MapViewController {
         }
     }
 
-    var mapsAppSuggestParameters:AGSSuggestParameters {
+    func getSuggestions(forSearchText searchText:String) {
+        if locator.locatorInfo?.supportsSuggestions == false {
+            return
+        }
+        
         let params = AGSSuggestParameters()
         if let mapVP = self.mapView.currentViewpoint(with: .centerAndScale), let center = mapVP.targetGeometry as? AGSPoint {
             params.preferredSearchLocation = center
         }
-        return params
-    }
-    
-    var mapsAppGeocoderParameters:AGSGeocodeParameters {
-        let params = AGSGeocodeParameters()
-        if let mapVP = self.mapView.currentViewpoint(with: .centerAndScale), let center = mapVP.targetGeometry as? AGSPoint {
-            params.preferredSearchLocation = center
+        
+        locator.suggest(withSearchText: searchText, parameters: params) { results, error in
+            guard error == nil else {
+                print("Error getting suggestions for \"\(searchText)\": \(error!.localizedDescription)")
+                return
+            }
+            
+            guard let results = results else {
+                return
+            }
+            
+            self.showSuggestions(suggestions: results)
         }
-        return params
     }
 }

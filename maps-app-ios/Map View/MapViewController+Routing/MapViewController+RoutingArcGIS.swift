@@ -1,5 +1,5 @@
 //
-//  MapViewController+Route.swift
+//  MapViewController+RoutingArcGIS.swift
 //  maps-app-ios
 //
 //  Created by Nicholas Furness on 4/1/17.
@@ -10,12 +10,21 @@ import ArcGIS
 
 extension MapViewController {
 
-    // MARK: Routing Operations
-    func route(to:AGSStop) {
-        let from = self.mapView.routeStop(inSpatialReference: self.mapView.spatialReference!)
-        route(from: from, to: to)
+    //MARK: ArcGIS Components
+    var routeTask:AGSRouteTask {
+        return mapsAppState.routeTask
     }
-
+    
+    var defaultRouteParameters:AGSRouteParameters? {
+        get {
+            return mapsAppState.defaultRouteParameters
+        }
+        set {
+            mapsAppState.defaultRouteParameters = newValue
+        }
+    }
+    
+    // MARK: Get directions
     func route(from:AGSStop, to:AGSStop) {
         warnAboutLoginIfLoggedOut(message: "Getting directions requires a login and consumes credits.", continueHandler: {
             self.requestRoute(from: from, to: to)
@@ -55,22 +64,10 @@ extension MapViewController {
             
         }
     }
-
     
     
-    // MARK: Convenience methods
-    func route(to:AGSStopProvider) {
-        route(to: to.routeStop(inSpatialReference: self.mapView.spatialReference!))
-    }
     
-    func route(from:AGSStopProvider, to:AGSStopProvider) {
-        route(from: from.routeStop(inSpatialReference: self.mapView.spatialReference!),
-              to: to.routeStop(inSpatialReference: self.mapView.spatialReference!))
-    }
-
-    
-    
-    //MARK: Default parameter fetch logic
+    //MARK: Fetch default parameters
     private func loadDefaultParametersThenRoute(from:AGSStop, to:AGSStop) {
         
         routeTask.loadCachedDefaultParameters() { params, error in
@@ -81,7 +78,7 @@ extension MapViewController {
                     defaultParams.returnDirections = true
                     defaultParams.returnRoutes = true
                 }
-
+                
                 self.route(from: from, to: to)
             }
             
@@ -99,6 +96,23 @@ extension MapViewController {
             
             self.defaultRouteParameters = params
         }
+        
+    }
 
+    
+    
+    // MARK: Convenience methods
+    func route(to:AGSStop) {
+        let from = self.mapView.routeStop(inSpatialReference: self.mapView.spatialReference!)
+        route(from: from, to: to)
+    }
+    
+    func route(to:MapsAppStopProvider) {
+        route(to: to.routeStop(inSpatialReference: self.mapView.spatialReference!))
+    }
+    
+    func route(from:MapsAppStopProvider, to:MapsAppStopProvider) {
+        route(from: from.routeStop(inSpatialReference: self.mapView.spatialReference!),
+              to: to.routeStop(inSpatialReference: self.mapView.spatialReference!))
     }
 }

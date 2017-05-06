@@ -1,5 +1,5 @@
 //
-//  MapsAppSettings.swift
+//  AppSettings.swift
 //  maps-app-ios
 //
 //  Created by Nicholas Furness on 4/28/17.
@@ -8,12 +8,15 @@
 
 import Foundation
 
-struct MapsAppSettings {
+struct AppSettings {
     static let licenseKey:String = (Bundle.main.infoDictionary?["AGSLicenseKey"] as? String) ?? ""
     static let clientID:String = (Bundle.main.infoDictionary?["AppClientID"] as? String) ?? ""
 
     static let appSchema:String = "maps-app-ios"
     static let authURLPath:String = "auth"
+    
     static let worldRoutingServiceURL = URL(string: "https://route.arcgis.com/arcgis/rest/services/World/Route/NAServer/Route_World")!
     static let worldGeocoderURL = URL(string:"https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer")!
+    
+    static let preferencesStore = UserDefaults.standard
 }

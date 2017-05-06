@@ -1,25 +1,27 @@
 //
-//  AGSStopProvider.swift
+//  MapsAppStopProvider.swift
 //  maps-app-ios
 //
 //  Created by Nicholas Furness on 4/1/17.
 //  Copyright © 2017 Esri. All rights reserved.
 //
+//  Provide an AGSStop object suitable for passing to the Routing service.
+
 
 import ArcGIS
 
-protocol AGSStopProvider {
+protocol MapsAppStopProvider {
     // Provide a method to return an AGSStop in the appropriate spatial reference
     func routeStop(inSpatialReference sr:AGSSpatialReference) -> AGSStop
 }
 
-extension AGSPoint : AGSStopProvider {
+extension AGSPoint : MapsAppStopProvider {
     func routeStop(inSpatialReference sr: AGSSpatialReference) -> AGSStop {
         return AGSStop(point:AGSGeometryEngine.projectGeometry(self, to: sr) as! AGSPoint)
     }
 }
 
-extension AGSGeocodeResult : AGSStopProvider {
+extension AGSGeocodeResult : MapsAppStopProvider {
     func routeStop(inSpatialReference sr: AGSSpatialReference) -> AGSStop {
         // If we want to route to an AGSGeocodeResult, let's try the routeLocation first, else fall back to the displayLocation
         let stop = (self.routeLocation ?? self.displayLocation!).routeStop(inSpatialReference: sr)
@@ -28,7 +30,7 @@ extension AGSGeocodeResult : AGSStopProvider {
     }
 }
 
-extension AGSMapView : AGSStopProvider {
+extension AGSMapView : MapsAppStopProvider {
     func routeStop(inSpatialReference sr: AGSSpatialReference) -> AGSStop {
         // For a MapView, if the LocationDisplay is started, route to that
         if let mapLocation = self.locationDisplay.location?.position, self.locationDisplay.started {
