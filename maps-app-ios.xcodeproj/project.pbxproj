@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D90DF4141EAD8A3300EC0960 /* AGSRouteTask+DefaultParametersUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90DF4131EAD8A3300EC0960 /* AGSRouteTask+DefaultParametersUtils.swift */; };
 		D90DF41B1EAE595000EC0960 /* AccountMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90DF41A1EAE595000EC0960 /* AccountMenuViewController.swift */; };
 		D91083C01EBC354800BACD96 /* MapViewController+CurrentItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91083BF1EBC354800BACD96 /* MapViewController+CurrentItem.swift */; };
 		D91083C21EBC359000BACD96 /* MapViewController+MapViewMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91083C11EBC359000BACD96 /* MapViewController+MapViewMode.swift */; };
@@ -88,7 +87,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		D90DF4131EAD8A3300EC0960 /* AGSRouteTask+DefaultParametersUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AGSRouteTask+DefaultParametersUtils.swift"; sourceTree = "<group>"; };
 		D90DF41A1EAE595000EC0960 /* AccountMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountMenuViewController.swift; sourceTree = "<group>"; };
 		D91083BF1EBC354800BACD96 /* MapViewController+CurrentItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MapViewController+CurrentItem.swift"; sourceTree = "<group>"; };
 		D91083C11EBC359000BACD96 /* MapViewController+MapViewMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MapViewController+MapViewMode.swift"; sourceTree = "<group>"; };
@@ -337,7 +335,6 @@
 				D9CF2A6E1E9034A80019701F /* MapViewController+RoutingArcGIS.swift */,
 				D9822A0A1EA2EA35009FA0E5 /* MapViewController+RoutingResultsDisplay.swift */,
 				D9CF2A721E9045A70019701F /* MapsAppStopProvider.swift */,
-				D90DF4131EAD8A3300EC0960 /* AGSRouteTask+DefaultParametersUtils.swift */,
 			);
 			path = "MapViewController+Routing";
 			sourceTree = "<group>";
@@ -591,7 +588,6 @@
 				D9BE57C41E95912D00934D30 /* AGSLocationDisplay+MapView.swift in Sources */,
 				D9CBE3401E8B4F2A00776053 /* GeocodeResultViewController.swift in Sources */,
 				D9822A0B1EA2EA35009FA0E5 /* MapViewController+RoutingResultsDisplay.swift in Sources */,
-				D90DF4141EAD8A3300EC0960 /* AGSRouteTask+DefaultParametersUtils.swift in Sources */,
 				D98F78B51E89CEEA00E7CBC2 /* UIViewController+Alerts.swift in Sources */,
 				D90DF41B1EAE595000EC0960 /* AccountMenuViewController.swift in Sources */,
 				D9BCC5F21EB7A1BB000C0587 /* MapViewMode+CustomStringConvertible.swift in Sources */,

@@ -15,15 +15,6 @@ extension MapViewController {
         return mapsAppState.routeTask
     }
     
-    var defaultRouteParameters:AGSRouteParameters? {
-        get {
-            return mapsAppState.defaultRouteParameters
-        }
-        set {
-            mapsAppState.defaultRouteParameters = newValue
-        }
-    }
-    
     // MARK: Get directions
     func route(from:AGSStop, to:AGSStop) {
         warnAboutLoginIfLoggedOut(message: "Getting directions requires a login and consumes credits.", continueHandler: {
@@ -32,7 +23,22 @@ extension MapViewController {
     }
     
     func requestRoute(from:AGSStop, to:AGSStop) {
-        if let params = defaultRouteParameters {
+        
+        routeTask.defaultRouteParameters() { defaultParams, error in
+            guard error == nil else {
+                print("Error getting default parameters: \(error!.localizedDescription)")
+                return
+            }
+            
+            guard let params = defaultParams else {
+                print("No default parameters available.")
+                return
+            }
+
+            params.outputSpatialReference = self.mapView.spatialReference
+            params.returnStops = true
+            params.returnDirections = true
+            params.returnRoutes = true
 
             // To make best use of the service, we will base our request off the service's default parameters.
             params.setStops([from,to])
@@ -56,49 +62,9 @@ extension MapViewController {
                 self.routeResultsOverlay.graphics.removeAllObjects()
                 self.routeResultsOverlay.graphics.addObjects(from: [routeGraphic, startGraphic])
             }
-            
-        } else {
-
-            // If those parameters haven't been loaded yet, then let's load them first and try again.
-            loadDefaultParametersThenRoute(from: from, to: to)
-            
         }
-    }
-    
-    
-    
-    //MARK: Fetch default parameters
-    private func loadDefaultParametersThenRoute(from:AGSStop, to:AGSStop) {
-        
-        routeTask.loadCachedDefaultParameters() { params, error in
-            defer {
-                if let defaultParams = self.defaultRouteParameters {
-                    defaultParams.outputSpatialReference = self.mapView.spatialReference
-                    defaultParams.returnStops = true
-                    defaultParams.returnDirections = true
-                    defaultParams.returnRoutes = true
-                }
-                
-                self.route(from: from, to: to)
-            }
-            
-            guard error == nil else {
-                print("Error getting default parameters: \(error!.localizedDescription)")
-                self.defaultRouteParameters = AGSRouteParameters()
-                return
-            }
-            
-            guard params != nil else {
-                print("No default parameters available.")
-                self.defaultRouteParameters = AGSRouteParameters()
-                return
-            }
-            
-            self.defaultRouteParameters = params
-        }
-        
-    }
 
+    }
     
     
     // MARK: Convenience methods
