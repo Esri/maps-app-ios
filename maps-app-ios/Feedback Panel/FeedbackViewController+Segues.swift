@@ -15,21 +15,26 @@ extension FeedbackViewController {
     }
     
     func swapChildVCs(from:UIViewController?, to:UIViewController) {
-        
-        if to is RouteResultViewController {
-            self.view.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 80)
-        } else {
-            self.view.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 44)
-        }
-        
         // Code stolen from https://github.com/mluton/EmbeddedSwapping and modified for Swift 3
-        to.view.frame = CGRect(x: 0, y: 0, width: self.containerView.frame.size.width, height: self.containerView.frame.size.height)
+        // https://stackoverflow.com/questions/35014362/sizing-a-container-view-with-a-controller-of-dynamic-size-inside-a-scrollview helped a lot here
+        to.view.translatesAutoresizingMaskIntoConstraints = false
+        
+        defer {
+            // Regardless of how we add the child view, we need to place constraints between it and the container view.
+            containerView.addConstraints([
+                to.view.heightAnchor.constraint(equalTo: containerView.heightAnchor, multiplier: 1),
+                to.view.leftAnchor.constraint(equalTo: containerView.leftAnchor),
+                to.view.rightAnchor.constraint(equalTo: containerView.rightAnchor),
+                to.view.topAnchor.constraint(equalTo: containerView.topAnchor)
+            ])
+        }
         
         guard let from = from else {
             // First time we're setting something. Just set it, don't transition to it.
             self.addChildViewController(to)
-            self.containerView.addSubview(to.view)
+            containerView.addSubview(to.view)
             to.didMove(toParentViewController: self)
+            
             return
         }
         

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Rev-Z6-RLx">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Rev-Z6-RLx">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -82,7 +82,8 @@
                         <constraints>
                             <constraint firstItem="O7t-Dj-Ug0" firstAttribute="top" secondItem="EA4-Qf-zbq" secondAttribute="bottom" id="54O-6f-WOS"/>
                             <constraint firstItem="O7t-Dj-Ug0" firstAttribute="leading" secondItem="OkP-Fc-GQU" secondAttribute="leading" id="6tU-wf-4hq"/>
-                            <constraint firstAttribute="trailing" secondItem="O7t-Dj-Ug0" secondAttribute="trailing" id="r83-du-UvL"/>
+                            <constraint firstItem="1vd-TK-4RB" firstAttribute="top" secondItem="O7t-Dj-Ug0" secondAttribute="bottom" id="T24-LS-rSf"/>
+                            <constraint firstAttribute="trailing" secondItem="O7t-Dj-Ug0" secondAttribute="trailing" priority="999" id="r83-du-UvL"/>
                         </constraints>
                     </view>
                     <connections>
@@ -196,13 +197,16 @@
                                         </connections>
                                     </button>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="Xvt-to-KI0"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <constraints>
                             <constraint firstItem="EI0-tP-I77" firstAttribute="leading" secondItem="2Jv-Fy-BWe" secondAttribute="leading" id="DMT-8B-OYy"/>
                             <constraint firstItem="EI0-tP-I77" firstAttribute="top" secondItem="L6Y-L5-MDj" secondAttribute="bottom" id="hla-SL-I2T"/>
                             <constraint firstAttribute="trailing" secondItem="EI0-tP-I77" secondAttribute="trailing" id="mb6-aI-MBP"/>
-                            <constraint firstItem="Mmq-vO-fhg" firstAttribute="top" secondItem="EI0-tP-I77" secondAttribute="bottom" id="o3P-SX-9mq"/>
+                            <constraint firstItem="Mmq-vO-fhg" firstAttribute="top" secondItem="EI0-tP-I77" secondAttribute="bottom" id="rcK-Dg-d9h"/>
                         </constraints>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -266,12 +270,15 @@
                                         </connections>
                                     </button>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="WPl-QD-3Vs"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="Jzf-pX-pKk" secondAttribute="trailing" id="7Xm-PY-hGV"/>
-                            <constraint firstAttribute="bottom" secondItem="Jzf-pX-pKk" secondAttribute="bottom" id="Cgx-bp-MWv"/>
                             <constraint firstItem="Jzf-pX-pKk" firstAttribute="leading" secondItem="lkj-FT-nIR" secondAttribute="leading" id="ICf-RL-KhO"/>
+                            <constraint firstItem="TKz-qJ-G0I" firstAttribute="top" secondItem="Jzf-pX-pKk" secondAttribute="bottom" id="cwI-IN-wrM"/>
                             <constraint firstItem="Jzf-pX-pKk" firstAttribute="top" secondItem="PQ9-kx-U8V" secondAttribute="bottom" id="uHq-0k-fqF"/>
                         </constraints>
                     </view>
