@@ -9,46 +9,47 @@
 import UIKit
 import ArcGIS
 
-class SuggestionDisplayViewController: UITableViewController {
+class SuggestionDisplayViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    
+    @IBOutlet weak var heightContraint: NSLayoutConstraint!
+    @IBOutlet weak var tableView: UITableView!
     
     var suggestions:[AGSSuggestResult]? {
         didSet {
             defer {
                 self.tableView.reloadData()
-
-                let size = self.tableView.contentSize
-                let frame = self.tableView.frame
-                let newFrame = CGRect(origin: frame.origin, size: CGSize(width: frame.width, height: size.height))
-                self.tableView.frame = newFrame
+                heightContraint.constant = self.tableView.contentSize.height
             }
             
-            guard let newSuggestions = suggestions, newSuggestions.count > 0 else {
+            if let newSuggestions = suggestions, newSuggestions.count > 0 {
+                self.view.isHidden = false
+            } else {
                 self.view.isHidden = true
-                return
             }
-            
-            self.view.isHidden = false
-            
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-         self.view.translatesAutoresizingMaskIntoConstraints = false
+        self.view.translatesAutoresizingMaskIntoConstraints = false
+        
+        NotificationCenter.default.addObserver(forName: MapsAppNotifications.Names.SearchCompleted, object: nil, queue: nil) { notification in
+            self.suggestions = nil
+        }
         
         suggestions = nil
     }
     
-    override func numberOfSections(in tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return suggestions?.count ?? 0
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "GeocodeSuggestionCell", for: indexPath)
         
         if let suggestion = suggestions?[indexPath.row] {
@@ -58,12 +59,9 @@ class SuggestionDisplayViewController: UITableViewController {
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let suggestion = suggestions?[indexPath.row] {
-            print("Go geocode >>\(suggestion.label)<<!")
-            
             MapsAppNotifications.postSearchFromSuggestionNotification(suggestion: suggestion)
-            
             suggestions = nil
         }
     }

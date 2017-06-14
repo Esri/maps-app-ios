@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="a2t-8r-wbR">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Suggestion Display View Controller-->
+        <scene sceneID="4EH-uD-3hz">
+            <objects>
+                <viewController id="a2t-8r-wbR" customClass="SuggestionDisplayViewController" customModule="maps_app_ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Vam-pd-fU3"/>
+                        <viewControllerLayoutGuide type="bottom" id="X85-xb-UQ1"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8Y9-pP-bvc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="140"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" directionalLockEnabled="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="R2Z-yF-rGR">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="140"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="140" id="ykJ-K5-WYB"/>
+                                </constraints>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="GeocodeSuggestionCell" textLabel="kmI-FO-Qi7" style="IBUITableViewCellStyleDefault" id="ogW-tS-R5j">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ogW-tS-R5j" id="06K-9r-i16">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" adjustsLetterSpacingToFitWidth="YES" id="kmI-FO-Qi7">
+                                                    <rect key="frame" x="15" y="0.0" width="345" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="a2t-8r-wbR" id="B4J-vM-zGV"/>
+                                    <outlet property="delegate" destination="a2t-8r-wbR" id="z1i-eA-nbf"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="R2Z-yF-rGR" firstAttribute="height" secondItem="8Y9-pP-bvc" secondAttribute="height" id="PCw-NA-G5K"/>
+                            <constraint firstItem="R2Z-yF-rGR" firstAttribute="top" secondItem="Vam-pd-fU3" secondAttribute="bottom" id="cIr-DO-Bey"/>
+                            <constraint firstAttribute="trailing" secondItem="R2Z-yF-rGR" secondAttribute="trailing" id="kBH-bm-vQI"/>
+                            <constraint firstItem="R2Z-yF-rGR" firstAttribute="leading" secondItem="8Y9-pP-bvc" secondAttribute="leading" id="nyc-RX-KVV"/>
+                        </constraints>
+                    </view>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="375" height="140"/>
+                    <connections>
+                        <outlet property="heightContraint" destination="ykJ-K5-WYB" id="SLv-OH-efX"/>
+                        <outlet property="tableView" destination="R2Z-yF-rGR" id="OUQ-dY-jIk"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lCN-cK-uos" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1212" y="-655"/>
+        </scene>
+    </scenes>
+</document>

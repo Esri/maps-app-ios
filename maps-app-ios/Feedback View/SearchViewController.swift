@@ -22,6 +22,7 @@ class SearchViewController : UIViewController, UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         MapsAppNotifications.postSearchNotification(searchBar: searchBar)
+        MapsAppNotifications.postSearchCompletedNotification()
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
@@ -40,5 +41,7 @@ class SearchViewController : UIViewController, UISearchBarDelegate {
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
+        searchBar.text = nil
+        MapsAppNotifications.postSearchCompletedNotification()
     }
 }
