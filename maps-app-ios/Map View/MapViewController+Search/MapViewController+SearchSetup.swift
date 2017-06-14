@@ -14,6 +14,7 @@ extension MapViewController {
         mapView.graphicsOverlays.add(geocodeResultsOverlay)
 
         MapsAppNotifications.observeSearchNotifications(searchNotificationHander: { searchText in self.search(searchText:searchText) },
-                                                        suggestNotificationHandler: { searchText in self.getSuggestions(forSearchText: searchText) })
+                                                        suggestNotificationHandler: { searchText in self.getSuggestions(forSearchText: searchText) },
+                                                        searchFromSuggestionNotificationHandler: { suggestion in self.search(suggestion: suggestion) })
     }
 }

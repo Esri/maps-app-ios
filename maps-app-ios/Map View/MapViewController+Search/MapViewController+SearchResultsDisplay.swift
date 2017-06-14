@@ -28,13 +28,21 @@ extension MapViewController {
     
     // MARK: UI Feedback
     func showSuggestions(suggestions:[AGSSuggestResult]) {
-        guard suggestions.count > 0 else {
-            print("No suggestions!")
-            return
-        }
+//        guard suggestions.count > 0 else {
+//            print("No suggestions!")
+//            return
+//        }
         
         for (index, suggestion) in suggestions.enumerated() {
             print("\(index + 1): \(suggestion.label)")
         }
+        
+        suggestionDisplayViewController?.suggestions = suggestions
+    }
+    
+    var suggestionDisplayViewController: SuggestionDisplayViewController? {
+        return self.childViewControllers.filter({
+            $0 is SuggestionDisplayViewController
+        }).first as? SuggestionDisplayViewController
     }
 }

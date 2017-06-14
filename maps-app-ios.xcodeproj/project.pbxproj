@@ -23,6 +23,7 @@
 		D93381B01E90BBD900A0F93E /* Feedback.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D93381AF1E90BBD900A0F93E /* Feedback.storyboard */; };
 		D93807751EB83EEB00E03A2F /* PortalItemCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93807741EB83EEB00E03A2F /* PortalItemCollectionCell.swift */; };
 		D93807771EB8575400E03A2F /* ItemNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93807761EB8575400E03A2F /* ItemNotifications.swift */; };
+		D9430A381EF18CBC002F6CA1 /* SuggestionDisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9430A371EF18CBC002F6CA1 /* SuggestionDisplayViewController.swift */; };
 		D94E6C621EBBFCA400F07BA6 /* AGSLocationDisplayAutoPanMode+CustomStringConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = D94E6C611EBBFCA400F07BA6 /* AGSLocationDisplayAutoPanMode+CustomStringConvertible.swift */; };
 		D9513A341E985D49007B36C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D9513A331E985D49007B36C8 /* Assets.xcassets */; };
 		D963879B1EB2547600764D8D /* LoginStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = D963879A1EB2547600764D8D /* LoginStatus.swift */; };
@@ -103,6 +104,7 @@
 		D93381AF1E90BBD900A0F93E /* Feedback.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Feedback.storyboard; sourceTree = "<group>"; };
 		D93807741EB83EEB00E03A2F /* PortalItemCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PortalItemCollectionCell.swift; sourceTree = "<group>"; };
 		D93807761EB8575400E03A2F /* ItemNotifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemNotifications.swift; sourceTree = "<group>"; };
+		D9430A371EF18CBC002F6CA1 /* SuggestionDisplayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuggestionDisplayViewController.swift; sourceTree = "<group>"; };
 		D94E6C611EBBFCA400F07BA6 /* AGSLocationDisplayAutoPanMode+CustomStringConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AGSLocationDisplayAutoPanMode+CustomStringConvertible.swift"; sourceTree = "<group>"; };
 		D9513A331E985D49007B36C8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D963879A1EB2547600764D8D /* LoginStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginStatus.swift; sourceTree = "<group>"; };
@@ -335,6 +337,7 @@
 				D9CF2A6E1E9034A80019701F /* MapViewController+RoutingArcGIS.swift */,
 				D9822A0A1EA2EA35009FA0E5 /* MapViewController+RoutingResultsDisplay.swift */,
 				D9CF2A721E9045A70019701F /* MapsAppStopProvider.swift */,
+				D9430A371EF18CBC002F6CA1 /* SuggestionDisplayViewController.swift */,
 			);
 			path = "MapViewController+Routing";
 			sourceTree = "<group>";
@@ -596,6 +599,7 @@
 				D93381AC1E90742900A0F93E /* FeedbackViewController+ChildVCs.swift in Sources */,
 				D9822A0F1EA2EC06009FA0E5 /* MapViewController+SearchResultsDisplay.swift in Sources */,
 				D92E2C1C1E94A4F900138F7D /* MapViewController+Touch.swift in Sources */,
+				D9430A381EF18CBC002F6CA1 /* SuggestionDisplayViewController.swift in Sources */,
 				D9638E3E1EBD14B600CFF318 /* MapViewController+RoutingSetup.swift in Sources */,
 				D96A77551E8594C000F441D3 /* MapsAppDelegate.swift in Sources */,
 				D96387A11EB2FA7300764D8D /* AppSettings.swift in Sources */,

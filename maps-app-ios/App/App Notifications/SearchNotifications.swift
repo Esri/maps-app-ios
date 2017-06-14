@@ -7,10 +7,12 @@
 //
 
 import UIKit
+import ArcGIS
 
 extension MapsAppNotifications.Names {
     static let SearchRequested = Notification.Name("MapsAppSearchNotification")
     static let SuggestRequested = Notification.Name("MapsAppSuggestNotification")
+    static let SearchFromSuggestionRequested = Notification.Name("MapsAppSearchFromSuggestionNotification")
 }
 
 extension MapsAppNotifications {
@@ -29,7 +31,14 @@ extension MapsAppNotifications {
         }
     }
     
-    static func observeSearchNotifications(searchNotificationHander:@escaping ((_ searchText:String)->Void), suggestNotificationHandler:((_ searchText:String)->Void)?) {
+    static func postSearchFromSuggestionNotification(suggestion:AGSSuggestResult) {
+        NotificationCenter.default.post(name: MapsAppNotifications.Names.SearchFromSuggestionRequested, object: nil,
+                                        userInfo: [SearchNotificationKeys.suggestion: suggestion])
+    }
+    
+    static func observeSearchNotifications(searchNotificationHander:@escaping ((_ searchText:String)->Void),
+                                           suggestNotificationHandler:((_ searchText:String)->Void)?,
+                                           searchFromSuggestionNotificationHandler:((_ suggestion:AGSSuggestResult)->Void)?) {
         // Listen for notifications from the UI to trigger search and suggest operations.
         NotificationCenter.default.addObserver(forName: MapsAppNotifications.Names.SearchRequested, object: nil, queue: nil) { notification in
             if let searchText = notification.searchText {
@@ -40,6 +49,12 @@ extension MapsAppNotifications {
         NotificationCenter.default.addObserver(forName: MapsAppNotifications.Names.SuggestRequested, object: nil, queue: nil) { notification in
             if let searchText = notification.searchText {
                 suggestNotificationHandler?(searchText)
+            }
+        }
+        
+        NotificationCenter.default.addObserver(forName: MapsAppNotifications.Names.SearchFromSuggestionRequested, object: nil, queue: nil) { notification in
+            if let suggestion = notification.suggestion {
+                searchFromSuggestionNotificationHandler?(suggestion)
             }
         }
     }
@@ -54,8 +69,18 @@ extension Notification {
             return nil
         }
     }
+    
+    var suggestion:AGSSuggestResult? {
+        get {
+            if self.name == MapsAppNotifications.Names.SearchFromSuggestionRequested {
+                return self.userInfo?[SearchNotificationKeys.suggestion] as? AGSSuggestResult
+            }
+            return nil
+        }
+    }
 }
 
 fileprivate struct SearchNotificationKeys {
     static let search = "searchText"
+    static let suggestion = "suggestion"
 }

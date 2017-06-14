@@ -36,6 +36,26 @@ extension MapViewController {
         }
     }
     
+    func search(suggestion:AGSSuggestResult) {
+        let params = AGSGeocodeParameters()
+        if let mapVP = self.mapView.currentViewpoint(with: .centerAndScale), let center = mapVP.targetGeometry as? AGSPoint {
+            params.preferredSearchLocation = center
+        }
+        
+        locator.geocode(with: suggestion) { results, error in
+            guard error == nil else {
+                print("Error performing search from suggestion \(suggestion.label)! \(error!.localizedDescription)")
+                return
+            }
+            
+            if let result = results?.first {
+                self.mode = .geocodeResult(result)
+            } else {
+                self.showDefaultAlert(message: "Autocomplete for\n\"\(suggestion.label)\"\nreturned no results.")
+            }
+        }
+    }
+    
     func getAddressForPoint(point:AGSPoint) {
         locator.reverseGeocode(withLocation: point) { results, error in
             guard error == nil else {
