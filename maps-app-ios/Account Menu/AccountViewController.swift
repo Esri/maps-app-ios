@@ -1,5 +1,5 @@
 //
-//  AccountMenuViewController.swift
+//  AccountViewController.swift
 //  maps-app-ios
 //
 //  Created by Nicholas Furness on 4/24/17.
@@ -9,7 +9,7 @@
 import ArcGIS
 import UIKit
 
-class AccountMenuViewController: UIViewController {
+class AccountViewController: UIViewController {
 
     @IBOutlet weak var loggedInView: UIStackView!
     @IBOutlet weak var loggedOutView: UIStackView!

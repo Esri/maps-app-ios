@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D90DF41B1EAE595000EC0960 /* AccountMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90DF41A1EAE595000EC0960 /* AccountMenuViewController.swift */; };
+		D90DF41B1EAE595000EC0960 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90DF41A1EAE595000EC0960 /* AccountViewController.swift */; };
 		D91083C01EBC354800BACD96 /* MapViewController+CurrentItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91083BF1EBC354800BACD96 /* MapViewController+CurrentItem.swift */; };
 		D91083C21EBC359000BACD96 /* MapViewController+MapViewMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91083C11EBC359000BACD96 /* MapViewController+MapViewMode.swift */; };
 		D91083C41EBC3C0F00BACD96 /* PortalUserFolderType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91083C31EBC3C0F00BACD96 /* PortalUserFolderType.swift */; };
@@ -48,6 +48,7 @@
 		D9822A111EA2EFEE009FA0E5 /* MapViewController+LocationDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9822A101EA2EFEE009FA0E5 /* MapViewController+LocationDisplay.swift */; };
 		D98F78B31E89B9A100E7CBC2 /* AGSAppPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = D98F78B21E89B9A100E7CBC2 /* AGSAppPreferences.swift */; };
 		D98F78B51E89CEEA00E7CBC2 /* UIViewController+Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = D98F78B41E89CEEA00E7CBC2 /* UIViewController+Alerts.swift */; };
+		D9AB70AB1EF2E2DC00123FEA /* Account.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9AB70AA1EF2E2DC00123FEA /* Account.storyboard */; };
 		D9B5074F1EB23399006BA131 /* URL+QueryString.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9B5074E1EB23399006BA131 /* URL+QueryString.swift */; };
 		D9B507511EB23400006BA131 /* AGSPortal+AutoLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9B507501EB23400006BA131 /* AGSPortal+AutoLogin.swift */; };
 		D9B507531EB23C3A006BA131 /* MapsAppDelegate+PortalLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9B507521EB23C3A006BA131 /* MapsAppDelegate+PortalLogin.swift */; };
@@ -89,7 +90,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		D90DF41A1EAE595000EC0960 /* AccountMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountMenuViewController.swift; sourceTree = "<group>"; };
+		D90DF41A1EAE595000EC0960 /* AccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = AccountViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		D91083BF1EBC354800BACD96 /* MapViewController+CurrentItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MapViewController+CurrentItem.swift"; sourceTree = "<group>"; };
 		D91083C11EBC359000BACD96 /* MapViewController+MapViewMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MapViewController+MapViewMode.swift"; sourceTree = "<group>"; };
 		D91083C31EBC3C0F00BACD96 /* PortalUserFolderType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PortalUserFolderType.swift; sourceTree = "<group>"; };
@@ -136,6 +137,7 @@
 		D9822A101EA2EFEE009FA0E5 /* MapViewController+LocationDisplay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MapViewController+LocationDisplay.swift"; sourceTree = "<group>"; };
 		D98F78B21E89B9A100E7CBC2 /* AGSAppPreferences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AGSAppPreferences.swift; sourceTree = "<group>"; };
 		D98F78B41E89CEEA00E7CBC2 /* UIViewController+Alerts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alerts.swift"; sourceTree = "<group>"; };
+		D9AB70AA1EF2E2DC00123FEA /* Account.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Account.storyboard; sourceTree = "<group>"; };
 		D9B5074E1EB23399006BA131 /* URL+QueryString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URL+QueryString.swift"; sourceTree = "<group>"; };
 		D9B507501EB23400006BA131 /* AGSPortal+AutoLogin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AGSPortal+AutoLogin.swift"; sourceTree = "<group>"; };
 		D9B507521EB23C3A006BA131 /* MapsAppDelegate+PortalLogin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MapsAppDelegate+PortalLogin.swift"; sourceTree = "<group>"; };
@@ -196,7 +198,8 @@
 		D90E7DFC1EB8602100EE520E /* Account Menu */ = {
 			isa = PBXGroup;
 			children = (
-				D90DF41A1EAE595000EC0960 /* AccountMenuViewController.swift */,
+				D9AB70AA1EF2E2DC00123FEA /* Account.storyboard */,
+				D90DF41A1EAE595000EC0960 /* AccountViewController.swift */,
 				D9774AF51EBAD56D0099D4A5 /* PortalUserFolder.swift */,
 				D91083C31EBC3C0F00BACD96 /* PortalUserFolderType.swift */,
 				D9BCC5F31EB7CCCB000C0587 /* PortalItemCollectionViewController.swift */,
@@ -550,6 +553,7 @@
 				D928724A1E942CFB00112A53 /* Feedback.xcassets in Resources */,
 				D9430A401EF1D7A2002F6CA1 /* Suggestions.storyboard in Resources */,
 				D9513A341E985D49007B36C8 /* Assets.xcassets in Resources */,
+				D9AB70AB1EF2E2DC00123FEA /* Account.storyboard in Resources */,
 				D96A775A1E8594C000F441D3 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -612,7 +616,7 @@
 				D9CBE3401E8B4F2A00776053 /* GeocodeResultViewController.swift in Sources */,
 				D9822A0B1EA2EA35009FA0E5 /* MapViewController+RoutingResultsDisplay.swift in Sources */,
 				D98F78B51E89CEEA00E7CBC2 /* UIViewController+Alerts.swift in Sources */,
-				D90DF41B1EAE595000EC0960 /* AccountMenuViewController.swift in Sources */,
+				D90DF41B1EAE595000EC0960 /* AccountViewController.swift in Sources */,
 				D9BCC5F21EB7A1BB000C0587 /* MapViewMode+CustomStringConvertible.swift in Sources */,
 				D91083C41EBC3C0F00BACD96 /* PortalUserFolderType.swift in Sources */,
 				D9CBE33D1E8B4F2A00776053 /* RouteResultViewController.swift in Sources */,
