@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D90A07C61EF38C1400A9B253 /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90A07C51EF38C1400A9B253 /* RoundButton.swift */; };
 		D90DF41B1EAE595000EC0960 /* AccountDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90DF41A1EAE595000EC0960 /* AccountDetailsViewController.swift */; };
 		D91083C01EBC354800BACD96 /* MapViewController+CurrentItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91083BF1EBC354800BACD96 /* MapViewController+CurrentItem.swift */; };
 		D91083C21EBC359000BACD96 /* MapViewController+MapViewMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91083C11EBC359000BACD96 /* MapViewController+MapViewMode.swift */; };
@@ -92,6 +93,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D90A07C51EF38C1400A9B253 /* RoundButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
 		D90DF41A1EAE595000EC0960 /* AccountDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = AccountDetailsViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		D91083BF1EBC354800BACD96 /* MapViewController+CurrentItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MapViewController+CurrentItem.swift"; sourceTree = "<group>"; };
 		D91083C11EBC359000BACD96 /* MapViewController+MapViewMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MapViewController+MapViewMode.swift"; sourceTree = "<group>"; };
@@ -210,6 +212,7 @@
 				D91083C31EBC3C0F00BACD96 /* PortalUserFolderType.swift */,
 				D9BCC5F31EB7CCCB000C0587 /* PortalItemCollectionViewController.swift */,
 				D93807741EB83EEB00E03A2F /* PortalItemCollectionCell.swift */,
+				D90A07C51EF38C1400A9B253 /* RoundButton.swift */,
 			);
 			path = "Account Menu";
 			sourceTree = "<group>";
@@ -601,6 +604,7 @@
 				D963879B1EB2547600764D8D /* LoginStatus.swift in Sources */,
 				D9CF2A6F1E9034A80019701F /* MapViewController+RoutingArcGIS.swift in Sources */,
 				D9CF2A731E9045A70019701F /* MapsAppStopProvider.swift in Sources */,
+				D90A07C61EF38C1400A9B253 /* RoundButton.swift in Sources */,
 				D96A77851E86E88600F441D3 /* AGSLicense+CustomStringConvertible.swift in Sources */,
 				D96387A31EB2FBC500764D8D /* MapsAppDelegate+PortalOAuth.swift in Sources */,
 				D9BCC5F01EB7A172000C0587 /* MapViewMode+Equatable.swift in Sources */,

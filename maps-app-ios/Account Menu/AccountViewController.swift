@@ -16,17 +16,17 @@ class AccountViewController: UIViewController {
         super.viewDidLoad()
         
         NotificationCenter.default.addObserver(forName: MapsAppNotifications.Names.AppLogin, object: nil, queue: nil) { notification in
-            self.setLoginUI()
+            self.showAccountPanelForLoginStatus()
         }
         
         NotificationCenter.default.addObserver(forName: MapsAppNotifications.Names.AppLogout, object: nil, queue: nil) { notification in
-            self.setLoginUI()
+            self.showAccountPanelForLoginStatus()
         }
         
-        setLoginUI()
+        showAccountPanelForLoginStatus()
     }
     
-    func setLoginUI() {
+    func showAccountPanelForLoginStatus() {
         switch mapsAppState.loginStatus {
         case .loggedOut:
             loggedOutContainer.isHidden = false

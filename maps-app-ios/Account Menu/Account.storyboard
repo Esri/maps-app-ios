@@ -8,6 +8,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -135,7 +136,7 @@
         <scene sceneID="42h-n1-Y6K">
             <objects>
                 <collectionViewController id="5iM-5T-x6X" customClass="PortalItemCollectionViewController" customModule="maps_app_ios" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="43k-eV-6r4">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="43k-eV-6r4">
                         <rect key="frame" x="0.0" y="0.0" width="343" height="389.5"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -205,16 +206,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xSs-iQ-f4q" userLabel="Logged In Container View">
+                            <containerView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xSs-iQ-f4q" userLabel="Logged In Container View">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <connections>
                                     <segue destination="gYN-bY-eoQ" kind="embed" id="iGb-pJ-egr"/>
                                 </connections>
                             </containerView>
-                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Um7-OB-RNk" userLabel="Logged Out Container View">
+                            <containerView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Um7-OB-RNk" userLabel="Logged Out Container View">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <connections>
                                     <segue destination="lvC-tV-PuD" kind="embed" id="lmd-vS-2B2"/>
                                 </connections>
@@ -229,9 +228,17 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="xSs-iQ-f4q" firstAttribute="top" secondItem="M1X-1J-QhK" secondAttribute="bottom" id="2EX-o1-B8D"/>
+                            <constraint firstItem="xSs-iQ-f4q" firstAttribute="leading" secondItem="57D-QU-6n5" secondAttribute="leading" id="Aty-gL-dtk"/>
+                            <constraint firstItem="ptj-BX-B1N" firstAttribute="top" secondItem="xSs-iQ-f4q" secondAttribute="bottom" id="Ijy-cV-bmK"/>
+                            <constraint firstItem="ptj-BX-B1N" firstAttribute="top" secondItem="Um7-OB-RNk" secondAttribute="bottom" id="KIh-Lz-4xd"/>
                             <constraint firstItem="zpf-0p-pIN" firstAttribute="top" secondItem="M1X-1J-QhK" secondAttribute="bottom" id="MiU-2a-PiO"/>
                             <constraint firstItem="zpf-0p-pIN" firstAttribute="trailing" secondItem="57D-QU-6n5" secondAttribute="trailingMargin" id="NOa-MN-1WX"/>
+                            <constraint firstItem="Um7-OB-RNk" firstAttribute="top" secondItem="M1X-1J-QhK" secondAttribute="bottom" id="YtH-oW-iN1"/>
+                            <constraint firstItem="Um7-OB-RNk" firstAttribute="leading" secondItem="57D-QU-6n5" secondAttribute="leading" id="dbd-df-XPT"/>
                             <constraint firstAttribute="trailingMargin" secondItem="zpf-0p-pIN" secondAttribute="trailing" id="fRe-iz-Xz7"/>
+                            <constraint firstAttribute="trailing" secondItem="xSs-iQ-f4q" secondAttribute="trailing" id="hnS-ln-fEQ"/>
+                            <constraint firstAttribute="trailing" secondItem="Um7-OB-RNk" secondAttribute="trailing" id="rgl-k8-cM2"/>
                         </constraints>
                     </view>
                     <connections>
@@ -255,45 +262,40 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="yQX-8j-08O" userLabel="Logged Out View">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" verticalHuggingPriority="1" verticalCompressionResistancePriority="1" translatesAutoresizingMaskIntoConstraints="NO" id="dMm-fl-FlW">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="308.5"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" priority="250" constant="1" id="7Cd-nO-Udw"/>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" id="m51-lk-lCM"/>
-                                        </constraints>
-                                    </view>
-                                    <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JsC-DV-713">
-                                        <rect key="frame" x="0.0" y="308.5" width="375" height="30"/>
-                                        <state key="normal" title="Log In"/>
-                                        <connections>
-                                            <action selector="logIn:" destination="lvC-tV-PuD" eventType="touchUpInside" id="yG3-kA-T6G"/>
-                                        </connections>
-                                    </button>
-                                    <view contentMode="scaleToFill" verticalHuggingPriority="1" verticalCompressionResistancePriority="1" translatesAutoresizingMaskIntoConstraints="NO" id="eEw-eA-JUJ">
-                                        <rect key="frame" x="0.0" y="338.5" width="375" height="308.5"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" id="SI2-ms-dhW"/>
-                                            <constraint firstAttribute="height" priority="250" constant="1" id="nEp-2w-7G6"/>
-                                        </constraints>
-                                    </view>
-                                </subviews>
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JsC-DV-713" customClass="RoundButton" customModule="maps_app_ios" customModuleProvider="target">
+                                <rect key="frame" x="62" y="149.5" width="251" height="251"/>
+                                <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstItem="dMm-fl-FlW" firstAttribute="height" secondItem="eEw-eA-JUJ" secondAttribute="height" id="pEc-oU-gED"/>
+                                    <constraint firstAttribute="width" secondItem="JsC-DV-713" secondAttribute="height" multiplier="1:1" id="1Gs-L2-oyj"/>
+                                    <constraint firstAttribute="width" priority="999" constant="300" id="wzu-9A-4Jz"/>
                                 </constraints>
-                            </stackView>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <state key="normal" title="Log In">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="logIn:" destination="lvC-tV-PuD" eventType="touchUpInside" id="yG3-kA-T6G"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="yQX-8j-08O" firstAttribute="top" secondItem="kFB-HB-fmT" secondAttribute="top" id="3Oe-9g-m0O"/>
-                            <constraint firstItem="yQX-8j-08O" firstAttribute="leading" secondItem="kFB-HB-fmT" secondAttribute="leading" id="9Kq-Ok-dyP"/>
-                            <constraint firstAttribute="bottom" secondItem="yQX-8j-08O" secondAttribute="bottom" id="FRm-qP-U98"/>
-                            <constraint firstAttribute="trailing" secondItem="yQX-8j-08O" secondAttribute="trailing" id="Fji-CY-Hhq"/>
+                            <constraint firstItem="JsC-DV-713" firstAttribute="centerY" secondItem="kFB-HB-fmT" secondAttribute="centerY" multiplier="0.85" priority="750" id="2b1-AC-Lli"/>
+                            <constraint firstItem="JsC-DV-713" firstAttribute="centerX" secondItem="kFB-HB-fmT" secondAttribute="centerX" id="2yy-dp-iv9"/>
+                            <constraint firstItem="JsC-DV-713" firstAttribute="centerY" secondItem="kFB-HB-fmT" secondAttribute="centerY" id="BSp-dy-nne"/>
+                            <constraint firstItem="JsC-DV-713" firstAttribute="height" relation="lessThanOrEqual" secondItem="kFB-HB-fmT" secondAttribute="height" multiplier="0.67" id="RSb-dB-qhd"/>
+                            <constraint firstItem="JsC-DV-713" firstAttribute="width" relation="lessThanOrEqual" secondItem="kFB-HB-fmT" secondAttribute="width" multiplier="0.67" id="rEM-BK-Y5E"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="BSp-dy-nne"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=compact-widthClass=compact">
+                            <mask key="constraints">
+                                <include reference="BSp-dy-nne"/>
+                            </mask>
+                        </variation>
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
                 </viewController>

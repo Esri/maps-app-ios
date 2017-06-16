@@ -24,6 +24,15 @@ extension MapsAppNotifications {
     }
 }
 
+extension Notification {
+    var loggedInUser:AGSPortalUser? {
+        if let user = self.userInfo?[LoginNotifications.userKey] as? AGSPortalUser {
+            return user
+        }
+        return nil
+    }
+}
+
 fileprivate struct LoginNotifications {
     static let userKey = "user"
 }
