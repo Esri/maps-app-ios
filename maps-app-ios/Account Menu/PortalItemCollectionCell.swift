@@ -15,12 +15,12 @@ class PortalItemCollectionCell: UICollectionViewCell {
     
     var item:AGSPortalItem? {
         didSet {
-            self.thumbnailView.image = #imageLiteral(resourceName: "Loading Item Image")
+            self.thumbnailView.image = #imageLiteral(resourceName: "Loading Thumbnail")
             item?.thumbnail?.load() { error in
                 if let error = error {
                     print("Couldn't get thumb for Portal Item Cell: \(error.localizedDescription)")
                 }
-                self.thumbnailView.image = self.item!.thumbnail?.image ?? #imageLiteral(resourceName: "Default Item Image")
+                self.thumbnailView.image = self.item!.thumbnail?.image ?? #imageLiteral(resourceName: "Default Thumbnail")
             }
             
             itemTitle.text = item?.title ?? "Unknown Item"

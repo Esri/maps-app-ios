@@ -35,6 +35,12 @@ class RoundedButton: UIButton {
         }
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        setRadius()
+    }
+
     private func setRadius() {
         layer.cornerRadius = circular ? self.bounds.width/2 : cornerRadius
         layer.masksToBounds = layer.cornerRadius > 0
