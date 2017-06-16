@@ -2,45 +2,19 @@
 //  AccountViewController.swift
 //  maps-app-ios
 //
-//  Created by Nicholas Furness on 4/24/17.
+//  Created by Nicholas Furness on 6/15/17.
 //  Copyright © 2017 Esri. All rights reserved.
 //
 
-import ArcGIS
 import UIKit
 
 class AccountViewController: UIViewController {
-
-    @IBOutlet weak var loggedInView: UIStackView!
-    @IBOutlet weak var loggedOutView: UIStackView!
-    @IBOutlet weak var userThumbnailView: UIImageView!
-    @IBOutlet weak var fullNameView: UILabel!
-    @IBOutlet weak var folderButton: UIButton!
-    @IBOutlet weak var portalItemsView: UIStackView!
-    
-    var subFolders:[PortalUserFolder] {
-        return mapsAppState.rootFolder?.subFolders ?? []
-    }
-    
-    var contentVC:PortalItemCollectionViewController? {
-        return self.childViewControllers.filter({ $0 is PortalItemCollectionViewController }).first as? PortalItemCollectionViewController
-    }
+    @IBOutlet weak var loggedInContainer: UIView!
+    @IBOutlet weak var loggedOutContainer: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        userThumbnailView.layer.cornerRadius = userThumbnailView.frame.size.width/2
-        userThumbnailView.layer.borderColor = UIColor.darkGray.cgColor
-        userThumbnailView.layer.borderWidth = 3
         
-        setLoginUI()
-        
-        showContent()
-        
-        listenToAppNofications()
-    }
-    
-    private func listenToAppNofications() {
         NotificationCenter.default.addObserver(forName: MapsAppNotifications.Names.AppLogin, object: nil, queue: nil) { notification in
             self.setLoginUI()
         }
@@ -49,92 +23,20 @@ class AccountViewController: UIViewController {
             self.setLoginUI()
         }
         
-        NotificationCenter.default.addObserver(forName: MapsAppNotifications.Names.CurrentFolderChanged, object: nil, queue: nil) { notification in
-            self.showContent()
-        }
+        setLoginUI()
     }
     
-    // MARK: UI Display
-    private func setLoginUI() {
+    func setLoginUI() {
         switch mapsAppState.loginStatus {
         case .loggedOut:
-            loggedInView.isHidden = true
-        case .loggedIn(let loggedInUser):
-            loggedInView.isHidden = false
-            loggedInUser.thumbnail?.load() { _ in
-                self.userThumbnailView.image = loggedInUser.thumbnail?.image ?? #imageLiteral(resourceName: "User")
-            }
-            fullNameView.text = loggedInUser.fullName ?? "Unknown User"
+            loggedOutContainer.isHidden = false
+        case .loggedIn:
+            loggedOutContainer.isHidden = true
         }
-        loggedOutView.isHidden = !loggedInView.isHidden
-        portalItemsView.isHidden = loggedInView.isHidden
-    }
-    
-    private func showContent() {
-        if let folder = mapsAppState.currentFolder {
-            self.folderButton.setTitle(folder.title, for: .normal)
-            folder.load { error in
-                guard error == nil else {
-                    print("Error loading currentFolder content: \(error!.localizedDescription)")
-                    return
-                }
-                
-                self.contentVC?.items = folder.webMaps
-            }
-        } else {
-            self.contentVC?.items = []
-        }
-    }
-    
-    func showFolderPicker() {
-        mapsAppState.rootFolder?.load() { error in
-            let picker = UIAlertController(title: "Select Folder", message: nil, preferredStyle: .actionSheet)
-            
-            defer {
-                self.present(picker, animated: true, completion: nil)
-            }
-            
-            picker.addAction(UIAlertAction(title: "Root Folder", style: .default, handler: { _ in
-                mapsAppState.currentFolder = mapsAppState.rootFolder
-            }))
-            
-            guard error == nil else {
-                picker.addAction(UIAlertAction(title: "Error loading subfolders!", style: .cancel, handler: nil))
-                print("Error loading subfolders: \(error!.localizedDescription)")
-                return
-            }
-            
-            if let subFolders = mapsAppState.rootFolder?.subFolders {
-                for folder in subFolders {
-                    let folderAction = UIAlertAction(title: folder.title, style: .default, handler: { action in
-                        mapsAppState.currentFolder = folder
-                    })
-                    picker.addAction(folderAction)
-                }
-            }
-        }
-    }
-
-    // MARK: UI Actions
-    @IBAction func logIn(_ sender: Any) {
-        mapsApp.logIn(portalURL: nil)
-    }
-    
-    @IBAction func logOut(_ sender: Any) {
-        mapsApp.logOut()
+        loggedInContainer.isHidden = !loggedOutContainer.isHidden
     }
     
     @IBAction func closePanel(_ sender: Any) {
         dismiss(animated: true, completion: nil)
-    }
-    
-    @IBAction func folderNameTapped(_ sender: Any) {
-        showFolderPicker()
-    }
-    
-    // MARK: Exit Segues
-    @IBAction func closeMainMenu(_ segue:UIStoryboardSegue) {
-        // Unwind/Exit segue target
-        self.dismiss(animated: true, completion: nil)
     }
 }

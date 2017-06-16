@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="gYN-bY-eoQ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="pba-cl-zFN">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -11,46 +11,26 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Account View Controller-->
+        <!--Account Details View Controller-->
         <scene sceneID="Emu-ZM-7us">
             <objects>
-                <viewController id="gYN-bY-eoQ" customClass="AccountViewController" customModule="maps_app_ios" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="gYN-bY-eoQ" customClass="AccountDetailsViewController" customModule="maps_app_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="hGz-y6-p1H"/>
                         <viewControllerLayoutGuide type="bottom" id="Vrw-Dh-B8q"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="xyb-Ch-bd9">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="9KD-Zh-fwI">
-                                <rect key="frame" x="16" y="20" width="343" height="631"/>
+                                <rect key="frame" x="16" y="0.0" width="343" height="631"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="N1I-Ju-00q" userLabel="Login Status Stack View">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="631"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="yQX-8j-08O" userLabel="Logged Out View">
-                                                <rect key="frame" x="0.0" y="0.0" width="343" height="31"/>
-                                                <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JsC-DV-713">
-                                                        <rect key="frame" x="0.0" y="0.0" width="343" height="30"/>
-                                                        <state key="normal" title="Log In"/>
-                                                        <connections>
-                                                            <action selector="logIn:" destination="gYN-bY-eoQ" eventType="touchUpInside" id="QGM-pD-cba"/>
-                                                        </connections>
-                                                    </button>
-                                                    <view contentMode="scaleToFill" verticalHuggingPriority="1" verticalCompressionResistancePriority="1" translatesAutoresizingMaskIntoConstraints="NO" id="eEw-eA-JUJ">
-                                                        <rect key="frame" x="0.0" y="30" width="343" height="1"/>
-                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" id="SI2-ms-dhW"/>
-                                                            <constraint firstAttribute="height" priority="250" constant="1" id="nEp-2w-7G6"/>
-                                                        </constraints>
-                                                    </view>
-                                                </subviews>
-                                            </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="yDd-rC-1UC">
-                                                <rect key="frame" x="0.0" y="31" width="343" height="198.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="343" height="198.5"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8kQ-ed-awW">
                                                         <rect key="frame" x="0.0" y="0.0" width="343" height="140"/>
@@ -87,13 +67,13 @@
                                                         <rect key="frame" x="0.0" y="168.5" width="343" height="30"/>
                                                         <state key="normal" title="Log Out"/>
                                                         <connections>
-                                                            <action selector="logOut:" destination="gYN-bY-eoQ" eventType="touchUpInside" id="3Tj-nm-ghW"/>
+                                                            <action selector="logOut:" destination="gYN-bY-eoQ" eventType="touchUpInside" id="a17-Sh-YgI"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="fBe-zd-SHP">
-                                                <rect key="frame" x="0.0" y="229.5" width="343" height="401.5"/>
+                                                <rect key="frame" x="0.0" y="198.5" width="343" height="432.5"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s5K-bn-cRO">
                                                         <rect key="frame" x="0.0" y="0.0" width="343" height="1"/>
@@ -103,7 +83,7 @@
                                                         </constraints>
                                                     </view>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="i15-dl-IeU" userLabel="Content Stack View">
-                                                        <rect key="frame" x="0.0" y="9" width="343" height="392.5"/>
+                                                        <rect key="frame" x="0.0" y="9" width="343" height="423.5"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cHJ-mg-ecj">
                                                                 <rect key="frame" x="0.0" y="0.0" width="343" height="30"/>
@@ -117,7 +97,7 @@
                                                                 </connections>
                                                             </button>
                                                             <containerView opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="Pn2-OA-oDd" userLabel="Portal Items">
-                                                                <rect key="frame" x="0.0" y="34" width="343" height="358.5"/>
+                                                                <rect key="frame" x="0.0" y="34" width="343" height="389.5"/>
                                                                 <connections>
                                                                     <segue destination="5iM-5T-x6X" kind="embed" id="MGn-5b-RiO"/>
                                                                 </connections>
@@ -130,46 +110,33 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zpf-0p-pIN">
-                                <rect key="frame" x="320" y="20" width="39" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="Ukz-oq-Ano"/>
-                                </constraints>
-                                <state key="normal" title="Close"/>
-                                <connections>
-                                    <action selector="closePanel:" destination="gYN-bY-eoQ" eventType="touchUpInside" id="eDG-gj-XCW"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Vrw-Dh-B8q" firstAttribute="top" secondItem="9KD-Zh-fwI" secondAttribute="bottom" constant="16" id="FsW-xi-ma6"/>
                             <constraint firstItem="9KD-Zh-fwI" firstAttribute="leading" secondItem="xyb-Ch-bd9" secondAttribute="leadingMargin" id="jdo-EP-g51"/>
-                            <constraint firstItem="zpf-0p-pIN" firstAttribute="top" secondItem="hGz-y6-p1H" secondAttribute="bottom" id="tSE-ru-Rqg"/>
                             <constraint firstItem="9KD-Zh-fwI" firstAttribute="top" secondItem="hGz-y6-p1H" secondAttribute="bottom" id="wpU-Ah-zko"/>
                             <constraint firstItem="9KD-Zh-fwI" firstAttribute="trailing" secondItem="xyb-Ch-bd9" secondAttribute="trailingMargin" id="zwk-sG-f4w"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="zpf-0p-pIN" secondAttribute="trailing" id="zyF-hD-jHb"/>
                         </constraints>
                     </view>
+                    <nil key="simulatedStatusBarMetrics"/>
                     <connections>
                         <outlet property="folderButton" destination="cHJ-mg-ecj" id="cmL-Kh-6iv"/>
                         <outlet property="fullNameView" destination="1Mf-nP-Q22" id="CIv-hs-Czk"/>
-                        <outlet property="loggedInView" destination="yDd-rC-1UC" id="Ft2-Se-bs5"/>
-                        <outlet property="loggedOutView" destination="yQX-8j-08O" id="8xv-eb-ud6"/>
                         <outlet property="portalItemsView" destination="i15-dl-IeU" id="dQe-fi-3QW"/>
                         <outlet property="userThumbnailView" destination="qK6-R4-x11" id="nWj-PM-IZ6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fIY-DK-Xlf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="999" y="101"/>
+            <point key="canvasLocation" x="1833" y="76"/>
         </scene>
         <!--Portal Item Collection View Controller-->
         <scene sceneID="42h-n1-Y6K">
             <objects>
                 <collectionViewController id="5iM-5T-x6X" customClass="PortalItemCollectionViewController" customModule="maps_app_ios" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="43k-eV-6r4">
-                        <rect key="frame" x="0.0" y="0.0" width="343" height="358.5"/>
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="43k-eV-6r4">
+                        <rect key="frame" x="0.0" y="0.0" width="343" height="389.5"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="rca-D5-5Zk">
@@ -224,7 +191,115 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C7E-Xy-sHt" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="IF7-oR-8zl" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1921" y="100"/>
+            <point key="canvasLocation" x="2788" y="12"/>
+        </scene>
+        <!--Account View Controller-->
+        <scene sceneID="c2s-5q-FEn">
+            <objects>
+                <viewController id="pba-cl-zFN" customClass="AccountViewController" customModule="maps_app_ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="M1X-1J-QhK"/>
+                        <viewControllerLayoutGuide type="bottom" id="ptj-BX-B1N"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="57D-QU-6n5">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xSs-iQ-f4q" userLabel="Logged In Container View">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <connections>
+                                    <segue destination="gYN-bY-eoQ" kind="embed" id="iGb-pJ-egr"/>
+                                </connections>
+                            </containerView>
+                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Um7-OB-RNk" userLabel="Logged Out Container View">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <connections>
+                                    <segue destination="lvC-tV-PuD" kind="embed" id="lmd-vS-2B2"/>
+                                </connections>
+                            </containerView>
+                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zpf-0p-pIN">
+                                <rect key="frame" x="320" y="20" width="39" height="30"/>
+                                <state key="normal" title="Close"/>
+                                <connections>
+                                    <action selector="closePanel:" destination="pba-cl-zFN" eventType="touchUpInside" id="lL0-bh-WJz"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="zpf-0p-pIN" firstAttribute="top" secondItem="M1X-1J-QhK" secondAttribute="bottom" id="MiU-2a-PiO"/>
+                            <constraint firstItem="zpf-0p-pIN" firstAttribute="trailing" secondItem="57D-QU-6n5" secondAttribute="trailingMargin" id="NOa-MN-1WX"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="zpf-0p-pIN" secondAttribute="trailing" id="fRe-iz-Xz7"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="loggedInContainer" destination="xSs-iQ-f4q" id="8yl-Ht-T0Y"/>
+                        <outlet property="loggedOutContainer" destination="Um7-OB-RNk" id="G1N-xB-s3Y"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="w0f-Nq-Pfz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="456.80000000000001" y="434.93253373313348"/>
+        </scene>
+        <!--Account Login View Controller-->
+        <scene sceneID="0Ti-Cg-XAu">
+            <objects>
+                <viewController id="lvC-tV-PuD" customClass="AccountLoginViewController" customModule="maps_app_ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="xcZ-Nx-9g3"/>
+                        <viewControllerLayoutGuide type="bottom" id="RfR-lK-LxE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kFB-HB-fmT">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="yQX-8j-08O" userLabel="Logged Out View">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" verticalHuggingPriority="1" verticalCompressionResistancePriority="1" translatesAutoresizingMaskIntoConstraints="NO" id="dMm-fl-FlW">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="308.5"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" priority="250" constant="1" id="7Cd-nO-Udw"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" id="m51-lk-lCM"/>
+                                        </constraints>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JsC-DV-713">
+                                        <rect key="frame" x="0.0" y="308.5" width="375" height="30"/>
+                                        <state key="normal" title="Log In"/>
+                                        <connections>
+                                            <action selector="logIn:" destination="lvC-tV-PuD" eventType="touchUpInside" id="yG3-kA-T6G"/>
+                                        </connections>
+                                    </button>
+                                    <view contentMode="scaleToFill" verticalHuggingPriority="1" verticalCompressionResistancePriority="1" translatesAutoresizingMaskIntoConstraints="NO" id="eEw-eA-JUJ">
+                                        <rect key="frame" x="0.0" y="338.5" width="375" height="308.5"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" id="SI2-ms-dhW"/>
+                                            <constraint firstAttribute="height" priority="250" constant="1" id="nEp-2w-7G6"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="dMm-fl-FlW" firstAttribute="height" secondItem="eEw-eA-JUJ" secondAttribute="height" id="pEc-oU-gED"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="yQX-8j-08O" firstAttribute="top" secondItem="kFB-HB-fmT" secondAttribute="top" id="3Oe-9g-m0O"/>
+                            <constraint firstItem="yQX-8j-08O" firstAttribute="leading" secondItem="kFB-HB-fmT" secondAttribute="leading" id="9Kq-Ok-dyP"/>
+                            <constraint firstAttribute="bottom" secondItem="yQX-8j-08O" secondAttribute="bottom" id="FRm-qP-U98"/>
+                            <constraint firstAttribute="trailing" secondItem="yQX-8j-08O" secondAttribute="trailing" id="Fji-CY-Hhq"/>
+                        </constraints>
+                    </view>
+                    <nil key="simulatedStatusBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VM7-zc-65d" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1833" y="815"/>
         </scene>
     </scenes>
     <resources>

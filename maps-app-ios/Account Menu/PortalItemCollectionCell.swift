@@ -24,6 +24,8 @@ class PortalItemCollectionCell: UICollectionViewCell {
             }
             
             itemTitle.text = item?.title ?? "Unknown Item"
+            
+            thumbnailView.layer.borderColor = UIColor.darkGray.cgColor
         }
     }
 }
