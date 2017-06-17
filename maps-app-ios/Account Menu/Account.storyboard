@@ -151,7 +151,7 @@
         <scene sceneID="42h-n1-Y6K">
             <objects>
                 <collectionViewController id="5iM-5T-x6X" customClass="PortalItemCollectionViewController" customModule="maps_app_ios" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="43k-eV-6r4">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="43k-eV-6r4">
                         <rect key="frame" x="0.0" y="0.0" width="343" height="390.5"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -291,7 +291,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JsC-DV-713" customClass="RoundedButton" customModule="maps_app_ios" customModuleProvider="target">
-                                <rect key="frame" x="62" y="149" width="251" height="252"/>
+                                <rect key="frame" x="62" y="149.5" width="251" height="251"/>
                                 <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="JsC-DV-713" secondAttribute="height" multiplier="1:1" id="1Gs-L2-oyj"/>
