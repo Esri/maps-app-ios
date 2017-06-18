@@ -44,6 +44,8 @@ extension FeedbackViewController {
         self.transition(from: from, to: to, duration: 0.3, options: .transitionCrossDissolve, animations: nil) { finished in
             from.removeFromParentViewController()
             to.didMove(toParentViewController: self)
+            
+            NotificationCenter.default.post(name: FeedbackViewController.Notifications.Names.FeedbackPanelResizeCompleted, object: self, userInfo: nil)
         }
     }
 }

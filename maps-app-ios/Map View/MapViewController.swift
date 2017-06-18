@@ -27,7 +27,7 @@ class MapViewController: UIViewController {
             MapsAppNotifications.postModeChangeNotification(oldMode: oldValue, newMode: mode)
         }
     }
-
+    
     // MARK: View initialization
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,6 +45,8 @@ class MapViewController: UIViewController {
         setupSearch()
         setupLocationDisplay()
         setupCurrentItemWatcher()
+
+        setupFeedbackPanelWatcher()
 
         mode = .search
     }

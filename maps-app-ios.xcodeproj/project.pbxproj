@@ -140,7 +140,7 @@
 		D9822A0A1EA2EA35009FA0E5 /* MapViewController+RoutingResultsDisplay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MapViewController+RoutingResultsDisplay.swift"; sourceTree = "<group>"; };
 		D9822A0E1EA2EC06009FA0E5 /* MapViewController+SearchResultsDisplay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MapViewController+SearchResultsDisplay.swift"; sourceTree = "<group>"; };
 		D9822A101EA2EFEE009FA0E5 /* MapViewController+LocationDisplay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MapViewController+LocationDisplay.swift"; sourceTree = "<group>"; };
-		D98D92271EF6F5F9001BFF03 /* NorthArrowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NorthArrowView.swift; sourceTree = "<group>"; };
+		D98D92271EF6F5F9001BFF03 /* NorthArrowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NorthArrowView.swift; path = "Map View/NorthArrowView.swift"; sourceTree = "<group>"; };
 		D98F78B21E89B9A100E7CBC2 /* AGSAppPreferences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AGSAppPreferences.swift; sourceTree = "<group>"; };
 		D98F78B41E89CEEA00E7CBC2 /* UIViewController+Alerts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alerts.swift"; sourceTree = "<group>"; };
 		D9A82E0B1EF475940059244A /* Account.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Account.xcassets; sourceTree = "<group>"; };
@@ -203,7 +203,7 @@
 			path = "MapViewController+GPS";
 			sourceTree = "<group>";
 		};
-		D90E7DFC1EB8602100EE520E /* Account Menu */ = {
+		D90E7DFC1EB8602100EE520E /* Account View */ = {
 			isa = PBXGroup;
 			children = (
 				D9AB70AA1EF2E2DC00123FEA /* Account.storyboard */,
@@ -217,6 +217,7 @@
 				D93807741EB83EEB00E03A2F /* PortalItemCollectionCell.swift */,
 				D90A07C51EF38C1400A9B253 /* RoundedButton.swift */,
 			);
+			name = "Account View";
 			path = "Account Menu";
 			sourceTree = "<group>";
 		};
@@ -261,6 +262,7 @@
 			children = (
 				D920A57D1EB6B12D00D565E2 /* MapViewMode */,
 				D96A77561E8594C000F441D3 /* MapViewController.swift */,
+				D91083C11EBC359000BACD96 /* MapViewController+MapViewMode.swift */,
 				D92E2C191E94A39800138F7D /* MapViewController+AppPreferences.swift */,
 				D92E2C1B1E94A4F900138F7D /* MapViewController+Touch.swift */,
 				D9BE57C11E9590F800934D30 /* MapViewController+Routing */,
@@ -268,8 +270,6 @@
 				D90DF4151EAE545900EC0960 /* MapViewController+GPS */,
 				D91083BF1EBC354800BACD96 /* MapViewController+CurrentItem.swift */,
 				D9CBE3541E8C3ACA00776053 /* MapViewController+Feedback.swift */,
-				D91083C11EBC359000BACD96 /* MapViewController+MapViewMode.swift */,
-				D98D92271EF6F5F9001BFF03 /* NorthArrowView.swift */,
 			);
 			path = "Map View";
 			sourceTree = "<group>";
@@ -321,9 +321,10 @@
 				D9513A331E985D49007B36C8 /* Assets.xcassets */,
 				D91083BE1EBC2C8C00BACD96 /* App */,
 				D93381B11E9184FD00A0F93E /* Map View */,
+				D98D92271EF6F5F9001BFF03 /* NorthArrowView.swift */,
 				D9CBE3421E8B4F3200776053 /* Feedback View */,
 				D9430A3E1EF1D73F002F6CA1 /* Suggestions View */,
-				D90E7DFC1EB8602100EE520E /* Account Menu */,
+				D90E7DFC1EB8602100EE520E /* Account View */,
 				D9CF2A6D1E90346A0019701F /* Extensions */,
 				D9CBE34C1E8B752F00776053 /* Resources */,
 			);

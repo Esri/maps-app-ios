@@ -151,7 +151,7 @@
         <scene sceneID="42h-n1-Y6K">
             <objects>
                 <collectionViewController id="5iM-5T-x6X" customClass="PortalItemCollectionViewController" customModule="maps_app_ios" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="43k-eV-6r4">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="43k-eV-6r4">
                         <rect key="frame" x="0.0" y="0.0" width="343" height="390.5"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -248,7 +248,7 @@
                                 </connections>
                             </containerView>
                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zpf-0p-pIN" userLabel="Collapse">
-                                <rect key="frame" x="337" y="20" width="30" height="30"/>
+                                <rect key="frame" x="339" y="20" width="28" height="22"/>
                                 <state key="normal" image="Collapse"/>
                                 <connections>
                                     <action selector="closePanel:" destination="pba-cl-zFN" eventType="touchUpInside" id="lL0-bh-WJz"/>
@@ -261,7 +261,9 @@
                             <constraint firstItem="xSs-iQ-f4q" firstAttribute="leading" secondItem="57D-QU-6n5" secondAttribute="leading" id="Aty-gL-dtk"/>
                             <constraint firstItem="ptj-BX-B1N" firstAttribute="top" secondItem="xSs-iQ-f4q" secondAttribute="bottom" id="Ijy-cV-bmK"/>
                             <constraint firstItem="ptj-BX-B1N" firstAttribute="top" secondItem="Um7-OB-RNk" secondAttribute="bottom" id="KIh-Lz-4xd"/>
-                            <constraint firstItem="zpf-0p-pIN" firstAttribute="top" secondItem="M1X-1J-QhK" secondAttribute="bottom" id="MiU-2a-PiO"/>
+                            <constraint firstItem="zpf-0p-pIN" firstAttribute="top" secondItem="M1X-1J-QhK" secondAttribute="bottom" id="MiU-2a-PiO">
+                                <variation key="heightClass=compact" constant="8"/>
+                            </constraint>
                             <constraint firstItem="Um7-OB-RNk" firstAttribute="top" secondItem="M1X-1J-QhK" secondAttribute="bottom" id="YtH-oW-iN1"/>
                             <constraint firstAttribute="trailing" secondItem="zpf-0p-pIN" secondAttribute="trailing" constant="8" id="cM9-2F-CYA"/>
                             <constraint firstItem="Um7-OB-RNk" firstAttribute="leading" secondItem="57D-QU-6n5" secondAttribute="leading" id="dbd-df-XPT"/>
@@ -342,8 +344,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Collapse" width="30" height="30"/>
+        <image name="Collapse" width="28" height="14"/>
         <image name="Default Thumbnail" width="200" height="133"/>
-        <image name="Folder" width="30" height="30"/>
+        <image name="Folder" width="28" height="24"/>
     </resources>
 </document>

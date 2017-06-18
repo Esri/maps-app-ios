@@ -12,6 +12,12 @@ import ArcGIS
 typealias FeedbackMode = MapViewMode
 
 class FeedbackViewController : UIViewController {
+    
+    struct Notifications {
+        struct Names {
+            static let FeedbackPanelResizeCompleted = Notification.Name("FeedbackPanelUpdated")
+        }
+    }
 
     @IBOutlet weak var containerView: UIVisualEffectView!
     
@@ -58,7 +64,7 @@ class FeedbackViewController : UIViewController {
             }
         }
     }
-
+    
     @IBAction func returnToSearch(_ segue:UIStoryboardSegue) {
         self.mode = .search
     }

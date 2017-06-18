@@ -6,6 +6,8 @@
 //  Copyright © 2017 Esri. All rights reserved.
 //
 
+import UIKit
+
 extension MapViewController {
     func updateMapViewForMode() {
         // Update the map
@@ -25,6 +27,10 @@ extension MapViewController {
             geocodeResultsOverlay.graphics.removeAllObjects()
         }
         
+        updateMapViewExtentForMode()
+    }
+    
+    func updateMapViewExtentForMode() {
         if let targetExtent = mode.extent {
             mapView.setViewpointGeometry(targetExtent)
         }
