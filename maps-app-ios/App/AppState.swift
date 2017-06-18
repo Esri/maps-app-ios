@@ -93,7 +93,7 @@ class AppState {
         }
     }
 
-    func updateServices(forPortal portal:AGSPortal) {
+    private func updateServices(forPortal portal:AGSPortal) {
         portal.load { error in
             guard error == nil else {
                 print("Error loading the portal: \(error!.localizedDescription)")

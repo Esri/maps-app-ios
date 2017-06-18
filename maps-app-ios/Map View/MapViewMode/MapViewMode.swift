@@ -8,9 +8,22 @@
 
 import ArcGIS
 
-enum MapViewMode  {
+enum MapViewMode: CustomStringConvertible {
     case none
     case search
     case routeResult(AGSRoute)
     case geocodeResult(AGSGeocodeResult)
+    
+    var description: String {
+        switch self {
+        case .none:
+            return "none"
+        case .search:
+            return "Search"
+        case .routeResult:
+            return "RouteResult"
+        case .geocodeResult:
+            return "GeocodeResult"
+        }
+    }
 }

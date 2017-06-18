@@ -53,7 +53,6 @@
 		D9AB70AB1EF2E2DC00123FEA /* Account.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9AB70AA1EF2E2DC00123FEA /* Account.storyboard */; };
 		D9AB70AD1EF359F300123FEA /* AccountLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9AB70AC1EF359F300123FEA /* AccountLoginViewController.swift */; };
 		D9AB70AF1EF35C3300123FEA /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9AB70AE1EF35C3300123FEA /* AccountViewController.swift */; };
-		D9AB70B11EF3880F00123FEA /* MapViewMode+CustomStringConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9AB70B01EF3880F00123FEA /* MapViewMode+CustomStringConvertible.swift */; };
 		D9B5074F1EB23399006BA131 /* URL+QueryString.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9B5074E1EB23399006BA131 /* URL+QueryString.swift */; };
 		D9B507511EB23400006BA131 /* AGSPortal+AutoLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9B507501EB23400006BA131 /* AGSPortal+AutoLogin.swift */; };
 		D9B507531EB23C3A006BA131 /* MapsAppDelegate+PortalLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9B507521EB23C3A006BA131 /* MapsAppDelegate+PortalLogin.swift */; };
@@ -146,7 +145,6 @@
 		D9AB70AA1EF2E2DC00123FEA /* Account.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Account.storyboard; sourceTree = "<group>"; };
 		D9AB70AC1EF359F300123FEA /* AccountLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountLoginViewController.swift; sourceTree = "<group>"; };
 		D9AB70AE1EF35C3300123FEA /* AccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
-		D9AB70B01EF3880F00123FEA /* MapViewMode+CustomStringConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MapViewMode+CustomStringConvertible.swift"; sourceTree = "<group>"; };
 		D9B5074E1EB23399006BA131 /* URL+QueryString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URL+QueryString.swift"; sourceTree = "<group>"; };
 		D9B507501EB23400006BA131 /* AGSPortal+AutoLogin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AGSPortal+AutoLogin.swift"; sourceTree = "<group>"; };
 		D9B507521EB23C3A006BA131 /* MapsAppDelegate+PortalLogin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MapsAppDelegate+PortalLogin.swift"; sourceTree = "<group>"; };
@@ -237,7 +235,6 @@
 			isa = PBXGroup;
 			children = (
 				D9D1F12F1E8E1016007BE50D /* MapViewMode.swift */,
-				D9AB70B01EF3880F00123FEA /* MapViewMode+CustomStringConvertible.swift */,
 				D928724B1E944BC700112A53 /* MapViewMode+ResultsDisplay.swift */,
 				D9BCC5EF1EB7A172000C0587 /* MapViewMode+Equatable.swift */,
 				D920A57B1EB6B10600D565E2 /* MapViewModeNotifications.swift */,
@@ -647,7 +644,6 @@
 				D9B507511EB23400006BA131 /* AGSPortal+AutoLogin.swift in Sources */,
 				D9CF2A711E9041EA0019701F /* RouteNotifications.swift in Sources */,
 				D920A57A1EB6AC7000D565E2 /* MapsAppNotifications.swift in Sources */,
-				D9AB70B11EF3880F00123FEA /* MapViewMode+CustomStringConvertible.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
