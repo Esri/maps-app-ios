@@ -13,16 +13,15 @@ extension MapsAppDelegate {
     func handlePortalAuthOpenURL(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
         // Handle OAuth callback
         if let urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: false),
-            urlComponents.scheme == AppSettings.appSchema,
-            urlComponents.host == AppSettings.authURLPath {
-            let sourceApp = options[.sourceApplication] as? String
-            let annotation = options[.annotation]
-            AGSApplicationDelegate.shared().application(app, open: url, sourceApplication: sourceApp, annotation: annotation)
+            urlComponents.scheme == AppSettings.appSchema, urlComponents.host == AppSettings.authURLPath {
+            
+            AGSApplicationDelegate.shared().application(app, open: url, options: options)
             
             if let _ = urlComponents.queryParameter(named: "code") {
                 // If we were authenticated, there should now be a shared credential to use. Let's try it.
                 logInCurrentPortalIfPossible()
             }
+            
         }
         return true
     }
