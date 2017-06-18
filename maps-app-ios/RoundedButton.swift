@@ -46,35 +46,3 @@ public class RoundedButton: UIButton {
         layer.masksToBounds = layer.cornerRadius > 0
     }
 }
-
-@IBDesignable
-public class RoundedImageView: UIImageView {
-    @IBInspectable var cornerRadius:CGFloat = 0.0 {
-        didSet {
-            setRadius()
-        }
-    }
-    
-    @IBInspectable var borderWidth: CGFloat = 0.0 {
-        didSet {
-            layer.borderWidth = borderWidth
-        }
-    }
-    
-    @IBInspectable var borderColor: UIColor? {
-        didSet {
-            layer.borderColor = borderColor?.cgColor
-        }
-    }
-    
-    @IBInspectable var circular: Bool = false {
-        didSet {
-            setRadius()
-        }
-    }
-    
-    private func setRadius() {
-        layer.cornerRadius = circular ? self.bounds.width/2 : cornerRadius
-        layer.masksToBounds = layer.cornerRadius > 0
-    }
-}

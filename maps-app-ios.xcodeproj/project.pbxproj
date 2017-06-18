@@ -43,6 +43,7 @@
 		D96A77751E8594C000F441D3 /* maps_app_iosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96A77741E8594C000F441D3 /* maps_app_iosUITests.swift */; };
 		D96A77831E8598DF00F441D3 /* ArcGIS.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D96A77821E8598DF00F441D3 /* ArcGIS.bundle */; };
 		D96A77851E86E88600F441D3 /* AGSLicense+CustomStringConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96A77841E86E88600F441D3 /* AGSLicense+CustomStringConvertible.swift */; };
+		D96B73C11EF73760004B6862 /* RoundedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96B73C01EF73760004B6862 /* RoundedImageView.swift */; };
 		D9774AF61EBAD56D0099D4A5 /* PortalUserFolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9774AF51EBAD56D0099D4A5 /* PortalUserFolder.swift */; };
 		D9822A0B1EA2EA35009FA0E5 /* MapViewController+RoutingResultsDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9822A0A1EA2EA35009FA0E5 /* MapViewController+RoutingResultsDisplay.swift */; };
 		D9822A0F1EA2EC06009FA0E5 /* MapViewController+SearchResultsDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9822A0E1EA2EC06009FA0E5 /* MapViewController+SearchResultsDisplay.swift */; };
@@ -136,11 +137,12 @@
 		D96A77761E8594C000F441D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D96A77821E8598DF00F441D3 /* ArcGIS.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = ArcGIS.bundle; path = "$(HOME)/Library/SDKs/ArcGIS/iOS/Frameworks/Static/ArcGIS.framework/Versions/Current/Resources/ArcGIS.bundle"; sourceTree = "<group>"; };
 		D96A77841E86E88600F441D3 /* AGSLicense+CustomStringConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AGSLicense+CustomStringConvertible.swift"; sourceTree = "<group>"; };
+		D96B73C01EF73760004B6862 /* RoundedImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedImageView.swift; sourceTree = "<group>"; };
 		D9774AF51EBAD56D0099D4A5 /* PortalUserFolder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PortalUserFolder.swift; sourceTree = "<group>"; };
 		D9822A0A1EA2EA35009FA0E5 /* MapViewController+RoutingResultsDisplay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MapViewController+RoutingResultsDisplay.swift"; sourceTree = "<group>"; };
 		D9822A0E1EA2EC06009FA0E5 /* MapViewController+SearchResultsDisplay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MapViewController+SearchResultsDisplay.swift"; sourceTree = "<group>"; };
 		D9822A101EA2EFEE009FA0E5 /* MapViewController+LocationDisplay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MapViewController+LocationDisplay.swift"; sourceTree = "<group>"; };
-		D98D92271EF6F5F9001BFF03 /* NorthArrowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NorthArrowView.swift; path = "Map View/NorthArrowView.swift"; sourceTree = "<group>"; };
+		D98D92271EF6F5F9001BFF03 /* NorthArrowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NorthArrowView.swift; sourceTree = "<group>"; };
 		D98F78B21E89B9A100E7CBC2 /* AGSAppPreferences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AGSAppPreferences.swift; sourceTree = "<group>"; };
 		D98F78B41E89CEEA00E7CBC2 /* UIViewController+Alerts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alerts.swift"; sourceTree = "<group>"; };
 		D9A82E0B1EF475940059244A /* Account.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Account.xcassets; sourceTree = "<group>"; };
@@ -215,10 +217,8 @@
 				D91083C31EBC3C0F00BACD96 /* PortalUserFolderType.swift */,
 				D9BCC5F31EB7CCCB000C0587 /* PortalItemCollectionViewController.swift */,
 				D93807741EB83EEB00E03A2F /* PortalItemCollectionCell.swift */,
-				D90A07C51EF38C1400A9B253 /* RoundedButton.swift */,
 			);
-			name = "Account View";
-			path = "Account Menu";
+			path = "Account View";
 			sourceTree = "<group>";
 		};
 		D91083BE1EBC2C8C00BACD96 /* App */ = {
@@ -325,6 +325,8 @@
 				D9CBE3421E8B4F3200776053 /* Feedback View */,
 				D9430A3E1EF1D73F002F6CA1 /* Suggestions View */,
 				D90E7DFC1EB8602100EE520E /* Account View */,
+				D90A07C51EF38C1400A9B253 /* RoundedButton.swift */,
+				D96B73C01EF73760004B6862 /* RoundedImageView.swift */,
 				D9CF2A6D1E90346A0019701F /* Extensions */,
 				D9CBE34C1E8B752F00776053 /* Resources */,
 			);
@@ -607,6 +609,7 @@
 				D920A57F1EB6B21500D565E2 /* FeedbackViewController+Segues.swift in Sources */,
 				D96A77571E8594C000F441D3 /* MapViewController.swift in Sources */,
 				D963879B1EB2547600764D8D /* LoginStatus.swift in Sources */,
+				D96B73C11EF73760004B6862 /* RoundedImageView.swift in Sources */,
 				D9CF2A6F1E9034A80019701F /* MapViewController+RoutingArcGIS.swift in Sources */,
 				D98D92281EF6F5F9001BFF03 /* NorthArrowView.swift in Sources */,
 				D9CF2A731E9045A70019701F /* MapsAppStopProvider.swift in Sources */,
