@@ -15,15 +15,9 @@ class AccountViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        NotificationCenter.default.addObserver(forName: MapsAppNotifications.Names.AppLogin, object: nil, queue: nil) { notification in
-            self.showAccountPanelForLoginStatus()
-        }
-        
-        NotificationCenter.default.addObserver(forName: MapsAppNotifications.Names.AppLogout, object: nil, queue: nil) { notification in
-            self.showAccountPanelForLoginStatus()
-        }
-        
         showAccountPanelForLoginStatus()
+        
+        setupLoginNotificationHandlers()
     }
     
     func showAccountPanelForLoginStatus() {
@@ -34,6 +28,16 @@ class AccountViewController: UIViewController {
             loggedOutContainer.isHidden = true
         }
         loggedInContainer.isHidden = !loggedOutContainer.isHidden
+    }
+    
+    func setupLoginNotificationHandlers() {
+        NotificationCenter.default.addObserver(forName: MapsAppNotifications.Names.AppLogin, object: nil, queue: nil) { notification in
+            self.showAccountPanelForLoginStatus()
+        }
+        
+        NotificationCenter.default.addObserver(forName: MapsAppNotifications.Names.AppLogout, object: nil, queue: nil) { notification in
+            self.showAccountPanelForLoginStatus()
+        }
     }
     
     @IBAction func closePanel(_ sender: Any) {
