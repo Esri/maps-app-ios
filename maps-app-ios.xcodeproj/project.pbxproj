@@ -47,6 +47,7 @@
 		D9822A0B1EA2EA35009FA0E5 /* MapViewController+RoutingResultsDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9822A0A1EA2EA35009FA0E5 /* MapViewController+RoutingResultsDisplay.swift */; };
 		D9822A0F1EA2EC06009FA0E5 /* MapViewController+SearchResultsDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9822A0E1EA2EC06009FA0E5 /* MapViewController+SearchResultsDisplay.swift */; };
 		D9822A111EA2EFEE009FA0E5 /* MapViewController+LocationDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9822A101EA2EFEE009FA0E5 /* MapViewController+LocationDisplay.swift */; };
+		D98D92281EF6F5F9001BFF03 /* NorthArrowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D98D92271EF6F5F9001BFF03 /* NorthArrowView.swift */; };
 		D98F78B31E89B9A100E7CBC2 /* AGSAppPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = D98F78B21E89B9A100E7CBC2 /* AGSAppPreferences.swift */; };
 		D98F78B51E89CEEA00E7CBC2 /* UIViewController+Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = D98F78B41E89CEEA00E7CBC2 /* UIViewController+Alerts.swift */; };
 		D9A82E0C1EF475940059244A /* Account.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D9A82E0B1EF475940059244A /* Account.xcassets */; };
@@ -139,6 +140,7 @@
 		D9822A0A1EA2EA35009FA0E5 /* MapViewController+RoutingResultsDisplay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MapViewController+RoutingResultsDisplay.swift"; sourceTree = "<group>"; };
 		D9822A0E1EA2EC06009FA0E5 /* MapViewController+SearchResultsDisplay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MapViewController+SearchResultsDisplay.swift"; sourceTree = "<group>"; };
 		D9822A101EA2EFEE009FA0E5 /* MapViewController+LocationDisplay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MapViewController+LocationDisplay.swift"; sourceTree = "<group>"; };
+		D98D92271EF6F5F9001BFF03 /* NorthArrowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NorthArrowView.swift; sourceTree = "<group>"; };
 		D98F78B21E89B9A100E7CBC2 /* AGSAppPreferences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AGSAppPreferences.swift; sourceTree = "<group>"; };
 		D98F78B41E89CEEA00E7CBC2 /* UIViewController+Alerts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alerts.swift"; sourceTree = "<group>"; };
 		D9A82E0B1EF475940059244A /* Account.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Account.xcassets; sourceTree = "<group>"; };
@@ -267,6 +269,7 @@
 				D91083BF1EBC354800BACD96 /* MapViewController+CurrentItem.swift */,
 				D9CBE3541E8C3ACA00776053 /* MapViewController+Feedback.swift */,
 				D91083C11EBC359000BACD96 /* MapViewController+MapViewMode.swift */,
+				D98D92271EF6F5F9001BFF03 /* NorthArrowView.swift */,
 			);
 			path = "Map View";
 			sourceTree = "<group>";
@@ -604,6 +607,7 @@
 				D96A77571E8594C000F441D3 /* MapViewController.swift in Sources */,
 				D963879B1EB2547600764D8D /* LoginStatus.swift in Sources */,
 				D9CF2A6F1E9034A80019701F /* MapViewController+RoutingArcGIS.swift in Sources */,
+				D98D92281EF6F5F9001BFF03 /* NorthArrowView.swift in Sources */,
 				D9CF2A731E9045A70019701F /* MapsAppStopProvider.swift in Sources */,
 				D90A07C61EF38C1400A9B253 /* RoundedButton.swift in Sources */,
 				D96A77851E86E88600F441D3 /* AGSLicense+CustomStringConvertible.swift in Sources */,

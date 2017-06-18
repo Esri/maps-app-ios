@@ -9,7 +9,7 @@
 import UIKit
 
 @IBDesignable
-class RoundedButton: UIButton {
+public class RoundedButton: UIButton {
     
     @IBInspectable var cornerRadius:CGFloat = 0.0 {
         didSet {
@@ -35,7 +35,7 @@ class RoundedButton: UIButton {
         }
     }
     
-    override func layoutSubviews() {
+    override public func layoutSubviews() {
         super.layoutSubviews()
         
         setRadius()
@@ -48,7 +48,7 @@ class RoundedButton: UIButton {
 }
 
 @IBDesignable
-class RoundedImageView: UIImageView {
+public class RoundedImageView: UIImageView {
     @IBInspectable var cornerRadius:CGFloat = 0.0 {
         didSet {
             setRadius()

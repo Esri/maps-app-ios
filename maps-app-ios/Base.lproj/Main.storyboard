@@ -27,6 +27,21 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Compass" translatesAutoresizingMaskIntoConstraints="NO" id="Xte-Zv-XAA" customClass="NorthArrowView" customModule="maps_app_ios" customModuleProvider="target">
+                                <rect key="frame" x="319" y="82" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Xte-Zv-XAA" secondAttribute="height" multiplier="1:1" id="6mA-nX-ayE"/>
+                                    <constraint firstAttribute="width" constant="40" id="zqg-fo-etC"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="circular" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autoHide" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="tapForNorth" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outlet property="mapView" destination="kZk-QH-kwl" id="mB2-Ob-HyU"/>
+                                </connections>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ay3-0t-kAq">
                                 <rect key="frame" x="16" y="603" width="39" height="30"/>
                                 <state key="normal" title="Menu"/>
@@ -70,9 +85,9 @@
                                 </connections>
                             </containerView>
                             <containerView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e5m-If-kPv" userLabel="Suggestions Container">
-                                <rect key="frame" x="16" y="82" width="343" height="128"/>
+                                <rect key="frame" x="16" y="82" width="293" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" priority="900" constant="128" id="TZX-JI-HVT"/>
+                                    <constraint firstAttribute="height" priority="900" constant="50" id="TZX-JI-HVT"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="10"/>
@@ -90,13 +105,16 @@
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="kZk-QH-kwl" secondAttribute="bottom" id="FnR-ek-eyI"/>
                             <constraint firstItem="Ay3-0t-kAq" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Jh7-qd-lCY"/>
                             <constraint firstItem="jZt-eF-xnL" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="QGO-wx-t0Y"/>
-                            <constraint firstItem="e5m-If-kPv" firstAttribute="trailing" secondItem="jZt-eF-xnL" secondAttribute="trailing" id="QX2-PD-Kee"/>
+                            <constraint firstItem="e5m-If-kPv" firstAttribute="trailing" secondItem="jZt-eF-xnL" secondAttribute="trailing" priority="999" id="QX2-PD-Kee"/>
+                            <constraint firstItem="Xte-Zv-XAA" firstAttribute="leading" secondItem="e5m-If-kPv" secondAttribute="trailing" constant="10" placeholder="YES" id="RJL-Jb-4yY"/>
                             <constraint firstItem="e5m-If-kPv" firstAttribute="leading" secondItem="jZt-eF-xnL" secondAttribute="leading" id="Sbg-F4-Dts"/>
+                            <constraint firstItem="Xte-Zv-XAA" firstAttribute="trailing" secondItem="LC1-IV-Vga" secondAttribute="trailing" id="SgL-2b-HYA"/>
                             <constraint firstAttribute="trailing" secondItem="kZk-QH-kwl" secondAttribute="trailing" id="bc5-BF-E1k"/>
                             <constraint firstItem="kZk-QH-kwl" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="e7s-tx-n9a"/>
                             <constraint firstItem="jZt-eF-xnL" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="ea9-Ua-hqY"/>
                             <constraint firstItem="e5m-If-kPv" firstAttribute="top" secondItem="jZt-eF-xnL" secondAttribute="bottom" constant="10" id="hfu-iD-qQx"/>
                             <constraint firstItem="kZk-QH-kwl" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="j4Q-jV-uwX"/>
+                            <constraint firstItem="Xte-Zv-XAA" firstAttribute="top" secondItem="jZt-eF-xnL" secondAttribute="bottom" constant="10" id="uID-Bs-Kig"/>
                             <constraint firstItem="Ay3-0t-kAq" firstAttribute="centerY" secondItem="LC1-IV-Vga" secondAttribute="centerY" id="wZQ-cg-WYg"/>
                         </constraints>
                     </view>
@@ -135,6 +153,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Compass" width="36" height="36"/>
         <image name="GPS Off" width="22" height="22"/>
     </resources>
 </document>
