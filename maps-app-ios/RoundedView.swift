@@ -1,15 +1,15 @@
 //
-//  RoundedButton.swift
+//  RoundedView.swift
 //  maps-app-ios
 //
-//  Created by Nicholas Furness on 6/15/17.
+//  Created by Nicholas Furness on 6/18/17.
 //  Copyright © 2017 Esri. All rights reserved.
 //
 
 import UIKit
 
 @IBDesignable
-public class RoundedButton: UIButton {
+public class RoundedView: UIView {
     @IBInspectable var cornerRadius:CGFloat = 0.0 {
         didSet {
             setRadius()
@@ -34,12 +34,6 @@ public class RoundedButton: UIButton {
         }
     }
     
-    override public func layoutSubviews() {
-        super.layoutSubviews()
-        
-        setRadius()
-    }
-
     private func setRadius() {
         layer.cornerRadius = circular ? self.bounds.width/2 : cornerRadius
         layer.masksToBounds = layer.cornerRadius > 0

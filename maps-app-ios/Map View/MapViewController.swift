@@ -44,13 +44,16 @@ class MapViewController: UIViewController {
         setupRouting()
         setupSearch()
         setupLocationDisplay()
+        
         setupCurrentItemWatcher()
 
         setupFeedbackPanelWatcher()
+        
+        setupBasemapChangeListener()
 
         mode = .search
     }
-    
+
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         observeValueForPreferences(forKeyPath: keyPath, of: object, change: change, context: context)
     }

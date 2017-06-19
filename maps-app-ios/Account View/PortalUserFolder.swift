@@ -35,10 +35,10 @@ class PortalUserFolder: AGSLoadableBase {
     
     // MARK: AGSLoadable
     override func doStartLoading(_ retrying: Bool) {
-        loadFromPortal()
+        loadItemsFromPortal()
     }
     
-    private func loadFromPortal() {
+    private func loadItemsFromPortal() {
         switch self.containerType {
         case .rootFolder:
             user.fetchContent() { items, folders, error in

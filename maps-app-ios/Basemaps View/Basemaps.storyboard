@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="VGr-pc-EfB">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Basemaps Display View Controller-->
+        <scene sceneID="BQY-Sj-ntN">
+            <objects>
+                <viewController id="VGr-pc-EfB" customClass="BasemapsDisplayViewController" customModule="maps_app_ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="kTg-s4-seS"/>
+                        <viewControllerLayoutGuide type="bottom" id="c9X-qK-bV3"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Q5q-6j-DDd">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="H1y-Ew-OVU">
+                                <rect key="frame" x="0.0" y="8" width="375" height="651"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="Select a basemap" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ON4-fJ-ZPK">
+                                        <rect key="frame" x="119.5" y="0.0" width="136.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="V5a-ri-Wth">
+                                        <rect key="frame" x="0.0" y="28.5" width="375" height="584.5"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="2" id="HoP-Ir-i6o">
+                                            <size key="itemSize" width="156" height="118"/>
+                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        </collectionViewFlowLayout>
+                                        <cells>
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="BasemapItem" id="3Ro-uo-dvn" customClass="BasemapCollectionCell" customModule="maps_app_ios" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="156" height="118"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                                    <rect key="frame" x="0.0" y="0.0" width="156" height="118"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Default Thumbnail" translatesAutoresizingMaskIntoConstraints="NO" id="GpM-r4-gT2" customClass="RoundedImageView" customModule="maps_app_ios" customModuleProvider="target">
+                                                            <rect key="frame" x="18" y="0.0" width="120" height="79.5"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="120" id="Kr3-eC-Bkv"/>
+                                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="110" id="gvF-4B-GWV"/>
+                                                                <constraint firstAttribute="width" secondItem="GpM-r4-gT2" secondAttribute="height" multiplier="200:133" id="lh7-jW-Dix"/>
+                                                            </constraints>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                    <real key="value" value="8"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                    <color key="value" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                                    <real key="value" value="2"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
+                                                        </imageView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" text="Item Name" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pyx-dG-o8Y">
+                                                            <rect key="frame" x="18.5" y="83.5" width="120" height="14.5"/>
+                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </view>
+                                                <gestureRecognizers/>
+                                                <constraints>
+                                                    <constraint firstItem="pyx-dG-o8Y" firstAttribute="centerX" secondItem="GpM-r4-gT2" secondAttribute="centerX" id="Od4-7P-aJR"/>
+                                                    <constraint firstItem="pyx-dG-o8Y" firstAttribute="width" secondItem="GpM-r4-gT2" secondAttribute="width" id="Scj-DQ-4iO"/>
+                                                    <constraint firstItem="GpM-r4-gT2" firstAttribute="top" secondItem="3Ro-uo-dvn" secondAttribute="top" id="blE-IH-agQ"/>
+                                                    <constraint firstItem="GpM-r4-gT2" firstAttribute="centerX" secondItem="3Ro-uo-dvn" secondAttribute="centerX" id="lcc-Bh-EQd"/>
+                                                    <constraint firstItem="pyx-dG-o8Y" firstAttribute="top" secondItem="GpM-r4-gT2" secondAttribute="bottom" constant="4" id="ns0-Jh-mYz"/>
+                                                    <constraint firstAttribute="bottom" relation="lessThanOrEqual" secondItem="pyx-dG-o8Y" secondAttribute="bottom" priority="750" constant="4" id="zNv-mu-W3U"/>
+                                                </constraints>
+                                                <connections>
+                                                    <outlet property="itemTitle" destination="pyx-dG-o8Y" id="7jT-IA-ccx"/>
+                                                    <outlet property="thumbnailView" destination="GpM-r4-gT2" id="LdA-gP-kVi"/>
+                                                    <segue destination="EHa-1y-H7X" kind="unwind" unwindAction="selectBasemap:" id="Kjo-dC-dcY"/>
+                                                </connections>
+                                            </collectionViewCell>
+                                        </cells>
+                                        <connections>
+                                            <outlet property="dataSource" destination="VGr-pc-EfB" id="TiA-Ov-F9F"/>
+                                            <outlet property="delegate" destination="VGr-pc-EfB" id="hLj-WI-K4O"/>
+                                        </connections>
+                                    </collectionView>
+                                    <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LPa-HT-Txx">
+                                        <rect key="frame" x="163.5" y="621" width="48" height="30"/>
+                                        <state key="normal" title="Cancel"/>
+                                        <connections>
+                                            <action selector="cancelBasemapPicker:" destination="VGr-pc-EfB" eventType="touchUpInside" id="ouN-Yp-F1p"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="c9X-qK-bV3" firstAttribute="top" secondItem="H1y-Ew-OVU" secondAttribute="bottom" constant="8" id="H8S-wZ-ozn"/>
+                            <constraint firstItem="V5a-ri-Wth" firstAttribute="width" secondItem="Q5q-6j-DDd" secondAttribute="width" id="c7f-Fi-htW"/>
+                            <constraint firstAttribute="trailing" secondItem="H1y-Ew-OVU" secondAttribute="trailing" id="f4n-XR-qNV"/>
+                            <constraint firstItem="H1y-Ew-OVU" firstAttribute="leading" secondItem="Q5q-6j-DDd" secondAttribute="leading" id="kCY-JW-8jQ"/>
+                            <constraint firstItem="H1y-Ew-OVU" firstAttribute="top" secondItem="kTg-s4-seS" secondAttribute="bottom" constant="8" id="qnF-3B-phv"/>
+                        </constraints>
+                    </view>
+                    <nil key="simulatedStatusBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jAI-E8-Ce7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="EHa-1y-H7X" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="120.8" y="139.880059970015"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Default Thumbnail" width="200" height="133"/>
+    </resources>
+</document>

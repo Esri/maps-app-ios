@@ -11,6 +11,8 @@ import ArcGIS
 class AppState {
     var locator = AGSLocatorTask(url: AppSettings.worldGeocoderURL)
     var routeTask = AGSRouteTask(url: AppSettings.worldRoutingServiceURL)
+    
+    var basemaps:[AGSPortalItem] = []
     var defaultRouteParameters: AGSRouteParameters?
     
     var currentPortal:AGSPortal? {
@@ -27,6 +29,7 @@ class AppState {
                 
                 print("Portal updated")
                 
+                // Now load the portal so we can get some portal-specific information from it.
                 portal.load() { error in
                     guard error == nil else {
                         print("Error loading the portal: \(error!.localizedDescription)")
@@ -109,6 +112,59 @@ class AppState {
                     self.routeTask = AGSRouteTask(url: routeTaskURL)
                 }
             }
+            
+            self.loadBasemaps(portal:portal)
         }
     }
+
+    private func loadBasemaps(portal:AGSPortal) {
+        if let basemapGroupQuery = portal.portalInfo?.basemapGalleryGroupQuery {
+            let params = AGSPortalQueryParameters(query: basemapGroupQuery)
+            portal.findGroups(with: params, completion: { results, error in
+                guard error == nil else {
+                    print("Unable to get Basemaps Group! \(error!.localizedDescription)")
+                    return
+                }
+                
+                guard let results = results else {
+                    print("No error, but also no Basemap Group query results!")
+                    return
+                }
+                
+                self.basemaps = []
+                
+                if let basemapGroup = results.results?.first as? AGSPortalGroup, let groupID = basemapGroup.groupID {
+                    let groupParams = AGSPortalQueryParameters(forItemsInGroup: groupID)
+                    self.getNextPageOfBasemaps(portal: portal, params: groupParams)
+                }
+            })
+        }
+    }
+    
+    private func getNextPageOfBasemaps(portal:AGSPortal, params: AGSPortalQueryParameters) {
+        print("Getting another page of basemaps")
+        portal.findItems(with: params, completion: { groupQueryResults, error in
+            guard error == nil else {
+                print("Error loading items for basemap group: \(error!.localizedDescription)")
+                return
+            }
+            
+            guard let basemapItems = groupQueryResults?.results as? [AGSPortalItem] else {
+                print("Basemap results were not a set of AGSPortalItems")
+                return
+            }
+            
+            self.basemaps.append(contentsOf: basemapItems)
+            
+            if let nextPageParameters = groupQueryResults?.nextQueryParameters {
+                self.getNextPageOfBasemaps(portal: portal, params: nextPageParameters)
+            } else {
+                self.basemaps.sort(by: { (basemap1, basemap2) -> Bool in
+                    return basemap1.title < basemap2.title
+                })
+            }
+        })
+    }
+    
+    
 }
