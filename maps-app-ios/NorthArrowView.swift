@@ -12,15 +12,17 @@
 import UIKit
 import ArcGIS
 
+fileprivate let rotationKeyPath = #keyPath(AGSMapView.rotation)
+
 public class NorthArrowView: RoundedImageView {
 
     @IBOutlet weak var mapView: AGSMapView? {
         didSet {
             if let mapView = mapView {
                 // Add NorthArrowController as an observer of the mapView's rotation.
-                mapView.addObserver(self, forKeyPath: #keyPath(AGSMapView.rotation), options: [.new], context: &kvoContext)
+                mapView.addObserver(self, forKeyPath: rotationKeyPath, options: [.new], context: &kvoContext)
             } else {
-                mapView?.removeObserver(self, forKeyPath: #keyPath(AGSMapView.rotation))
+                mapView?.removeObserver(self, forKeyPath: rotationKeyPath)
             }
             setVisibilityFromMapView()
         }
@@ -85,7 +87,7 @@ public class NorthArrowView: RoundedImageView {
     }
     
     override public func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
-        if (keyPath == #keyPath(AGSMapView.rotation)) && (context == &kvoContext) {
+        if keyPath == rotationKeyPath, context == &kvoContext {
             // Rotate north arrow to match the map view rotation.
             let mapRotation = self.degreesToRadians(degrees: (360 - (self.mapView?.rotation ?? 0)))
             let transform = CGAffineTransform(rotationAngle: mapRotation)

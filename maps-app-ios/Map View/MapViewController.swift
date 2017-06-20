@@ -40,16 +40,16 @@ class MapViewController: UIViewController {
         }
 
         setupAppPreferences()
-        setupTouch()
+
         setupRouting()
         setupSearch()
         setupLocationDisplay()
         
-        setupCurrentItemWatcher()
+        setupBasemapChangeHandler()
+        setupCurrentItemChangeHandler()
 
-        setupFeedbackPanelWatcher()
-        
-        setupBasemapChangeListener()
+        setupTouchEventsHandler()
+        setupFeedbackPanelResizeHandler()
 
         mode = .search
     }

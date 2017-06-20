@@ -8,7 +8,7 @@
 
 import ArcGIS
 
-fileprivate let navigationPropertyKey = "navigating"
+fileprivate let navigationPropertyKey = #keyPath(AGSMapView.isNavigating)
 
 extension MapViewController {
     func setupAppPreferences() {
@@ -20,12 +20,8 @@ extension MapViewController {
     }
     
     func observeValueForPreferences(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
-        if let target = object as? AGSMapView {
-            if keyPath == navigationPropertyKey {
-                if let navigating = change?[.newKey] as? Bool, navigating == false {
-                    mapsAppPrefs.viewpoint = target.currentViewpoint(with: .centerAndScale)
-                }
-            }
+        if let target = object as? AGSMapView, keyPath == navigationPropertyKey, let navigating = change?[.newKey] as? Bool, navigating == false {
+            mapsAppPrefs.viewpoint = target.currentViewpoint(with: .centerAndScale)
         }
     }
 }

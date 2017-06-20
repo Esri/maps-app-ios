@@ -9,7 +9,7 @@
 import ArcGIS
 
 extension MapViewController {
-    func setupCurrentItemWatcher() {
+    func setupCurrentItemChangeHandler() {
         NotificationCenter.default.addObserver(forName: MapsAppNotifications.Names.CurrentItemChanged, object: nil, queue: nil) { _ in
             self.displayCurrentItem()
         }

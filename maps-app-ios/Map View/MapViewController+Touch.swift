@@ -9,7 +9,7 @@
 import ArcGIS
 
 extension MapViewController: AGSGeoViewTouchDelegate {
-    func setupTouch() {
+    func setupTouchEventsHandler() {
         mapView.touchDelegate = self
     }
 

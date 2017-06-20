@@ -9,7 +9,7 @@
 import ArcGIS
 
 extension MapViewController {
-    func setupBasemapChangeListener() {
+    func setupBasemapChangeHandler() {
         NotificationCenter.default.addObserver(forName: MapsAppNotifications.Names.NewBasemap, object: nil, queue: nil, using: { notification in
             if let newBasemap = notification.basemap {
                 self.mapView.map?.basemap = newBasemap
