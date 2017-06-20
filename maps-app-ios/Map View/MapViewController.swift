@@ -14,6 +14,7 @@ class MapViewController: UIViewController {
     // MARK: UI Outlets
     @IBOutlet weak var mapView: AGSMapView!
     @IBOutlet weak var gpsButton:UIButton!
+    @IBOutlet weak var controlsView: RoundedView!
     
     // MARK: Map feedback layers
     var graphicsOverlays:[String:AGSGraphicsOverlay] = [:]
@@ -50,6 +51,8 @@ class MapViewController: UIViewController {
 
         setupTouchEventsHandler()
         setupFeedbackPanelResizeHandler()
+        
+        controlsView.bottomAnchor.constraint(equalTo: mapView.attributionTopAnchor, constant: -20).isActive = true
 
         mode = .search
     }
