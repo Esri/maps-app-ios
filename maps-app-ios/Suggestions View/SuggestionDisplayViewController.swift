@@ -24,7 +24,15 @@ class SuggestionDisplayViewController: UIViewController, UITableViewDataSource, 
             if let newSuggestions = suggestions, newSuggestions.count > 0 {
                 self.view.isHidden = false
             } else {
-                self.view.isHidden = true
+                self.view.isHidden = isValidToShow
+            }
+        }
+    }
+    
+    var isValidToShow:Bool = true {
+        didSet {
+            if !isValidToShow {
+                self.view.isHidden = false
             }
         }
     }

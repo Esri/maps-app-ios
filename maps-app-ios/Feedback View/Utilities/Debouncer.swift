@@ -29,4 +29,9 @@ class Debouncer: NSObject {
     func fireNow() {
         self.callback()
     }
+    
+    func cancel() {
+        timer?.invalidate()
+        timer = nil
+    }
 }

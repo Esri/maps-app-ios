@@ -31,6 +31,15 @@ extension MapViewController {
         suggestionDisplayViewController?.suggestions = suggestions
     }
     
+    var validToShowSuggestions:Bool {
+        set {
+            suggestionDisplayViewController?.isValidToShow = newValue
+        }
+        get {
+            return suggestionDisplayViewController?.isValidToShow ?? true
+        }
+    }
+    
     var suggestionDisplayViewController: SuggestionDisplayViewController? {
         return self.childViewControllers.filter({ $0 is SuggestionDisplayViewController }).first as? SuggestionDisplayViewController
     }
