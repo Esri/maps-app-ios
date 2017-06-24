@@ -94,6 +94,7 @@
                                         <connections>
                                             <outlet property="dataSource" destination="VGr-pc-EfB" id="TiA-Ov-F9F"/>
                                             <outlet property="delegate" destination="VGr-pc-EfB" id="hLj-WI-K4O"/>
+                                            <outlet property="prefetchDataSource" destination="VGr-pc-EfB" id="fLo-fW-1vK"/>
                                         </connections>
                                     </collectionView>
                                     <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LPa-HT-Txx">

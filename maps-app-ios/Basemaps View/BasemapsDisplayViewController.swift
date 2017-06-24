@@ -55,3 +55,17 @@ class BasemapsDisplayViewController: UIViewController, UICollectionViewDataSourc
         self.dismiss(animated: true, completion: nil)
     }
 }
+
+
+extension BasemapsDisplayViewController: UICollectionViewDataSourcePrefetching {
+    func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
+        for indexPath in indexPaths {
+            let item = items[indexPath.row]
+            item.thumbnail?.load() { error in
+                if let error = error {
+                    print("Error pre-fetching basemap at index \(indexPath.row): \(error.localizedDescription)")
+                }
+            }
+        }
+    }
+}

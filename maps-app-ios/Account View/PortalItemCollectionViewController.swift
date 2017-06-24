@@ -43,3 +43,16 @@ class PortalItemCollectionViewController: UICollectionViewController {
         mapsAppState.currentItem = (sender as? PortalItemCollectionCell)?.item
     }
 }
+
+extension PortalItemCollectionViewController: UICollectionViewDataSourcePrefetching {
+    func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
+        for indexPath in indexPaths {
+            let item = items[indexPath.row]
+            item.thumbnail?.load() { error in
+                if let error = error {
+                    print("Error pre-fetching portal item at index \(indexPath.row): \(error.localizedDescription)")
+                }
+            }
+        }
+    }
+}
