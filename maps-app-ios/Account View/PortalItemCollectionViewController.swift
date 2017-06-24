@@ -45,6 +45,7 @@ class PortalItemCollectionViewController: UICollectionViewController {
 }
 
 extension PortalItemCollectionViewController: UICollectionViewDataSourcePrefetching {
+    // Remember to write up the prefetchDelegtate in the Storyboard
     func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
         for indexPath in indexPaths {
             let item = items[indexPath.row]

@@ -16,20 +16,20 @@ fileprivate let rotationKeyPath = #keyPath(AGSMapView.rotation)
 
 public class NorthArrowView: RoundedImageView {
 
+    private var kvoContext = 0
+    
     @IBOutlet weak var mapView: AGSMapView? {
+        willSet {
+            mapView?.removeObserver(self, forKeyPath: rotationKeyPath)
+        }
         didSet {
-            if let mapView = mapView {
-                // Add NorthArrowController as an observer of the mapView's rotation.
-                mapView.addObserver(self, forKeyPath: rotationKeyPath, options: [.new], context: &kvoContext)
-            } else {
-                mapView?.removeObserver(self, forKeyPath: rotationKeyPath)
-            }
+            // Add NorthArrowController as an observer of the mapView's rotation.
+            mapView?.addObserver(self, forKeyPath: rotationKeyPath, options: [.new], context: &kvoContext)
+
             setVisibilityFromMapView()
         }
     }
 
-    private var kvoContext = 0
-    
     lazy var tapGesture:UITapGestureRecognizer = {
         let r = UITapGestureRecognizer(target: self, action: #selector(resetNorth))
         return r
@@ -52,7 +52,7 @@ public class NorthArrowView: RoundedImageView {
     }
     
     // Track any alpha override that may have been set in the Storyboard.
-    private var maxAlpha:CGFloat = -1
+    private var initialAlpha:CGFloat?
     
     func resetNorth() {
         self.mapView?.setViewpointRotation(0, completion: nil)
@@ -64,25 +64,46 @@ public class NorthArrowView: RoundedImageView {
             return
         }
         
-        if !isHidden && maxAlpha < 0 {
+        if !isHidden && initialAlpha == nil {
             // Remember this for when we re-show. Could be non-zero from the Storyboard.
-            maxAlpha = alpha
+            initialAlpha = alpha
+        }
+        
+        guard let maxAlpha = initialAlpha, maxAlpha > 0 else {
+            // No point animating if maxAlpha is fully transparent
+            return
         }
         
         let duration = animate ? 0.25 : 0
         
         if self.mapView?.rotation != 0 {
+            guard self.isHidden else {
+                // Already visible. No need to animate
+                return
+            }
+            
             // Show if there's a MapView and rotation <> 0
-            self.isHidden = false
-            UIView.animate(withDuration: duration, animations: {
-                self.alpha = self.maxAlpha
-            })
+            DispatchQueue.main.async {
+                self.isHidden = false
+                print("Animating in")
+                UIView.animate(withDuration: duration, animations: {
+                    self.alpha = maxAlpha
+                })
+            }
         } else {
-            UIView.animate(withDuration: duration, animations: {
-                self.alpha = 0
-            }, completion: { _ in
-                self.isHidden = true
-            })
+            guard self.alpha > 0 else {
+                // Already hidden. No need to animate
+                return
+            }
+            
+            DispatchQueue.main.async {
+                print("Animating out")
+                UIView.animate(withDuration: duration, animations: {
+                    self.alpha = 0
+                }, completion: { _ in
+                    self.isHidden = true
+                })
+            }
         }
     }
     
