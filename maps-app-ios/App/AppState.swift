@@ -135,6 +135,7 @@ class AppState {
                 
                 if let basemapGroup = results.results?.first as? AGSPortalGroup, let groupID = basemapGroup.groupID {
                     let groupParams = AGSPortalQueryParameters(forItemsInGroup: groupID)
+                    groupParams.limit = 50
                     self.getNextPageOfBasemaps(portal: portal, params: groupParams)
                 }
             })
@@ -142,7 +143,6 @@ class AppState {
     }
     
     private func getNextPageOfBasemaps(portal:AGSPortal, params: AGSPortalQueryParameters) {
-        print("Getting another page of basemaps")
         portal.findItems(with: params, completion: { groupQueryResults, error in
             guard error == nil else {
                 print("Error loading items for basemap group: \(error!.localizedDescription)")
@@ -165,6 +165,4 @@ class AppState {
             }
         })
     }
-    
-    
 }
