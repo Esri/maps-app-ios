@@ -14,8 +14,8 @@ extension MapViewMode {
         case .routeResult:
             return AGSSimpleLineSymbol(style: .solid, color: UIColor.red, width: 2)
         case .geocodeResult:
-            let symbol = AGSPictureMarkerSymbol(image: #imageLiteral(resourceName: "Red Pin"))
-            symbol.offsetY = #imageLiteral(resourceName: "Red Pin").size.height/2
+            let symbol = AGSPictureMarkerSymbol(image: #imageLiteral(resourceName: "Location Pin"))
+            symbol.offsetY = (symbol.image?.size.height ?? 0)/2
             return symbol
         default:
             return nil
@@ -37,9 +37,14 @@ extension MapViewMode {
         switch self {
         case .geocodeResult(let result):
             return result.extent
-        case .routeResult:
+        case .routeResult(let result):
             if let extent = self.graphic?.geometry?.extent {
                 let builder = extent.toBuilder()
+                for stop in result.stops {
+                    if let stopPoint = stop.geometry {
+                        builder.union(with: stopPoint)
+                    }
+                }
                 builder.expand(byFactor: 1.2)
                 return builder.toGeometry()
             }

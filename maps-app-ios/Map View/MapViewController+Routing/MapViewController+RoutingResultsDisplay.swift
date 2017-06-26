@@ -27,8 +27,8 @@ extension MapViewController {
     }
     
     var routeStartSymbol:AGSSymbol {
-        let symbol = AGSPictureMarkerSymbol(image: #imageLiteral(resourceName: "Blue Pin"))
-        symbol.offsetY = #imageLiteral(resourceName: "Blue Pin").size.height/2
+        let symbol = AGSPictureMarkerSymbol(image: #imageLiteral(resourceName: "My Location Pin"))
+        symbol.offsetY = (symbol.image?.size.height ?? 0)/2
         return symbol
     }
     
