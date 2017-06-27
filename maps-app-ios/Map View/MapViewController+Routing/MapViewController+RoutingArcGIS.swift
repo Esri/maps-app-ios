@@ -61,6 +61,8 @@ extension MapViewController {
                 
                 self.routeResultsOverlay.graphics.removeAllObjects()
                 self.routeResultsOverlay.graphics.addObjects(from: [routeGraphic, startGraphic])
+                
+                self.showDirections(route: route)
             }
         }
 

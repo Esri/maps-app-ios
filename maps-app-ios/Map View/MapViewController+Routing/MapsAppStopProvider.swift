@@ -35,7 +35,7 @@ extension AGSMapView : MapsAppStopProvider {
         // For a MapView, if the LocationDisplay is started, route to that
         if let mapLocation = self.locationDisplay.location?.position, self.locationDisplay.started {
             let stop = mapLocation.routeStop(inSpatialReference: sr)
-            stop.name = "My Location"
+            stop.name = "Your Location"
             return stop
         }
         
