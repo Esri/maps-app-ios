@@ -99,7 +99,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Compass" translatesAutoresizingMaskIntoConstraints="NO" id="Xte-Zv-XAA" customClass="NorthArrowView" customModule="maps_app_ios" customModuleProvider="target">
-                                <rect key="frame" x="319" y="82" width="40" height="40"/>
+                                <rect key="frame" x="319" y="483" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Xte-Zv-XAA" secondAttribute="height" multiplier="1:1" id="6mA-nX-ayE"/>
                                     <constraint firstAttribute="width" constant="40" id="zqg-fo-etC"/>
@@ -126,7 +126,7 @@
                                 </connections>
                             </containerView>
                             <containerView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e5m-If-kPv" userLabel="Suggestions Container">
-                                <rect key="frame" x="16" y="82" width="293" height="50"/>
+                                <rect key="frame" x="16" y="82" width="343" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" priority="900" constant="50" id="TZX-JI-HVT"/>
                                 </constraints>
@@ -159,16 +159,16 @@
                             <constraint firstAttribute="trailingMargin" secondItem="1Qf-QF-G41" secondAttribute="trailing" id="JP6-mP-6af"/>
                             <constraint firstItem="jZt-eF-xnL" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="QGO-wx-t0Y"/>
                             <constraint firstItem="e5m-If-kPv" firstAttribute="trailing" secondItem="jZt-eF-xnL" secondAttribute="trailing" priority="999" id="QX2-PD-Kee"/>
-                            <constraint firstItem="Xte-Zv-XAA" firstAttribute="leading" secondItem="e5m-If-kPv" secondAttribute="trailing" constant="10" placeholder="YES" id="RJL-Jb-4yY"/>
+                            <constraint firstItem="e5m-If-kPv" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="S0b-ER-4Sg"/>
                             <constraint firstItem="nVe-ks-G9Q" firstAttribute="bottom" secondItem="1Qf-QF-G41" secondAttribute="bottom" id="SV8-um-U8u"/>
                             <constraint firstItem="e5m-If-kPv" firstAttribute="leading" secondItem="jZt-eF-xnL" secondAttribute="leading" id="Sbg-F4-Dts"/>
+                            <constraint firstItem="1Qf-QF-G41" firstAttribute="top" secondItem="Xte-Zv-XAA" secondAttribute="bottom" constant="12" id="VHk-LK-PTg"/>
                             <constraint firstAttribute="trailing" secondItem="kZk-QH-kwl" secondAttribute="trailing" id="bc5-BF-E1k"/>
                             <constraint firstItem="kZk-QH-kwl" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="e7s-tx-n9a"/>
                             <constraint firstItem="jZt-eF-xnL" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="ea9-Ua-hqY"/>
-                            <constraint firstItem="Xte-Zv-XAA" firstAttribute="trailing" secondItem="jZt-eF-xnL" secondAttribute="trailing" id="hRK-qm-FKt"/>
                             <constraint firstItem="e5m-If-kPv" firstAttribute="top" secondItem="jZt-eF-xnL" secondAttribute="bottom" constant="10" id="hfu-iD-qQx"/>
                             <constraint firstItem="kZk-QH-kwl" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="j4Q-jV-uwX"/>
-                            <constraint firstItem="Xte-Zv-XAA" firstAttribute="top" secondItem="jZt-eF-xnL" secondAttribute="bottom" constant="10" id="uID-Bs-Kig"/>
+                            <constraint firstItem="Xte-Zv-XAA" firstAttribute="centerX" secondItem="1Qf-QF-G41" secondAttribute="centerX" id="jXR-fE-vE2"/>
                             <constraint firstItem="1Qf-QF-G41" firstAttribute="leading" secondItem="nVe-ks-G9Q" secondAttribute="trailing" constant="12" id="uUN-Re-Hzl"/>
                         </constraints>
                     </view>
