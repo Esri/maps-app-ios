@@ -15,23 +15,11 @@ class DirectionsDisplayViewController: UIViewController, UICollectionViewDataSou
     
     var directions:AGSRoute? {
         didSet {
+            self.maneuversView.reloadData();
             
-            defer {
-                self.maneuversView.reloadData();
-            }
-            
-            if directions == nil {
-                UIView.animate(withDuration: 0.25, animations: { 
-                    self.view.alpha = 0
-                }, completion: { _ in
-                    self.view.isHidden = true
-                })
-            } else {
-                self.view.isHidden = false
-                UIView.animate(withDuration: 0.25, animations: { 
-                    self.view.alpha = 1
-                })
-            }
+            UIView.animate(withDuration: 0.25, animations: {
+                self.view.superview?.isHidden = (self.directions == nil)
+            })
         }
     }
     
@@ -41,7 +29,9 @@ class DirectionsDisplayViewController: UIViewController, UICollectionViewDataSou
         super.viewDidLoad()
         
         directions = nil
-        
+
+        self.view.translatesAutoresizingMaskIntoConstraints = false
+
         NotificationCenter.default.addObserver(forName: MapsAppNotifications.Names.MapViewModeChanged, object: nil, queue: OperationQueue.main) { notification in
             if let newMode = notification.newMapViewMode {
                 switch newMode {

@@ -26,18 +26,21 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" alwaysBounceHorizontal="YES" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="LEb-CE-Jq9">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="120"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="a8L-yI-9zQ"/>
+                                </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="AcA-HE-J1h">
-                                    <size key="itemSize" width="335" height="85"/>
+                                    <size key="itemSize" width="367" height="85"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="maneuverCell" id="70a-ma-5U0" customClass="DirectionsManeuverCell" customModule="maps_app_ios" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="17.5" width="335" height="85"/>
+                                        <rect key="frame" x="0.0" y="17.5" width="367" height="85"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="335" height="85"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="367" height="85"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SDb-dH-Ch4">
@@ -48,7 +51,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JfS-Ea-fgN">
-                                                    <rect key="frame" x="79" y="17" width="228" height="50"/>
+                                                    <rect key="frame" x="79" y="17" width="268" height="50"/>
                                                     <attributedString key="attributedText">
                                                         <fragment content="Label">
                                                             <attributes>
@@ -61,7 +64,7 @@
                                             </subviews>
                                         </view>
                                         <constraints>
-                                            <constraint firstAttribute="trailingMargin" secondItem="JfS-Ea-fgN" secondAttribute="trailing" constant="20" id="GNC-Hl-p4A"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="JfS-Ea-fgN" secondAttribute="trailing" constant="12" id="GNC-Hl-p4A"/>
                                             <constraint firstItem="JfS-Ea-fgN" firstAttribute="centerY" secondItem="SDb-dH-Ch4" secondAttribute="centerY" id="GWB-EQ-SYM"/>
                                             <constraint firstItem="SDb-dH-Ch4" firstAttribute="leading" secondItem="70a-ma-5U0" secondAttribute="leadingMargin" constant="12" id="Qr6-cq-Doj"/>
                                             <constraint firstItem="JfS-Ea-fgN" firstAttribute="height" secondItem="SDb-dH-Ch4" secondAttribute="height" id="mRA-mD-43M"/>
@@ -82,10 +85,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="LEb-CE-Jq9" firstAttribute="top" secondItem="7xc-0p-lrn" secondAttribute="bottom" id="3be-OA-F0d"/>
                             <constraint firstItem="LEb-CE-Jq9" firstAttribute="leading" secondItem="QdT-MC-Afc" secondAttribute="leading" id="CDS-mT-fM2"/>
-                            <constraint firstItem="LEb-CE-Jq9" firstAttribute="top" secondItem="QdT-MC-Afc" secondAttribute="top" id="cF6-9Y-F94"/>
+                            <constraint firstItem="COg-HY-ucF" firstAttribute="top" secondItem="LEb-CE-Jq9" secondAttribute="bottom" id="S4Y-74-GWp"/>
                             <constraint firstAttribute="trailing" secondItem="LEb-CE-Jq9" secondAttribute="trailing" id="fcv-Gr-m5l"/>
-                            <constraint firstAttribute="bottom" secondItem="LEb-CE-Jq9" secondAttribute="bottom" id="prQ-eG-byn"/>
                         </constraints>
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>

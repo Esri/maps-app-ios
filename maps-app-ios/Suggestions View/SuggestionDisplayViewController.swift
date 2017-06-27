@@ -9,23 +9,25 @@
 import UIKit
 import ArcGIS
 
-class SuggestionDisplayViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class SuggestionDisplayViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIContainerView {
     
     @IBOutlet weak var heightContraint: NSLayoutConstraint!
     @IBOutlet weak var tableView: UITableView!
     
     var suggestions:[AGSSuggestResult]? {
         didSet {
-            defer {
-                self.tableView.reloadData()
-                heightContraint.constant = self.tableView.contentSize.height
-            }
-            
-            if let newSuggestions = suggestions, newSuggestions.count > 0 {
-                self.view.isHidden = false
-            } else {
-                self.view.isHidden = isValidToShow
-            }
+            self.tableView.reloadData()
+            heightContraint.constant = self.tableView.contentSize.height
+
+            setViewHiddenState()
+        }
+    }
+    
+    private func setViewHiddenState() {
+        if let newSuggestions = suggestions, newSuggestions.count > 0 {
+            containerView?.isHidden = false
+        } else {
+            containerView?.isHidden = !(isValidToShow && (suggestions?.count ?? 0) > 0)
         }
     }
     
@@ -37,16 +39,24 @@ class SuggestionDisplayViewController: UIViewController, UITableViewDataSource, 
         }
     }
     
+    var containerView: UIView? {
+        return view.superview
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.view.translatesAutoresizingMaskIntoConstraints = false
         
+        suggestions = nil
+        
         NotificationCenter.default.addObserver(forName: MapsAppNotifications.Names.SearchCompleted, object: nil, queue: nil) { notification in
             self.suggestions = nil
         }
-        
-        suggestions = nil
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        setViewHiddenState()
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {

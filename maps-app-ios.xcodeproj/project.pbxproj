@@ -51,6 +51,7 @@
 		D96B73CE1EF86E20004B6862 /* BasemapNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96B73CD1EF86E20004B6862 /* BasemapNotifications.swift */; };
 		D96B73D01EF872A8004B6862 /* MapViewController+Basemap.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96B73CF1EF872A8004B6862 /* MapViewController+Basemap.swift */; };
 		D9774AF61EBAD56D0099D4A5 /* PortalUserFolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9774AF51EBAD56D0099D4A5 /* PortalUserFolder.swift */; };
+		D979AD3C1F02C73200199AAA /* UIContainerViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D979AD3B1F02C73200199AAA /* UIContainerViewProtocol.swift */; };
 		D9822A0B1EA2EA35009FA0E5 /* MapViewController+RoutingResultsDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9822A0A1EA2EA35009FA0E5 /* MapViewController+RoutingResultsDisplay.swift */; };
 		D9822A0F1EA2EC06009FA0E5 /* MapViewController+SearchResultsDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9822A0E1EA2EC06009FA0E5 /* MapViewController+SearchResultsDisplay.swift */; };
 		D9822A111EA2EFEE009FA0E5 /* MapViewController+LocationDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9822A101EA2EFEE009FA0E5 /* MapViewController+LocationDisplay.swift */; };
@@ -155,6 +156,7 @@
 		D96B73CD1EF86E20004B6862 /* BasemapNotifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasemapNotifications.swift; sourceTree = "<group>"; };
 		D96B73CF1EF872A8004B6862 /* MapViewController+Basemap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MapViewController+Basemap.swift"; sourceTree = "<group>"; };
 		D9774AF51EBAD56D0099D4A5 /* PortalUserFolder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PortalUserFolder.swift; sourceTree = "<group>"; };
+		D979AD3B1F02C73200199AAA /* UIContainerViewProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIContainerViewProtocol.swift; sourceTree = "<group>"; };
 		D9822A0A1EA2EA35009FA0E5 /* MapViewController+RoutingResultsDisplay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MapViewController+RoutingResultsDisplay.swift"; sourceTree = "<group>"; };
 		D9822A0E1EA2EC06009FA0E5 /* MapViewController+SearchResultsDisplay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MapViewController+SearchResultsDisplay.swift"; sourceTree = "<group>"; };
 		D9822A101EA2EFEE009FA0E5 /* MapViewController+LocationDisplay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MapViewController+LocationDisplay.swift"; sourceTree = "<group>"; };
@@ -494,6 +496,7 @@
 				D9CBE34B1E8B751B00776053 /* ArcGIS Extensions */,
 				D98F78B41E89CEEA00E7CBC2 /* UIViewController+Alerts.swift */,
 				D9B5074E1EB23399006BA131 /* URL+QueryString.swift */,
+				D979AD3B1F02C73200199AAA /* UIContainerViewProtocol.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -656,6 +659,7 @@
 				D9AB70AF1EF35C3300123FEA /* AccountViewController.swift in Sources */,
 				D96387A51EB2FBFD00764D8D /* MapsAppDelegate+AutoLogin.swift in Sources */,
 				D9638E3C1EBD146300CFF318 /* MapViewController+SearchSetup.swift in Sources */,
+				D979AD3C1F02C73200199AAA /* UIContainerViewProtocol.swift in Sources */,
 				D920A57F1EB6B21500D565E2 /* FeedbackViewController+Segues.swift in Sources */,
 				D96A77571E8594C000F441D3 /* MapViewController.swift in Sources */,
 				D9C080B91F01BFCD00968FB3 /* DirectionsManeuverCell.swift in Sources */,
