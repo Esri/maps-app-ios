@@ -1,6 +1,39 @@
 {
-    "type": "MultiPolygon",
-    "coordinates": [
-        
-    ]
+    "type": "CIMLineSymbol",
+    "symbolLayers": [{
+                     "type": "CIMSolidStroke",
+                     "enable": true,
+                     "name": "Group_2",
+                     "capStyle": "Round",
+                     "joinStyle": "Round",
+                     "lineStyle3D": "Strip",
+                     "miterLimit": 10,
+                     "width": 7,
+                     "color": [
+                               240,
+                               133,
+                               51,
+                               230
+                               ]
+                     
+                     },
+                     {
+                     "type": "CIMSolidStroke",
+                     "enable": true,
+                     "name": "Group_0",
+                     "colorLocked": true,
+                     "capStyle": "Round",
+                     "joinStyle": "Round",
+                     "lineStyle3D": "Strip",
+                     "miterLimit": 10,
+                     "width": 11,
+                     "color": [
+                               255,
+                               255,
+                               255,
+                               200
+                               ]
+                     
+                     }
+                     ]
 }
