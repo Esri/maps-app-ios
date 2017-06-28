@@ -6,7 +6,7 @@
 //  Copyright © 2017 Esri. All rights reserved.
 //
 
-import Foundation
+import ArcGIS
 
 extension MapViewController {
     func setupRouting() {
@@ -17,6 +17,14 @@ extension MapViewController {
                 self.route(from: fromStop, to: toStop)
             } else {
                 self.route(to: toStop)
+            }
+        }
+        
+        MapsAppNotifications.observeManeuverFocusNotifications { maneuver in
+            if let targetExtent = maneuver.geometry?.extent {
+                let builder = targetExtent.toBuilder()
+                builder.expand(byFactor: 1.2)
+                self.mapView.setViewpoint(AGSViewpoint(targetExtent: builder.toGeometry()), completion: nil)
             }
         }
     }

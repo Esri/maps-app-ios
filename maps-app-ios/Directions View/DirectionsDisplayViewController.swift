@@ -15,11 +15,13 @@ class DirectionsDisplayViewController: UIViewController, UICollectionViewDataSou
     
     var directions:AGSRoute? {
         didSet {
-            self.maneuversView.reloadData();
+            maneuversView.reloadData();
             
             UIView.animate(withDuration: 0.25, animations: {
                 self.view.superview?.isHidden = (self.directions == nil)
             })
+
+            tidyUpCellLayout()
         }
     }
     
@@ -30,8 +32,10 @@ class DirectionsDisplayViewController: UIViewController, UICollectionViewDataSou
         
         directions = nil
 
-        self.view.translatesAutoresizingMaskIntoConstraints = false
-
+        maneuversView.decelerationRate = UIScrollViewDecelerationRateFast
+        
+        view.translatesAutoresizingMaskIntoConstraints = false
+        
         NotificationCenter.default.addObserver(forName: MapsAppNotifications.Names.MapViewModeChanged, object: nil, queue: OperationQueue.main) { notification in
             if let newMode = notification.newMapViewMode {
                 switch newMode {
@@ -44,6 +48,25 @@ class DirectionsDisplayViewController: UIViewController, UICollectionViewDataSou
         }
     }
     
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        tidyUpCellLayout()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tidyUpCellLayout()
+    }
+    
+    private func tidyUpCellLayout() {
+        if let layout = maneuversView.collectionViewLayout as? UICollectionViewFlowLayout {
+            layout.itemSize = CGSize(width: maneuversView.frame.size.width - layout.minimumInteritemSpacing, height: maneuversView.frame.size.height)
+            if let visibleIndexPath = maneuversView.indexPathsForVisibleItems.first {
+                maneuversView.scrollToItem(at: visibleIndexPath, at: UICollectionViewScrollPosition.centeredHorizontally, animated: true)
+            }
+        }
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return directions?.directionManeuvers.count ?? 0
     }
@@ -51,10 +74,25 @@ class DirectionsDisplayViewController: UIViewController, UICollectionViewDataSou
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "maneuverCell", for: indexPath)
         
-        if let cell = cell as? DirectionsManeuverCell, let maneuvers = directions?.directionManeuvers, indexPath.row < maneuvers.count {
-            cell.maneuver = maneuvers[indexPath.row]
+        if let cell = cell as? DirectionManeuverCell, let maneuvers = directions?.directionManeuvers, indexPath.row < maneuvers.count {
+            let maneuver = maneuvers[indexPath.row]
+            cell.index = indexPath.row
+            cell.maneuver = maneuver
         }
         
         return cell
+    }
+    
+    var nextCell:UICollectionViewCell?
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        nextCell = cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if let maneuverCell = nextCell as? DirectionManeuverCell, maneuverCell != cell, let maneuver = maneuverCell.maneuver {
+            MapsAppNotifications.postManeuverFocusNotification(maneuver: maneuver)
+        }
+
     }
 }

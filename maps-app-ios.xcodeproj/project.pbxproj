@@ -52,6 +52,10 @@
 		D96B73D01EF872A8004B6862 /* MapViewController+Basemap.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96B73CF1EF872A8004B6862 /* MapViewController+Basemap.swift */; };
 		D9774AF61EBAD56D0099D4A5 /* PortalUserFolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9774AF51EBAD56D0099D4A5 /* PortalUserFolder.swift */; };
 		D979AD3C1F02C73200199AAA /* UIContainerViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D979AD3B1F02C73200199AAA /* UIContainerViewProtocol.swift */; };
+		D979AD3E1F03483C00199AAA /* ASGDirectionManeuverType+CustomStringConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = D979AD3D1F03483C00199AAA /* ASGDirectionManeuverType+CustomStringConvertible.swift */; };
+		D979AD401F03485F00199AAA /* AGSDirectionManeuver+UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D979AD3F1F03485F00199AAA /* AGSDirectionManeuver+UIImage.swift */; };
+		D979AD421F0373F400199AAA /* SnappingCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D979AD411F0373F400199AAA /* SnappingCollectionViewLayout.swift */; };
+		D979AD441F03779B00199AAA /* DirectionsViewNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = D979AD431F03779B00199AAA /* DirectionsViewNotifications.swift */; };
 		D9822A0B1EA2EA35009FA0E5 /* MapViewController+RoutingResultsDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9822A0A1EA2EA35009FA0E5 /* MapViewController+RoutingResultsDisplay.swift */; };
 		D9822A0F1EA2EC06009FA0E5 /* MapViewController+SearchResultsDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9822A0E1EA2EC06009FA0E5 /* MapViewController+SearchResultsDisplay.swift */; };
 		D9822A111EA2EFEE009FA0E5 /* MapViewController+LocationDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9822A101EA2EFEE009FA0E5 /* MapViewController+LocationDisplay.swift */; };
@@ -70,7 +74,7 @@
 		D9BE57C41E95912D00934D30 /* AGSLocationDisplay+MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BE57C31E95912D00934D30 /* AGSLocationDisplay+MapView.swift */; };
 		D9C080B51F01BE7400968FB3 /* Directions.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9C080B41F01BE7400968FB3 /* Directions.storyboard */; };
 		D9C080B71F01BEC600968FB3 /* DirectionsDisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C080B61F01BEC600968FB3 /* DirectionsDisplayViewController.swift */; };
-		D9C080B91F01BFCD00968FB3 /* DirectionsManeuverCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C080B81F01BFCD00968FB3 /* DirectionsManeuverCell.swift */; };
+		D9C080B91F01BFCD00968FB3 /* DirectionManeuverCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C080B81F01BFCD00968FB3 /* DirectionManeuverCell.swift */; };
 		D9C080BD1F01F53C00968FB3 /* Directions.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D9C080BC1F01F53C00968FB3 /* Directions.xcassets */; };
 		D9CBE33D1E8B4F2A00776053 /* RouteResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CBE3381E8B4F2A00776053 /* RouteResultViewController.swift */; };
 		D9CBE33E1E8B4F2A00776053 /* EmptySegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CBE3391E8B4F2A00776053 /* EmptySegue.swift */; };
@@ -157,6 +161,10 @@
 		D96B73CF1EF872A8004B6862 /* MapViewController+Basemap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MapViewController+Basemap.swift"; sourceTree = "<group>"; };
 		D9774AF51EBAD56D0099D4A5 /* PortalUserFolder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PortalUserFolder.swift; sourceTree = "<group>"; };
 		D979AD3B1F02C73200199AAA /* UIContainerViewProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIContainerViewProtocol.swift; sourceTree = "<group>"; };
+		D979AD3D1F03483C00199AAA /* ASGDirectionManeuverType+CustomStringConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ASGDirectionManeuverType+CustomStringConvertible.swift"; sourceTree = "<group>"; };
+		D979AD3F1F03485F00199AAA /* AGSDirectionManeuver+UIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AGSDirectionManeuver+UIImage.swift"; sourceTree = "<group>"; };
+		D979AD411F0373F400199AAA /* SnappingCollectionViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnappingCollectionViewLayout.swift; sourceTree = "<group>"; };
+		D979AD431F03779B00199AAA /* DirectionsViewNotifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DirectionsViewNotifications.swift; sourceTree = "<group>"; };
 		D9822A0A1EA2EA35009FA0E5 /* MapViewController+RoutingResultsDisplay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MapViewController+RoutingResultsDisplay.swift"; sourceTree = "<group>"; };
 		D9822A0E1EA2EC06009FA0E5 /* MapViewController+SearchResultsDisplay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MapViewController+SearchResultsDisplay.swift"; sourceTree = "<group>"; };
 		D9822A101EA2EFEE009FA0E5 /* MapViewController+LocationDisplay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MapViewController+LocationDisplay.swift"; sourceTree = "<group>"; };
@@ -175,7 +183,7 @@
 		D9BE57C31E95912D00934D30 /* AGSLocationDisplay+MapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AGSLocationDisplay+MapView.swift"; sourceTree = "<group>"; };
 		D9C080B41F01BE7400968FB3 /* Directions.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Directions.storyboard; sourceTree = "<group>"; };
 		D9C080B61F01BEC600968FB3 /* DirectionsDisplayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DirectionsDisplayViewController.swift; sourceTree = "<group>"; };
-		D9C080B81F01BFCD00968FB3 /* DirectionsManeuverCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DirectionsManeuverCell.swift; sourceTree = "<group>"; };
+		D9C080B81F01BFCD00968FB3 /* DirectionManeuverCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DirectionManeuverCell.swift; sourceTree = "<group>"; };
 		D9C080BC1F01F53C00968FB3 /* Directions.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Directions.xcassets; sourceTree = "<group>"; };
 		D9CBE3381E8B4F2A00776053 /* RouteResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteResultViewController.swift; sourceTree = "<group>"; };
 		D9CBE3391E8B4F2A00776053 /* EmptySegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptySegue.swift; sourceTree = "<group>"; };
@@ -435,7 +443,11 @@
 				D9C080B41F01BE7400968FB3 /* Directions.storyboard */,
 				D9C080BC1F01F53C00968FB3 /* Directions.xcassets */,
 				D9C080B61F01BEC600968FB3 /* DirectionsDisplayViewController.swift */,
-				D9C080B81F01BFCD00968FB3 /* DirectionsManeuverCell.swift */,
+				D9C080B81F01BFCD00968FB3 /* DirectionManeuverCell.swift */,
+				D979AD3F1F03485F00199AAA /* AGSDirectionManeuver+UIImage.swift */,
+				D979AD3D1F03483C00199AAA /* ASGDirectionManeuverType+CustomStringConvertible.swift */,
+				D979AD411F0373F400199AAA /* SnappingCollectionViewLayout.swift */,
+				D979AD431F03779B00199AAA /* DirectionsViewNotifications.swift */,
 			);
 			path = "Directions View";
 			sourceTree = "<group>";
@@ -660,11 +672,13 @@
 				D96387A51EB2FBFD00764D8D /* MapsAppDelegate+AutoLogin.swift in Sources */,
 				D9638E3C1EBD146300CFF318 /* MapViewController+SearchSetup.swift in Sources */,
 				D979AD3C1F02C73200199AAA /* UIContainerViewProtocol.swift in Sources */,
+				D979AD441F03779B00199AAA /* DirectionsViewNotifications.swift in Sources */,
 				D920A57F1EB6B21500D565E2 /* FeedbackViewController+Segues.swift in Sources */,
 				D96A77571E8594C000F441D3 /* MapViewController.swift in Sources */,
-				D9C080B91F01BFCD00968FB3 /* DirectionsManeuverCell.swift in Sources */,
+				D9C080B91F01BFCD00968FB3 /* DirectionManeuverCell.swift in Sources */,
 				D963879B1EB2547600764D8D /* LoginStatus.swift in Sources */,
 				D96B73C11EF73760004B6862 /* RoundedImageView.swift in Sources */,
+				D979AD401F03485F00199AAA /* AGSDirectionManeuver+UIImage.swift in Sources */,
 				D9CF2A6F1E9034A80019701F /* MapViewController+RoutingArcGIS.swift in Sources */,
 				D98D92281EF6F5F9001BFF03 /* NorthArrowView.swift in Sources */,
 				D9CF2A731E9045A70019701F /* MapsAppStopProvider.swift in Sources */,
@@ -677,6 +691,7 @@
 				D9C080B71F01BEC600968FB3 /* DirectionsDisplayViewController.swift in Sources */,
 				D98F78B31E89B9A100E7CBC2 /* AGSAppPreferences.swift in Sources */,
 				D920A5821EB6CFCF00D565E2 /* LoginNotifications.swift in Sources */,
+				D979AD3E1F03483C00199AAA /* ASGDirectionManeuverType+CustomStringConvertible.swift in Sources */,
 				D9B507531EB23C3A006BA131 /* MapsAppDelegate+PortalLogin.swift in Sources */,
 				D96B73CE1EF86E20004B6862 /* BasemapNotifications.swift in Sources */,
 				D9D1F1301E8E1016007BE50D /* MapViewMode.swift in Sources */,
@@ -699,6 +714,7 @@
 				D91083C41EBC3C0F00BACD96 /* PortalUserFolderType.swift in Sources */,
 				D9CBE33D1E8B4F2A00776053 /* RouteResultViewController.swift in Sources */,
 				D93381AC1E90742900A0F93E /* FeedbackViewController+ChildVCs.swift in Sources */,
+				D979AD421F0373F400199AAA /* SnappingCollectionViewLayout.swift in Sources */,
 				D9822A0F1EA2EC06009FA0E5 /* MapViewController+SearchResultsDisplay.swift in Sources */,
 				D92E2C1C1E94A4F900138F7D /* MapViewController+Touch.swift in Sources */,
 				D9430A3D1EF1D639002F6CA1 /* SuggestionDisplayViewController.swift in Sources */,

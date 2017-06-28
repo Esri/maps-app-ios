@@ -20,60 +20,74 @@
                         <viewControllerLayoutGuide type="bottom" id="COg-HY-ucF"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="QdT-MC-Afc">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="120"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="85"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" alwaysBounceHorizontal="YES" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="LEb-CE-Jq9">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="120"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" alwaysBounceHorizontal="YES" pagingEnabled="YES" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="LEb-CE-Jq9">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="85"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="120" id="a8L-yI-9zQ"/>
+                                    <constraint firstAttribute="height" constant="85" id="a8L-yI-9zQ"/>
                                 </constraints>
-                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="AcA-HE-J1h">
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="AcA-HE-J1h" customClass="SnappingCollectionViewLayout" customModule="maps_app_ios" customModuleProvider="target">
                                     <size key="itemSize" width="367" height="85"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="maneuverCell" id="70a-ma-5U0" customClass="DirectionsManeuverCell" customModule="maps_app_ios" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="17.5" width="367" height="85"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="maneuverCell" id="70a-ma-5U0" customClass="DirectionManeuverCell" customModule="maps_app_ios" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="367" height="85"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="367" height="85"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SDb-dH-Ch4">
-                                                    <rect key="frame" x="20" y="17" width="50" height="50"/>
+                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="KwE-jZ-HeK">
+                                                    <rect key="frame" x="8" y="8" width="351" height="50"/>
+                                                    <subviews>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SDb-dH-Ch4">
+                                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="50" id="5Pv-EA-eiP"/>
+                                                                <constraint firstAttribute="width" secondItem="SDb-dH-Ch4" secondAttribute="height" multiplier="1:1" id="uBd-P5-4aH"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JfS-Ea-fgN">
+                                                            <rect key="frame" x="58" y="0.0" width="293" height="50"/>
+                                                            <attributedString key="attributedText">
+                                                                <fragment content="Label">
+                                                                    <attributes>
+                                                                        <font key="NSFont" metaFont="system" size="17"/>
+                                                                    </attributes>
+                                                                </fragment>
+                                                            </attributedString>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="50" id="5Pv-EA-eiP"/>
-                                                        <constraint firstAttribute="width" secondItem="SDb-dH-Ch4" secondAttribute="height" multiplier="1:1" id="uBd-P5-4aH"/>
+                                                        <constraint firstItem="JfS-Ea-fgN" firstAttribute="height" secondItem="SDb-dH-Ch4" secondAttribute="height" id="yne-kK-Ooj"/>
                                                     </constraints>
-                                                </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JfS-Ea-fgN">
-                                                    <rect key="frame" x="79" y="17" width="268" height="50"/>
-                                                    <attributedString key="attributedText">
-                                                        <fragment content="Label">
-                                                            <attributes>
-                                                                <font key="NSFont" metaFont="system" size="17"/>
-                                                            </attributes>
-                                                        </fragment>
-                                                    </attributedString>
+                                                </stackView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OVC-pk-7RK">
+                                                    <rect key="frame" x="328" y="62.5" width="31" height="14.5"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                                    <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                         </view>
                                         <constraints>
-                                            <constraint firstAttribute="trailingMargin" secondItem="JfS-Ea-fgN" secondAttribute="trailing" constant="12" id="GNC-Hl-p4A"/>
-                                            <constraint firstItem="JfS-Ea-fgN" firstAttribute="centerY" secondItem="SDb-dH-Ch4" secondAttribute="centerY" id="GWB-EQ-SYM"/>
-                                            <constraint firstItem="SDb-dH-Ch4" firstAttribute="leading" secondItem="70a-ma-5U0" secondAttribute="leadingMargin" constant="12" id="Qr6-cq-Doj"/>
-                                            <constraint firstItem="JfS-Ea-fgN" firstAttribute="height" secondItem="SDb-dH-Ch4" secondAttribute="height" id="mRA-mD-43M"/>
-                                            <constraint firstItem="SDb-dH-Ch4" firstAttribute="centerY" secondItem="70a-ma-5U0" secondAttribute="centerY" id="v8y-we-bRJ"/>
-                                            <constraint firstItem="JfS-Ea-fgN" firstAttribute="leading" secondItem="SDb-dH-Ch4" secondAttribute="trailing" constant="9" id="zuf-JJ-GBa"/>
+                                            <constraint firstAttribute="bottomMargin" secondItem="OVC-pk-7RK" secondAttribute="bottom" id="Kgo-uP-WUH"/>
+                                            <constraint firstItem="KwE-jZ-HeK" firstAttribute="leading" secondItem="70a-ma-5U0" secondAttribute="leadingMargin" id="ali-yp-YKY"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="OVC-pk-7RK" secondAttribute="trailing" id="kJR-Nj-6S8"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="KwE-jZ-HeK" secondAttribute="trailing" id="zKa-ho-epD"/>
+                                            <constraint firstItem="KwE-jZ-HeK" firstAttribute="top" secondItem="70a-ma-5U0" secondAttribute="topMargin" id="zME-9L-css"/>
                                         </constraints>
                                         <connections>
+                                            <outlet property="detailsLabel" destination="OVC-pk-7RK" id="eyI-8C-nnD"/>
                                             <outlet property="image" destination="SDb-dH-Ch4" id="Ae1-RV-HaL"/>
-                                            <outlet property="label" destination="JfS-Ea-fgN" id="Ire-dg-KHJ"/>
+                                            <outlet property="maneuverLabel" destination="JfS-Ea-fgN" id="cgi-s1-dgJ"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -93,7 +107,7 @@
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="375" height="120"/>
+                    <size key="freeformSize" width="375" height="85"/>
                     <connections>
                         <outlet property="maneuversView" destination="LEb-CE-Jq9" id="7yQ-G2-lxF"/>
                     </connections>

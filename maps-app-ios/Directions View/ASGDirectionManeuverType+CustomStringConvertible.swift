@@ -1,35 +1,12 @@
 //
-//  DirectionsManeuverCell.swift
+//  ASGDirectionManeuverType+CustomStringConvertible.swift
 //  maps-app-ios
 //
-//  Created by Nicholas Furness on 6/26/17.
+//  Created by Nicholas Furness on 6/27/17.
 //  Copyright © 2017 Esri. All rights reserved.
 //
 
 import ArcGIS
-import UIKit
-
-class DirectionsManeuverCell: UICollectionViewCell {
-    
-    @IBOutlet weak var image: UIImageView!
-    @IBOutlet weak var label: UILabel!
-    
-    var maneuver:AGSDirectionManeuver? {
-        didSet {
-            image.image = maneuver?.image
-            label.text = maneuver?.directionText
-            print("Maneuver: \(maneuver!.directionText)")
-        }
-    }
-}
-
-extension AGSDirectionManeuver {
-    var image:UIImage {
-        get {
-            return UIImage(named: "\(self.maneuverType)")!
-        }
-    }
-}
 
 extension AGSDirectionManeuverType: CustomStringConvertible {
     public var description: String {

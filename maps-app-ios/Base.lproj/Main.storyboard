@@ -28,7 +28,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Qf-QF-G41" userLabel="Controls View" customClass="RoundedView" customModule="maps_app_ios" customModuleProvider="target">
-                                <rect key="frame" x="319" y="535" width="40" height="122"/>
+                                <rect key="frame" x="319" y="533" width="40" height="122"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="nv9-AX-PSE">
                                         <rect key="frame" x="0.0" y="0.0" width="40" height="122"/>
@@ -99,7 +99,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Compass" translatesAutoresizingMaskIntoConstraints="NO" id="Xte-Zv-XAA" customClass="NorthArrowView" customModule="maps_app_ios" customModuleProvider="target">
-                                <rect key="frame" x="319" y="483" width="40" height="40"/>
+                                <rect key="frame" x="319" y="481" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Xte-Zv-XAA" secondAttribute="height" multiplier="1:1" id="6mA-nX-ayE"/>
                                     <constraint firstAttribute="width" constant="40" id="zqg-fo-etC"/>
@@ -138,7 +138,7 @@
                                 </connections>
                             </containerView>
                             <containerView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nVe-ks-G9Q" userLabel="Directions View">
-                                <rect key="frame" x="16" y="557" width="291" height="100"/>
+                                <rect key="frame" x="16" y="555" width="291" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" priority="990" constant="100" id="vUF-v2-feI"/>
                                 </constraints>
@@ -149,17 +149,24 @@
                                     <segue destination="81a-ab-SBT" kind="embed" id="Ekn-Z6-W8e"/>
                                 </connections>
                             </containerView>
+                            <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="liW-Ir-qwV" userLabel="Keyboard Spacer">
+                                <rect key="frame" x="0.0" y="667" width="375" height="0.0"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" id="7TW-uM-OEO"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="1Qf-QF-G41" secondAttribute="bottom" constant="10" placeholder="YES" id="1Jg-4g-DFG"/>
                             <constraint firstItem="jZt-eF-xnL" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="3bh-Eh-QFd"/>
+                            <constraint firstItem="liW-Ir-qwV" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="A5P-ca-gfo"/>
                             <constraint firstItem="nVe-ks-G9Q" firstAttribute="leading" secondItem="e5m-If-kPv" secondAttribute="leading" id="EtY-ZB-BpJ"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="kZk-QH-kwl" secondAttribute="bottom" id="FnR-ek-eyI"/>
                             <constraint firstAttribute="trailingMargin" secondItem="1Qf-QF-G41" secondAttribute="trailing" id="JP6-mP-6af"/>
                             <constraint firstItem="jZt-eF-xnL" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="QGO-wx-t0Y"/>
                             <constraint firstItem="e5m-If-kPv" firstAttribute="trailing" secondItem="jZt-eF-xnL" secondAttribute="trailing" priority="999" id="QX2-PD-Kee"/>
                             <constraint firstItem="e5m-If-kPv" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="S0b-ER-4Sg"/>
+                            <constraint firstItem="liW-Ir-qwV" firstAttribute="top" secondItem="1Qf-QF-G41" secondAttribute="bottom" constant="12" placeholder="YES" id="SKd-y1-87I"/>
                             <constraint firstItem="nVe-ks-G9Q" firstAttribute="bottom" secondItem="1Qf-QF-G41" secondAttribute="bottom" id="SV8-um-U8u"/>
                             <constraint firstItem="e5m-If-kPv" firstAttribute="leading" secondItem="jZt-eF-xnL" secondAttribute="leading" id="Sbg-F4-Dts"/>
                             <constraint firstItem="1Qf-QF-G41" firstAttribute="top" secondItem="Xte-Zv-XAA" secondAttribute="bottom" constant="12" id="VHk-LK-PTg"/>
@@ -169,12 +176,16 @@
                             <constraint firstItem="e5m-If-kPv" firstAttribute="top" secondItem="jZt-eF-xnL" secondAttribute="bottom" constant="10" id="hfu-iD-qQx"/>
                             <constraint firstItem="kZk-QH-kwl" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="j4Q-jV-uwX"/>
                             <constraint firstItem="Xte-Zv-XAA" firstAttribute="centerX" secondItem="1Qf-QF-G41" secondAttribute="centerX" id="jXR-fE-vE2"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="liW-Ir-qwV" secondAttribute="bottom" priority="250" id="rXb-6b-vdu"/>
                             <constraint firstItem="1Qf-QF-G41" firstAttribute="leading" secondItem="nVe-ks-G9Q" secondAttribute="trailing" constant="12" id="uUN-Re-Hzl"/>
+                            <constraint firstAttribute="trailing" secondItem="liW-Ir-qwV" secondAttribute="trailing" id="yp5-FY-dAE"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="controlsView" destination="1Qf-QF-G41" id="LnF-th-2wq"/>
                         <outlet property="gpsButton" destination="0ng-Np-3qj" id="MMe-Mh-2ww"/>
+                        <outlet property="keyboardSpacer" destination="liW-Ir-qwV" id="daV-yI-pSt"/>
+                        <outlet property="keyboardSpacerHeightConstraint" destination="7TW-uM-OEO" id="2pf-M9-Oub"/>
                         <outlet property="mapView" destination="kZk-QH-kwl" id="W1H-6t-xhR"/>
                     </connections>
                 </viewController>
