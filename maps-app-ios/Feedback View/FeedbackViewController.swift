@@ -19,7 +19,7 @@ class FeedbackViewController : UIViewController {
         }
     }
 
-    @IBOutlet weak var containerView: UIVisualEffectView!
+    @IBOutlet weak var containerView: UIView!
     
     var mapViewController:MapViewController? {
         return self.parent as? MapViewController

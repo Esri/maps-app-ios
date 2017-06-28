@@ -23,20 +23,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <visualEffectView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="lxT-sj-KEV">
+                            <view opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="T5c-Uo-iRV">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Fld-Wy-Bo8">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                </view>
-                                <blurEffect style="light"/>
-                            </visualEffectView>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="lxT-sj-KEV" secondAttribute="bottom" id="0lB-Bi-L54"/>
-                            <constraint firstItem="lxT-sj-KEV" firstAttribute="leading" secondItem="2bK-N6-W8d" secondAttribute="leading" id="1KI-Vt-PWj"/>
-                            <constraint firstAttribute="trailing" secondItem="lxT-sj-KEV" secondAttribute="trailing" id="D7d-Gh-HOQ"/>
-                            <constraint firstItem="lxT-sj-KEV" firstAttribute="top" secondItem="2bK-N6-W8d" secondAttribute="top" id="Zo4-NA-0s8"/>
+                            <constraint firstItem="T5c-Uo-iRV" firstAttribute="top" secondItem="pMT-HL-LrK" secondAttribute="bottom" id="8OZ-7g-ZYl"/>
+                            <constraint firstItem="u9B-E0-fIb" firstAttribute="top" secondItem="T5c-Uo-iRV" secondAttribute="bottom" id="IjF-aN-ngn"/>
+                            <constraint firstAttribute="trailing" secondItem="T5c-Uo-iRV" secondAttribute="trailing" id="XhT-kQ-cu5"/>
+                            <constraint firstItem="T5c-Uo-iRV" firstAttribute="leading" secondItem="2bK-N6-W8d" secondAttribute="leading" id="vUQ-g2-4Y5"/>
                         </constraints>
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
@@ -45,7 +41,7 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="44"/>
                     <connections>
-                        <outlet property="containerView" destination="lxT-sj-KEV" id="9mn-6k-wE3"/>
+                        <outlet property="containerView" destination="T5c-Uo-iRV" id="Uzo-a6-wig"/>
                         <segue destination="Wma-xI-VYV" kind="show" identifier="SearchSegue" customClass="EmptySegue" customModule="maps_app_ios" id="K8d-pR-MMI">
                             <nil key="action"/>
                         </segue>
@@ -173,7 +169,7 @@
                                                 <rect key="frame" x="0.0" y="48.5" width="319" height="27.5"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" horizontalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="8Hk-tN-jaw">
-                                                        <rect key="frame" x="0.0" y="5.5" width="44" height="22"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="44" height="27.5"/>
                                                         <subviews>
                                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Sedan" translatesAutoresizingMaskIntoConstraints="NO" id="l7o-Rc-omC">
                                                                 <rect key="frame" x="20" y="0.0" width="24" height="24"/>
@@ -188,22 +184,13 @@
                                                         </constraints>
                                                     </view>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="SgX-GL-sei">
-                                                        <rect key="frame" x="52" y="5.5" width="237" height="22"/>
+                                                        <rect key="frame" x="52" y="0.0" width="267" height="27.5"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JyR-7C-opd" userLabel="Show Details Button">
-                                                        <rect key="frame" x="297" y="5.5" width="22" height="22"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="22" id="YcW-Y3-zJY"/>
-                                                            <constraint firstAttribute="width" secondItem="JyR-7C-opd" secondAttribute="height" multiplier="1:1" id="syv-OS-xYc"/>
-                                                        </constraints>
-                                                        <state key="normal" image="Show List"/>
-                                                    </button>
                                                 </subviews>
                                                 <constraints>
-                                                    <constraint firstItem="JyR-7C-opd" firstAttribute="height" secondItem="SgX-GL-sei" secondAttribute="height" id="S3H-9y-8SH"/>
                                                     <constraint firstItem="SgX-GL-sei" firstAttribute="height" secondItem="8Hk-tN-jaw" secondAttribute="height" id="zRE-rc-gAk"/>
                                                 </constraints>
                                             </stackView>
@@ -324,6 +311,5 @@
         <image name="Route End" width="30" height="30"/>
         <image name="Route Start" width="30" height="30"/>
         <image name="Sedan" width="24" height="24"/>
-        <image name="Show List" width="22" height="22"/>
     </resources>
 </document>
