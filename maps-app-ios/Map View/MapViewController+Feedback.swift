@@ -21,7 +21,7 @@ extension MapViewController {
                 let feedbackFrame = feedbackView.convert(feedbackView.frame, to: self.mapView)
                 
                 let topInset = feedbackFrame.maxY
-                self.mapView.contentInset = UIEdgeInsets(top: topInset, left: 0, bottom: 0, right: 0)
+                self.mapView.contentInset.top = topInset
 
                 self.updateMapViewExtentForMode()
             }
