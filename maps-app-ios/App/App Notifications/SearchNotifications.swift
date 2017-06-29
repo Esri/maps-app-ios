@@ -63,6 +63,8 @@ extension MapsAppNotifications {
         if let suggestText = searchBar.text, suggestText.characters.count > 0 {
             NotificationCenter.default.post(name: MapsAppNotifications.Names.RequestSuggestions, object: nil,
                                             userInfo: [SearchNotificationKeys.search: suggestText])
+        } else {
+            MapsAppNotifications.postSearchCompletedNotification()
         }
     }
     
@@ -70,7 +72,6 @@ extension MapsAppNotifications {
         // Notify that we're no longer searching and it's time to hide any related UI (e.g. an autocomplete
         NotificationCenter.default.post(name: MapsAppNotifications.Names.SearchCompleted, object: nil)
     }
-    
 }
 
 extension Notification {

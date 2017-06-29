@@ -8,6 +8,30 @@
 
 import ArcGIS
 
+enum StopType {
+    case first
+    case waypoint
+    case last
+    
+    var symbol:AGSMarkerSymbol {
+        var image:UIImage!
+        
+        switch self {
+        case .first:
+            image = #imageLiteral(resourceName: "Route Start Pin")
+        case .waypoint:
+            image = #imageLiteral(resourceName: "Route Waypoint Pin")
+        case .last:
+            image = #imageLiteral(resourceName: "Route End Pin")
+        }
+
+        let pms = AGSPictureMarkerSymbol(image: image)
+        pms.offsetY = image.size.height/2
+        
+        return pms
+    }
+}
+
 extension MapViewMode {
     var symbol:AGSSymbol? {
         switch self {
@@ -22,35 +46,49 @@ extension MapViewMode {
         }
     }
     
-    var graphic:AGSGraphic? {
+    var graphics:[AGSGraphic] {
         switch self {
         case .geocodeResult(let result):
-            return AGSGraphic(geometry: result.displayLocation, symbol: self.symbol, attributes: nil)
+            return [AGSGraphic(geometry: result.displayLocation, symbol: self.symbol, attributes: nil)]
         case .routeResult(let result):
-            return AGSGraphic(geometry: result.routeGeometry, symbol: self.symbol, attributes: nil)
+            var graphics:[AGSGraphic] = [
+                AGSGraphic(geometry: result.routeGeometry, symbol: self.symbol, attributes: nil)
+            ]
+            
+            for stop in result.stops {
+                let type:StopType = stop == result.stops.first ? .first : (stop == result.stops.last ? .last : .waypoint)
+                let graphic = AGSGraphic(geometry: stop.geometry, symbol: type.symbol, attributes: nil)
+                graphics.append(graphic)
+            }
+            
+            return graphics
         default:
-            return nil
+            return []
         }
+    }
+    
+    func envelopeForGraphics(graphics:[AGSGraphic], expansionFactor:Double = 1) -> AGSEnvelope? {
+        let geoms = graphics.flatMap({ graphic -> AGSGeometry? in
+            return graphic.geometry
+        })
+        if let builder = geoms.first?.extent.toBuilder() {
+            for geom in geoms.dropFirst() {
+                builder.union(with: geom.extent)
+            }
+            builder.expand(byFactor: expansionFactor)
+            return builder.toGeometry()
+        }
+        return nil
     }
     
     var extent:AGSEnvelope? {
         switch self {
         case .geocodeResult(let result):
             return result.extent
-        case .routeResult(let result):
-            if let extent = self.graphic?.geometry?.extent {
-                let builder = extent.toBuilder()
-                for stop in result.stops {
-                    if let stopPoint = stop.geometry {
-                        builder.union(with: stopPoint)
-                    }
-                }
-                builder.expand(byFactor: 1.2)
-                return builder.toGeometry()
-            }
-            fallthrough
+        case .routeResult:
+             return envelopeForGraphics(graphics: self.graphics, expansionFactor: 1.2)
         default:
-            return self.graphic?.geometry?.extent
+            return envelopeForGraphics(graphics: self.graphics)
         }
     }
 }

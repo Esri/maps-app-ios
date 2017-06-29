@@ -11,22 +11,18 @@ import UIKit
 extension MapViewController {
     func updateMapViewForMode() {
         // Update the map
+        
+        geocodeResultsOverlay.graphics.removeAllObjects()
+        routeResultsOverlay.graphics.removeAllObjects()
+        routeManeuversOverlay.graphics.removeAllObjects()
+
         switch mode {
         case .geocodeResult:
-            geocodeResultsOverlay.graphics.removeAllObjects()
-            if let graphic = mode.graphic {
-                geocodeResultsOverlay.graphics.add(graphic)
-            }
+            geocodeResultsOverlay.graphics.addObjects(from: mode.graphics)
         case .routeResult:
-            routeResultsOverlay.graphics.removeAllObjects()
-            routeManeuversOverlay.graphics.removeAllObjects()
-            if let graphic = mode.graphic {
-                routeResultsOverlay.graphics.add(graphic)
-            }
-        case .none, .search:
-            routeResultsOverlay.graphics.removeAllObjects()
-            routeManeuversOverlay.graphics.removeAllObjects()
-            geocodeResultsOverlay.graphics.removeAllObjects()
+            routeResultsOverlay.graphics.addObjects(from: mode.graphics)
+        default:
+            break
         }
         
         updateMapViewExtentForMode()

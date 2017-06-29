@@ -26,8 +26,27 @@ class MapViewController: UIViewController {
     // MARK: Map feedback layers
     var graphicsOverlays:[String:AGSGraphicsOverlay] = [:]
     
+    @IBAction func undoMode(_ sender: UIButton) {
+        modeUndoManager.undo()
+    }
+    
+    @IBAction func redoMode(_ sender: UIButton) {
+        modeUndoManager.redo()
+    }
+    
     // MARK: MapView Mode
     var mode:MapViewMode = .none {
+        willSet {
+            // Register an undo action.
+            switch mode {
+            case .geocodeResult, .routeResult:
+                modeUndoManager.registerUndo(withTarget: self) { [undoMode = mode] (target) in
+                    target.mode = undoMode
+                }
+            default:
+                break
+            }
+        }
         didSet {
             updateMapViewForMode()
 
@@ -35,6 +54,8 @@ class MapViewController: UIViewController {
             MapsAppNotifications.postModeChangeNotification(oldMode: oldValue, newMode: mode)
         }
     }
+    
+    var modeUndoManager = UndoManager()
     
     // MARK: View initialization
     override func viewDidLoad() {

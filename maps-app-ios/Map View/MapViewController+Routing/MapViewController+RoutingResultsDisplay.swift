@@ -41,12 +41,6 @@ extension MapViewController {
         }
     }
     
-    var routeStartSymbol:AGSSymbol {
-        let symbol = AGSPictureMarkerSymbol(image: #imageLiteral(resourceName: "My Location Pin"))
-        symbol.offsetY = (symbol.image?.size.height ?? 0)/2
-        return symbol
-    }
-    
     var routeManeuverLineSymbol:AGSSymbol {
         if let symbol = Bundle.main.agsSymbolFromJSON(resourceNamed: "DirectionsManeuverSymbol") {
             return symbol

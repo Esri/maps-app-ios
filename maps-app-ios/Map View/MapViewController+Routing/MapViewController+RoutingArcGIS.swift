@@ -56,12 +56,6 @@ extension MapViewController {
                 
                 self.mode = .routeResult(route)
                 
-                let startGraphic = AGSGraphic(geometry: route.stops.first?.geometry, symbol: self.routeStartSymbol, attributes: nil)
-                let routeGraphic = AGSGraphic(geometry: route.routeGeometry, symbol: self.mode.symbol, attributes: nil)
-                
-                self.routeResultsOverlay.graphics.removeAllObjects()
-                self.routeResultsOverlay.graphics.addObjects(from: [routeGraphic, startGraphic])
-                
                 self.showDirections(route: route)
             }
         }
