@@ -26,4 +26,15 @@ enum MapViewMode: CustomStringConvertible {
             return "GeocodeResult"
         }
     }
+    
+    var humanReadableDescription: String {
+        switch self {
+        case .geocodeResult(let result):
+            return "Geocode: \(result.label)"
+        case .routeResult(let route):
+            return "Route: \(route.routeName)"
+        default:
+            return "\(self)"
+        }
+    }
 }

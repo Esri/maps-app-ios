@@ -27,22 +27,49 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ysD-b5-Hlx">
-                                <rect key="frame" x="16" y="140" width="44" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="UNDO"/>
-                                <connections>
-                                    <action selector="undoMode:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oLP-wJ-8L4"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sDr-0H-15M">
-                                <rect key="frame" x="18" y="179" width="41" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="REDO"/>
-                                <connections>
-                                    <action selector="redoMode:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gGn-CX-Wn4"/>
-                                </connections>
-                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I5G-Ky-yTQ" userLabel="Undo/Redo Controls View" customClass="RoundedView" customModule="maps_app_ios" customModuleProvider="target">
+                                <rect key="frame" x="319" y="381" width="40" height="80"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="1Ej-sR-s7b">
+                                        <rect key="frame" x="0.0" y="0.0" width="40" height="80"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ysD-b5-Hlx">
+                                                <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                                                <state key="normal" image="Undo"/>
+                                                <connections>
+                                                    <action selector="undoMode:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZZl-ce-2Oy"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sDr-0H-15M">
+                                                <rect key="frame" x="0.0" y="40" width="40" height="40"/>
+                                                <state key="normal" image="Redo"/>
+                                                <connections>
+                                                    <action selector="redoMode:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gy3-y8-RZ8"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="ysD-b5-Hlx" firstAttribute="height" secondItem="sDr-0H-15M" secondAttribute="height" id="Uoo-ID-ZkA"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="1Ej-sR-s7b" firstAttribute="top" secondItem="I5G-Ky-yTQ" secondAttribute="top" id="Vi8-LR-cXW"/>
+                                    <constraint firstItem="1Ej-sR-s7b" firstAttribute="leading" secondItem="I5G-Ky-yTQ" secondAttribute="leading" id="Wp4-kV-ZNB"/>
+                                    <constraint firstAttribute="trailing" secondItem="1Ej-sR-s7b" secondAttribute="trailing" id="cFA-MN-vaU"/>
+                                    <constraint firstAttribute="bottom" secondItem="1Ej-sR-s7b" secondAttribute="bottom" id="zA0-og-YXm"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="shadow" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Qf-QF-G41" userLabel="Controls View" customClass="RoundedView" customModule="maps_app_ios" customModuleProvider="target">
                                 <rect key="frame" x="319" y="533" width="40" height="122"/>
                                 <subviews>
@@ -168,11 +195,14 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="I5G-Ky-yTQ" firstAttribute="width" secondItem="1Qf-QF-G41" secondAttribute="width" id="2hb-Zf-hio"/>
                             <constraint firstItem="jZt-eF-xnL" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="3bh-Eh-QFd"/>
+                            <constraint firstItem="sDr-0H-15M" firstAttribute="height" secondItem="0ng-Np-3qj" secondAttribute="height" id="6r5-nH-nL2"/>
                             <constraint firstItem="liW-Ir-qwV" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="A5P-ca-gfo"/>
                             <constraint firstItem="nVe-ks-G9Q" firstAttribute="leading" secondItem="e5m-If-kPv" secondAttribute="leading" id="EtY-ZB-BpJ"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="kZk-QH-kwl" secondAttribute="bottom" id="FnR-ek-eyI"/>
                             <constraint firstAttribute="trailingMargin" secondItem="1Qf-QF-G41" secondAttribute="trailing" id="JP6-mP-6af"/>
+                            <constraint firstItem="Xte-Zv-XAA" firstAttribute="top" secondItem="I5G-Ky-yTQ" secondAttribute="bottom" constant="20" id="M9a-SD-N7K"/>
                             <constraint firstItem="jZt-eF-xnL" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="QGO-wx-t0Y"/>
                             <constraint firstItem="e5m-If-kPv" firstAttribute="trailing" secondItem="jZt-eF-xnL" secondAttribute="trailing" priority="999" id="QX2-PD-Kee"/>
                             <constraint firstItem="e5m-If-kPv" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="S0b-ER-4Sg"/>
@@ -180,6 +210,7 @@
                             <constraint firstItem="nVe-ks-G9Q" firstAttribute="bottom" secondItem="1Qf-QF-G41" secondAttribute="bottom" id="SV8-um-U8u"/>
                             <constraint firstItem="e5m-If-kPv" firstAttribute="leading" secondItem="jZt-eF-xnL" secondAttribute="leading" id="Sbg-F4-Dts"/>
                             <constraint firstItem="1Qf-QF-G41" firstAttribute="top" secondItem="Xte-Zv-XAA" secondAttribute="bottom" constant="12" id="VHk-LK-PTg"/>
+                            <constraint firstItem="I5G-Ky-yTQ" firstAttribute="trailing" secondItem="1Qf-QF-G41" secondAttribute="trailing" id="aJ1-47-TRc"/>
                             <constraint firstAttribute="trailing" secondItem="kZk-QH-kwl" secondAttribute="trailing" id="bc5-BF-E1k"/>
                             <constraint firstItem="kZk-QH-kwl" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="e7s-tx-n9a"/>
                             <constraint firstItem="jZt-eF-xnL" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="ea9-Ua-hqY"/>
@@ -197,6 +228,9 @@
                         <outlet property="keyboardSpacer" destination="liW-Ir-qwV" id="daV-yI-pSt"/>
                         <outlet property="keyboardSpacerHeightConstraint" destination="7TW-uM-OEO" id="2pf-M9-Oub"/>
                         <outlet property="mapView" destination="kZk-QH-kwl" id="W1H-6t-xhR"/>
+                        <outlet property="redoButton" destination="sDr-0H-15M" id="tzH-D3-oKf"/>
+                        <outlet property="undoButton" destination="ysD-b5-Hlx" id="H9f-1c-OPf"/>
+                        <outlet property="undoRedoView" destination="I5G-Ky-yTQ" id="ARk-6D-Y98"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -249,5 +283,7 @@
         <image name="Choose Basemap" width="30" height="30"/>
         <image name="Compass" width="36" height="36"/>
         <image name="GPS Off" width="22" height="22"/>
+        <image name="Redo" width="22" height="22"/>
+        <image name="Undo" width="22" height="22"/>
     </resources>
 </document>

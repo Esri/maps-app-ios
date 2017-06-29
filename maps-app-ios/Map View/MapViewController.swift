@@ -16,6 +16,10 @@ class MapViewController: UIViewController {
     @IBOutlet weak var gpsButton:UIButton!
     @IBOutlet weak var controlsView: RoundedView!
     
+    @IBOutlet weak var undoRedoView: UIView!
+    @IBOutlet weak var undoButton: UIButton!
+    @IBOutlet weak var redoButton: UIButton!
+    
     @IBOutlet weak var keyboardSpacer: UIView!
     @IBOutlet weak var keyboardSpacerHeightConstraint: NSLayoutConstraint!
     var keyboardObservers:[NSObjectProtocol] = []
@@ -27,24 +31,55 @@ class MapViewController: UIViewController {
     var graphicsOverlays:[String:AGSGraphicsOverlay] = [:]
     
     @IBAction func undoMode(_ sender: UIButton) {
-        modeUndoManager.undo()
+        if let modeUndoManager = undoManager {
+            print("About to undo \(modeUndoManager.undoActionName)")
+            modeUndoManager.undo()
+            setUndoRedoUI()
+        }
+    }
+
+    @IBAction func redoMode(_ sender: UIButton) {
+        if let modeUndoManager = undoManager {
+            print("About to redo \(modeUndoManager.redoActionName)")
+            modeUndoManager.redo()
+            setUndoRedoUI()
+        }
     }
     
-    @IBAction func redoMode(_ sender: UIButton) {
-        modeUndoManager.redo()
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        becomeFirstResponder()
+        
+        if let modeUndoManager = undoManager {
+            NotificationCenter.default.addObserver(forName: Notification.Name.NSUndoManagerDidCloseUndoGroup, object: modeUndoManager, queue: nil) { notification in
+                self.setUndoRedoUI()
+            }
+        }
+    }
+    
+    
+    func setUndoRedoUI() {
+        if let modeUndoManager = undoManager {
+            undoRedoView.isHidden = !(modeUndoManager.canUndo || modeUndoManager.canRedo)
+            undoButton.isEnabled = modeUndoManager.canUndo
+            redoButton.isEnabled = modeUndoManager.canRedo
+        }
     }
     
     // MARK: MapView Mode
     var mode:MapViewMode = .none {
         willSet {
-            // Register an undo action.
-            switch mode {
-            case .geocodeResult, .routeResult:
-                modeUndoManager.registerUndo(withTarget: self) { [undoMode = mode] (target) in
-                    target.mode = undoMode
+            if let modeUndoManager = undoManager {
+                // Register an undo action.
+                switch mode {
+                case .geocodeResult, .routeResult:
+                    modeUndoManager.registerUndo(withTarget: self) { [undoMode = mode] (target) in
+                        target.mode = undoMode
+                    }
+                    modeUndoManager.setActionName("\(mode.humanReadableDescription)")
+                default:
+                    break
                 }
-            default:
-                break
             }
         }
         didSet {
@@ -55,7 +90,7 @@ class MapViewController: UIViewController {
         }
     }
     
-    var modeUndoManager = UndoManager()
+//    var modeUndoManager = UndoManager()
     
     // MARK: View initialization
     override func viewDidLoad() {
@@ -82,6 +117,8 @@ class MapViewController: UIViewController {
 
         setupMapViewAttributeBarTracking(activate: true)
         setupKeyboardTracking(activate: false)
+        
+        undoRedoView.isHidden = true
         
         mode = .search
     }
@@ -118,6 +155,18 @@ class MapViewController: UIViewController {
         }
         
         keyboardObservers.removeAll()
+        
+        resignFirstResponder()
+        
+        if let modeUndoManager = undoManager {
+            NotificationCenter.default.addObserver(forName: Notification.Name.NSUndoManagerDidCloseUndoGroup, object: modeUndoManager, queue: nil) { notification in
+                self.setUndoRedoUI()
+            }
+        }
+    }
+    
+    override var canBecomeFirstResponder: Bool {
+        return true
     }
 
     private func setKeyboardSpacerFromKeyboardNotification(notification:Notification) {

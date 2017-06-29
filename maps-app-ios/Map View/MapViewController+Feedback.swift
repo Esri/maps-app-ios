@@ -23,7 +23,7 @@ extension MapViewController {
                 let topInset = feedbackFrame.maxY
                 self.mapView.contentInset.top = topInset
 
-                self.updateMapViewExtentForMode()
+                //self.updateMapViewExtentForMode()
             }
         }
     }
