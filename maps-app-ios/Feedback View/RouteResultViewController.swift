@@ -32,7 +32,7 @@ class RouteResultViewController : UIViewController {
                 
                 let distance = distanceFormatter.string(from: Measurement(value: result.totalLength, unit: UnitLength.meters))
                 
-                self.summaryLabel.text = "\(time) (\(distance))"
+                self.summaryLabel.text = "\(distance) ∙ \(time)"
             }
         }
     }

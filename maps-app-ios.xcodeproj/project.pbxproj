@@ -53,10 +53,10 @@
 		D9774AF61EBAD56D0099D4A5 /* PortalUserFolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9774AF51EBAD56D0099D4A5 /* PortalUserFolder.swift */; };
 		D979AD3C1F02C73200199AAA /* UIContainerViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D979AD3B1F02C73200199AAA /* UIContainerViewProtocol.swift */; };
 		D979AD3E1F03483C00199AAA /* ASGDirectionManeuverType+CustomStringConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = D979AD3D1F03483C00199AAA /* ASGDirectionManeuverType+CustomStringConvertible.swift */; };
-		D979AD401F03485F00199AAA /* AGSDirectionManeuver+UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D979AD3F1F03485F00199AAA /* AGSDirectionManeuver+UIImage.swift */; };
-		D979AD421F0373F400199AAA /* SnappingCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D979AD411F0373F400199AAA /* SnappingCollectionViewLayout.swift */; };
 		D979AD441F03779B00199AAA /* DirectionsViewNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = D979AD431F03779B00199AAA /* DirectionsViewNotifications.swift */; };
 		D979AD461F0427EF00199AAA /* DirectionsManeuverSymbol.json in Resources */ = {isa = PBXBuildFile; fileRef = D979AD451F0427EF00199AAA /* DirectionsManeuverSymbol.json */; };
+		D979AD481F04A0BB00199AAA /* UICollectionView+CellAtCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D979AD471F04A0BB00199AAA /* UICollectionView+CellAtCenter.swift */; };
+		D979AD4A1F04A74200199AAA /* Bundle+AGSSymbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D979AD491F04A74200199AAA /* Bundle+AGSSymbol.swift */; };
 		D9822A0B1EA2EA35009FA0E5 /* MapViewController+RoutingResultsDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9822A0A1EA2EA35009FA0E5 /* MapViewController+RoutingResultsDisplay.swift */; };
 		D9822A0F1EA2EC06009FA0E5 /* MapViewController+SearchResultsDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9822A0E1EA2EC06009FA0E5 /* MapViewController+SearchResultsDisplay.swift */; };
 		D9822A111EA2EFEE009FA0E5 /* MapViewController+LocationDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9822A101EA2EFEE009FA0E5 /* MapViewController+LocationDisplay.swift */; };
@@ -163,10 +163,10 @@
 		D9774AF51EBAD56D0099D4A5 /* PortalUserFolder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PortalUserFolder.swift; sourceTree = "<group>"; };
 		D979AD3B1F02C73200199AAA /* UIContainerViewProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIContainerViewProtocol.swift; sourceTree = "<group>"; };
 		D979AD3D1F03483C00199AAA /* ASGDirectionManeuverType+CustomStringConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ASGDirectionManeuverType+CustomStringConvertible.swift"; sourceTree = "<group>"; };
-		D979AD3F1F03485F00199AAA /* AGSDirectionManeuver+UIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AGSDirectionManeuver+UIImage.swift"; sourceTree = "<group>"; };
-		D979AD411F0373F400199AAA /* SnappingCollectionViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnappingCollectionViewLayout.swift; sourceTree = "<group>"; };
 		D979AD431F03779B00199AAA /* DirectionsViewNotifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DirectionsViewNotifications.swift; sourceTree = "<group>"; };
 		D979AD451F0427EF00199AAA /* DirectionsManeuverSymbol.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = DirectionsManeuverSymbol.json; sourceTree = "<group>"; };
+		D979AD471F04A0BB00199AAA /* UICollectionView+CellAtCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UICollectionView+CellAtCenter.swift"; sourceTree = "<group>"; };
+		D979AD491F04A74200199AAA /* Bundle+AGSSymbol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Bundle+AGSSymbol.swift"; sourceTree = "<group>"; };
 		D9822A0A1EA2EA35009FA0E5 /* MapViewController+RoutingResultsDisplay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MapViewController+RoutingResultsDisplay.swift"; sourceTree = "<group>"; };
 		D9822A0E1EA2EC06009FA0E5 /* MapViewController+SearchResultsDisplay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MapViewController+SearchResultsDisplay.swift"; sourceTree = "<group>"; };
 		D9822A101EA2EFEE009FA0E5 /* MapViewController+LocationDisplay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MapViewController+LocationDisplay.swift"; sourceTree = "<group>"; };
@@ -447,9 +447,7 @@
 				D9C080BC1F01F53C00968FB3 /* Directions.xcassets */,
 				D9C080B61F01BEC600968FB3 /* DirectionsDisplayViewController.swift */,
 				D9C080B81F01BFCD00968FB3 /* DirectionManeuverCell.swift */,
-				D979AD3F1F03485F00199AAA /* AGSDirectionManeuver+UIImage.swift */,
 				D979AD3D1F03483C00199AAA /* ASGDirectionManeuverType+CustomStringConvertible.swift */,
-				D979AD411F0373F400199AAA /* SnappingCollectionViewLayout.swift */,
 				D979AD431F03779B00199AAA /* DirectionsViewNotifications.swift */,
 			);
 			path = "Directions View";
@@ -482,6 +480,7 @@
 			children = (
 				D96A77841E86E88600F441D3 /* AGSLicense+CustomStringConvertible.swift */,
 				D94E6C611EBBFCA400F07BA6 /* AGSLocationDisplayAutoPanMode+CustomStringConvertible.swift */,
+				D979AD491F04A74200199AAA /* Bundle+AGSSymbol.swift */,
 			);
 			path = "ArcGIS Extensions";
 			sourceTree = "<group>";
@@ -512,6 +511,7 @@
 				D98F78B41E89CEEA00E7CBC2 /* UIViewController+Alerts.swift */,
 				D9B5074E1EB23399006BA131 /* URL+QueryString.swift */,
 				D979AD3B1F02C73200199AAA /* UIContainerViewProtocol.swift */,
+				D979AD471F04A0BB00199AAA /* UICollectionView+CellAtCenter.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -682,7 +682,6 @@
 				D9C080B91F01BFCD00968FB3 /* DirectionManeuverCell.swift in Sources */,
 				D963879B1EB2547600764D8D /* LoginStatus.swift in Sources */,
 				D96B73C11EF73760004B6862 /* RoundedImageView.swift in Sources */,
-				D979AD401F03485F00199AAA /* AGSDirectionManeuver+UIImage.swift in Sources */,
 				D9CF2A6F1E9034A80019701F /* MapViewController+RoutingArcGIS.swift in Sources */,
 				D98D92281EF6F5F9001BFF03 /* NorthArrowView.swift in Sources */,
 				D9CF2A731E9045A70019701F /* MapsAppStopProvider.swift in Sources */,
@@ -698,6 +697,7 @@
 				D979AD3E1F03483C00199AAA /* ASGDirectionManeuverType+CustomStringConvertible.swift in Sources */,
 				D9B507531EB23C3A006BA131 /* MapsAppDelegate+PortalLogin.swift in Sources */,
 				D96B73CE1EF86E20004B6862 /* BasemapNotifications.swift in Sources */,
+				D979AD4A1F04A74200199AAA /* Bundle+AGSSymbol.swift in Sources */,
 				D9D1F1301E8E1016007BE50D /* MapViewMode.swift in Sources */,
 				D9CBE33F1E8B4F2A00776053 /* FeedbackViewController.swift in Sources */,
 				D96B73D01EF872A8004B6862 /* MapViewController+Basemap.swift in Sources */,
@@ -718,7 +718,6 @@
 				D91083C41EBC3C0F00BACD96 /* PortalUserFolderType.swift in Sources */,
 				D9CBE33D1E8B4F2A00776053 /* RouteResultViewController.swift in Sources */,
 				D93381AC1E90742900A0F93E /* FeedbackViewController+ChildVCs.swift in Sources */,
-				D979AD421F0373F400199AAA /* SnappingCollectionViewLayout.swift in Sources */,
 				D9822A0F1EA2EC06009FA0E5 /* MapViewController+SearchResultsDisplay.swift in Sources */,
 				D92E2C1C1E94A4F900138F7D /* MapViewController+Touch.swift in Sources */,
 				D9430A3D1EF1D639002F6CA1 /* SuggestionDisplayViewController.swift in Sources */,
@@ -728,6 +727,7 @@
 				D96A77551E8594C000F441D3 /* MapsAppDelegate.swift in Sources */,
 				D96387A11EB2FA7300764D8D /* AppSettings.swift in Sources */,
 				D9822A111EA2EFEE009FA0E5 /* MapViewController+LocationDisplay.swift in Sources */,
+				D979AD481F04A0BB00199AAA /* UICollectionView+CellAtCenter.swift in Sources */,
 				D928724C1E944BC700112A53 /* MapViewMode+ResultsDisplay.swift in Sources */,
 				D9B507511EB23400006BA131 /* AGSPortal+AutoLogin.swift in Sources */,
 				D9CF2A711E9041EA0019701F /* RouteNotifications.swift in Sources */,

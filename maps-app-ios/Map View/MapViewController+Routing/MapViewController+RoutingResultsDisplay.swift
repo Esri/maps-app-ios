@@ -48,15 +48,8 @@ extension MapViewController {
     }
     
     var routeManeuverLineSymbol:AGSSymbol {
-        if let path = Bundle.main.path(forResource: "DirectionsManeuverSymbol", ofType: "json") {
-            do {
-                let jsonData = try NSData(contentsOfFile: path, options: .mappedIfSafe)
-                let json:NSDictionary = try JSONSerialization.jsonObject(with: jsonData as Data, options: JSONSerialization.ReadingOptions.mutableContainers) as! NSDictionary
-                let symbol = try AGSSymbol.fromJSON(json) as! AGSSymbol
-                return symbol
-            } catch {
-                print("Error loading/parsing the JSON: \(error.localizedDescription)")
-            }
+        if let symbol = Bundle.main.agsSymbolFromJSON(resourceNamed: "DirectionsManeuverSymbol") {
+            return symbol
         }
         
         print("Returning fallback maneuver symbol")

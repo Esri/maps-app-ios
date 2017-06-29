@@ -23,9 +23,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="T5c-Uo-iRV">
+                            <view opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="T5c-Uo-iRV" customClass="RoundedView" customModule="maps_app_ios" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="shadow" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
                         <constraints>
@@ -90,7 +99,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="86T-KB-SL6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="9065" y="-295"/>
+            <point key="canvasLocation" x="9438" y="-288"/>
         </scene>
         <!--Route Result View Controller-->
         <scene sceneID="aQS-d6-NPy">
@@ -105,10 +114,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="EI0-tP-I77">
-                                <rect key="frame" x="16" y="0.0" width="359" height="76"/>
+                                <rect key="frame" x="8" y="4" width="359" height="72"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="800" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="OVz-Lr-93O">
-                                        <rect key="frame" x="0.0" y="0.0" width="319" height="76"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="319" height="72"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="mWP-PU-2o4" userLabel="From Stack">
                                                 <rect key="frame" x="0.0" y="0.0" width="319" height="20.5"/>
@@ -165,11 +174,11 @@
                                                     <constraint firstItem="Edq-kO-ZEx" firstAttribute="width" secondItem="Edq-kO-ZEx" secondAttribute="height" multiplier="1:1" id="oMb-YT-S3s"/>
                                                 </constraints>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" alignment="bottom" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="5Mb-pW-rE6" userLabel="Summary Stack">
-                                                <rect key="frame" x="0.0" y="48.5" width="319" height="27.5"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="5Mb-pW-rE6" userLabel="Summary Stack">
+                                                <rect key="frame" x="0.0" y="48.5" width="319" height="23.5"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" horizontalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="8Hk-tN-jaw">
-                                                        <rect key="frame" x="0.0" y="0.0" width="44" height="27.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="44" height="23.5"/>
                                                         <subviews>
                                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Sedan" translatesAutoresizingMaskIntoConstraints="NO" id="l7o-Rc-omC">
                                                                 <rect key="frame" x="20" y="0.0" width="24" height="24"/>
@@ -179,18 +188,19 @@
                                                             </imageView>
                                                         </subviews>
                                                         <constraints>
-                                                            <constraint firstItem="l7o-Rc-omC" firstAttribute="top" secondItem="8Hk-tN-jaw" secondAttribute="top" id="0sG-ad-jkj"/>
                                                             <constraint firstAttribute="trailing" secondItem="l7o-Rc-omC" secondAttribute="trailing" id="SID-aS-1b2"/>
+                                                            <constraint firstItem="l7o-Rc-omC" firstAttribute="centerY" secondItem="8Hk-tN-jaw" secondAttribute="centerY" id="Ywy-X8-GtX"/>
                                                         </constraints>
                                                     </view>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="SgX-GL-sei">
-                                                        <rect key="frame" x="52" y="0.0" width="267" height="27.5"/>
+                                                        <rect key="frame" x="52" y="0.0" width="267" height="23.5"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
                                                 <constraints>
+                                                    <constraint firstItem="8Hk-tN-jaw" firstAttribute="centerY" secondItem="SgX-GL-sei" secondAttribute="centerY" id="y9p-6v-t9b"/>
                                                     <constraint firstItem="SgX-GL-sei" firstAttribute="height" secondItem="8Hk-tN-jaw" secondAttribute="height" id="zRE-rc-gAk"/>
                                                 </constraints>
                                             </stackView>
@@ -204,7 +214,7 @@
                                         </constraints>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aFe-Ln-wqg" userLabel="Close Button">
-                                        <rect key="frame" x="327" y="0.0" width="32" height="76"/>
+                                        <rect key="frame" x="327" y="0.0" width="32" height="72"/>
                                         <state key="normal" image="Cancel"/>
                                         <connections>
                                             <segue destination="hwd-Cr-ngo" kind="unwind" unwindAction="returnToSearch:" id="JiB-Zi-WQ4"/>
@@ -214,9 +224,9 @@
                             </stackView>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="EI0-tP-I77" firstAttribute="leading" secondItem="2Jv-Fy-BWe" secondAttribute="leadingMargin" id="DMT-8B-OYy"/>
-                            <constraint firstItem="EI0-tP-I77" firstAttribute="top" secondItem="L6Y-L5-MDj" secondAttribute="bottom" id="hla-SL-I2T"/>
-                            <constraint firstAttribute="trailing" secondItem="EI0-tP-I77" secondAttribute="trailingMargin" id="mb6-aI-MBP"/>
+                            <constraint firstItem="EI0-tP-I77" firstAttribute="leading" secondItem="2Jv-Fy-BWe" secondAttribute="leading" constant="8" id="DMT-8B-OYy"/>
+                            <constraint firstItem="EI0-tP-I77" firstAttribute="top" secondItem="L6Y-L5-MDj" secondAttribute="bottom" constant="4" id="hla-SL-I2T"/>
+                            <constraint firstAttribute="trailing" secondItem="EI0-tP-I77" secondAttribute="trailingMargin" constant="8" id="mb6-aI-MBP"/>
                             <constraint firstItem="Mmq-vO-fhg" firstAttribute="top" secondItem="EI0-tP-I77" secondAttribute="bottom" constant="4" id="rcK-Dg-d9h"/>
                         </constraints>
                     </view>
@@ -231,7 +241,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Gc-Li-pSC" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="hwd-Cr-ngo" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="10297" y="-543"/>
+            <point key="canvasLocation" x="10132" y="-506"/>
         </scene>
         <!--Geocode Result View Controller-->
         <scene sceneID="zMI-FL-Vmf">
@@ -301,7 +311,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UpU-9u-4mH" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="Rxs-Vd-saQ" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="9665" y="-295"/>
+            <point key="canvasLocation" x="10132" y="-323"/>
         </scene>
     </scenes>
     <resources>

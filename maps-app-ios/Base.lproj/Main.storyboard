@@ -113,14 +113,11 @@
                                     <outlet property="mapView" destination="kZk-QH-kwl" id="mB2-Ob-HyU"/>
                                 </connections>
                             </imageView>
-                            <containerView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jZt-eF-xnL" userLabel="Feedback Panel Container">
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jZt-eF-xnL" userLabel="Feedback Panel Container">
                                 <rect key="frame" x="16" y="28" width="343" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" priority="900" constant="44" id="YZp-8X-KBS"/>
                                 </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="10"/>
-                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <segue destination="ReZ-kx-TUb" kind="embed" id="6Iw-wR-8bY"/>
                                 </connections>
@@ -137,14 +134,11 @@
                                     <segue destination="e2Z-9y-bua" kind="embed" id="aMG-46-lsg"/>
                                 </connections>
                             </containerView>
-                            <containerView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nVe-ks-G9Q" userLabel="Directions View">
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nVe-ks-G9Q" userLabel="Directions View">
                                 <rect key="frame" x="16" y="555" width="291" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" priority="990" constant="100" id="vUF-v2-feI"/>
                                 </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="10"/>
-                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <segue destination="81a-ab-SBT" kind="embed" id="Ekn-Z6-W8e"/>
                                 </connections>

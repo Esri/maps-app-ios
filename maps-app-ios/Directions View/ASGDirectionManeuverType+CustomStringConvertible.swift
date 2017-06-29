@@ -53,4 +53,10 @@ extension AGSDirectionManeuverType: CustomStringConvertible {
             return "Unknown"
         }
     }
+
+    var image:UIImage {
+        get {
+            return UIImage(named: "\(self)")!
+        }
+    }
 }

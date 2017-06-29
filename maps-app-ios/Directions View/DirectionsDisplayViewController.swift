@@ -17,22 +17,22 @@ class DirectionsDisplayViewController: UIViewController, UICollectionViewDataSou
         didSet {
             maneuversView.reloadData();
             
+            configureCollectionViewLayout()
+
             UIView.animate(withDuration: 0.25, animations: {
                 self.view.superview?.isHidden = (self.directions == nil)
             })
-
-            tidyUpCellLayout()
+            
+            setCurrentCell()
         }
     }
     
-    var currentManeuver:AGSDirectionManeuver?
+    var currentCellIndex:IndexPath?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        directions = nil
-
-        maneuversView.decelerationRate = UIScrollViewDecelerationRateFast
+        maneuversView.decelerationRate = UIScrollViewDecelerationRateNormal
         
         view.translatesAutoresizingMaskIntoConstraints = false
         
@@ -46,24 +46,46 @@ class DirectionsDisplayViewController: UIViewController, UICollectionViewDataSou
                 }
             }
         }
+        
+        directions = nil
     }
     
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
-        tidyUpCellLayout()
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        setCurrentCell()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        tidyUpCellLayout()
+    func setCurrentCell() {
+        if let cell = maneuversView.cellAtVisibleCenter as? DirectionManeuverCell,
+            let cellIndex = maneuversView.indexPath(for: cell),
+            currentCellIndex != cellIndex,
+            let maneuver = cell.maneuver {
+            currentCellIndex = cellIndex
+            MapsAppNotifications.postManeuverFocusNotification(maneuver: maneuver)
+        }
     }
     
-    private func tidyUpCellLayout() {
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        // Handle the view orientation changing (or any resize for that matter)
+        super.viewWillTransition(to: size, with: coordinator)
+
+        coordinator.animate(alongsideTransition: nil) { context in
+            guard !context.isCancelled else {
+                return
+            }
+
+            // Figure out what the cell size should be for the new size
+            self.configureCollectionViewLayout()
+            
+            // If we have a current cell, make sure it's displayed.
+            if let cellIndex = self.currentCellIndex {
+                self.maneuversView.scrollToItem(at: cellIndex, at: UICollectionViewScrollPosition.centeredHorizontally, animated: false)
+            }
+        }
+    }
+    
+    private func configureCollectionViewLayout() {
         if let layout = maneuversView.collectionViewLayout as? UICollectionViewFlowLayout {
             layout.itemSize = CGSize(width: maneuversView.frame.size.width - layout.minimumInteritemSpacing, height: maneuversView.frame.size.height)
-            if let visibleIndexPath = maneuversView.indexPathsForVisibleItems.first {
-                maneuversView.scrollToItem(at: visibleIndexPath, at: UICollectionViewScrollPosition.centeredHorizontally, animated: true)
-            }
         }
     }
     
@@ -81,18 +103,5 @@ class DirectionsDisplayViewController: UIViewController, UICollectionViewDataSou
         }
         
         return cell
-    }
-    
-    var nextCell:UICollectionViewCell?
-    
-    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        nextCell = cell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        if let maneuverCell = nextCell as? DirectionManeuverCell, maneuverCell != cell, let maneuver = maneuverCell.maneuver {
-            MapsAppNotifications.postManeuverFocusNotification(maneuver: maneuver)
-        }
-
     }
 }

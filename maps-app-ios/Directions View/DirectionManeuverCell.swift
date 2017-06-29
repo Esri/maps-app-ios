@@ -20,7 +20,7 @@ class DirectionManeuverCell: UICollectionViewCell {
     var maneuver:AGSDirectionManeuver? {
         didSet {
             if let maneuver = maneuver, let index = index {
-                image.image = maneuver.image
+                image.image = maneuver.maneuverType.image
                 var text = maneuver.directionText
                 
                 switch maneuver.maneuverType {

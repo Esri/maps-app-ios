@@ -19,11 +19,13 @@ extension MapViewController {
             }
         case .routeResult:
             routeResultsOverlay.graphics.removeAllObjects()
+            routeManeuversOverlay.graphics.removeAllObjects()
             if let graphic = mode.graphic {
                 routeResultsOverlay.graphics.add(graphic)
             }
         case .none, .search:
             routeResultsOverlay.graphics.removeAllObjects()
+            routeManeuversOverlay.graphics.removeAllObjects()
             geocodeResultsOverlay.graphics.removeAllObjects()
         }
         
