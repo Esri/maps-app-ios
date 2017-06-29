@@ -46,7 +46,7 @@ class MapViewController: UIViewController {
             // Default fallback
             mapView.map = AGSMap(basemapType: .topographicVector, latitude: 40.7128, longitude: -74.0059, levelOfDetail: 10)
         }
-
+        
         setupAppPreferences()
 
         setupRouting()

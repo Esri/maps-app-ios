@@ -1,5 +1,5 @@
 //
-//  ItemNotifications.swift
+//  CurrentItemNotifications.swift
 //  maps-app-ios
 //
 //  Created by Nicholas Furness on 5/2/17.

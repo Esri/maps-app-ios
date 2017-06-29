@@ -45,7 +45,7 @@ class BasemapsDisplayViewController: UIViewController, UICollectionViewDataSourc
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        MapsAppNotifications.postNewBasemapNotification(basemap: items[indexPath.row])
+        mapsAppState.currentBasemap = items[indexPath.row]
         
         self.dismiss(animated: true, completion: nil)
     }

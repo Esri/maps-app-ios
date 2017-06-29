@@ -23,7 +23,7 @@
 		D93381AC1E90742900A0F93E /* FeedbackViewController+ChildVCs.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93381AB1E90742900A0F93E /* FeedbackViewController+ChildVCs.swift */; };
 		D93381B01E90BBD900A0F93E /* Feedback.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D93381AF1E90BBD900A0F93E /* Feedback.storyboard */; };
 		D93807751EB83EEB00E03A2F /* PortalItemCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93807741EB83EEB00E03A2F /* PortalItemCollectionCell.swift */; };
-		D93807771EB8575400E03A2F /* ItemNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93807761EB8575400E03A2F /* ItemNotifications.swift */; };
+		D93807771EB8575400E03A2F /* CurrentItemNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93807761EB8575400E03A2F /* CurrentItemNotifications.swift */; };
 		D9430A3D1EF1D639002F6CA1 /* SuggestionDisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9430A3C1EF1D639002F6CA1 /* SuggestionDisplayViewController.swift */; };
 		D9430A401EF1D7A2002F6CA1 /* Suggestions.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9430A3F1EF1D7A2002F6CA1 /* Suggestions.storyboard */; };
 		D94E6C621EBBFCA400F07BA6 /* AGSLocationDisplayAutoPanMode+CustomStringConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = D94E6C611EBBFCA400F07BA6 /* AGSLocationDisplayAutoPanMode+CustomStringConvertible.swift */; };
@@ -127,7 +127,7 @@
 		D93381AB1E90742900A0F93E /* FeedbackViewController+ChildVCs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FeedbackViewController+ChildVCs.swift"; sourceTree = "<group>"; };
 		D93381AF1E90BBD900A0F93E /* Feedback.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Feedback.storyboard; sourceTree = "<group>"; };
 		D93807741EB83EEB00E03A2F /* PortalItemCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PortalItemCollectionCell.swift; sourceTree = "<group>"; };
-		D93807761EB8575400E03A2F /* ItemNotifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemNotifications.swift; sourceTree = "<group>"; };
+		D93807761EB8575400E03A2F /* CurrentItemNotifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentItemNotifications.swift; sourceTree = "<group>"; };
 		D9430A3C1EF1D639002F6CA1 /* SuggestionDisplayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuggestionDisplayViewController.swift; sourceTree = "<group>"; };
 		D9430A3F1EF1D7A2002F6CA1 /* Suggestions.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Suggestions.storyboard; sourceTree = "<group>"; };
 		D94E6C611EBBFCA400F07BA6 /* AGSLocationDisplayAutoPanMode+CustomStringConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AGSLocationDisplayAutoPanMode+CustomStringConvertible.swift"; sourceTree = "<group>"; };
@@ -284,7 +284,8 @@
 				D920A5811EB6CFCF00D565E2 /* LoginNotifications.swift */,
 				D9CBE3491E8B74EC00776053 /* SearchNotifications.swift */,
 				D9CF2A701E9041EA0019701F /* RouteNotifications.swift */,
-				D93807761EB8575400E03A2F /* ItemNotifications.swift */,
+				D93807761EB8575400E03A2F /* CurrentItemNotifications.swift */,
+				D96B73CD1EF86E20004B6862 /* BasemapNotifications.swift */,
 			);
 			path = "App Notifications";
 			sourceTree = "<group>";
@@ -393,7 +394,6 @@
 				D96B73C71EF838F4004B6862 /* Basemaps.storyboard */,
 				D96B73C91EF83917004B6862 /* BasemapsDisplayViewController.swift */,
 				D96B73CB1EF83A10004B6862 /* BasemapCollectionCell.swift */,
-				D96B73CD1EF86E20004B6862 /* BasemapNotifications.swift */,
 			);
 			path = "Basemaps View";
 			sourceTree = "<group>";
@@ -666,7 +666,7 @@
 				D9774AF61EBAD56D0099D4A5 /* PortalUserFolder.swift in Sources */,
 				D92E2C1A1E94A39800138F7D /* MapViewController+AppPreferences.swift in Sources */,
 				D9CBE3551E8C3ACA00776053 /* MapViewController+Feedback.swift in Sources */,
-				D93807771EB8575400E03A2F /* ItemNotifications.swift in Sources */,
+				D93807771EB8575400E03A2F /* CurrentItemNotifications.swift in Sources */,
 				D91083C21EBC359000BACD96 /* MapViewController+MapViewMode.swift in Sources */,
 				D9B5074F1EB23399006BA131 /* URL+QueryString.swift in Sources */,
 				D96B73C51EF73E03004B6862 /* RoundedView.swift in Sources */,

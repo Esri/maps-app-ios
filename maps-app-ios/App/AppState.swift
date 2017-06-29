@@ -50,6 +50,14 @@ class AppState {
         }
     }
     
+    var currentBasemap:AGSPortalItem? {
+        didSet {
+            if let newBasemap = currentBasemap {
+                MapsAppNotifications.postNewBasemapNotification(basemap: newBasemap)
+            }
+        }
+    }
+    
     var loginStatus:LoginStatus = .loggedOut {
         didSet {
             switch loginStatus {
