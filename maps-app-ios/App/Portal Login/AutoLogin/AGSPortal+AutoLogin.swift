@@ -17,10 +17,13 @@ extension AGSPortal {
         // If we don't have cached credentials that automatically log us in to that portal, then we connect to 
         // the portal anonymously (i.e. not logged in).
         
-        // First try a portal that requires a login. If there are cached credentials that suit, we will be logged in to the portal.
+        // First try a portal that requires a login. If there are cached credentials that suit, then in the portal.load() callback below,
+        // we will find ourselves logged in to the portal.
         let newPortal = (portalURL != nil) ? AGSPortal(url: portalURL!, loginRequired: true) : AGSPortal.arcGISOnline(withLoginRequired: true)
         
         // We'll temporarily disable prompting the user to log in if the cached credentials are not suitable to log us in.
+        // I.e. if the cached credentials aren't good enough to find ourselves logged in to the portal/ArcGIS Online, then just 
+        // accept it and don't prompt us to log in. We revert that behaviour as soon as the portal loads below.
         let preferredAuthChallengeRule = AGSRequestConfiguration.global().shouldIssueAuthenticationChallenge
         AGSRequestConfiguration.global().shouldIssueAuthenticationChallenge = { _ in return false }
         

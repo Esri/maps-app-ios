@@ -5,16 +5,17 @@
 //  Created by Nicholas Furness on 3/29/17.
 //  Copyright © 2017 Esri. All rights reserved.
 //
+//  A focused wrapper around app-specific preferences.
 
 import ArcGIS
 
+fileprivate enum AppPreferenceKey: String {
+    case map
+    case viewpoint
+    case portalURL
+}
+
 class AppPreferences: AGSAppPreferences {
-    private enum AppPreferenceKey: String {
-        case map
-        case viewpoint
-        case portalURL
-    }
-    
     var map:AGSMap? {
         get {
             return self.getAGS(type: AGSMap.self, forKey: AppPreferenceKey.map)

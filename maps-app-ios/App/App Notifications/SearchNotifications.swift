@@ -11,10 +11,8 @@ import ArcGIS
 
 extension MapsAppNotifications.Names {
     static let RequestSearch = Notification.Name("MapsAppSearchNotification")
-    static let RequestSearchFromSuggestion = Notification.Name("MapsAppSearchFromSuggestionNotification")
-    
     static let RequestSuggestions = Notification.Name("MapsAppGetSuggestionsNotification")
-    
+    static let RequestSearchFromSuggestion = Notification.Name("MapsAppSearchFromSuggestionNotification")
     static let SearchCompleted = Notification.Name("MapsAppSearchCompletedNotification")
 }
 
@@ -23,7 +21,8 @@ extension MapsAppNotifications {
     static func observeSearchNotifications(searchNotificationHander:@escaping ((_ searchText:String)->Void),
                                            suggestNotificationHandler:((_ searchText:String)->Void)?,
                                            searchFromSuggestionNotificationHandler:((_ suggestion:AGSSuggestResult)->Void)?) {
-        // Listen for notifications from the UI to trigger search and suggest operations.
+        
+        // Listen for notifications from some search UI to trigger search and suggest operations.
         NotificationCenter.default.addObserver(forName: MapsAppNotifications.Names.RequestSearch, object: nil, queue: nil) { notification in
             if let searchText = notification.searchText {
                 searchNotificationHander(searchText)
@@ -69,7 +68,7 @@ extension MapsAppNotifications {
     }
     
     static func postSearchCompletedNotification() {
-        // Notify that we're no longer searching and it's time to hide any related UI (e.g. an autocomplete
+        // Notify that we're no longer searching and it's time to hide any related UI (e.g. the suggestion panel)
         NotificationCenter.default.post(name: MapsAppNotifications.Names.SearchCompleted, object: nil)
     }
 }

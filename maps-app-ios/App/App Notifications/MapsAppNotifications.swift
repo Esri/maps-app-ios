@@ -5,6 +5,7 @@
 //  Created by Nicholas Furness on 4/30/17.
 //  Copyright © 2017 Esri. All rights reserved.
 //
+//  A central class that extensions can add notification behavior to. 
 
 import Foundation
 

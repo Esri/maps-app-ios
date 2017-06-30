@@ -9,19 +9,30 @@
 import UIKit
 import ArcGIS
 
+// MARK: Global Shortcut References
+var mapsApp:MapsAppDelegate {
+    return UIApplication.shared.delegate as! MapsAppDelegate
+}
+
+var mapsAppPrefs:AppPreferences {
+    return mapsApp.preferences
+}
+
+var mapsAppState:AppState {
+    return mapsApp.state
+}
+
+// MARK: Maps App
 @UIApplicationMain
 class MapsAppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     
-    var preferences = AppPreferences()
+    // MARK: Configuration and Preferences
+    fileprivate var preferences = AppPreferences()
+    fileprivate var state:AppState = AppState()
     
-    var state:AppState = AppState()
-    
-    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
-        return handlePortalAuthOpenURL(app, open: url, options: options)
-    }
-
+    // MARK: App start and licensing
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
         // License the runtime
@@ -37,6 +48,12 @@ class MapsAppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 
+    // MARK: OAuth
+    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+        return handlePortalAuthOpenURL(app, open: url, options: options)
+    }
+    
+    // MARK: iOS Application Lifecycle
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
@@ -58,18 +75,4 @@ class MapsAppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-}
-
-
-// MARK: Global Shortcut References
-var mapsApp:MapsAppDelegate {
-    return UIApplication.shared.delegate as! MapsAppDelegate
-}
-
-var mapsAppPrefs:AppPreferences {
-    return mapsApp.preferences
-}
-
-var mapsAppState:AppState {
-    return mapsApp.state
 }

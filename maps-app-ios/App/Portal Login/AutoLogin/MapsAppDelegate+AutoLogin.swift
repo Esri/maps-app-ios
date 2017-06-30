@@ -16,7 +16,8 @@ extension MapsAppDelegate {
         // Use a custom Portal URL if we've got one saved
         let savedPortalURL = mapsAppPrefs.portalURL
         
-        // Find the most logged-in portal we can using cached credentials
+        // Find the "most logged-in portal" we can using any cached credentials.
+        // For more info see comments in AGSPortal+Autologin.swift.
         AGSPortal.bestPortalFromCachedCredentials(portalURL: savedPortalURL) { newPortal, didLogIn in
             mapsAppState.currentPortal = newPortal
         }

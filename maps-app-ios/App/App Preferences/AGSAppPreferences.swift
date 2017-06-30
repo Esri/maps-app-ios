@@ -5,6 +5,7 @@
 //  Created by Nicholas Furness on 3/27/17.
 //  Copyright © 2017 Esri. All rights reserved.
 //
+//  A helper class to serialize AGSJSONSerializable objects to/from UserDefaults.
 
 import ArcGIS
 
