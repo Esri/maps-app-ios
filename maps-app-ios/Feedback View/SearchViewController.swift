@@ -55,6 +55,10 @@ class SearchViewController : UIViewController, UISearchBarDelegate {
         return true
     }
     
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        MapsAppNotifications.postSearchCompletedNotification()
+    }
+    
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         debouncerCanceled = true
         searchBar.resignFirstResponder()
