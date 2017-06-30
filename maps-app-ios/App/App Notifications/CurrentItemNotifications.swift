@@ -9,8 +9,8 @@
 import Foundation
 
 extension MapsAppNotifications.Names {
-    static let CurrentItemChanged = NSNotification.Name("PortalItemChangedNotification")
-    static let CurrentFolderChanged = NSNotification.Name("CurrentFolderChangedNotification")
+    static let CurrentItemChanged = NSNotification.Name("MapsAppCurrentItemChangedNotification")
+    static let CurrentFolderChanged = NSNotification.Name("MapsAppCurrentFolderChangedNotification")
 }
 
 extension MapsAppNotifications {

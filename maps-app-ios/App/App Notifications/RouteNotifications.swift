@@ -9,7 +9,7 @@
 import ArcGIS
 
 extension MapsAppNotifications.Names {
-    static let RouteRequested = Notification.Name("MapsAppRouteNotification")
+    static let RouteRequested = Notification.Name("MapsAppRouteRequestedNotification")
 }
 
 extension MapsAppNotifications {

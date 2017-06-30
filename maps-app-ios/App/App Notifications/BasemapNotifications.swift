@@ -10,7 +10,7 @@ import Foundation
 import ArcGIS
 
 extension MapsAppNotifications.Names {
-    static let NewBasemap = NSNotification.Name("NewBasemapSelectedNotification")
+    static let NewBasemap = NSNotification.Name("MapsAppNewBasemapNotification")
 }
 
 extension MapsAppNotifications {

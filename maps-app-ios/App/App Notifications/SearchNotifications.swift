@@ -10,9 +10,9 @@ import UIKit
 import ArcGIS
 
 extension MapsAppNotifications.Names {
-    static let RequestSearch = Notification.Name("MapsAppSearchNotification")
-    static let RequestSuggestions = Notification.Name("MapsAppGetSuggestionsNotification")
-    static let RequestSearchFromSuggestion = Notification.Name("MapsAppSearchFromSuggestionNotification")
+    static let SearchRequested = Notification.Name("MapsAppSearchRequestedNotification")
+    static let SearchRequestedFromSuggestion = Notification.Name("MapsAppSearchRequestedFromSuggestionNotification")
+    static let SearchSuggestionsRequested = Notification.Name("MapsAppSearchSuggestionsRequestedNotification")
     static let SearchCompleted = Notification.Name("MapsAppSearchCompletedNotification")
 }
 
@@ -23,19 +23,19 @@ extension MapsAppNotifications {
                                            searchFromSuggestionNotificationHandler:((_ suggestion:AGSSuggestResult)->Void)?) {
         
         // Listen for notifications from some search UI to trigger search and suggest operations.
-        NotificationCenter.default.addObserver(forName: MapsAppNotifications.Names.RequestSearch, object: nil, queue: nil) { notification in
+        NotificationCenter.default.addObserver(forName: MapsAppNotifications.Names.SearchRequested, object: nil, queue: nil) { notification in
             if let searchText = notification.searchText {
                 searchNotificationHander(searchText)
             }
         }
         
-        NotificationCenter.default.addObserver(forName: MapsAppNotifications.Names.RequestSuggestions, object: nil, queue: nil) { notification in
+        NotificationCenter.default.addObserver(forName: MapsAppNotifications.Names.SearchSuggestionsRequested, object: nil, queue: nil) { notification in
             if let searchText = notification.searchText {
                 suggestNotificationHandler?(searchText)
             }
         }
         
-        NotificationCenter.default.addObserver(forName: MapsAppNotifications.Names.RequestSearchFromSuggestion, object: nil, queue: nil) { notification in
+        NotificationCenter.default.addObserver(forName: MapsAppNotifications.Names.SearchRequestedFromSuggestion, object: nil, queue: nil) { notification in
             if let suggestion = notification.suggestion {
                 searchFromSuggestionNotificationHandler?(suggestion)
             }
@@ -46,21 +46,21 @@ extension MapsAppNotifications {
     static func postSearchNotification(searchBar:UISearchBar) {
         // Notify that we'd like to do a search based off a SearchBar's text.
         if let searchText = searchBar.text {
-            NotificationCenter.default.post(name: MapsAppNotifications.Names.RequestSearch, object: nil,
+            NotificationCenter.default.post(name: MapsAppNotifications.Names.SearchRequested, object: nil,
                                             userInfo: [SearchNotificationKeys.search: searchText])
         }
     }
     
     static func postSearchFromSuggestionNotification(suggestion:AGSSuggestResult) {
         // Notify that we'd like to do a search based off an AGSSuggestResult.
-        NotificationCenter.default.post(name: MapsAppNotifications.Names.RequestSearchFromSuggestion, object: nil,
+        NotificationCenter.default.post(name: MapsAppNotifications.Names.SearchRequestedFromSuggestion, object: nil,
                                         userInfo: [SearchNotificationKeys.suggestion: suggestion])
     }
     
     static func postSuggestNotification(searchBar:UISearchBar) {
         // Notify that we'd like to get search suggestions based off a SearchBar's text.
         if let suggestText = searchBar.text, suggestText.characters.count > 0 {
-            NotificationCenter.default.post(name: MapsAppNotifications.Names.RequestSuggestions, object: nil,
+            NotificationCenter.default.post(name: MapsAppNotifications.Names.SearchSuggestionsRequested, object: nil,
                                             userInfo: [SearchNotificationKeys.search: suggestText])
         } else {
             MapsAppNotifications.postSearchCompletedNotification()
@@ -76,7 +76,7 @@ extension MapsAppNotifications {
 extension Notification {
     var searchText:String? {
         get {
-            if [MapsAppNotifications.Names.RequestSearch, MapsAppNotifications.Names.RequestSuggestions].contains(self.name) {
+            if [MapsAppNotifications.Names.SearchRequested, MapsAppNotifications.Names.SearchSuggestionsRequested].contains(self.name) {
                 return self.userInfo?[SearchNotificationKeys.search] as? String
             }
             return nil
@@ -85,7 +85,7 @@ extension Notification {
     
     var suggestion:AGSSuggestResult? {
         get {
-            if self.name == MapsAppNotifications.Names.RequestSearchFromSuggestion {
+            if self.name == MapsAppNotifications.Names.SearchRequestedFromSuggestion {
                 return self.userInfo?[SearchNotificationKeys.suggestion] as? AGSSuggestResult
             }
             return nil
