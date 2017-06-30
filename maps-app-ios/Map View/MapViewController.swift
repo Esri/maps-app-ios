@@ -31,38 +31,38 @@ class MapViewController: UIViewController {
     var graphicsOverlays:[String:AGSGraphicsOverlay] = [:]
     
     @IBAction func undoMode(_ sender: UIButton) {
-        if let modeUndoManager = undoManager {
-            print("About to undo \(modeUndoManager.undoActionName)")
-            modeUndoManager.undo()
-            setUndoRedoUI()
-        }
+        undoMode()
     }
 
     @IBAction func redoMode(_ sender: UIButton) {
-        if let modeUndoManager = undoManager {
-            print("About to redo \(modeUndoManager.redoActionName)")
-            modeUndoManager.redo()
-            setUndoRedoUI()
-        }
+        redoMode()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        becomeFirstResponder()
-        
-        if let modeUndoManager = undoManager {
-            NotificationCenter.default.addObserver(forName: Notification.Name.NSUndoManagerDidCloseUndoGroup, object: modeUndoManager, queue: nil) { notification in
-                self.setUndoRedoUI()
-            }
-        }
+    func undoMode() {
+        modeIndex = max(0, modeIndex-1)
     }
     
+    func redoMode() {
+        modeIndex = min(modeIndex+1, modeHistory.count-1)
+    }
     
     func setUndoRedoUI() {
-        if let modeUndoManager = undoManager {
-            undoRedoView.isHidden = !(modeUndoManager.canUndo || modeUndoManager.canRedo)
-            undoButton.isEnabled = modeUndoManager.canUndo
-            redoButton.isEnabled = modeUndoManager.canRedo
+        guard modeHistory.count > 0 else {
+            undoRedoView.isHidden = true
+            return
+        }
+        
+        undoRedoView.isHidden = false
+        
+        undoButton.isEnabled = modeIndex > 0
+        redoButton.isEnabled = modeIndex < modeHistory.count-1
+    }
+    
+    var modeHistory:[MapViewMode] = []
+    var modeIndex:Int = -1 {
+        didSet {
+            let newMode = modeHistory[modeIndex]
+            mode = newMode
         }
     }
     
@@ -84,31 +84,25 @@ class MapViewController: UIViewController {
         }
     }
     
-    var undoableMode:MapViewMode = .none {
+    var undoableMode:MapViewMode? {
         didSet {
-            if let modeUndoManager = undoManager {
-                guard oldValue != .none else {
-                    return
-                }
-//                guard !modeUndoManager.isUndoing && !modeUndoManager.isRedoing else {
-//                    return
-//                }
-                
-                // Register an undo action.
-                modeUndoManager.registerUndo(withTarget: self) { [undoMode = oldValue] (target) in
-                    target.mode = undoMode
-                }
-                if !modeUndoManager.isUndoing {
-                    modeUndoManager.setActionName("\(undoableMode.humanReadableDescription)")
-                }
+            guard let undoableMode = undoableMode else {
+                return
             }
+            
+            if !modeHistory.contains(undoableMode) {
+//                if modeIndex < modeHistory.count-1 {
+                    let numberOfRecordsToRemove = modeHistory.count-(modeIndex+1)
+                    modeHistory.removeLast(numberOfRecordsToRemove)
+//                }
+                modeHistory.append(undoableMode)
+                modeIndex = modeHistory.count-1
+            }
+            
+            setUndoRedoUI()
         }
     }
     
-    var modeHistory:[MapViewMode] = []
-    var modeIndex:Int = -1
-    
-//    var modeUndoManager = UndoManager()
     
     // MARK: View initialization
     override func viewDidLoad() {
@@ -136,7 +130,7 @@ class MapViewController: UIViewController {
         setupMapViewAttributeBarTracking(activate: true)
         setupKeyboardTracking(activate: false)
         
-        undoRedoView.isHidden = true
+        setUndoRedoUI()
         
         mode = .search
     }
@@ -173,12 +167,6 @@ class MapViewController: UIViewController {
         }
         
         keyboardObservers.removeAll()
-        
-        resignFirstResponder()
-    }
-    
-    override var canBecomeFirstResponder: Bool {
-        return true
     }
 
     private func setKeyboardSpacerFromKeyboardNotification(notification:Notification) {
