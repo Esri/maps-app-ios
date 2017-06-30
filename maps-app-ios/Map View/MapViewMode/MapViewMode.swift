@@ -30,9 +30,9 @@ enum MapViewMode: CustomStringConvertible {
     var humanReadableDescription: String {
         switch self {
         case .geocodeResult(let result):
-            return "Geocode: \(result.label)"
+            return "Geocode \"\(result.label)\""
         case .routeResult(let route):
-            return "Route: \(route.routeName)"
+            return "Route \(route.routeName)".replacingOccurrences(of: " - ", with: " to ")
         default:
             return "\(self)"
         }

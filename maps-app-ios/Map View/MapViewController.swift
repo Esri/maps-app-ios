@@ -68,27 +68,45 @@ class MapViewController: UIViewController {
     
     // MARK: MapView Mode
     var mode:MapViewMode = .none {
-        willSet {
-            if let modeUndoManager = undoManager {
-                // Register an undo action.
-                switch mode {
-                case .geocodeResult, .routeResult:
-                    modeUndoManager.registerUndo(withTarget: self) { [undoMode = mode] (target) in
-                        target.mode = undoMode
-                    }
-                    modeUndoManager.setActionName("\(mode.humanReadableDescription)")
-                default:
-                    break
-                }
-            }
-        }
         didSet {
+            
+            switch mode {
+            case .routeResult, .geocodeResult:
+                undoableMode = mode
+            default:
+                break
+            }
+
             updateMapViewForMode()
 
             // Announce that the mode has changed (the Feedback Panel UI listens to this)
             MapsAppNotifications.postModeChangeNotification(oldMode: oldValue, newMode: mode)
         }
     }
+    
+    var undoableMode:MapViewMode = .none {
+        didSet {
+            if let modeUndoManager = undoManager {
+                guard oldValue != .none else {
+                    return
+                }
+//                guard !modeUndoManager.isUndoing && !modeUndoManager.isRedoing else {
+//                    return
+//                }
+                
+                // Register an undo action.
+                modeUndoManager.registerUndo(withTarget: self) { [undoMode = oldValue] (target) in
+                    target.mode = undoMode
+                }
+                if !modeUndoManager.isUndoing {
+                    modeUndoManager.setActionName("\(undoableMode.humanReadableDescription)")
+                }
+            }
+        }
+    }
+    
+    var modeHistory:[MapViewMode] = []
+    var modeIndex:Int = -1
     
 //    var modeUndoManager = UndoManager()
     
@@ -157,12 +175,6 @@ class MapViewController: UIViewController {
         keyboardObservers.removeAll()
         
         resignFirstResponder()
-        
-        if let modeUndoManager = undoManager {
-            NotificationCenter.default.addObserver(forName: Notification.Name.NSUndoManagerDidCloseUndoGroup, object: modeUndoManager, queue: nil) { notification in
-                self.setUndoRedoUI()
-            }
-        }
     }
     
     override var canBecomeFirstResponder: Bool {
