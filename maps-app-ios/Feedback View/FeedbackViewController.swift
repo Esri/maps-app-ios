@@ -43,7 +43,7 @@ class FeedbackViewController : UIViewController {
     }
     
     func setupModeChangeListener() {
-        NotificationCenter.default.addObserver(forName: MapsAppNotifications.Names.MapViewModeChanged, object: nil, queue: nil) { notification in
+        NotificationCenter.default.addObserver(forName: MapsAppNotifications.Names.MapViewModeChanged, object: nil, queue: OperationQueue.main) { notification in
             if let newValue = notification.newMapViewMode, let oldValue = notification.oldMapViewMode {
                 guard newValue != .none else {
                     return

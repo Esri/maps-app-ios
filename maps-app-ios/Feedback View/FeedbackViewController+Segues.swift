@@ -41,7 +41,9 @@ extension FeedbackViewController {
         // Moving from one thing to another
         from.willMove(toParentViewController: nil)
         self.addChildViewController(to)
-        self.transition(from: from, to: to, duration: 0.3, options: .transitionCrossDissolve, animations: nil) { finished in
+        // If duration > 0, this can crash if the user double-taps quickly on redo/undo. Need to ensure that
+        // transitions are enqueued before animation can be reintroduced.
+        self.transition(from: from, to: to, duration: 0, options: .transitionCrossDissolve, animations: nil) { finished in
             from.removeFromParentViewController()
             to.didMove(toParentViewController: self)
             

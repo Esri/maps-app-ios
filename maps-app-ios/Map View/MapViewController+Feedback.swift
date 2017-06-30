@@ -16,14 +16,14 @@ extension MapViewController {
     func setupFeedbackPanelResizeHandler() {
         // When the feedback panel updates, we want to change the MapView's contentInset to avoid results appearing behind the
         // feedback panel.
-        NotificationCenter.default.addObserver(forName: FeedbackViewController.Notifications.Names.FeedbackPanelResizeCompleted, object: nil, queue: nil) { _ in
+        NotificationCenter.default.addObserver(forName: FeedbackViewController.Notifications.Names.FeedbackPanelResizeCompleted, object: nil, queue: OperationQueue.main) { _ in
             if let feedbackView = self.feedbackViewController?.view {
                 let feedbackFrame = feedbackView.convert(feedbackView.frame, to: self.mapView)
                 
                 let topInset = feedbackFrame.maxY
                 self.mapView.contentInset.top = topInset
 
-                //self.updateMapViewExtentForMode()
+                self.updateMapViewExtentForMode()
             }
         }
     }
