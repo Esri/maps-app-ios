@@ -14,7 +14,8 @@ class MapViewController: UIViewController {
     // MARK: UI Outlets
     @IBOutlet weak var mapView: AGSMapView!
     @IBOutlet weak var gpsButton:UIButton!
-    @IBOutlet weak var controlsView: RoundedView!
+    
+    @IBOutlet weak var controlsView: UIStackView!
     
     @IBOutlet weak var undoRedoView: UIView!
     @IBOutlet weak var undoButton: UIButton!
@@ -47,7 +48,7 @@ class MapViewController: UIViewController {
     }
     
     func setUndoRedoUI() {
-        guard modeHistory.count > 0 else {
+        guard modeHistory.count > 1 else {
             undoRedoView.isHidden = true
             return
         }

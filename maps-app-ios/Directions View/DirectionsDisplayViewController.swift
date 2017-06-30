@@ -15,6 +15,10 @@ class DirectionsDisplayViewController: UIViewController, UICollectionViewDataSou
     
     var directions:AGSRoute? {
         didSet {
+            if directions == nil {
+                currentCellIndex = nil
+            }
+            
             maneuversView.reloadData();
             
             configureCollectionViewLayout()
@@ -55,6 +59,11 @@ class DirectionsDisplayViewController: UIViewController, UICollectionViewDataSou
     }
     
     func setCurrentCell() {
+        guard directions != nil else {
+            currentCellIndex = nil
+            return
+        }
+        
         if let cell = maneuversView.cellAtVisibleCenter as? DirectionManeuverCell,
             let cellIndex = maneuversView.indexPath(for: cell),
             currentCellIndex != cellIndex,
@@ -70,6 +79,10 @@ class DirectionsDisplayViewController: UIViewController, UICollectionViewDataSou
 
         coordinator.animate(alongsideTransition: nil) { context in
             guard !context.isCancelled else {
+                return
+            }
+            
+            guard !self.maneuversView.isHidden else {
                 return
             }
 
