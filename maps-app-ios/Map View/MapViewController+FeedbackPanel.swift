@@ -1,5 +1,5 @@
 //
-//  MapViewController+Feedback.swift
+//  MapViewController+FeedbackPanel.swift
 //  maps-app-ios
 //
 //  Created by Nicholas Furness on 3/29/17.
@@ -9,10 +9,6 @@
 import UIKit
 
 extension MapViewController {
-    var feedbackViewController:FeedbackViewController? {
-        return self.childViewControllers.filter({ $0 is FeedbackViewController }).first as? FeedbackViewController
-    }
-    
     func setupFeedbackPanelResizeHandler() {
         // When the feedback panel updates, we want to change the MapView's contentInset to avoid results appearing behind the
         // feedback panel.
@@ -26,5 +22,9 @@ extension MapViewController {
                 self.updateMapViewExtentForMode()
             }
         }
+    }
+    
+    var feedbackViewController:FeedbackViewController? {
+        return self.childViewControllers.filter({ $0 is FeedbackViewController }).first as? FeedbackViewController
     }
 }

@@ -67,7 +67,27 @@ extension MapViewMode {
         }
     }
     
-    func envelopeForGraphics(graphics:[AGSGraphic], expansionFactor:Double = 1) -> AGSEnvelope? {
+    var extent:AGSEnvelope? {
+        switch self {
+        case .geocodeResult(let result):
+            return result.extent
+        case .routeResult:
+            return envelopeForGraphics(graphics: self.graphics, expansionFactor: 1.2)
+        default:
+            return envelopeForGraphics(graphics: self.graphics)
+        }
+    }
+    
+    var focusExtent:AGSEnvelope? {
+        switch self {
+        case .geocodeResult(let result):
+            return extent ?? result.displayLocation?.getSurroundingExtent(sizeInMeters: 400)
+        default:
+            return extent
+        }
+    }
+
+    private func envelopeForGraphics(graphics:[AGSGraphic], expansionFactor:Double = 1) -> AGSEnvelope? {
         let geoms = graphics.flatMap({ graphic -> AGSGeometry? in
             return graphic.geometry
         })
@@ -80,15 +100,18 @@ extension MapViewMode {
         }
         return nil
     }
-    
-    var extent:AGSEnvelope? {
-        switch self {
-        case .geocodeResult(let result):
-            return result.extent ?? result.displayLocation?.extent
-        case .routeResult:
-             return envelopeForGraphics(graphics: self.graphics, expansionFactor: 1.2)
-        default:
-            return envelopeForGraphics(graphics: self.graphics)
+}
+
+extension AGSPoint {
+    func getSurroundingExtent(sizeInMeters:Double) -> AGSEnvelope {
+        let returnExtent = self.extent
+        if returnExtent.width == 0 && returnExtent.height == 0,
+            let outSR = returnExtent.spatialReference,
+            let mercatorCenter = AGSGeometryEngine.projectGeometry(returnExtent.center, to: AGSSpatialReference.webMercator()),
+            let buffer = AGSGeometryEngine.bufferGeometry(mercatorCenter, byDistance: sizeInMeters/2),
+            let output = AGSGeometryEngine.projectGeometry(buffer.extent, to: outSR) as? AGSEnvelope {
+            return output
         }
+        return returnExtent
     }
 }

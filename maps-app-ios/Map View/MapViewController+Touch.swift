@@ -10,6 +10,7 @@ import ArcGIS
 
 extension MapViewController: AGSGeoViewTouchDelegate {
     func setupTouchEventsHandler() {
+        // Long press will do a reverse geocode.
         mapView.touchDelegate = self
     }
 

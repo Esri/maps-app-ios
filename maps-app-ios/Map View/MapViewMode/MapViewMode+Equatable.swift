@@ -25,6 +25,7 @@ extension MapViewMode: Equatable {
     }
     
     static func ~==(lhs:MapViewMode, rhs:MapViewMode) -> Bool {
+        // A more loose equality where we just care that it's the same mode, but not the same associated object.
         switch (lhs,rhs) {
         case (.none,.none), (.search,.search), (.routeResult,.routeResult), (.geocodeResult, .geocodeResult):
             return true

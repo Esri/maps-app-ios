@@ -9,8 +9,6 @@
 import UIKit
 import ArcGIS
 
-typealias FeedbackMode = MapViewMode
-
 class FeedbackViewController : UIViewController {
     
     struct Notifications {
@@ -50,7 +48,7 @@ class FeedbackViewController : UIViewController {
                 }
                 
                 if !(newValue ~== oldValue) {
-                    self.performSegue(withIdentifier: "\(self.mode)Segue", sender: nil)
+                    self.performSegue(withIdentifier: "\(self.mode.segueName)", sender: nil)
                 }
                 
                 switch newValue {

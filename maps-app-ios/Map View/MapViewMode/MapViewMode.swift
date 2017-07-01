@@ -5,16 +5,23 @@
 //  Created by Nicholas Furness on 3/31/17.
 //  Copyright © 2017 Esri. All rights reserved.
 //
+//  The MapView stores the current "mode". The mode determines
 
 import ArcGIS
 
-enum MapViewMode: CustomStringConvertible {
+enum MapViewMode {
     case none
     case search
     case routeResult(AGSRoute)
     case geocodeResult(AGSGeocodeResult)
-    
+}
+
+extension MapViewMode: CustomStringConvertible {
     var description: String {
+        return simpleDescription
+    }
+    
+    var simpleDescription: String {
         switch self {
         case .none:
             return "none"
@@ -33,6 +40,17 @@ enum MapViewMode: CustomStringConvertible {
             return "Geocode \"\(result.label)\""
         case .routeResult(let route):
             return "Route \(route.routeName)".replacingOccurrences(of: " - ", with: " to ")
+        default:
+            return "\(self)"
+        }
+    }
+    
+    var shortHumanReadableDescription: String {
+        switch self {
+        case .geocodeResult:
+            return "Geocode Result"
+        case .routeResult:
+            return "Route Result"
         default:
             return "\(self)"
         }

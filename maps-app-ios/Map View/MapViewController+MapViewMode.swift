@@ -7,24 +7,30 @@
 //
 
 import UIKit
+import ArcGIS
 
 extension MapViewController {
     func updateMapViewForMode() {
-        // Update the map
-        
+        // Clear any results from the map.
         geocodeResultsOverlay.graphics.removeAllObjects()
         routeResultsOverlay.graphics.removeAllObjects()
         routeManeuversOverlay.graphics.removeAllObjects()
+        
+        var targetOverlay:AGSGraphicsOverlay?
 
+        // Depending on the current mode, display contents in the map.
         switch mode {
         case .geocodeResult:
-            geocodeResultsOverlay.graphics.addObjects(from: mode.graphics)
+            targetOverlay = geocodeResultsOverlay
         case .routeResult:
-            routeResultsOverlay.graphics.addObjects(from: mode.graphics)
+            targetOverlay = routeResultsOverlay
         default:
             break
         }
         
+        targetOverlay?.graphics.addObjects(from: mode.graphics)
+        
+        // And if need be, zoom the map appropriately.
         updateMapViewExtentForMode()
     }
     

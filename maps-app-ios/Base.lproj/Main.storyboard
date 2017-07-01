@@ -55,14 +55,14 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
                                                         <state key="normal" image="Undo"/>
                                                         <connections>
-                                                            <action selector="undoMode:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZZl-ce-2Oy"/>
+                                                            <action selector="previousMode:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fr8-gE-pBw"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sDr-0H-15M">
                                                         <rect key="frame" x="0.0" y="40" width="40" height="40"/>
                                                         <state key="normal" image="Redo"/>
                                                         <connections>
-                                                            <action selector="redoMode:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gy3-y8-RZ8"/>
+                                                            <action selector="nextMode:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9Ua-fQ-0wn"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -229,9 +229,9 @@
                         <outlet property="keyboardSpacer" destination="liW-Ir-qwV" id="daV-yI-pSt"/>
                         <outlet property="keyboardSpacerHeightConstraint" destination="7TW-uM-OEO" id="2pf-M9-Oub"/>
                         <outlet property="mapView" destination="kZk-QH-kwl" id="W1H-6t-xhR"/>
-                        <outlet property="redoButton" destination="sDr-0H-15M" id="tzH-D3-oKf"/>
-                        <outlet property="undoButton" destination="ysD-b5-Hlx" id="H9f-1c-OPf"/>
-                        <outlet property="undoRedoView" destination="I5G-Ky-yTQ" id="ARk-6D-Y98"/>
+                        <outlet property="nextModeButton" destination="sDr-0H-15M" id="lTg-L4-osu"/>
+                        <outlet property="prevModeButton" destination="ysD-b5-Hlx" id="jWv-rc-fcR"/>
+                        <outlet property="prevNextModeView" destination="I5G-Ky-yTQ" id="ha2-uz-2R8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

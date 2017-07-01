@@ -12,10 +12,12 @@ fileprivate let navigationPropertyKey = #keyPath(AGSMapView.isNavigating)
 
 extension MapViewController {
     func setupAppPreferences() {
+        // Load the stored viewpoinrt from preferences if available.
         if let storedViewpoint = mapsAppPrefs.viewpoint {
             mapView.setViewpoint(storedViewpoint)
         }
 
+        // Save the viewpoint to preferences whenever the map stops navigating.
         self.mapView.addObserver(self, forKeyPath: navigationPropertyKey, options: [.new], context: nil)
     }
     

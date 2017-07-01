@@ -11,6 +11,7 @@ import ArcGIS
 extension MapViewController {
     func setupBasemapChangeHandler() {
         NotificationCenter.default.addObserver(forName: MapsAppNotifications.Names.NewBasemap, object: nil, queue: nil, using: { notification in
+            // The user selected a new basemap. Let's show it in the MapView.
             if let newBasemap = notification.basemap {
                 self.mapView.map?.basemap = newBasemap
             }
