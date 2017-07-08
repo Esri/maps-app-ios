@@ -8,6 +8,8 @@
 
 import ArcGIS
 
+fileprivate let fallbackWebMapVersionErrorMessage = "The WebMap version is pre 2.0"
+
 extension MapViewController {
     func setupCurrentItemChangeHandler() {
         NotificationCenter.default.addObserver(forName: MapsAppNotifications.Names.CurrentItemChanged, object: nil, queue: nil) { _ in
@@ -19,9 +21,23 @@ extension MapViewController {
     func displayCurrentItem() {
         if let item = mapsAppState.currentItem, item.type == .webMap {
             let map = AGSMap(item: item)
-            mapView.map = map
+            map.load() { error in
+                guard error == nil else {
+                    var errorMessage:String!
+                    if let nsError = error as NSError?, nsError.code == 7009 {
+                        errorMessage = "\(nsError.localizedFailureReason ?? fallbackWebMapVersionErrorMessage).\n\nTo correct this, open the WebMap in the ArcGIS Online (or ArcGIS Portal) Map Viewer and re-save it."
+                    } else {
+                        errorMessage = "\(error!.localizedDescription)"
+                    }
 
-            enforceInitialExtent(mapView: mapView)
+                    self.showError(title: "Error opening map", message: errorMessage)
+                    return
+                }
+
+                self.mapView.map = map
+                
+                self.enforceInitialExtent(mapView: self.mapView)
+            }
         }
     }
     
