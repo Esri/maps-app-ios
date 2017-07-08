@@ -107,6 +107,8 @@ class AccountDetailsViewController: UIViewController {
                     picker.addAction(folderAction)
                 }
             }
+
+            picker.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         }
     }
 
@@ -117,11 +119,5 @@ class AccountDetailsViewController: UIViewController {
     
     @IBAction func folderNameTapped(_ sender: Any) {
         showFolderPicker()
-    }
-    
-    // MARK: Exit Segues
-    @IBAction func closeMainMenu(_ segue:UIStoryboardSegue) {
-        // Unwind/Exit segue target
-        self.dismiss(animated: true, completion: nil)
-    }
+    }    
 }

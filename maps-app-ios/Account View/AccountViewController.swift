@@ -39,8 +39,8 @@ class AccountViewController: UIViewController {
             self.showAccountPanelForLoginStatus()
         }
     }
-    
-    @IBAction func closePanel(_ sender: Any) {
+
+    @IBAction func closeAccountViewer(_: UIStoryboardSegue) {
         dismiss(animated: true, completion: nil)
     }
 }

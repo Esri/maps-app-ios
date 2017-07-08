@@ -97,23 +97,36 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="fBe-zd-SHP">
                                         <rect key="frame" x="0.0" y="202.5" width="343" height="428.5"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cHJ-mg-ecj">
-                                                <rect key="frame" x="0.0" y="0.0" width="343" height="30"/>
-                                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="25"/>
-                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="6" maxY="0.0"/>
-                                                <state key="normal" title="Folder Name" image="Folder">
-                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="folderNameTapped:" destination="gYN-bY-eoQ" eventType="touchUpInside" id="l0Q-VC-5Cv"/>
-                                                </connections>
-                                            </button>
                                             <containerView opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="Pn2-OA-oDd" userLabel="Portal Items">
-                                                <rect key="frame" x="0.0" y="38" width="343" height="390.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="343" height="390.5"/>
                                                 <connections>
                                                     <segue destination="5iM-5T-x6X" kind="embed" id="MGn-5b-RiO"/>
                                                 </connections>
                                             </containerView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="nXE-Q7-3LL">
+                                                <rect key="frame" x="0.0" y="398.5" width="343" height="30"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cHJ-mg-ecj">
+                                                        <rect key="frame" x="0.0" y="0.0" width="296" height="30"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="25"/>
+                                                        <inset key="titleEdgeInsets" minX="12" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                        <inset key="imageEdgeInsets" minX="6" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                        <state key="normal" title="Folder Name" image="Folder">
+                                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="folderNameTapped:" destination="gYN-bY-eoQ" eventType="touchUpInside" id="l0Q-VC-5Cv"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B6O-tx-apE">
+                                                        <rect key="frame" x="304" y="0.0" width="39" height="30"/>
+                                                        <state key="normal" title="Close"/>
+                                                        <connections>
+                                                            <segue destination="1ZZ-4J-2YB" kind="unwind" unwindAction="closeAccountViewer:" id="y2s-ot-nYg"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
                                         </subviews>
                                     </stackView>
                                 </subviews>
@@ -144,6 +157,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fIY-DK-Xlf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="1ZZ-4J-2YB" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1832.833583208396" y="76"/>
         </scene>
@@ -151,7 +165,7 @@
         <scene sceneID="42h-n1-Y6K">
             <objects>
                 <collectionViewController id="5iM-5T-x6X" customClass="PortalItemCollectionViewController" customModule="maps_app_ios" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="43k-eV-6r4">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="43k-eV-6r4">
                         <rect key="frame" x="0.0" y="0.0" width="343" height="390.5"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -208,7 +222,7 @@
                                 <connections>
                                     <outlet property="itemTitle" destination="dCi-jn-gEy" id="BiD-fF-vdg"/>
                                     <outlet property="thumbnailView" destination="kEf-Nk-qZl" id="hTQ-aA-jT7"/>
-                                    <segue destination="IF7-oR-8zl" kind="unwind" unwindAction="closeMainMenu:" id="fEw-Td-amX"/>
+                                    <segue destination="IF7-oR-8zl" kind="unwind" unwindAction="closeAccountViewer:" id="BHt-5h-1gp"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -248,13 +262,6 @@
                                     <segue destination="lvC-tV-PuD" kind="embed" id="lmd-vS-2B2"/>
                                 </connections>
                             </containerView>
-                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zpf-0p-pIN" userLabel="Collapse">
-                                <rect key="frame" x="339" y="20" width="28" height="22"/>
-                                <state key="normal" image="Collapse"/>
-                                <connections>
-                                    <action selector="closePanel:" destination="pba-cl-zFN" eventType="touchUpInside" id="lL0-bh-WJz"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -262,11 +269,7 @@
                             <constraint firstItem="xSs-iQ-f4q" firstAttribute="leading" secondItem="57D-QU-6n5" secondAttribute="leading" id="Aty-gL-dtk"/>
                             <constraint firstItem="ptj-BX-B1N" firstAttribute="top" secondItem="xSs-iQ-f4q" secondAttribute="bottom" id="Ijy-cV-bmK"/>
                             <constraint firstItem="ptj-BX-B1N" firstAttribute="top" secondItem="Um7-OB-RNk" secondAttribute="bottom" id="KIh-Lz-4xd"/>
-                            <constraint firstItem="zpf-0p-pIN" firstAttribute="top" secondItem="M1X-1J-QhK" secondAttribute="bottom" id="MiU-2a-PiO">
-                                <variation key="heightClass=compact" constant="8"/>
-                            </constraint>
                             <constraint firstItem="Um7-OB-RNk" firstAttribute="top" secondItem="M1X-1J-QhK" secondAttribute="bottom" id="YtH-oW-iN1"/>
-                            <constraint firstAttribute="trailing" secondItem="zpf-0p-pIN" secondAttribute="trailing" constant="8" id="cM9-2F-CYA"/>
                             <constraint firstItem="Um7-OB-RNk" firstAttribute="leading" secondItem="57D-QU-6n5" secondAttribute="leading" id="dbd-df-XPT"/>
                             <constraint firstAttribute="trailing" secondItem="xSs-iQ-f4q" secondAttribute="trailing" id="hnS-ln-fEQ"/>
                             <constraint firstAttribute="trailing" secondItem="Um7-OB-RNk" secondAttribute="trailing" id="rgl-k8-cM2"/>
@@ -317,6 +320,14 @@
                                     <action selector="logIn:" destination="lvC-tV-PuD" eventType="touchUpInside" id="yG3-kA-T6G"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sty-Bh-wX3">
+                                <rect key="frame" x="320" y="597" width="39" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                                <state key="normal" title="Close"/>
+                                <connections>
+                                    <segue destination="Cva-Z2-RsU" kind="unwind" unwindAction="closeAccountViewer:" id="cNF-a4-WCq"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -340,12 +351,12 @@
                     <nil key="simulatedStatusBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VM7-zc-65d" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Cva-Z2-RsU" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1833" y="815"/>
         </scene>
     </scenes>
     <resources>
-        <image name="Collapse" width="28" height="14"/>
         <image name="Default Thumbnail" width="200" height="133"/>
         <image name="Folder" width="28" height="24"/>
     </resources>
