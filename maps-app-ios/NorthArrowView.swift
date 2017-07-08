@@ -85,7 +85,6 @@ public class NorthArrowView: RoundedImageView {
             // Show if there's a MapView and rotation <> 0
             DispatchQueue.main.async {
                 self.isHidden = false
-                print("Animating in")
                 UIView.animate(withDuration: duration, animations: {
                     self.alpha = maxAlpha
                 })
@@ -97,7 +96,6 @@ public class NorthArrowView: RoundedImageView {
             }
             
             DispatchQueue.main.async {
-                print("Animating out")
                 UIView.animate(withDuration: duration, animations: {
                     self.alpha = 0
                 }, completion: { _ in

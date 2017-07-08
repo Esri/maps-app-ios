@@ -14,10 +14,10 @@ extension MapViewController {
         // feedback panel.
         NotificationCenter.default.addObserver(forName: FeedbackViewController.Notifications.Names.FeedbackPanelResizeCompleted, object: nil, queue: OperationQueue.main) { _ in
             if let feedbackView = self.feedbackViewController?.view {
+                // The Feedback View has resized itself. Let's update the MapView contentInsets to reflect this.
                 let feedbackFrame = feedbackView.convert(feedbackView.frame, to: self.mapView)
                 
-                let topInset = feedbackFrame.maxY
-                self.mapView.contentInset.top = topInset
+                self.mapView.contentInset.top = feedbackFrame.maxY
 
                 self.updateMapViewExtentForMode()
             }
