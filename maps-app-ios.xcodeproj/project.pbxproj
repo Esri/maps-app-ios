@@ -92,6 +92,7 @@
 		D9CF2A711E9041EA0019701F /* RouteNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CF2A701E9041EA0019701F /* RouteNotifications.swift */; };
 		D9CF2A731E9045A70019701F /* MapsAppStopProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CF2A721E9045A70019701F /* MapsAppStopProvider.swift */; };
 		D9D1F1301E8E1016007BE50D /* MapViewMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D1F12F1E8E1016007BE50D /* MapViewMode.swift */; };
+		D9D756A61F11826800D52B25 /* BasemapDisplayViewController+UICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D756A51F11826800D52B25 /* BasemapDisplayViewController+UICollectionView.swift */; };
 		D9FF8D6E1F06CC7A00BD9B04 /* FeedbackMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9FF8D6D1F06CC7A00BD9B04 /* FeedbackMode.swift */; };
 		D9FF8D701F06D0D900BD9B04 /* MapViewController+MapViewModeHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9FF8D6F1F06D0D900BD9B04 /* MapViewController+MapViewModeHistory.swift */; };
 		D9FF8D721F06D49300BD9B04 /* MapViewController+KeyboardTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9FF8D711F06D49300BD9B04 /* MapViewController+KeyboardTracking.swift */; };
@@ -207,6 +208,7 @@
 		D9CF2A701E9041EA0019701F /* RouteNotifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteNotifications.swift; sourceTree = "<group>"; };
 		D9CF2A721E9045A70019701F /* MapsAppStopProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapsAppStopProvider.swift; sourceTree = "<group>"; };
 		D9D1F12F1E8E1016007BE50D /* MapViewMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewMode.swift; sourceTree = "<group>"; };
+		D9D756A51F11826800D52B25 /* BasemapDisplayViewController+UICollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BasemapDisplayViewController+UICollectionView.swift"; sourceTree = "<group>"; };
 		D9FF8D6D1F06CC7A00BD9B04 /* FeedbackMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackMode.swift; sourceTree = "<group>"; };
 		D9FF8D6F1F06D0D900BD9B04 /* MapViewController+MapViewModeHistory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MapViewController+MapViewModeHistory.swift"; sourceTree = "<group>"; };
 		D9FF8D711F06D49300BD9B04 /* MapViewController+KeyboardTracking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MapViewController+KeyboardTracking.swift"; sourceTree = "<group>"; };
@@ -405,6 +407,7 @@
 			children = (
 				D96B73C71EF838F4004B6862 /* Basemaps.storyboard */,
 				D96B73C91EF83917004B6862 /* BasemapsDisplayViewController.swift */,
+				D9D756A51F11826800D52B25 /* BasemapDisplayViewController+UICollectionView.swift */,
 				D96B73CB1EF83A10004B6862 /* BasemapCollectionCell.swift */,
 			);
 			path = "Basemaps View";
@@ -717,6 +720,7 @@
 				D9BCC5F01EB7A172000C0587 /* MapViewMode+Equatable.swift in Sources */,
 				D9AB70AD1EF359F300123FEA /* AccountLoginViewController.swift in Sources */,
 				D9FF8D6E1F06CC7A00BD9B04 /* FeedbackMode.swift in Sources */,
+				D9D756A61F11826800D52B25 /* BasemapDisplayViewController+UICollectionView.swift in Sources */,
 				D9CBE34E1E8B77AC00776053 /* AppPreferences.swift in Sources */,
 				D9C080B71F01BEC600968FB3 /* DirectionsDisplayViewController.swift in Sources */,
 				D98F78B31E89B9A100E7CBC2 /* AGSAppPreferences.swift in Sources */,
