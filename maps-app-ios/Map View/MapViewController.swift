@@ -99,6 +99,16 @@ class MapViewController: UIViewController {
         // Setup the mode history behaviour.
         setModeHistoryUI()
         
+        NotificationCenter.default.addObserver(forName: MapsAppNotifications.Names.MapViewResetExtentForMode, object: nil, queue: OperationQueue.main) { notification in
+            self.updateMapViewExtentForMode()
+        }
+        
+        NotificationCenter.default.addObserver(forName: MapsAppNotifications.Names.MapViewReqestFocusOnExtent, object: nil, queue: OperationQueue.main) { notification in
+            if let requestedExtent = notification.requestedExtent {
+                self.mapView.setViewpoint(AGSViewpoint(targetExtent: requestedExtent), completion: nil)
+            }
+        }
+        
         // And start off in Search Mode.
         mode = .search
     }

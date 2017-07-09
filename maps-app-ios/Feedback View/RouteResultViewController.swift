@@ -37,6 +37,10 @@ class RouteResultViewController : UIViewController {
         }
     }
     
+    @IBAction func summaryTapped(_ sender: Any) {
+        MapsAppNotifications.postMapViewResetExtentForModeNotification()
+    }
+    
     private lazy var durationFormatter:DateComponentsFormatter = {
         let formatter = DateComponentsFormatter()
         formatter.unitsStyle = .short

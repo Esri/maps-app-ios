@@ -24,13 +24,17 @@ extension MapViewController {
     
     func requestRoute(from:AGSStop, to:AGSStop) {
         
+        SVProgressHUD.show(withStatus: "Getting directions…")
+        
         routeTask.defaultRouteParameters() { defaultParams, error in
             guard error == nil else {
+                SVProgressHUD.showError(withStatus: "Error getting default parameters")
                 print("Error getting default parameters: \(error!.localizedDescription)")
                 return
             }
             
             guard let params = defaultParams else {
+                SVProgressHUD.showError(withStatus: "No default parameters available.")
                 print("No default parameters available.")
                 return
             }
@@ -45,14 +49,18 @@ extension MapViewController {
 
             self.routeTask.solveRoute(with: params) { result, error in
                 guard error == nil else {
+                    SVProgressHUD.showError(withStatus: "Unable to solve route.")
                     print("Error solving route between \(from) and \(to): \(error!.localizedDescription)")
                     return
                 }
                 
                 guard let route = result?.routes.first else {
+                    SVProgressHUD.showError(withStatus: "Route result unexpectedly empty")
                     print("Route result unexpectedly empty between \(from) and \(to)")
                     return
                 }
+                
+                SVProgressHUD.dismiss()
                 
                 self.mode = .routeResult(route)
                 

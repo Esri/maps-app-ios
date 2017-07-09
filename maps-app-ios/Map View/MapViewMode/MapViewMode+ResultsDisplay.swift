@@ -70,7 +70,7 @@ extension MapViewMode {
     var extent:AGSEnvelope? {
         switch self {
         case .geocodeResult(let result):
-            return result.extent
+            return result.extent ?? result.displayLocation?.extent
         case .routeResult:
             return envelopeForGraphics(graphics: self.graphics, expansionFactor: 1.2)
         default:

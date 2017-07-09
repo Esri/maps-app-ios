@@ -93,6 +93,12 @@
 		D9CF2A731E9045A70019701F /* MapsAppStopProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CF2A721E9045A70019701F /* MapsAppStopProvider.swift */; };
 		D9D1F1301E8E1016007BE50D /* MapViewMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D1F12F1E8E1016007BE50D /* MapViewMode.swift */; };
 		D9D756A61F11826800D52B25 /* BasemapDisplayViewController+UICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D756A51F11826800D52B25 /* BasemapDisplayViewController+UICollectionView.swift */; };
+		D9D756C31F1193E500D52B25 /* SVIndefiniteAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = D9D756BA1F1193E500D52B25 /* SVIndefiniteAnimatedView.m */; };
+		D9D756C41F1193E500D52B25 /* SVProgressAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = D9D756BC1F1193E500D52B25 /* SVProgressAnimatedView.m */; };
+		D9D756C51F1193E500D52B25 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D9D756BE1F1193E500D52B25 /* SVProgressHUD.bundle */; };
+		D9D756C61F1193E500D52B25 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = D9D756C01F1193E500D52B25 /* SVProgressHUD.m */; };
+		D9D756C71F1193E500D52B25 /* SVRadialGradientLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = D9D756C21F1193E500D52B25 /* SVRadialGradientLayer.m */; };
+		D9D756C91F119D2000D52B25 /* MapViewController+Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D756C81F119D2000D52B25 /* MapViewController+Notifications.swift */; };
 		D9FF8D6E1F06CC7A00BD9B04 /* FeedbackMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9FF8D6D1F06CC7A00BD9B04 /* FeedbackMode.swift */; };
 		D9FF8D701F06D0D900BD9B04 /* MapViewController+MapViewModeHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9FF8D6F1F06D0D900BD9B04 /* MapViewController+MapViewModeHistory.swift */; };
 		D9FF8D721F06D49300BD9B04 /* MapViewController+KeyboardTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9FF8D711F06D49300BD9B04 /* MapViewController+KeyboardTracking.swift */; };
@@ -209,6 +215,18 @@
 		D9CF2A721E9045A70019701F /* MapsAppStopProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapsAppStopProvider.swift; sourceTree = "<group>"; };
 		D9D1F12F1E8E1016007BE50D /* MapViewMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewMode.swift; sourceTree = "<group>"; };
 		D9D756A51F11826800D52B25 /* BasemapDisplayViewController+UICollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BasemapDisplayViewController+UICollectionView.swift"; sourceTree = "<group>"; };
+		D9D756A71F11939500D52B25 /* maps-app-ios-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "maps-app-ios-Bridging-Header.h"; sourceTree = "<group>"; };
+		D9D756B91F1193E500D52B25 /* SVIndefiniteAnimatedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVIndefiniteAnimatedView.h; sourceTree = "<group>"; };
+		D9D756BA1F1193E500D52B25 /* SVIndefiniteAnimatedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVIndefiniteAnimatedView.m; sourceTree = "<group>"; };
+		D9D756BB1F1193E500D52B25 /* SVProgressAnimatedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressAnimatedView.h; sourceTree = "<group>"; };
+		D9D756BC1F1193E500D52B25 /* SVProgressAnimatedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressAnimatedView.m; sourceTree = "<group>"; };
+		D9D756BD1F1193E500D52B25 /* SVProgressHUD-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SVProgressHUD-Prefix.pch"; sourceTree = "<group>"; };
+		D9D756BE1F1193E500D52B25 /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
+		D9D756BF1F1193E500D52B25 /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
+		D9D756C01F1193E500D52B25 /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
+		D9D756C11F1193E500D52B25 /* SVRadialGradientLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVRadialGradientLayer.h; sourceTree = "<group>"; };
+		D9D756C21F1193E500D52B25 /* SVRadialGradientLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVRadialGradientLayer.m; sourceTree = "<group>"; };
+		D9D756C81F119D2000D52B25 /* MapViewController+Notifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MapViewController+Notifications.swift"; sourceTree = "<group>"; };
 		D9FF8D6D1F06CC7A00BD9B04 /* FeedbackMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackMode.swift; sourceTree = "<group>"; };
 		D9FF8D6F1F06D0D900BD9B04 /* MapViewController+MapViewModeHistory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MapViewController+MapViewModeHistory.swift"; sourceTree = "<group>"; };
 		D9FF8D711F06D49300BD9B04 /* MapViewController+KeyboardTracking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MapViewController+KeyboardTracking.swift"; sourceTree = "<group>"; };
@@ -307,6 +325,7 @@
 			isa = PBXGroup;
 			children = (
 				D96A77561E8594C000F441D3 /* MapViewController.swift */,
+				D9D756C81F119D2000D52B25 /* MapViewController+Notifications.swift */,
 				D91083C11EBC359000BACD96 /* MapViewController+MapViewMode.swift */,
 				D9FF8D6F1F06D0D900BD9B04 /* MapViewController+MapViewModeHistory.swift */,
 				D92E2C191E94A39800138F7D /* MapViewController+AppPreferences.swift */,
@@ -379,6 +398,7 @@
 				D90A07C51EF38C1400A9B253 /* RoundedButton.swift */,
 				D96B73C01EF73760004B6862 /* RoundedImageView.swift */,
 				D9CF2A6D1E90346A0019701F /* Extensions */,
+				D9D756B81F1193B400D52B25 /* 3rd Party */,
 				D9CBE34C1E8B752F00776053 /* Resources */,
 			);
 			path = "maps-app-ios";
@@ -533,6 +553,32 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		D9D756B71F1193AA00D52B25 /* SVProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				D9D756B91F1193E500D52B25 /* SVIndefiniteAnimatedView.h */,
+				D9D756BA1F1193E500D52B25 /* SVIndefiniteAnimatedView.m */,
+				D9D756BB1F1193E500D52B25 /* SVProgressAnimatedView.h */,
+				D9D756BC1F1193E500D52B25 /* SVProgressAnimatedView.m */,
+				D9D756BD1F1193E500D52B25 /* SVProgressHUD-Prefix.pch */,
+				D9D756BE1F1193E500D52B25 /* SVProgressHUD.bundle */,
+				D9D756BF1F1193E500D52B25 /* SVProgressHUD.h */,
+				D9D756C01F1193E500D52B25 /* SVProgressHUD.m */,
+				D9D756C11F1193E500D52B25 /* SVRadialGradientLayer.h */,
+				D9D756C21F1193E500D52B25 /* SVRadialGradientLayer.m */,
+			);
+			path = SVProgressHUD;
+			sourceTree = "<group>";
+		};
+		D9D756B81F1193B400D52B25 /* 3rd Party */ = {
+			isa = PBXGroup;
+			children = (
+				D9D756A71F11939500D52B25 /* maps-app-ios-Bridging-Header.h */,
+				D9D756B71F1193AA00D52B25 /* SVProgressHUD */,
+			);
+			path = "3rd Party";
+			sourceTree = "<group>";
+		};
 		D9FF8D751F07068B00BD9B04 /* MapViewController+AppState */ = {
 			isa = PBXGroup;
 			children = (
@@ -611,6 +657,7 @@
 					D96A77501E8594BF00F441D3 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = J8UEUYLV27;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 					};
 					D96A77641E8594C000F441D3 = {
@@ -659,6 +706,7 @@
 				D9C080BD1F01F53C00968FB3 /* Directions.xcassets in Resources */,
 				D9A82E0C1EF475940059244A /* Account.xcassets in Resources */,
 				D928724A1E942CFB00112A53 /* Feedback.xcassets in Resources */,
+				D9D756C51F1193E500D52B25 /* SVProgressHUD.bundle in Resources */,
 				D9430A401EF1D7A2002F6CA1 /* Suggestions.storyboard in Resources */,
 				D9C080B51F01BE7400968FB3 /* Directions.storyboard in Resources */,
 				D96B73C81EF838F4004B6862 /* Basemaps.storyboard in Resources */,
@@ -713,6 +761,7 @@
 				D9CF2A6F1E9034A80019701F /* MapViewController+RoutingArcGIS.swift in Sources */,
 				D98D92281EF6F5F9001BFF03 /* NorthArrowView.swift in Sources */,
 				D9CF2A731E9045A70019701F /* MapsAppStopProvider.swift in Sources */,
+				D9D756C41F1193E500D52B25 /* SVProgressAnimatedView.m in Sources */,
 				D90A07C61EF38C1400A9B253 /* RoundedButton.swift in Sources */,
 				D96A77851E86E88600F441D3 /* AGSLicense+CustomStringConvertible.swift in Sources */,
 				D9FF8D721F06D49300BD9B04 /* MapViewController+KeyboardTracking.swift in Sources */,
@@ -723,6 +772,7 @@
 				D9D756A61F11826800D52B25 /* BasemapDisplayViewController+UICollectionView.swift in Sources */,
 				D9CBE34E1E8B77AC00776053 /* AppPreferences.swift in Sources */,
 				D9C080B71F01BEC600968FB3 /* DirectionsDisplayViewController.swift in Sources */,
+				D9D756C61F1193E500D52B25 /* SVProgressHUD.m in Sources */,
 				D98F78B31E89B9A100E7CBC2 /* AGSAppPreferences.swift in Sources */,
 				D920A5821EB6CFCF00D565E2 /* LoginNotifications.swift in Sources */,
 				D979AD3E1F03483C00199AAA /* ASGDirectionManeuverType+CustomStringConvertible.swift in Sources */,
@@ -737,6 +787,7 @@
 				D94E6C621EBBFCA400F07BA6 /* AGSLocationDisplayAutoPanMode+CustomStringConvertible.swift in Sources */,
 				D91083C01EBC354800BACD96 /* MapViewController+CurrentItem.swift in Sources */,
 				D9CBE3531E8BF2C900776053 /* MapViewController+SearchArcGIS.swift in Sources */,
+				D9D756C91F119D2000D52B25 /* MapViewController+Notifications.swift in Sources */,
 				D93807751EB83EEB00E03A2F /* PortalItemCollectionCell.swift in Sources */,
 				D9CBE3471E8B6DF300776053 /* Debouncer.swift in Sources */,
 				D920A57C1EB6B10600D565E2 /* MapViewModeNotifications.swift in Sources */,
@@ -746,8 +797,10 @@
 				D9822A0B1EA2EA35009FA0E5 /* MapViewController+RoutingResultsDisplay.swift in Sources */,
 				D98F78B51E89CEEA00E7CBC2 /* UIViewController+Alerts.swift in Sources */,
 				D90DF41B1EAE595000EC0960 /* AccountDetailsViewController.swift in Sources */,
+				D9D756C71F1193E500D52B25 /* SVRadialGradientLayer.m in Sources */,
 				D91083C41EBC3C0F00BACD96 /* PortalUserFolderType.swift in Sources */,
 				D9CBE33D1E8B4F2A00776053 /* RouteResultViewController.swift in Sources */,
+				D9D756C31F1193E500D52B25 /* SVIndefiniteAnimatedView.m in Sources */,
 				D93381AC1E90742900A0F93E /* FeedbackViewController+ChildVCs.swift in Sources */,
 				D9822A0F1EA2EC06009FA0E5 /* MapViewController+SearchResultsDisplay.swift in Sources */,
 				D92E2C1C1E94A4F900138F7D /* MapViewController+Touch.swift in Sources */,
@@ -915,6 +968,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = J8UEUYLV27;
 				FRAMEWORK_SEARCH_PATHS = "$(HOME)/Library/SDKs/ArcGIS/iOS/Frameworks/Static";
 				INFOPLIST_FILE = "maps-app-ios/Info.plist";
@@ -928,6 +982,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.esri.example-apps.maps-app-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "maps-app-ios/3rd Party/maps-app-ios-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -936,6 +992,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = J8UEUYLV27;
 				FRAMEWORK_SEARCH_PATHS = "$(HOME)/Library/SDKs/ArcGIS/iOS/Frameworks/Static";
 				INFOPLIST_FILE = "maps-app-ios/Info.plist";
@@ -949,6 +1006,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.esri.example-apps.maps-app-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "maps-app-ios/3rd Party/maps-app-ios-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

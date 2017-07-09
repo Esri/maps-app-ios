@@ -25,4 +25,8 @@ class GeocodeResultViewController : UIViewController {
             MapsAppNotifications.postRouteNotification(from: nil, to: destination)
         }
     }
+    
+    @IBAction func geocodeResultTapped(_ sender: Any) {
+        MapsAppNotifications.postMapViewResetExtentForModeNotification()
+    }
 }

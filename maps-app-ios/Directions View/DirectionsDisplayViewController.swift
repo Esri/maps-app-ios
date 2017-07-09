@@ -58,6 +58,14 @@ class DirectionsDisplayViewController: UIViewController, UICollectionViewDataSou
         setCurrentCell()
     }
     
+    @IBAction func maneuverDescriptionTapped(_ sender: Any) {
+        print("Maneuver Gesture Tapped")
+        if let currentIndex = currentCellIndex, let cell = maneuversView.cellForItem(at: currentIndex) as? DirectionManeuverCell, let maneuver = cell.maneuver, let targetExtent = maneuver.geometry?.extent {
+            let newExtent = targetExtent.toBuilder().expand(byFactor: 1.2).toGeometry()
+            MapsAppNotifications.postMapViewRequestFocusOnExtentNotification(extent: newExtent)
+        }
+    }
+    
     func setCurrentCell() {
         guard directions != nil else {
             currentCellIndex = nil
@@ -116,5 +124,11 @@ class DirectionsDisplayViewController: UIViewController, UICollectionViewDataSou
         }
         
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if let cell = collectionView.cellForItem(at: indexPath) as? DirectionManeuverCell, let maneuver = cell.maneuver {
+            MapsAppNotifications.postManeuverFocusNotification(maneuver: maneuver)
+        }
     }
 }
