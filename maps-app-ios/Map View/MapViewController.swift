@@ -99,6 +99,9 @@ class MapViewController: UIViewController {
         // Setup the mode history behaviour.
         setModeHistoryUI()
         
+        SVProgressHUD.setContainerView(self.view)
+        SVProgressHUD.setDefaultMaskType(.black)
+        
         NotificationCenter.default.addObserver(forName: MapsAppNotifications.Names.MapViewResetExtentForMode, object: nil, queue: OperationQueue.main) { notification in
             self.updateMapViewExtentForMode()
         }
