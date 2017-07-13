@@ -24,7 +24,7 @@ extension MapViewController {
             map.load() { error in
                 guard error == nil else {
                     var errorMessage:String!
-                    if let nsError = error as NSError?, nsError.code == 7009 {
+                    if let nsError = error as NSError?, nsError.code == AGSErrorCode.mappingWebmapNotSupported.rawValue {
                         errorMessage = "\(nsError.localizedFailureReason ?? fallbackWebMapVersionErrorMessage).\n\nTo correct this, open the WebMap in the ArcGIS Online (or ArcGIS Portal) Map Viewer and re-save it."
                     } else {
                         errorMessage = "\(error!.localizedDescription)"
