@@ -14,7 +14,7 @@ import ArcGIS
 class BasemapsDisplayViewController: UIViewController {
     var items:[AGSPortalItem] {
         get {
-            return mapsAppState.basemaps
+            return mapsAppContext.basemaps
         }
     }
     
@@ -23,7 +23,7 @@ class BasemapsDisplayViewController: UIViewController {
         super.prepare(for: segue, sender: sender)
         
         // Tell the mapsApp that we've picked a web map to open.
-        mapsAppState.currentItem = (sender as? PortalItemCollectionCell)?.item
+        mapsAppContext.currentItem = (sender as? PortalItemCollectionCell)?.item
     }
     
     @IBAction func cancelBasemapPicker(_ sender: Any) {

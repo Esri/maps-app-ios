@@ -15,9 +15,9 @@ extension MapsAppDelegate {
         
         // Explicitly log in
         if let url = portalURL {
-            mapsAppState.currentPortal = AGSPortal(url: url, loginRequired: true)
+            mapsAppContext.currentPortal = AGSPortal(url: url, loginRequired: true)
         } else {
-            mapsAppState.currentPortal = AGSPortal.arcGISOnline(withLoginRequired: true)
+            mapsAppContext.currentPortal = AGSPortal.arcGISOnline(withLoginRequired: true)
         }
     }
 
@@ -26,14 +26,14 @@ extension MapsAppDelegate {
         AGSAuthenticationManager.shared().credentialCache.removeAllCredentials()
 
         // Make sure our service tasks also forget what they know about being logged into the portal.
-        mapsAppState.routeTask.credential = nil
-        mapsAppState.locator.credential = nil
+        mapsAppContext.routeTask.credential = nil
+        mapsAppContext.locator.credential = nil
 
         // Explicitly log out
         if let portalURL = mapsAppPrefs.portalURL {
-            mapsAppState.currentPortal = AGSPortal(url: portalURL, loginRequired: false)
+            mapsAppContext.currentPortal = AGSPortal(url: portalURL, loginRequired: false)
         } else {
-            mapsAppState.currentPortal = AGSPortal.arcGISOnline(withLoginRequired: false)
+            mapsAppContext.currentPortal = AGSPortal.arcGISOnline(withLoginRequired: false)
         }
     }
 }

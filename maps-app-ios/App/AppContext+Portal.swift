@@ -12,7 +12,7 @@ import ArcGIS
 // Can help to avoid loading multiple pages of results.
 fileprivate let basemapPageQuerySize = 50
 
-extension AppState {
+extension AppContext {
     func setupAndLoadPortal(portal:AGSPortal) {
         // Ensure the Runtime knows how to authenticate against this portal should the need arise.
         let oauthConfig = AGSOAuthConfiguration(portalURL: portal.url, clientID: AppSettings.clientID,

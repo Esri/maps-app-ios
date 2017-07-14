@@ -18,8 +18,12 @@ var mapsAppPrefs:AppPreferences {
     return mapsApp.preferences
 }
 
-var mapsAppState:AppState {
+var mapsAppContext:AppContext {
     return mapsApp.state
+}
+
+var mapsAppAGSServices:AppAGSServices {
+    return mapsApp.agsServices
 }
 
 // MARK: Maps App
@@ -30,7 +34,16 @@ class MapsAppDelegate: UIResponder, UIApplicationDelegate {
     
     // MARK: Configuration and Preferences
     fileprivate var preferences = AppPreferences()
-    fileprivate var state:AppState = AppState()
+    fileprivate var state:AppContext = AppContext()
+    fileprivate var agsServices:AppAGSServices = AppAGSServices()
+    
+    func showDefaultAlert(title:String? = nil, message:String, okButtonText:String = "OK") {
+        if let currentViewController = window?.rootViewController {
+            let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: okButtonText, style: .default))
+            currentViewController.present(alert, animated: true)
+        }
+    }
     
     // MARK: App start and licensing
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
@@ -44,7 +57,7 @@ class MapsAppDelegate: UIResponder, UIApplicationDelegate {
         print("ArcGIS Runtime License: \(AGSArcGISRuntimeEnvironment.license())")
 
         setInitialPortal()
-
+        
         return true
     }
 

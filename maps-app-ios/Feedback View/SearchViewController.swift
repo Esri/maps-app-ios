@@ -30,18 +30,27 @@ class SearchViewController : UIViewController, UISearchBarDelegate {
                 return
             }
             
-            MapsAppNotifications.postSuggestNotification(searchBar: self.searchBar)
+            guard let searchText = self.searchBar.text else {
+                return
+            }
+            
+            mapsAppAGSServices.getSuggestions(forSearchText: searchText)
         }
+        
         return debouncer
     }()
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         debouncerCanceled = true
-        MapsAppNotifications.postSearchNotification(searchBar: searchBar)
-        MapsAppNotifications.postSearchCompletedNotification()
+        mapsAppContext.validToShowSuggestions = false
+
+        if let searchText = searchBar.text {
+            mapsAppAGSServices.search(searchText: searchText)
+        }
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        mapsAppContext.validToShowSuggestions = true
         suggestDebouncer.call()
     }
     
@@ -56,11 +65,14 @@ class SearchViewController : UIViewController, UISearchBarDelegate {
     }
     
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        mapsAppContext.validToShowSuggestions = false
         MapsAppNotifications.postSearchCompletedNotification()
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         debouncerCanceled = true
+        mapsAppContext.validToShowSuggestions = false
+
         searchBar.resignFirstResponder()
         searchBar.text = nil
         MapsAppNotifications.postSearchCompletedNotification()

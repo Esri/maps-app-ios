@@ -19,7 +19,7 @@ extension MapViewController {
     }
     
     func displayCurrentItem() {
-        if let item = mapsAppState.currentItem, item.type == .webMap {
+        if let item = mapsAppContext.currentItem, item.type == .webMap {
             let map = AGSMap(item: item)
             map.load() { error in
                 guard error == nil else {

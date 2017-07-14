@@ -10,7 +10,7 @@ import UIKit
 
 extension UIViewController {
     func warnAboutLoginIfLoggedOut(message: String, continueHandler: @escaping (()->Void), cancelHandler: (()->Void)? = nil) {
-        if mapsAppState.isLoggedIn {
+        if mapsAppContext.isLoggedIn {
             continueHandler()
         } else {
             let alert = UIAlertController(title: "Login Required", message: message, preferredStyle: .alert)

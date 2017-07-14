@@ -8,7 +8,7 @@
 
 import ArcGIS
 
-class AppState {
+class AppContext {
     // MARK: ArcGIS Services
     var locator = AGSLocatorTask(url: AppSettings.worldGeocoderURL)
     var routeTask = AGSRouteTask(url: AppSettings.worldRoutingServiceURL)
@@ -79,6 +79,16 @@ class AppState {
             return user
         case .loggedOut:
             return nil
+        }
+    }
+
+    // MARK: MapView UI
+    var currentMapView:AGSMapView?
+    var validToShowSuggestions:Bool = true {
+        didSet {
+            if !validToShowSuggestions {
+                MapsAppNotifications.postSearchSuggestionsAvailableNotification(suggestions: [])
+            }
         }
     }
 }

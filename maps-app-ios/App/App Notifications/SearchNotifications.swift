@@ -10,83 +10,63 @@ import UIKit
 import ArcGIS
 
 extension MapsAppNotifications.Names {
-    static let SearchRequested = Notification.Name("MapsAppSearchRequestedNotification")
-    static let SearchRequestedFromSuggestion = Notification.Name("MapsAppSearchRequestedFromSuggestionNotification")
-    static let SearchSuggestionsRequested = Notification.Name("MapsAppSearchSuggestionsRequestedNotification")
     static let SearchCompleted = Notification.Name("MapsAppSearchCompletedNotification")
+    static let SearchSuggestionsAvailable = Notification.Name("MapsAppSearchSuggestionsAvailableNotification")
 }
 
 extension MapsAppNotifications {
-    // MARK: Notification listener setup shortcut
-    static func observeSearchNotifications(searchNotificationHander:@escaping ((_ searchText:String)->Void),
-                                           suggestNotificationHandler:((_ searchText:String)->Void)?,
-                                           searchFromSuggestionNotificationHandler:((_ suggestion:AGSSuggestResult)->Void)?) {
-        
-        // Listen for notifications from some search UI to trigger search and suggest operations.
-        NotificationCenter.default.addObserver(forName: MapsAppNotifications.Names.SearchRequested, object: nil, queue: nil) { notification in
-            if let searchText = notification.searchText {
-                searchNotificationHander(searchText)
-            }
-        }
-        
-        NotificationCenter.default.addObserver(forName: MapsAppNotifications.Names.SearchSuggestionsRequested, object: nil, queue: nil) { notification in
-            if let searchText = notification.searchText {
-                suggestNotificationHandler?(searchText)
-            }
-        }
-        
-        NotificationCenter.default.addObserver(forName: MapsAppNotifications.Names.SearchRequestedFromSuggestion, object: nil, queue: nil) { notification in
-            if let suggestion = notification.suggestion {
-                searchFromSuggestionNotificationHandler?(suggestion)
-            }
-        }
-    }
-
     // MARK: Post Notifications shortcuts
-    static func postSearchNotification(searchBar:UISearchBar) {
-        // Notify that we'd like to do a search based off a SearchBar's text.
-        if let searchText = searchBar.text {
-            NotificationCenter.default.post(name: MapsAppNotifications.Names.SearchRequested, object: nil,
-                                            userInfo: [SearchNotificationKeys.search: searchText])
-        }
-    }
-    
-    static func postSearchFromSuggestionNotification(suggestion:AGSSuggestResult) {
-        // Notify that we'd like to do a search based off an AGSSuggestResult.
-        NotificationCenter.default.post(name: MapsAppNotifications.Names.SearchRequestedFromSuggestion, object: nil,
-                                        userInfo: [SearchNotificationKeys.suggestion: suggestion])
-    }
-    
-    static func postSuggestNotification(searchBar:UISearchBar) {
+    static func postSearchSuggestionsAvailableNotification(suggestions:[AGSSuggestResult]) {
         // Notify that we'd like to get search suggestions based off a SearchBar's text.
-        if let suggestText = searchBar.text, suggestText.characters.count > 0 {
-            NotificationCenter.default.post(name: MapsAppNotifications.Names.SearchSuggestionsRequested, object: nil,
-                                            userInfo: [SearchNotificationKeys.search: suggestText])
-        } else {
-            MapsAppNotifications.postSearchCompletedNotification()
+        var userInfo:[AnyHashable:Any] = [:]
+        
+        if suggestions.count > 0 {
+            userInfo[SearchNotificationKeys.suggestions] = suggestions
         }
+        
+        NotificationCenter.default.post(name: MapsAppNotifications.Names.SearchSuggestionsAvailable, object: nil, userInfo: userInfo)
     }
     
-    static func postSearchCompletedNotification() {
+    static func postSearchCompletedNotification(result:AGSGeocodeResult? = nil) {
         // Notify that we're no longer searching and it's time to hide any related UI (e.g. the suggestion panel)
-        NotificationCenter.default.post(name: MapsAppNotifications.Names.SearchCompleted, object: nil)
+        var userInfo:[AnyHashable:Any] = [:]
+        
+        if let result = result {
+            userInfo[SearchNotificationKeys.searchResult] = result
+        }
+        
+        NotificationCenter.default.post(name: MapsAppNotifications.Names.SearchCompleted, object: nil, userInfo: userInfo)
+    }
+    
+    static func observeSearchNotifications(searchResultHandler:((AGSGeocodeResult?)->Void)?, suggestionsAvailableHandler:(([AGSSuggestResult]?)->Void)?) {
+        if let searchResultHandler = searchResultHandler {
+            NotificationCenter.default.addObserver(forName: MapsAppNotifications.Names.SearchCompleted, object: nil, queue: OperationQueue.main) { notification in
+                searchResultHandler(notification.searchResult)
+            }
+        }
+        
+        if let suggestionsAvailableHandler = suggestionsAvailableHandler {
+            NotificationCenter.default.addObserver(forName: MapsAppNotifications.Names.SearchSuggestionsAvailable, object: nil, queue: OperationQueue.main) { notification in
+                suggestionsAvailableHandler(notification.searchSuggestions)
+            }
+        }
     }
 }
 
 extension Notification {
-    var searchText:String? {
+    var searchResult:AGSGeocodeResult? {
         get {
-            if [MapsAppNotifications.Names.SearchRequested, MapsAppNotifications.Names.SearchSuggestionsRequested].contains(self.name) {
-                return self.userInfo?[SearchNotificationKeys.search] as? String
+            if self.name == MapsAppNotifications.Names.SearchCompleted {
+                return self.userInfo?[SearchNotificationKeys.searchResult] as? AGSGeocodeResult
             }
             return nil
         }
     }
-    
-    var suggestion:AGSSuggestResult? {
+
+    var searchSuggestions:[AGSSuggestResult]? {
         get {
-            if self.name == MapsAppNotifications.Names.SearchRequestedFromSuggestion {
-                return self.userInfo?[SearchNotificationKeys.suggestion] as? AGSSuggestResult
+            if self.name == MapsAppNotifications.Names.SearchSuggestionsAvailable {
+                return self.userInfo?[SearchNotificationKeys.suggestions] as? [AGSSuggestResult]
             }
             return nil
         }
@@ -94,6 +74,6 @@ extension Notification {
 }
 
 fileprivate struct SearchNotificationKeys {
-    static let search = "searchText"
-    static let suggestion = "suggestion"
+    static let searchResult = "result"
+    static let suggestions = "suggestions"
 }

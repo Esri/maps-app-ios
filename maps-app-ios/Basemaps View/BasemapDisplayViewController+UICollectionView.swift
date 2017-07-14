@@ -10,7 +10,7 @@ import UIKit
 
 extension BasemapsDisplayViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        mapsAppState.currentBasemap = items[indexPath.row]
+        mapsAppContext.currentBasemap = items[indexPath.row]
         
         self.dismiss(animated: true, completion: nil)
     }

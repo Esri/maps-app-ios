@@ -15,6 +15,6 @@ extension MapViewController: AGSGeoViewTouchDelegate {
     }
 
     func geoView(_ geoView: AGSGeoView, didEndLongPressAtScreenPoint screenPoint: CGPoint, mapPoint: AGSPoint) {
-        self.getAddressForPoint(point: mapPoint)
+        mapsAppAGSServices.getAddressForPoint(point: mapPoint)
     }
 }

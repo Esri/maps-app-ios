@@ -18,12 +18,12 @@ class AccountDetailsViewController: UIViewController {
     
     var loggedInUser:AGSPortalUser? {
         get {
-            return mapsAppState.currentUser
+            return mapsAppContext.currentUser
         }
     }
     
     var subFolders:[PortalUserFolder] {
-        return mapsAppState.rootFolder?.subFolders ?? []
+        return mapsAppContext.rootFolder?.subFolders ?? []
     }
     
     var contentVC:PortalItemCollectionViewController? {
@@ -66,7 +66,7 @@ class AccountDetailsViewController: UIViewController {
     }
     
     private func showContent() {
-        if let folder = mapsAppState.currentFolder {
+        if let folder = mapsAppContext.currentFolder {
             self.folderButton.setTitle(folder.title, for: .normal)
             folder.load { error in
                 guard error == nil else {
@@ -82,7 +82,7 @@ class AccountDetailsViewController: UIViewController {
     }
     
     func showFolderPicker() {
-        mapsAppState.rootFolder?.load() { error in
+        mapsAppContext.rootFolder?.load() { error in
             let picker = UIAlertController(title: "Select Folder", message: nil, preferredStyle: .actionSheet)
             
             defer {
@@ -90,7 +90,7 @@ class AccountDetailsViewController: UIViewController {
             }
             
             picker.addAction(UIAlertAction(title: "Root Folder", style: .default, handler: { _ in
-                mapsAppState.currentFolder = mapsAppState.rootFolder
+                mapsAppContext.currentFolder = mapsAppContext.rootFolder
             }))
             
             guard error == nil else {
@@ -99,10 +99,10 @@ class AccountDetailsViewController: UIViewController {
                 return
             }
             
-            if let subFolders = mapsAppState.rootFolder?.subFolders {
+            if let subFolders = mapsAppContext.rootFolder?.subFolders {
                 for folder in subFolders {
                     let folderAction = UIAlertAction(title: folder.title, style: .default, handler: { action in
-                        mapsAppState.currentFolder = folder
+                        mapsAppContext.currentFolder = folder
                     })
                     picker.addAction(folderAction)
                 }

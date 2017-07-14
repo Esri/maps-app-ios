@@ -12,9 +12,11 @@ extension MapViewController {
     func setupSearch() {
         // Add a layer to the map to display search results
         mapView.graphicsOverlays.add(geocodeResultsOverlay)
-
-        MapsAppNotifications.observeSearchNotifications(searchNotificationHander: { searchText in self.search(searchText:searchText) },
-                                                        suggestNotificationHandler: { searchText in self.getSuggestions(forSearchText: searchText) },
-                                                        searchFromSuggestionNotificationHandler: { suggestion in self.search(suggestion: suggestion) })
+        
+        MapsAppNotifications.observeSearchNotifications(searchResultHandler: { result in
+            if let result = result {
+                self.mode = .geocodeResult(result)
+            }
+        }, suggestionsAvailableHandler: nil)
     }
 }

@@ -50,9 +50,11 @@ class SuggestionDisplayViewController: UIViewController, UITableViewDataSource, 
         
         suggestions = nil
         
-        NotificationCenter.default.addObserver(forName: MapsAppNotifications.Names.SearchCompleted, object: nil, queue: nil) { notification in
+        MapsAppNotifications.observeSearchNotifications(searchResultHandler: { _ in
             self.suggestions = nil
-        }
+        }, suggestionsAvailableHandler: { suggestions in
+            self.suggestions = suggestions
+        })        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -79,7 +81,7 @@ class SuggestionDisplayViewController: UIViewController, UITableViewDataSource, 
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let suggestion = suggestions?[indexPath.row] {
-            MapsAppNotifications.postSearchFromSuggestionNotification(suggestion: suggestion)
+            mapsAppAGSServices.search(suggestion: suggestion)
             suggestions = nil
         }
     }

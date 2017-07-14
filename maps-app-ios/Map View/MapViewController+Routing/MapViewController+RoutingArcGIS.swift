@@ -12,7 +12,7 @@ extension MapViewController {
 
     //MARK: ArcGIS Components
     var routeTask:AGSRouteTask {
-        return mapsAppState.routeTask
+        return mapsAppContext.routeTask
     }
     
     // MARK: Get directions
