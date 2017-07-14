@@ -83,7 +83,7 @@
                                             <containerView opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="Pn2-OA-oDd" userLabel="Portal Items">
                                                 <rect key="frame" x="0.0" y="38" width="243" height="301"/>
                                                 <connections>
-                                                    <segue destination="5iM-5T-x6X" kind="embed" id="MGn-5b-RiO"/>
+                                                    <segue destination="ECM-Pj-0QK" kind="embed" id="jYj-ap-BUS"/>
                                                 </connections>
                                             </containerView>
                                         </subviews>
@@ -124,98 +124,13 @@
             </objects>
             <point key="canvasLocation" x="1832.8" y="75.112443778110944"/>
         </scene>
-        <!--Portal Item Collection View Controller-->
-        <scene sceneID="42h-n1-Y6K">
+        <!--PortalItemsBrowser-->
+        <scene sceneID="Z5l-dK-n4M">
             <objects>
-                <collectionViewController id="5iM-5T-x6X" customClass="PortalItemCollectionViewController" customModule="maps_app_ios" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="43k-eV-6r4">
-                        <rect key="frame" x="0.0" y="0.0" width="243" height="301"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="0.94999999999999996" alpha="1" colorSpace="calibratedWhite"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="12" id="rca-D5-5Zk">
-                            <size key="itemSize" width="150" height="163"/>
-                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="10"/>
-                        </collectionViewFlowLayout>
-                        <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PortalItem" id="of2-ZP-JMj" customClass="PortalItemCollectionCell" customModule="maps_app_ios" customModuleProvider="target">
-                                <rect key="frame" x="46.5" y="10" width="150" height="163"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="150" height="163"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="lU7-Fr-jPC">
-                                            <rect key="frame" x="0.0" y="0.0" width="196.5" height="162"/>
-                                            <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Default Thumbnail" translatesAutoresizingMaskIntoConstraints="NO" id="kEf-Nk-qZl" customClass="RoundedImageView" customModule="maps_app_ios" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="0.0" width="150" height="99.5"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="110" id="Sy3-r9-J0N"/>
-                                                        <constraint firstAttribute="width" secondItem="kEf-Nk-qZl" secondAttribute="height" multiplier="200:133" id="dLY-bA-PJ8"/>
-                                                        <constraint firstAttribute="width" constant="150" id="ieu-2Z-uBg"/>
-                                                    </constraints>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                            <color key="value" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                    </userDefinedRuntimeAttributes>
-                                                </imageView>
-                                                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aKp-zx-p8J">
-                                                    <rect key="frame" x="0.0" y="99.5" width="150" height="63.5"/>
-                                                    <subviews>
-                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0f7-ju-FuQ">
-                                                            <rect key="frame" x="0.0" y="0.0" width="12" height="63.5"/>
-                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="width" constant="12" id="BD0-EI-7fk"/>
-                                                            </constraints>
-                                                        </view>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" text="Item Name" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dCi-jn-gEy">
-                                                            <rect key="frame" x="12" y="0.0" width="126" height="63.5"/>
-                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TZP-XB-seQ">
-                                                            <rect key="frame" x="138" y="0.0" width="12" height="63.5"/>
-                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                        </view>
-                                                    </subviews>
-                                                    <constraints>
-                                                        <constraint firstItem="0f7-ju-FuQ" firstAttribute="width" secondItem="TZP-XB-seQ" secondAttribute="width" id="bFa-bs-yHv"/>
-                                                    </constraints>
-                                                </stackView>
-                                            </subviews>
-                                        </stackView>
-                                    </subviews>
-                                </view>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <gestureRecognizers/>
-                                <constraints>
-                                    <constraint firstItem="lU7-Fr-jPC" firstAttribute="leading" secondItem="of2-ZP-JMj" secondAttribute="leading" id="C1X-oX-1qb"/>
-                                    <constraint firstItem="lU7-Fr-jPC" firstAttribute="top" secondItem="of2-ZP-JMj" secondAttribute="top" id="J90-D9-tkP"/>
-                                    <constraint firstAttribute="bottom" secondItem="lU7-Fr-jPC" secondAttribute="bottom" id="Kgc-Mu-zBs"/>
-                                </constraints>
-                                <connections>
-                                    <outlet property="itemTitle" destination="dCi-jn-gEy" id="BiD-fF-vdg"/>
-                                    <outlet property="thumbnailView" destination="kEf-Nk-qZl" id="hTQ-aA-jT7"/>
-                                    <segue destination="IF7-oR-8zl" kind="unwind" unwindAction="closeAccountViewer:" id="BHt-5h-1gp"/>
-                                </connections>
-                            </collectionViewCell>
-                        </cells>
-                        <connections>
-                            <outlet property="dataSource" destination="5iM-5T-x6X" id="iH9-CE-Fjh"/>
-                            <outlet property="delegate" destination="5iM-5T-x6X" id="W9D-za-7Ay"/>
-                            <outlet property="prefetchDataSource" destination="5iM-5T-x6X" id="4IC-j5-QUg"/>
-                        </connections>
-                    </collectionView>
-                </collectionViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="C7E-Xy-sHt" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="IF7-oR-8zl" userLabel="Exit" sceneMemberID="exit"/>
+                <viewControllerPlaceholder storyboardName="PortalItemsBrowser" id="ECM-Pj-0QK" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pcD-Iz-6KA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2717.5999999999999" y="-2.2488755622188905"/>
+            <point key="canvasLocation" x="2406" y="-323"/>
         </scene>
         <!--Account View Controller-->
         <scene sceneID="c2s-5q-FEn">
@@ -336,7 +251,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Default Thumbnail" width="200" height="133"/>
         <image name="Folder" width="28" height="24"/>
     </resources>
 </document>

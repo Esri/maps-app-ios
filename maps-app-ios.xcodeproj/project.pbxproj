@@ -36,6 +36,8 @@
 		D95AD1CD1F1928F0002BC78A /* MapsAppDelegate+AppStartup.swift in Sources */ = {isa = PBXBuildFile; fileRef = D95AD1CC1F1928F0002BC78A /* MapsAppDelegate+AppStartup.swift */; };
 		D95AD1CF1F192ACA002BC78A /* MapsAppGlobals.swift in Sources */ = {isa = PBXBuildFile; fileRef = D95AD1CE1F192ACA002BC78A /* MapsAppGlobals.swift */; };
 		D95AD1D11F192B53002BC78A /* AppContext+PortalServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = D95AD1D01F192B53002BC78A /* AppContext+PortalServices.swift */; };
+		D95AD1D61F19528C002BC78A /* PortalItemsBrowser.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D95AD1D51F19528C002BC78A /* PortalItemsBrowser.storyboard */; };
+		D95AD1D81F195575002BC78A /* PortalItemsBrowser.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D95AD1D71F195575002BC78A /* PortalItemsBrowser.xcassets */; };
 		D95B72C81F06AA3D00224AB9 /* AppContext+Portal.swift in Sources */ = {isa = PBXBuildFile; fileRef = D95B72C71F06AA3D00224AB9 /* AppContext+Portal.swift */; };
 		D963879B1EB2547600764D8D /* LoginStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = D963879A1EB2547600764D8D /* LoginStatus.swift */; };
 		D96387A11EB2FA7300764D8D /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96387A01EB2FA7300764D8D /* AppSettings.swift */; };
@@ -155,6 +157,8 @@
 		D95AD1CC1F1928F0002BC78A /* MapsAppDelegate+AppStartup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MapsAppDelegate+AppStartup.swift"; sourceTree = "<group>"; };
 		D95AD1CE1F192ACA002BC78A /* MapsAppGlobals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapsAppGlobals.swift; sourceTree = "<group>"; };
 		D95AD1D01F192B53002BC78A /* AppContext+PortalServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AppContext+PortalServices.swift"; sourceTree = "<group>"; };
+		D95AD1D51F19528C002BC78A /* PortalItemsBrowser.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PortalItemsBrowser.storyboard; sourceTree = "<group>"; };
+		D95AD1D71F195575002BC78A /* PortalItemsBrowser.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = PortalItemsBrowser.xcassets; sourceTree = "<group>"; };
 		D95B72C71F06AA3D00224AB9 /* AppContext+Portal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AppContext+Portal.swift"; sourceTree = "<group>"; };
 		D963879A1EB2547600764D8D /* LoginStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginStatus.swift; sourceTree = "<group>"; };
 		D96387A01EB2FA7300764D8D /* AppSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
@@ -283,8 +287,6 @@
 				D9AB70AC1EF359F300123FEA /* AccountLoginViewController.swift */,
 				D9774AF51EBAD56D0099D4A5 /* PortalUserFolder.swift */,
 				D91083C31EBC3C0F00BACD96 /* PortalUserFolderType.swift */,
-				D9BCC5F31EB7CCCB000C0587 /* PortalItemCollectionViewController.swift */,
-				D93807741EB83EEB00E03A2F /* PortalItemCollectionCell.swift */,
 			);
 			path = "Account View";
 			sourceTree = "<group>";
@@ -400,6 +402,17 @@
 			path = "Rounded Views";
 			sourceTree = "<group>";
 		};
+		D95AD1D91F195644002BC78A /* Portal Items Browser */ = {
+			isa = PBXGroup;
+			children = (
+				D9BCC5F31EB7CCCB000C0587 /* PortalItemCollectionViewController.swift */,
+				D93807741EB83EEB00E03A2F /* PortalItemCollectionCell.swift */,
+				D95AD1D51F19528C002BC78A /* PortalItemsBrowser.storyboard */,
+				D95AD1D71F195575002BC78A /* PortalItemsBrowser.xcassets */,
+			);
+			path = "Portal Items Browser";
+			sourceTree = "<group>";
+		};
 		D96A77481E8594BF00F441D3 = {
 			isa = PBXGroup;
 			children = (
@@ -432,6 +445,7 @@
 				D9430A3E1EF1D73F002F6CA1 /* Suggestions View */,
 				D9C080B31F01BE4600968FB3 /* Directions View */,
 				D90E7DFC1EB8602100EE520E /* Account View */,
+				D95AD1D91F195644002BC78A /* Portal Items Browser */,
 				D98D92271EF6F5F9001BFF03 /* NorthArrowView.swift */,
 				D95AD1D41F1933C3002BC78A /* Rounded Views */,
 				D9CF2A6D1E90346A0019701F /* Extensions */,
@@ -737,7 +751,9 @@
 				D96B73C81EF838F4004B6862 /* Basemaps.storyboard in Resources */,
 				D9513A341E985D49007B36C8 /* Assets.xcassets in Resources */,
 				D9AB70AB1EF2E2DC00123FEA /* Account.storyboard in Resources */,
+				D95AD1D61F19528C002BC78A /* PortalItemsBrowser.storyboard in Resources */,
 				D96A775A1E8594C000F441D3 /* Main.storyboard in Resources */,
+				D95AD1D81F195575002BC78A /* PortalItemsBrowser.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

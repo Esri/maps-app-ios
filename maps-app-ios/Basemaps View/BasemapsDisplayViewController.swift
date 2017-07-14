@@ -12,10 +12,10 @@ import UIKit
 import ArcGIS
 
 class BasemapsDisplayViewController: UIViewController {
-    var items:[AGSPortalItem] {
-        get {
-            return mapsAppContext.basemaps
-        }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        contentVC?.items = mapsAppContext.basemaps
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -23,10 +23,14 @@ class BasemapsDisplayViewController: UIViewController {
         super.prepare(for: segue, sender: sender)
         
         // Tell the mapsApp that we've picked a web map to open.
-        mapsAppContext.currentItem = (sender as? PortalItemCollectionCell)?.item
+        mapsAppContext.currentBasemap = (sender as? PortalItemCollectionCell)?.item
     }
     
     @IBAction func cancelBasemapPicker(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    var contentVC:PortalItemCollectionViewController? {
+        return self.childViewControllers.filter({ $0 is PortalItemCollectionViewController }).first as? PortalItemCollectionViewController
     }
 }
