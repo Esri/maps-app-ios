@@ -33,7 +33,7 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="416" height="158.5"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="qK6-R4-x11">
-                                                        <rect key="frame" x="8" y="0.0" width="100" height="100"/>
+                                                        <rect key="frame" x="158" y="0.0" width="100" height="100"/>
                                                         <color key="backgroundColor" white="0.74252479930000004" alpha="1" colorSpace="calibratedWhite"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="qK6-R4-x11" secondAttribute="height" multiplier="1:1" id="gds-zI-ctY"/>
@@ -41,7 +41,7 @@
                                                         </constraints>
                                                     </imageView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="AMc-t6-1EE">
-                                                        <rect key="frame" x="8" y="108" width="76.5" height="50.5"/>
+                                                        <rect key="frame" x="170" y="108" width="76.5" height="50.5"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="1000" text="Full Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Mf-nP-Q22">
                                                                 <rect key="frame" x="0.0" y="0.0" width="76.5" height="20.5"/>
@@ -50,17 +50,18 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K4Q-PV-R2y">
-                                                                <rect key="frame" x="0.0" y="20.5" width="55" height="30"/>
+                                                                <rect key="frame" x="10.5" y="20.5" width="55" height="30"/>
                                                                 <state key="normal" title="Log Out"/>
                                                                 <connections>
                                                                     <action selector="logOut:" destination="gYN-bY-eoQ" eventType="touchUpInside" id="a17-Sh-YgI"/>
                                                                 </connections>
                                                             </button>
                                                         </subviews>
+                                                        <variation key="heightClass=compact" alignment="center"/>
                                                     </stackView>
                                                 </subviews>
                                                 <edgeInsets key="layoutMargins" top="0.0" left="8" bottom="0.0" right="8"/>
-                                                <variation key="heightClass=compact" alignment="top" axis="vertical"/>
+                                                <variation key="heightClass=compact" alignment="center" axis="vertical"/>
                                             </stackView>
                                         </subviews>
                                     </stackView>
