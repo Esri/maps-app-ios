@@ -1,23 +1,23 @@
 //
-//  MapViewController+RoutingArcGIS.swift
+//  AppAGSServices+Routing.swift
 //  maps-app-ios
 //
-//  Created by Nicholas Furness on 4/1/17.
+//  Created by Nicholas Furness on 7/13/17.
 //  Copyright © 2017 Esri. All rights reserved.
 //
 
 import ArcGIS
 
-extension MapViewController {
+fileprivate let defaultRouteTaskSR = AGSSpatialReference.wgs84()
 
-    //MARK: ArcGIS Components
-    var routeTask:AGSRouteTask {
-        return mapsAppContext.routeTask
+extension AppAGSServices {
+    fileprivate var routeTaskSR:AGSSpatialReference {
+        return mapsAppContext.currentMapView?.spatialReference ?? defaultRouteTaskSR
     }
     
     // MARK: Get directions
     func route(from:AGSStop, to:AGSStop) {
-        warnAboutLoginIfLoggedOut(message: "Getting directions requires a login and consumes credits.", continueHandler: {
+        mapsApp.warnAboutLoginIfLoggedOut(message: "Getting directions requires a login and consumes credits.", continueHandler: {
             self.requestRoute(from: from, to: to)
         })
     }
@@ -38,15 +38,15 @@ extension MapViewController {
                 print("No default parameters available.")
                 return
             }
-
-            params.outputSpatialReference = self.mapView.spatialReference
+            
+            params.outputSpatialReference = self.routeTaskSR
             params.returnStops = true
             params.returnDirections = true
             params.returnRoutes = true
-
+            
             // To make best use of the service, we will base our request off the service's default parameters.
             params.setStops([from,to])
-
+            
             self.routeTask.solveRoute(with: params) { result, error in
                 guard error == nil else {
                     SVProgressHUD.showError(withStatus: "Unable to solve route.")
@@ -54,35 +54,29 @@ extension MapViewController {
                     return
                 }
                 
-                guard let route = result?.routes.first else {
+                guard let routeResult = result?.routes.first else {
                     SVProgressHUD.showError(withStatus: "Route result unexpectedly empty")
                     print("Route result unexpectedly empty between \(from) and \(to)")
                     return
                 }
                 
                 SVProgressHUD.dismiss()
-                
-                self.mode = .routeResult(route)
-                
-                self.showDirections(route: route)
+
+                MapsAppNotifications.postRouteResultNotification(result: routeResult)
             }
         }
-
+        
     }
     
     
     // MARK: Convenience methods
     func route(to:AGSStop) {
-        let from = self.mapView.routeStop(inSpatialReference: self.mapView.spatialReference!)
-        route(from: from, to: to)
+        if let from = mapsAppContext.currentMapView?.routeStop(inSpatialReference: routeTaskSR) {
+            route(from: from, to: to)
+        }
     }
     
     func route(to:MapsAppStopProvider) {
-        route(to: to.routeStop(inSpatialReference: self.mapView.spatialReference!))
-    }
-    
-    func route(from:MapsAppStopProvider, to:MapsAppStopProvider) {
-        route(from: from.routeStop(inSpatialReference: self.mapView.spatialReference!),
-              to: to.routeStop(inSpatialReference: self.mapView.spatialReference!))
+        route(to: to.routeStop(inSpatialReference: routeTaskSR))
     }
 }

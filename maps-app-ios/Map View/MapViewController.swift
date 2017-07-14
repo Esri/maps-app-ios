@@ -112,6 +112,8 @@ class MapViewController: UIViewController {
             }
         }
         
+        mapsAppContext.currentMapView = mapView
+        
         // And start off in Search Mode.
         mode = .search
     }

@@ -37,6 +37,14 @@ class RouteResultViewController : UIViewController {
         }
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        MapsAppNotifications.observeRouteSolvedNotification { route in
+            self.routeResult = route
+        }
+    }
+    
     @IBAction func summaryTapped(_ sender: Any) {
         MapsAppNotifications.postMapViewResetExtentForModeNotification()
     }

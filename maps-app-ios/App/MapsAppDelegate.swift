@@ -45,6 +45,19 @@ class MapsAppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
+    func warnAboutLoginIfLoggedOut(message: String, continueHandler: @escaping (()->Void), cancelHandler: (()->Void)? = nil) {
+        if mapsAppContext.isLoggedIn {
+            continueHandler()
+        } else {
+            if let currentViewController = window?.rootViewController {
+                let alert = UIAlertController(title: "Login Required", message: message, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Login", style: .default, handler: { _ in continueHandler() }))
+                alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { _ in cancelHandler?() }))
+                currentViewController.present(alert, animated: true)
+            }
+        }
+    }
+    
     // MARK: App start and licensing
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 

@@ -51,12 +51,4 @@ extension MapViewController {
         let backingSymbol = AGSSimpleLineSymbol(style: .solid, color: UIColor.white.withAlphaComponent(0.6), width: 13)
         return AGSCompositeSymbol(symbols: [backingSymbol, lineSymbol])
     }
-    
-    func showDirections(route:AGSRoute?) {
-        directionsViewController?.directions = route
-    }
-    
-    var directionsViewController:DirectionsDisplayViewController? {
-        return self.childViewControllers.filter({ $0 is DirectionsDisplayViewController }).first as? DirectionsDisplayViewController
-    }
 }

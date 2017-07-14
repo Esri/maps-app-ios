@@ -16,6 +16,7 @@ private var autoPanSequence:[AGSLocationDisplayAutoPanMode] = [
 
 extension AGSLocationDisplayAutoPanMode {
     func next() -> AGSLocationDisplayAutoPanMode {
+        // Cycle through the AutoPan modes this app wants to use...
         let newIndex = ((autoPanSequence.index(of: self) ?? -1) + 1) % autoPanSequence.count
         return autoPanSequence[newIndex]
     }

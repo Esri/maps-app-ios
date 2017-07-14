@@ -12,14 +12,10 @@ extension MapViewController {
     func setupRouting() {
         self.mapView.graphicsOverlays.add(self.routeResultsOverlay)
 
-        MapsAppNotifications.observeRoutingNotifications() { fromStop, toStop in
-            if let fromStop = fromStop {
-                self.route(from: fromStop, to: toStop)
-            } else {
-                self.route(to: toStop)
-            }
+        MapsAppNotifications.observeRouteSolvedNotification { result in
+            self.mode = .routeResult(result)
         }
-        
+
         self.mapView.graphicsOverlays.add(self.routeManeuversOverlay)
         
         MapsAppNotifications.observeManeuverFocusNotifications { maneuver in

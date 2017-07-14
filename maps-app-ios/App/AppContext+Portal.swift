@@ -49,12 +49,12 @@ extension AppContext {
             }
             
             if let svcs = portal.portalInfo?.helperServices {
-                if let geocoderURL = svcs.geocodeServiceURLs?.first, geocoderURL != self.locator.url {
-                    self.locator = AGSLocatorTask(url: geocoderURL)
+                if let geocoderURL = svcs.geocodeServiceURLs?.first, geocoderURL != mapsAppAGSServices.locator.url {
+                    mapsAppAGSServices.locator = AGSLocatorTask(url: geocoderURL)
                 }
                 
-                if let routeTaskURL = svcs.routeServiceURL, routeTaskURL != self.routeTask.url {
-                    self.routeTask = AGSRouteTask(url: routeTaskURL)
+                if let routeTaskURL = svcs.routeServiceURL, routeTaskURL != mapsAppAGSServices.routeTask.url {
+                    mapsAppAGSServices.routeTask = AGSRouteTask(url: routeTaskURL)
                 }
             }
             

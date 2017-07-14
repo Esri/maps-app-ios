@@ -10,11 +10,6 @@ import ArcGIS
 
 extension AppAGSServices {
 
-    // MARK: ArcGIS Task
-    var locator:AGSLocatorTask {
-        return mapsAppContext.locator
-    }
-    
     // MARK: ArcGIS Operations
     func search(searchText:String) {
         let params = AGSGeocodeParameters()

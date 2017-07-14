@@ -26,8 +26,8 @@ extension MapsAppDelegate {
         AGSAuthenticationManager.shared().credentialCache.removeAllCredentials()
 
         // Make sure our service tasks also forget what they know about being logged into the portal.
-        mapsAppContext.routeTask.credential = nil
-        mapsAppContext.locator.credential = nil
+        mapsAppAGSServices.routeTask.credential = nil
+        mapsAppAGSServices.locator.credential = nil
 
         // Explicitly log out
         if let portalURL = mapsAppPrefs.portalURL {

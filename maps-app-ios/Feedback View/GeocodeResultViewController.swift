@@ -22,7 +22,7 @@ class GeocodeResultViewController : UIViewController {
     
     @IBAction func requestRoute(_ sender: Any) {
         if let destination = result {
-            MapsAppNotifications.postRouteNotification(from: nil, to: destination)
+            mapsAppAGSServices.route(to: destination)
         }
     }
     

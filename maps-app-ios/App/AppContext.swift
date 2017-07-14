@@ -9,11 +9,6 @@
 import ArcGIS
 
 class AppContext {
-    // MARK: ArcGIS Services
-    var locator = AGSLocatorTask(url: AppSettings.worldGeocoderURL)
-    var routeTask = AGSRouteTask(url: AppSettings.worldRoutingServiceURL)
-    var defaultRouteParameters: AGSRouteParameters?
-    
     // MARK: Portal Information
     var currentPortal:AGSPortal? {
         didSet {
