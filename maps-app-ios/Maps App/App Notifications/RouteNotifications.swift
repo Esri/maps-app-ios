@@ -8,22 +8,31 @@
 
 import ArcGIS
 
-extension MapsAppNotifications.Names {
-    static let RouteSolved = Notification.Name("MapsAppRouteSolvedNotification")
-}
-
+// MARK: External Notification API
 extension MapsAppNotifications {
-    static func postRouteResultNotification(result:AGSRoute) {
-        NotificationCenter.default.post(name: MapsAppNotifications.Names.RouteSolved, object: nil, userInfo: [RouteNotificationKeys.route:result])
-    }
-    
+    // MARK: Register Listeners
     static func observeRouteSolvedNotification(routeSolvedHandler: @escaping ((AGSRoute)->Void)) {
-        NotificationCenter.default.addObserver(forName: MapsAppNotifications.Names.RouteSolved, object: nil, queue: OperationQueue.main) { notification in
+        NotificationCenter.default.addObserver(forName: MapsAppNotifications.Names.RouteSolved, object: mapsApp, queue: OperationQueue.main) { notification in
             if let routeResult = notification.routeResult {
                 routeSolvedHandler(routeResult)
             }
         }
     }
+}
+
+
+
+// MARK: Internals
+extension MapsAppNotifications {
+    static func postRouteResultNotification(result:AGSRoute) {
+        NotificationCenter.default.post(name: MapsAppNotifications.Names.RouteSolved, object: mapsApp, userInfo: [RouteNotificationKeys.route:result])
+    }
+    
+}
+
+// MARK: Typed Notification Pattern
+extension MapsAppNotifications.Names {
+    static let RouteSolved = Notification.Name("MapsAppRouteSolvedNotification")
 }
 
 extension Notification {
@@ -35,6 +44,7 @@ extension Notification {
     }
 }
 
+// MARK: Internal Constants
 fileprivate struct RouteNotificationKeys {
     static let route = "route"
 }

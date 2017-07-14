@@ -32,7 +32,7 @@ extension FeedbackViewController {
         }
         
         guard let from = from else {
-            // First time we're setting something. Just set it, don't transition to it.
+            // First time we're installing a contained view controller, just add it, don't transition to it.
             self.addChildViewController(to)
             containerView.addSubview(to.view)
             to.didMove(toParentViewController: self)
@@ -40,7 +40,7 @@ extension FeedbackViewController {
             return
         }
         
-        // Moving from one view controller to another
+        // Switch from one view controller to another.
         from.willMove(toParentViewController: nil)
         self.addChildViewController(to)
 

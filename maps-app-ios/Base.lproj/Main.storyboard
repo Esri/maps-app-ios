@@ -244,7 +244,7 @@
                 <viewControllerPlaceholder storyboardName="Suggestions" id="e2Z-9y-bua" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Kk-s4-a3b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1163" y="-664"/>
+            <point key="canvasLocation" x="1091" y="-618"/>
         </scene>
         <!--Feedback-->
         <scene sceneID="d2g-RE-WT9">
@@ -252,7 +252,7 @@
                 <viewControllerPlaceholder storyboardName="Feedback" id="ReZ-kx-TUb" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="63c-jJ-kdg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1111" y="-719"/>
+            <point key="canvasLocation" x="1078" y="-667"/>
         </scene>
         <!--Account-->
         <scene sceneID="zpN-PP-raM">
@@ -260,7 +260,7 @@
                 <viewControllerPlaceholder storyboardName="Account" id="Q6l-Ds-Fna" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sbf-9M-vNo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1222" y="-281"/>
+            <point key="canvasLocation" x="1071" y="-140"/>
         </scene>
         <!--Basemaps-->
         <scene sceneID="ssl-cC-KSo">
@@ -268,7 +268,7 @@
                 <viewControllerPlaceholder storyboardName="Basemaps" id="KXs-Jl-tiq" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QoE-Xi-WbG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1222" y="-206"/>
+            <point key="canvasLocation" x="1081" y="-179"/>
         </scene>
         <!--Directions-->
         <scene sceneID="qw6-CN-Xar">
@@ -276,7 +276,7 @@
                 <viewControllerPlaceholder storyboardName="Directions" id="81a-ab-SBT" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cwT-aT-vD5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="397" y="50"/>
+            <point key="canvasLocation" x="397" y="-4"/>
         </scene>
     </scenes>
     <resources>

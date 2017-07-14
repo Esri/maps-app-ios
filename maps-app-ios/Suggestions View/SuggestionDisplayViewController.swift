@@ -9,7 +9,7 @@
 import UIKit
 import ArcGIS
 
-class SuggestionDisplayViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIContainerView {
+class SuggestionDisplayViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var heightContraint: NSLayoutConstraint!
     @IBOutlet weak var tableView: UITableView!
@@ -39,7 +39,7 @@ class SuggestionDisplayViewController: UIViewController, UITableViewDataSource, 
         }
     }
     
-    var containerView: UIView? {
+    private var containerView: UIView? {
         return view.superview
     }
     
@@ -81,7 +81,7 @@ class SuggestionDisplayViewController: UIViewController, UITableViewDataSource, 
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let suggestion = suggestions?[indexPath.row] {
-            mapsAppAGSServices.search(suggestion: suggestion)
+            arcGISServices.search(suggestion: suggestion)
             suggestions = nil
         }
     }

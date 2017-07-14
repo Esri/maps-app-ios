@@ -12,12 +12,12 @@ fileprivate let fallbackWebMapVersionErrorMessage = "The WebMap version is pre 2
 
 extension MapViewController {
     func setupCurrentItemChangeHandler() {
-        NotificationCenter.default.addObserver(forName: MapsAppNotifications.Names.CurrentItemChanged, object: nil, queue: nil) { _ in
+        MapsAppNotifications.observeCurrentItemChanged() {
             // The app's current item has changed. Let's show the new item in the MapView.
             self.displayCurrentItem()
         }
     }
-    
+
     func displayCurrentItem() {
         if let item = mapsAppContext.currentItem, item.type == .webMap {
             let map = AGSMap(item: item)
@@ -30,7 +30,7 @@ extension MapViewController {
                         errorMessage = "\(error!.localizedDescription)"
                     }
 
-                    self.showError(title: "Error opening map", message: errorMessage)
+                    mapsApp.showError(title: "Error opening map", message: errorMessage)
                     return
                 }
 

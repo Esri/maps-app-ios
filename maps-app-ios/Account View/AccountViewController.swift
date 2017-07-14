@@ -31,13 +31,8 @@ class AccountViewController: UIViewController {
     }
     
     func setupLoginNotificationHandlers() {
-        NotificationCenter.default.addObserver(forName: MapsAppNotifications.Names.AppLogin, object: nil, queue: nil) { notification in
-            self.showAccountPanelForLoginStatus()
-        }
-        
-        NotificationCenter.default.addObserver(forName: MapsAppNotifications.Names.AppLogout, object: nil, queue: nil) { notification in
-            self.showAccountPanelForLoginStatus()
-        }
+        MapsAppNotifications.observeLoginStateNotifications(loginHandler: { _ in self.showAccountPanelForLoginStatus() },
+                                                            logoutHandler: { _ in self.showAccountPanelForLoginStatus() })
     }
 
     @IBAction func closeAccountViewer(_: UIStoryboardSegue) {

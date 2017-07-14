@@ -10,6 +10,11 @@ import UIKit
 import ArcGIS
 
 extension MapsAppDelegate {
+    // MARK: OAuth
+    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+        return handlePortalAuthOpenURL(app, open: url, options: options)
+    }
+
     func handlePortalAuthOpenURL(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
         // Handle OAuth callback from application(app,url,options) when the app's URL schema is called. See AppSettings.swift
         if let urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: false),

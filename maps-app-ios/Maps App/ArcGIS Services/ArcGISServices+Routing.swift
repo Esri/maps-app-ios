@@ -1,5 +1,5 @@
 //
-//  AppAGSServices+Routing.swift
+//  ArcGISServices+Routing.swift
 //  maps-app-ios
 //
 //  Created by Nicholas Furness on 7/13/17.
@@ -10,7 +10,7 @@ import ArcGIS
 
 fileprivate let defaultRouteTaskSR = AGSSpatialReference.wgs84()
 
-extension AppAGSServices {
+extension ArcGISServices {
     fileprivate var routeTaskSR:AGSSpatialReference {
         return mapsAppContext.currentMapView?.spatialReference ?? defaultRouteTaskSR
     }

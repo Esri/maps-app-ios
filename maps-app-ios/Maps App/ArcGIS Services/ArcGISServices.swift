@@ -1,5 +1,5 @@
 //
-//  AppAGSServices.swift
+//  ArcGISServices.swift
 //  maps-app-ios
 //
 //  Created by Nicholas Furness on 7/13/17.
@@ -8,7 +8,7 @@
 
 import ArcGIS
 
-class AppAGSServices {
+class ArcGISServices {
     // MARK: ArcGIS Services
     var locator = AGSLocatorTask(url: AppSettings.worldGeocoderURL)
     var routeTask = AGSRouteTask(url: AppSettings.worldRoutingServiceURL)

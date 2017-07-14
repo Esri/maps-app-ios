@@ -22,7 +22,7 @@ class GeocodeResultViewController : UIViewController {
     
     @IBAction func requestRoute(_ sender: Any) {
         if let destination = result {
-            mapsAppAGSServices.route(to: destination)
+            arcGISServices.route(to: destination)
         }
     }
     

@@ -34,7 +34,7 @@ class SearchViewController : UIViewController, UISearchBarDelegate {
                 return
             }
             
-            mapsAppAGSServices.getSuggestions(forSearchText: searchText)
+            arcGISServices.getSuggestions(forSearchText: searchText)
         }
         
         return debouncer
@@ -45,7 +45,7 @@ class SearchViewController : UIViewController, UISearchBarDelegate {
         mapsAppContext.validToShowSuggestions = false
 
         if let searchText = searchBar.text {
-            mapsAppAGSServices.search(searchText: searchText)
+            arcGISServices.search(searchText: searchText)
         }
     }
     

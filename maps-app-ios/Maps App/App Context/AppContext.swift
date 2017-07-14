@@ -1,5 +1,5 @@
 //
-//  AppState.swift
+//  AppContext.swift
 //  maps-app-ios
 //
 //  Created by Nicholas Furness on 5/5/17.
@@ -25,7 +25,7 @@ class AppContext {
     var currentBasemap:AGSPortalItem? {
         didSet {
             if let newBasemap = currentBasemap {
-                MapsAppNotifications.postNewBasemapNotification(basemap: newBasemap)
+                MapsAppNotifications.postCurrentBasemapChangedNotification(basemap: newBasemap)
             }
         }
     }
@@ -48,7 +48,7 @@ class AppContext {
         }
     }
 
-    // MARK: Loging Status
+    // MARK: Login Status
     var loginStatus:LoginStatus = .loggedOut {
         didSet {
             switch loginStatus {

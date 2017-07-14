@@ -12,7 +12,7 @@ extension MapViewController {
     func setupLocationDisplay() {
         mapView.locationDisplay.start() { error in
             if let error = error {
-                self.showDefaultAlert(title: "Unable to start GPS", message: error.localizedDescription, okButtonText: "OK")
+                mapsApp.showDefaultAlert(title: "Unable to start GPS", message: error.localizedDescription, okButtonText: "OK")
             }
         }
         

@@ -16,8 +16,6 @@ fileprivate let rotationKeyPath = #keyPath(AGSMapView.rotation)
 
 public class NorthArrowView: RoundedImageView {
 
-    private var kvoContext = 0
-    
     @IBOutlet weak var mapView: AGSMapView? {
         willSet {
             mapView?.removeObserver(self, forKeyPath: rotationKeyPath)
@@ -30,16 +28,9 @@ public class NorthArrowView: RoundedImageView {
         }
     }
 
-    lazy var tapGesture:UITapGestureRecognizer = {
-        let r = UITapGestureRecognizer(target: self, action: #selector(resetNorth))
-        return r
-    }()
+    @IBInspectable var autoHide:Bool = true
     
-    @IBInspectable
-    var autoHide:Bool = true
-    
-    @IBInspectable
-    var tapForNorth:Bool = true {
+    @IBInspectable var tapForNorth:Bool = true {
         didSet {
             self.isUserInteractionEnabled = tapForNorth
             
@@ -50,6 +41,10 @@ public class NorthArrowView: RoundedImageView {
             }
         }
     }
+    
+    lazy var tapGesture:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(resetNorth))
+    
+    private var kvoContext = 0
     
     // Track any alpha override that may have been set in the Storyboard.
     private var initialAlpha:CGFloat?

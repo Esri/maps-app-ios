@@ -1,47 +1,16 @@
 //
-//  AppState+Portal.swift
+//  AppContext+PortalServices.swift
 //  maps-app-ios
 //
-//  Created by Nicholas Furness on 6/30/17.
+//  Created by Nicholas Furness on 7/14/17.
 //  Copyright © 2017 Esri. All rights reserved.
 //
 
 import ArcGIS
 
-// How many basemaps to get back in a single group items query.
-// Can help to avoid loading multiple pages of results.
-fileprivate let basemapPageQuerySize = 50
-
 extension AppContext {
-    func setupAndLoadPortal(portal:AGSPortal) {
-        // Ensure the Runtime knows how to authenticate against this portal should the need arise.
-        let oauthConfig = AGSOAuthConfiguration(portalURL: portal.url, clientID: AppSettings.clientID,
-                                                redirectURL: "\(AppSettings.appSchema)://\(AppSettings.authURLPath)")
-        AGSAuthenticationManager.shared().oAuthConfigurations.add(oauthConfig)
-        
-        print("Portal updated")
-        
-        // Now load the portal so we can get some portal-specific information from it.
-        portal.load() { error in
-            guard error == nil else {
-                print("Error loading the portal: \(error!.localizedDescription)")
-                return
-            }
-            
-            // Read the locator and route task from the portal.
-            self.updateServices(forPortal: portal)
-            
-            // Record whether we're logged in to this new portal.
-            if let user = portal.user {
-                self.loginStatus = .loggedIn(user: user)
-            } else {
-                self.loginStatus = .loggedOut
-            }
-        }
-    }
-    
     // MARK: ArcGIS Services
-    private func updateServices(forPortal portal:AGSPortal) {
+    func updateServices(forPortal portal:AGSPortal) {
         portal.load { error in
             guard error == nil else {
                 print("Error loading the portal: \(error!.localizedDescription)")
@@ -49,12 +18,12 @@ extension AppContext {
             }
             
             if let svcs = portal.portalInfo?.helperServices {
-                if let geocoderURL = svcs.geocodeServiceURLs?.first, geocoderURL != mapsAppAGSServices.locator.url {
-                    mapsAppAGSServices.locator = AGSLocatorTask(url: geocoderURL)
+                if let geocoderURL = svcs.geocodeServiceURLs?.first, geocoderURL != arcGISServices.locator.url {
+                    arcGISServices.locator = AGSLocatorTask(url: geocoderURL)
                 }
                 
-                if let routeTaskURL = svcs.routeServiceURL, routeTaskURL != mapsAppAGSServices.routeTask.url {
-                    mapsAppAGSServices.routeTask = AGSRouteTask(url: routeTaskURL)
+                if let routeTaskURL = svcs.routeServiceURL, routeTaskURL != arcGISServices.routeTask.url {
+                    arcGISServices.routeTask = AGSRouteTask(url: routeTaskURL)
                 }
             }
             
@@ -81,7 +50,7 @@ extension AppContext {
                 
                 if let basemapGroup = results.results?.first as? AGSPortalGroup, let groupID = basemapGroup.groupID {
                     let groupParams = AGSPortalQueryParameters(forItemsInGroup: groupID)
-                    groupParams.limit = basemapPageQuerySize
+                    groupParams.limit = AppSettings.basemapPageQuerySize
                     self.getNextPageOfBasemaps(portal: portal, params: groupParams)
                 }
             })
@@ -112,4 +81,3 @@ extension AppContext {
         })
     }
 }
-

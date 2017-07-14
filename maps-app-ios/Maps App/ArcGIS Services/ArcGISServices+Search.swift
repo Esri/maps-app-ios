@@ -1,5 +1,5 @@
 //
-//  AppAGSServices+Search.swift
+//  ArcGISServices+Search.swift
 //  maps-app-ios
 //
 //  Created by Nicholas Furness on 7/13/17.
@@ -8,7 +8,7 @@
 
 import ArcGIS
 
-extension AppAGSServices {
+extension ArcGISServices {
 
     // MARK: ArcGIS Operations
     func search(searchText:String) {

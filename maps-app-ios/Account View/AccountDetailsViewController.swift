@@ -37,17 +37,10 @@ class AccountDetailsViewController: UIViewController {
         userThumbnailView.layer.borderColor = UIColor.darkGray.cgColor
         userThumbnailView.layer.borderWidth = 3
         
-        NotificationCenter.default.addObserver(forName: MapsAppNotifications.Names.AppLogin, object: nil, queue: nil) { notification in
-            self.setDisplayForLoginStatus()
-        }
+        MapsAppNotifications.observeLoginStateNotifications(loginHandler: { _ in self.setDisplayForLoginStatus() },
+                                                            logoutHandler: { self.setDisplayForLoginStatus() })
         
-        NotificationCenter.default.addObserver(forName: MapsAppNotifications.Names.AppLogout, object: nil, queue: nil) { notification in
-            self.setDisplayForLoginStatus()
-        }
-
-        NotificationCenter.default.addObserver(forName: MapsAppNotifications.Names.CurrentFolderChanged, object: nil, queue: nil) { notification in
-            self.showContent()
-        }
+        MapsAppNotifications.observeCurrentFolderChanged() { self.showContent() }
         
         setDisplayForLoginStatus()
     }

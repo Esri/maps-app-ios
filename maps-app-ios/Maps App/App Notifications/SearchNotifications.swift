@@ -6,16 +6,28 @@
 //  Copyright © 2017 Esri. All rights reserved.
 //
 
-import UIKit
 import ArcGIS
 
-extension MapsAppNotifications.Names {
-    static let SearchCompleted = Notification.Name("MapsAppSearchCompletedNotification")
-    static let SearchSuggestionsAvailable = Notification.Name("MapsAppSearchSuggestionsAvailableNotification")
+// MARK: External Notification API
+extension MapsAppNotifications {
+    // MARK: Register Listeners
+    static func observeSearchNotifications(searchResultHandler:@escaping ((AGSGeocodeResult?)->Void), suggestionsAvailableHandler:(([AGSSuggestResult]?)->Void)?) {
+        NotificationCenter.default.addObserver(forName: MapsAppNotifications.Names.SearchCompleted, object: mapsApp, queue: OperationQueue.main) { notification in
+            searchResultHandler(notification.searchResult)
+        }
+        
+        if let suggestionsAvailableHandler = suggestionsAvailableHandler {
+            NotificationCenter.default.addObserver(forName: MapsAppNotifications.Names.SearchSuggestionsAvailable, object: mapsApp, queue: OperationQueue.main) { notification in
+                suggestionsAvailableHandler(notification.searchSuggestions)
+            }
+        }
+    }
 }
 
+
+
+// MARK: Internals
 extension MapsAppNotifications {
-    // MARK: Post Notifications shortcuts
     static func postSearchSuggestionsAvailableNotification(suggestions:[AGSSuggestResult]) {
         // Notify that we'd like to get search suggestions based off a SearchBar's text.
         var userInfo:[AnyHashable:Any] = [:]
@@ -24,7 +36,7 @@ extension MapsAppNotifications {
             userInfo[SearchNotificationKeys.suggestions] = suggestions
         }
         
-        NotificationCenter.default.post(name: MapsAppNotifications.Names.SearchSuggestionsAvailable, object: nil, userInfo: userInfo)
+        NotificationCenter.default.post(name: MapsAppNotifications.Names.SearchSuggestionsAvailable, object: mapsApp, userInfo: userInfo)
     }
     
     static func postSearchCompletedNotification(result:AGSGeocodeResult? = nil) {
@@ -35,22 +47,14 @@ extension MapsAppNotifications {
             userInfo[SearchNotificationKeys.searchResult] = result
         }
         
-        NotificationCenter.default.post(name: MapsAppNotifications.Names.SearchCompleted, object: nil, userInfo: userInfo)
+        NotificationCenter.default.post(name: MapsAppNotifications.Names.SearchCompleted, object: mapsApp, userInfo: userInfo)
     }
-    
-    static func observeSearchNotifications(searchResultHandler:((AGSGeocodeResult?)->Void)?, suggestionsAvailableHandler:(([AGSSuggestResult]?)->Void)?) {
-        if let searchResultHandler = searchResultHandler {
-            NotificationCenter.default.addObserver(forName: MapsAppNotifications.Names.SearchCompleted, object: nil, queue: OperationQueue.main) { notification in
-                searchResultHandler(notification.searchResult)
-            }
-        }
-        
-        if let suggestionsAvailableHandler = suggestionsAvailableHandler {
-            NotificationCenter.default.addObserver(forName: MapsAppNotifications.Names.SearchSuggestionsAvailable, object: nil, queue: OperationQueue.main) { notification in
-                suggestionsAvailableHandler(notification.searchSuggestions)
-            }
-        }
-    }
+}
+
+// MARK: Typed Notification Pattern
+extension MapsAppNotifications.Names {
+    static let SearchCompleted = Notification.Name("MapsAppSearchCompletedNotification")
+    static let SearchSuggestionsAvailable = Notification.Name("MapsAppSearchSuggestionsAvailableNotification")
 }
 
 extension Notification {
@@ -73,6 +77,7 @@ extension Notification {
     }
 }
 
+// MARK: Internal Constants
 fileprivate struct SearchNotificationKeys {
     static let searchResult = "result"
     static let suggestions = "suggestions"
