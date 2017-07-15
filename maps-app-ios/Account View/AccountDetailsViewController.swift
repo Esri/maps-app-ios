@@ -7,42 +7,37 @@
 //
 
 import ArcGIS
-import UIKit
 
 class AccountDetailsViewController: UIViewController {
 
     @IBOutlet weak var userThumbnailView: UIImageView!
     @IBOutlet weak var fullNameView: UILabel!
     @IBOutlet weak var folderButton: UIButton!
-    @IBOutlet weak var portalItemsView: UIStackView!
     
     var loggedInUser:AGSPortalUser? {
         get {
             return mapsAppContext.currentUser
         }
     }
-    
-    var subFolders:[PortalUserFolder] {
-        return mapsAppContext.rootFolder?.subFolders ?? []
-    }
-    
-    var contentVC:PortalItemCollectionViewController? {
-        return self.childViewControllers.filter({ $0 is PortalItemCollectionViewController }).first as? PortalItemCollectionViewController
-    }
+
+    var contentVC:PortalItemCollectionViewController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        userThumbnailView.layer.cornerRadius = userThumbnailView.frame.size.width/2
-        userThumbnailView.layer.borderColor = UIColor.darkGray.cgColor
-        userThumbnailView.layer.borderWidth = 3
-        
-        MapsAppNotifications.observeLoginStateNotifications(loginHandler: { _ in self.setDisplayForLoginStatus() },
-                                                            logoutHandler: { self.setDisplayForLoginStatus() })
-        
-        MapsAppNotifications.observeCurrentFolderChanged() { self.showContent() }
+        setupLoginNotificationHandlers()
+        setupFolderChangeNotificationHandlers()
         
         setDisplayForLoginStatus()
+    }
+    
+    func setupLoginNotificationHandlers() {
+        MapsAppNotifications.observeLoginStateNotifications(loginHandler: { _ in self.setDisplayForLoginStatus() },
+                                                            logoutHandler: { self.setDisplayForLoginStatus() })
+    }
+    
+    func setupFolderChangeNotificationHandlers() {
+        MapsAppNotifications.observeCurrentFolderChanged() { self.showContent() }
     }
     
     func setDisplayForLoginStatus() {
@@ -77,14 +72,13 @@ class AccountDetailsViewController: UIViewController {
     func showFolderPicker() {
         mapsAppContext.rootFolder?.load() { error in
             let picker = UIAlertController(title: "Select Folder", message: nil, preferredStyle: .actionSheet)
-            
-            defer {
-                self.present(picker, animated: true, completion: nil)
-            }
-            
             picker.addAction(UIAlertAction(title: "Root Folder", style: .default, handler: { _ in
                 mapsAppContext.currentFolder = mapsAppContext.rootFolder
             }))
+
+            defer {
+                self.present(picker, animated: true, completion: nil)
+            }
             
             guard error == nil else {
                 picker.addAction(UIAlertAction(title: "Error loading subfolders!", style: .cancel, handler: nil))
@@ -112,5 +106,5 @@ class AccountDetailsViewController: UIViewController {
     
     @IBAction func folderNameTapped(_ sender: Any) {
         showFolderPicker()
-    }    
+    }
 }

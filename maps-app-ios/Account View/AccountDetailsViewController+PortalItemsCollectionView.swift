@@ -1,18 +1,14 @@
 //
-//  BasemapsDisplayViewController.swift
+//  AccountDetailsViewController+PortalItemsCollectionView.swift
 //  maps-app-ios
 //
-//  Created by Nicholas Furness on 6/19/17.
+//  Created by Nicholas Furness on 7/15/17.
 //  Copyright © 2017 Esri. All rights reserved.
 //
 
 import ArcGIS
 
-class BasemapsDisplayViewController: UIViewController {
-    @IBAction func cancelBasemapPicker(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
-    }
-
+extension AccountDetailsViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
         
@@ -20,19 +16,20 @@ class BasemapsDisplayViewController: UIViewController {
         // the prepareForSegue() method.
         if let portalItemsCollectionVC = segue.destination as? PortalItemCollectionViewController {
             portalItemsCollectionVC.portalItemDelegate = self
+            
+            // We'll keep a handle to this to update the content when the current folder changes.
+            contentVC = portalItemsCollectionVC
         }
     }
 }
 
-extension BasemapsDisplayViewController: PortalItemCollectionViewDelegate {
-    var items:[AGSPortalItem]? {
-        get {
-            return mapsAppContext.basemaps
-        }
+extension AccountDetailsViewController: PortalItemCollectionViewDelegate {
+    var items: [AGSPortalItem]? {
+        return mapsAppContext.currentFolder?.webMaps
     }
     
     func portalItemSelected(item: AGSPortalItem) {
-        mapsAppContext.currentBasemap = item
-        dismiss(animated: true, completion: nil)
+        mapsAppContext.currentItem = item
     }
 }
+

@@ -26,6 +26,9 @@
 		D93807771EB8575400E03A2F /* CurrentItemNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93807761EB8575400E03A2F /* CurrentItemNotifications.swift */; };
 		D9430A3D1EF1D639002F6CA1 /* SuggestionDisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9430A3C1EF1D639002F6CA1 /* SuggestionDisplayViewController.swift */; };
 		D9430A401EF1D7A2002F6CA1 /* Suggestions.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9430A3F1EF1D7A2002F6CA1 /* Suggestions.storyboard */; };
+		D94380D01F1A94A4000B58AE /* AccountDetailsViewController+PortalItemsCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D94380CF1F1A94A4000B58AE /* AccountDetailsViewController+PortalItemsCollectionView.swift */; };
+		D94380D21F1A9530000B58AE /* PortalItemCollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D94380D11F1A9530000B58AE /* PortalItemCollectionViewDelegate.swift */; };
+		D94380D41F1A956A000B58AE /* PortalItemCollectionViewController+UICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D94380D31F1A956A000B58AE /* PortalItemCollectionViewController+UICollectionView.swift */; };
 		D94E6C621EBBFCA400F07BA6 /* AGSLocationDisplayAutoPanMode+CustomStringConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = D94E6C611EBBFCA400F07BA6 /* AGSLocationDisplayAutoPanMode+CustomStringConvertible.swift */; };
 		D9513A341E985D49007B36C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D9513A331E985D49007B36C8 /* Assets.xcassets */; };
 		D95AD1C31F17F67C002BC78A /* ArcGISServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = D95AD1C21F17F67C002BC78A /* ArcGISServices.swift */; };
@@ -147,6 +150,9 @@
 		D93807761EB8575400E03A2F /* CurrentItemNotifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentItemNotifications.swift; sourceTree = "<group>"; };
 		D9430A3C1EF1D639002F6CA1 /* SuggestionDisplayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuggestionDisplayViewController.swift; sourceTree = "<group>"; };
 		D9430A3F1EF1D7A2002F6CA1 /* Suggestions.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Suggestions.storyboard; sourceTree = "<group>"; };
+		D94380CF1F1A94A4000B58AE /* AccountDetailsViewController+PortalItemsCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AccountDetailsViewController+PortalItemsCollectionView.swift"; sourceTree = "<group>"; };
+		D94380D11F1A9530000B58AE /* PortalItemCollectionViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PortalItemCollectionViewDelegate.swift; sourceTree = "<group>"; };
+		D94380D31F1A956A000B58AE /* PortalItemCollectionViewController+UICollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PortalItemCollectionViewController+UICollectionView.swift"; sourceTree = "<group>"; };
 		D94E6C611EBBFCA400F07BA6 /* AGSLocationDisplayAutoPanMode+CustomStringConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AGSLocationDisplayAutoPanMode+CustomStringConvertible.swift"; sourceTree = "<group>"; };
 		D9513A331E985D49007B36C8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D95AD1C21F17F67C002BC78A /* ArcGISServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArcGISServices.swift; sourceTree = "<group>"; };
@@ -284,6 +290,7 @@
 				D9A82E0B1EF475940059244A /* Account.xcassets */,
 				D9AB70AE1EF35C3300123FEA /* AccountViewController.swift */,
 				D90DF41A1EAE595000EC0960 /* AccountDetailsViewController.swift */,
+				D94380CF1F1A94A4000B58AE /* AccountDetailsViewController+PortalItemsCollectionView.swift */,
 				D9AB70AC1EF359F300123FEA /* AccountLoginViewController.swift */,
 				D9774AF51EBAD56D0099D4A5 /* PortalUserFolder.swift */,
 				D91083C31EBC3C0F00BACD96 /* PortalUserFolderType.swift */,
@@ -405,10 +412,12 @@
 		D95AD1D91F195644002BC78A /* Portal Items Browser */ = {
 			isa = PBXGroup;
 			children = (
-				D9BCC5F31EB7CCCB000C0587 /* PortalItemCollectionViewController.swift */,
-				D93807741EB83EEB00E03A2F /* PortalItemCollectionCell.swift */,
 				D95AD1D51F19528C002BC78A /* PortalItemsBrowser.storyboard */,
 				D95AD1D71F195575002BC78A /* PortalItemsBrowser.xcassets */,
+				D9BCC5F31EB7CCCB000C0587 /* PortalItemCollectionViewController.swift */,
+				D94380D31F1A956A000B58AE /* PortalItemCollectionViewController+UICollectionView.swift */,
+				D94380D11F1A9530000B58AE /* PortalItemCollectionViewDelegate.swift */,
+				D93807741EB83EEB00E03A2F /* PortalItemCollectionCell.swift */,
 			);
 			path = "Portal Items Browser";
 			sourceTree = "<group>";
@@ -803,8 +812,10 @@
 				D9CF2A731E9045A70019701F /* MapsAppStopProvider.swift in Sources */,
 				D9D756C41F1193E500D52B25 /* SVProgressAnimatedView.m in Sources */,
 				D90A07C61EF38C1400A9B253 /* RoundedButton.swift in Sources */,
+				D94380D21F1A9530000B58AE /* PortalItemCollectionViewDelegate.swift in Sources */,
 				D96A77851E86E88600F441D3 /* AGSLicense+CustomStringConvertible.swift in Sources */,
 				D9FF8D721F06D49300BD9B04 /* MapViewController+KeyboardTracking.swift in Sources */,
+				D94380D01F1A94A4000B58AE /* AccountDetailsViewController+PortalItemsCollectionView.swift in Sources */,
 				D96387A31EB2FBC500764D8D /* MapsAppDelegate+PortalOAuth.swift in Sources */,
 				D9BCC5F01EB7A172000C0587 /* MapViewMode+Equatable.swift in Sources */,
 				D95AD1CB1F1927B9002BC78A /* MapsAppDelegate+AppLifecycle.swift in Sources */,
@@ -856,6 +867,7 @@
 				D96A77551E8594C000F441D3 /* MapsAppDelegate.swift in Sources */,
 				D96387A11EB2FA7300764D8D /* AppSettings.swift in Sources */,
 				D9822A111EA2EFEE009FA0E5 /* MapViewController+LocationDisplay.swift in Sources */,
+				D94380D41F1A956A000B58AE /* PortalItemCollectionViewController+UICollectionView.swift in Sources */,
 				D979AD481F04A0BB00199AAA /* UICollectionView+CellAtCenter.swift in Sources */,
 				D928724C1E944BC700112A53 /* MapViewMode+ResultsDisplay.swift in Sources */,
 				D9B507511EB23400006BA131 /* AGSPortal+AutoLogin.swift in Sources */,

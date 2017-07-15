@@ -30,18 +30,27 @@
                                         <rect key="frame" x="0.0" y="0.0" width="416" height="339"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="yDd-rC-1UC">
-                                                <rect key="frame" x="0.0" y="0.0" width="416" height="158.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="416" height="138.5"/>
                                                 <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="qK6-R4-x11">
-                                                        <rect key="frame" x="158" y="0.0" width="100" height="100"/>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" image="User" translatesAutoresizingMaskIntoConstraints="NO" id="qK6-R4-x11" customClass="RoundedImageView" customModule="maps_app_ios" customModuleProvider="target">
+                                                        <rect key="frame" x="168" y="0.0" width="80" height="80"/>
                                                         <color key="backgroundColor" white="0.74252479930000004" alpha="1" colorSpace="calibratedWhite"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="qK6-R4-x11" secondAttribute="height" multiplier="1:1" id="gds-zI-ctY"/>
-                                                            <constraint firstAttribute="width" constant="100" id="tW0-IM-4uP"/>
+                                                            <constraint firstAttribute="width" constant="80" id="tW0-IM-4uP"/>
                                                         </constraints>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="circular" value="YES"/>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                                <real key="value" value="1"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                <color key="value" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
                                                     </imageView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="AMc-t6-1EE">
-                                                        <rect key="frame" x="170" y="108" width="76.5" height="50.5"/>
+                                                        <rect key="frame" x="170" y="88" width="76.5" height="50.5"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="1000" text="Full Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Mf-nP-Q22">
                                                                 <rect key="frame" x="0.0" y="0.0" width="76.5" height="20.5"/>
@@ -252,5 +261,6 @@
     </scenes>
     <resources>
         <image name="Folder" width="28" height="24"/>
+        <image name="User" width="44" height="44"/>
     </resources>
 </document>
