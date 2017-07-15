@@ -12,7 +12,7 @@ extension MapViewController {
     func setupFeedbackPanelResizeHandler() {
         // When the feedback panel updates, we want to change the MapView's contentInset to avoid results appearing behind the
         // feedback panel.
-        NotificationCenter.default.addObserver(forName: FeedbackViewController.Notifications.Names.FeedbackPanelResizeCompleted, object: nil, queue: OperationQueue.main) { _ in
+        NotificationCenter.default.addObserver(forName: FeedbackViewController.Notifications.Names.FeedbackPanelResized, object: nil, queue: OperationQueue.main) { _ in
             if let feedbackView = self.feedbackViewController?.view {
                 // The Feedback View has resized itself. Let's update the MapView contentInsets to reflect this.
                 let feedbackFrame = feedbackView.convert(feedbackView.frame, to: self.mapView)

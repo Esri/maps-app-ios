@@ -1,16 +1,16 @@
 //
-//  FeedbackViewController+ChildVCs.swift
+//  FeedbackViewController+RelatedViewControllers.swift
 //  maps-app-ios
 //
-//  Created by Nicholas Furness on 4/1/17.
+//  Created by Nicholas Furness on 7/15/17.
 //  Copyright © 2017 Esri. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 extension FeedbackViewController {
-    var searchViewController:SearchViewController? {
-        return self.childViewControllers.filter({ $0 is SearchViewController }).first as? SearchViewController
+    var mapViewController:MapViewController? {
+        return self.parent as? MapViewController
     }
     
     var geocodeResultViewController:GeocodeResultViewController? {
@@ -19,5 +19,5 @@ extension FeedbackViewController {
     
     var routeResultViewController:RouteResultViewController? {
         return self.childViewControllers.filter({ $0 is RouteResultViewController }).first as? RouteResultViewController
-    }
+    }    
 }
