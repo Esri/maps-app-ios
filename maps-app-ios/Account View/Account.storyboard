@@ -140,7 +140,7 @@
                 <viewControllerPlaceholder storyboardName="PortalItemsBrowser" id="ECM-Pj-0QK" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pcD-Iz-6KA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2406" y="-323"/>
+            <point key="canvasLocation" x="2449" y="75"/>
         </scene>
         <!--Account View Controller-->
         <scene sceneID="c2s-5q-FEn">
