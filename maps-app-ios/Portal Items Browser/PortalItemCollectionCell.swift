@@ -15,6 +15,8 @@ class PortalItemCollectionCell: UICollectionViewCell {
     
     var item:AGSPortalItem? {
         didSet {
+            self.layer.cornerRadius = 8
+            
             self.thumbnailView.image = #imageLiteral(resourceName: "Loading Thumbnail")
             item?.thumbnail?.load() { error in
                 if let error = error {

@@ -14,10 +14,10 @@
         <scene sceneID="ZEl-0L-zen">
             <objects>
                 <collectionViewController id="ECg-xN-lMj" customClass="PortalItemCollectionViewController" customModule="maps_app_ios" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="cd3-x4-Yg3">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="cd3-x4-Yg3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="0.94999999999999996" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.75" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="12" id="xjU-wj-v2k">
                             <size key="itemSize" width="150" height="163"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -52,20 +52,20 @@
                                                     <rect key="frame" x="0.0" y="99.5" width="150" height="63.5"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CPw-0d-1ac">
-                                                            <rect key="frame" x="0.0" y="0.0" width="12" height="63.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="8" height="63.5"/>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" constant="12" id="Pfp-aM-iBa"/>
+                                                                <constraint firstAttribute="width" constant="8" id="Pfp-aM-iBa"/>
                                                             </constraints>
                                                         </view>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" text="Item Name" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gip-W8-LRO">
-                                                            <rect key="frame" x="12" y="0.0" width="126" height="63.5"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" text="Item Name" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="none" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gip-W8-LRO">
+                                                            <rect key="frame" x="8" y="0.0" width="134" height="63.5"/>
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qIe-hL-N1P">
-                                                            <rect key="frame" x="138" y="0.0" width="12" height="63.5"/>
+                                                            <rect key="frame" x="142" y="0.0" width="8" height="63.5"/>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         </view>
                                                     </subviews>
@@ -80,6 +80,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <gestureRecognizers/>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="vK7-9k-Xou" secondAttribute="trailing" id="IKw-XB-L9P"/>
                                     <constraint firstItem="vK7-9k-Xou" firstAttribute="top" secondItem="2Ac-LZ-Zod" secondAttribute="top" id="R7R-kq-kmG"/>
                                     <constraint firstItem="vK7-9k-Xou" firstAttribute="leading" secondItem="2Ac-LZ-Zod" secondAttribute="leading" id="cId-8N-TeC"/>
                                     <constraint firstAttribute="bottom" secondItem="vK7-9k-Xou" secondAttribute="bottom" id="qdl-i2-V55"/>
