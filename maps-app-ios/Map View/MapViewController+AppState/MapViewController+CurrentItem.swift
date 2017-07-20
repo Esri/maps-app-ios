@@ -18,7 +18,7 @@ extension MapViewController {
         }
     }
 
-    func displayCurrentItem() {
+    fileprivate func displayCurrentItem() {
         if let item = mapsAppContext.currentItem, item.type == .webMap {
             let map = AGSMap(item: item)
             map.load() { error in
@@ -41,23 +41,16 @@ extension MapViewController {
         }
     }
     
-    func enforceInitialExtent(mapView:AGSMapView) {
+    fileprivate func enforceInitialExtent(mapView:AGSMapView) {
         // If LocationDisplay is on and set to autopan, that will override setting the map's extent to the web map.
         // In our case we want to explicitly override that, as we always want to show the WebMap we just picked.
         // This will automatically set the autoPanMode to .off
-        mapView.map?.load() { error in
-            guard error == nil else {
-                print("Error opening the map \(error!.localizedDescription)")
-                return
-            }
-            
-            guard let ext = self.mapView.map?.item?.extent,
-                self.mapView.locationDisplay.started,
-                self.mapView.locationDisplay.autoPanMode != .off else {
-                return
-            }
-            
-            self.mapView.setViewpoint(AGSViewpoint(targetExtent: ext))
+        guard let ext = self.mapView.map?.item?.extent,
+            self.mapView.locationDisplay.started,
+            self.mapView.locationDisplay.autoPanMode != .off else {
+            return
         }
+        
+        self.mapView.setViewpoint(AGSViewpoint(targetExtent: ext))
     }
 }

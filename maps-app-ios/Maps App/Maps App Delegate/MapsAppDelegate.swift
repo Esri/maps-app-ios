@@ -14,8 +14,9 @@ class MapsAppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     
-    // MARK: Configuration and Preferences
+    // MARK: Singleton objects
     internal var preferences = AppPreferences()
     internal var appContext = AppContext()
     internal var arcGISServices = ArcGISServices()
+    
 }

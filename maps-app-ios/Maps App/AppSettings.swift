@@ -14,20 +14,21 @@ struct AppSettings {
     // Set up AGSLicenseKey in the project's info.plist to remove the Developer watermark.
     // See https://developers.arcgis.com/ios/latest/swift/guide/license-your-app.htm#ESRI_SECTION1_25AC0000E35A4E52B713E8D50359A75C
     static let licenseKey = (Bundle.main.infoDictionary?["AGSLicenseKey"] as? String) ?? ""
-    // Set up AppClientID in the project's info.plist. This is used for the OAuth panel and will determine what app users see
-    // when they log in to authorize the app to view their account and use their routing/geocoding tasks.
-    static let clientID = (Bundle.main.infoDictionary?["AppClientID"] as? String) ?? ""
 
 
     // MARK: OAuth Logins
     //
-    // appScheme and authUTLPath are used to tell OAuth how to call back to this app.
+    // Set up AppClientID in the project's info.plist. This is used for the OAuth panel and will determine what app users see
+    // when they log in to authorize the app to view their account and use their routing/geocoding tasks.
+    static let clientID = (Bundle.main.infoDictionary?["AppClientID"] as? String) ?? ""
+
+    // appScheme and authURLPath are used to tell OAuth how to call back to this app.
     // For example, if they're set up as follows:
     //    appSchema   = "maps-app-ios"
     //    authURLPath = "auth"
     // Then the app should register maps-app-ios as a URL Type's scheme. And OAuth will call back to maps-app-ios://auth.
     //
-    // See also the handlePortalAuthOpenURL() method in MapsAppDelegate+PortalOAuth.swift
+    // See also MapsAppDelegate+PortalOAuth.swift
     static let appSchema = "maps-app-ios"
     static let authURLPath = "auth"
     

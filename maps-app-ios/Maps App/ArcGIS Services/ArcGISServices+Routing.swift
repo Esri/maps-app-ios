@@ -8,23 +8,17 @@
 
 import ArcGIS
 
-fileprivate let defaultRouteTaskSR = AGSSpatialReference.wgs84()
-
 extension ArcGISServices {
-    fileprivate var routeTaskSR:AGSSpatialReference {
-        return mapsAppContext.currentMapView?.spatialReference ?? defaultRouteTaskSR
-    }
-    
     // MARK: Get directions
     func route(from:AGSStop, to:AGSStop) {
-        mapsApp.warnAboutLoginIfLoggedOut(message: "Getting directions requires a login and consumes credits.", continueHandler: {
+        mapsApp.requestConfirmationIfLoggedOut(explanation: "Getting directions requires a login and consumes credits.", continueHandler: {
             self.requestRoute(from: from, to: to)
         })
     }
     
     func requestRoute(from:AGSStop, to:AGSStop) {
         
-        SVProgressHUD.show(withStatus: "Getting directions…")
+        mapsApp.showProgressFeedback(status: "Getting directions…")
         
         routeTask.defaultRouteParameters() { defaultParams, error in
             guard error == nil else {
@@ -33,20 +27,22 @@ extension ArcGISServices {
                 return
             }
             
+            // To make best use of the service, we will base our request off the service's default parameters.
             guard let params = defaultParams else {
                 SVProgressHUD.showError(withStatus: "No default parameters available.")
                 print("No default parameters available.")
                 return
             }
             
-            params.outputSpatialReference = self.routeTaskSR
             params.returnStops = true
             params.returnDirections = true
             params.returnRoutes = true
-            
-            // To make best use of the service, we will base our request off the service's default parameters.
             params.setStops([from,to])
             
+            if let outSR = mapsAppContext.currentMapView?.spatialReference {
+                params.outputSpatialReference = outSR
+            }
+
             self.routeTask.solveRoute(with: params) { result, error in
                 guard error == nil else {
                     SVProgressHUD.showError(withStatus: "Unable to solve route.")
@@ -60,7 +56,7 @@ extension ArcGISServices {
                     return
                 }
                 
-                SVProgressHUD.dismiss()
+                mapsApp.dismissProgressFeedback()
 
                 MapsAppNotifications.postRouteResultNotification(result: routeResult)
             }
@@ -71,12 +67,12 @@ extension ArcGISServices {
     
     // MARK: Convenience methods
     func route(to:AGSStop) {
-        if let from = mapsAppContext.currentMapView?.routeStop(inSpatialReference: routeTaskSR) {
+        if let from = mapsAppContext.currentMapView?.routeStop() {
             route(from: from, to: to)
         }
     }
     
     func route(to:MapsAppStopProvider) {
-        route(to: to.routeStop(inSpatialReference: routeTaskSR))
+        route(to: to.routeStop(inSpatialReference: mapsAppContext.currentMapView?.spatialReference ?? AGSSpatialReference.wgs84()))
     }
 }

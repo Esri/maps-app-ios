@@ -43,9 +43,8 @@
 		D95AD1D61F19528C002BC78A /* PortalItemsBrowser.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D95AD1D51F19528C002BC78A /* PortalItemsBrowser.storyboard */; };
 		D95AD1D81F195575002BC78A /* PortalItemsBrowser.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D95AD1D71F195575002BC78A /* PortalItemsBrowser.xcassets */; };
 		D95B72C81F06AA3D00224AB9 /* AppContext+Portal.swift in Sources */ = {isa = PBXBuildFile; fileRef = D95B72C71F06AA3D00224AB9 /* AppContext+Portal.swift */; };
-		D963879B1EB2547600764D8D /* LoginStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = D963879A1EB2547600764D8D /* LoginStatus.swift */; };
 		D96387A11EB2FA7300764D8D /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96387A01EB2FA7300764D8D /* AppSettings.swift */; };
-		D96387A31EB2FBC500764D8D /* MapsAppDelegate+PortalOAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96387A21EB2FBC500764D8D /* MapsAppDelegate+PortalOAuth.swift */; };
+		D96387A31EB2FBC500764D8D /* MapsAppDelegate+OAuthLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96387A21EB2FBC500764D8D /* MapsAppDelegate+OAuthLogin.swift */; };
 		D9638E3A1EBCFCA000CFF318 /* AppContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9638E391EBCFCA000CFF318 /* AppContext.swift */; };
 		D9638E3C1EBD146300CFF318 /* MapViewController+SearchSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9638E3B1EBD146300CFF318 /* MapViewController+SearchSetup.swift */; };
 		D9638E3E1EBD14B600CFF318 /* MapViewController+RoutingSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9638E3D1EBD14B600CFF318 /* MapViewController+RoutingSetup.swift */; };
@@ -64,6 +63,7 @@
 		D96B73CC1EF83A10004B6862 /* BasemapCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96B73CB1EF83A10004B6862 /* BasemapCollectionCell.swift */; };
 		D96B73CE1EF86E20004B6862 /* BasemapNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96B73CD1EF86E20004B6862 /* BasemapNotifications.swift */; };
 		D96B73D01EF872A8004B6862 /* MapViewController+Basemap.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96B73CF1EF872A8004B6862 /* MapViewController+Basemap.swift */; };
+		D96E97211F211B6700167C67 /* AppContext+Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96E97201F211B6700167C67 /* AppContext+Login.swift */; };
 		D9774AF61EBAD56D0099D4A5 /* PortalUserFolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9774AF51EBAD56D0099D4A5 /* PortalUserFolder.swift */; };
 		D979AD3E1F03483C00199AAA /* ASGDirectionManeuverType+CustomStringConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = D979AD3D1F03483C00199AAA /* ASGDirectionManeuverType+CustomStringConvertible.swift */; };
 		D979AD441F03779B00199AAA /* DirectionsViewNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = D979AD431F03779B00199AAA /* DirectionsViewNotifications.swift */; };
@@ -81,7 +81,6 @@
 		D9AB70AF1EF35C3300123FEA /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9AB70AE1EF35C3300123FEA /* AccountViewController.swift */; };
 		D9B5074F1EB23399006BA131 /* URL+QueryString.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9B5074E1EB23399006BA131 /* URL+QueryString.swift */; };
 		D9B507511EB23400006BA131 /* AGSPortal+AutoLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9B507501EB23400006BA131 /* AGSPortal+AutoLogin.swift */; };
-		D9B507531EB23C3A006BA131 /* MapsAppDelegate+PortalLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9B507521EB23C3A006BA131 /* MapsAppDelegate+PortalLogin.swift */; };
 		D9B5B9101F1AD896002FBBA9 /* FeedbackViewController+RelatedViewControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9B5B90F1F1AD896002FBBA9 /* FeedbackViewController+RelatedViewControllers.swift */; };
 		D9BCC5F01EB7A172000C0587 /* MapViewMode+Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BCC5EF1EB7A172000C0587 /* MapViewMode+Equatable.swift */; };
 		D9BCC5F41EB7CCCB000C0587 /* PortalItemCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BCC5F31EB7CCCB000C0587 /* PortalItemCollectionViewController.swift */; };
@@ -168,9 +167,8 @@
 		D95AD1D51F19528C002BC78A /* PortalItemsBrowser.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PortalItemsBrowser.storyboard; sourceTree = "<group>"; };
 		D95AD1D71F195575002BC78A /* PortalItemsBrowser.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = PortalItemsBrowser.xcassets; sourceTree = "<group>"; };
 		D95B72C71F06AA3D00224AB9 /* AppContext+Portal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AppContext+Portal.swift"; sourceTree = "<group>"; };
-		D963879A1EB2547600764D8D /* LoginStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginStatus.swift; sourceTree = "<group>"; };
 		D96387A01EB2FA7300764D8D /* AppSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
-		D96387A21EB2FBC500764D8D /* MapsAppDelegate+PortalOAuth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MapsAppDelegate+PortalOAuth.swift"; sourceTree = "<group>"; };
+		D96387A21EB2FBC500764D8D /* MapsAppDelegate+OAuthLogin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MapsAppDelegate+OAuthLogin.swift"; sourceTree = "<group>"; };
 		D9638E391EBCFCA000CFF318 /* AppContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppContext.swift; sourceTree = "<group>"; };
 		D9638E3B1EBD146300CFF318 /* MapViewController+SearchSetup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MapViewController+SearchSetup.swift"; sourceTree = "<group>"; };
 		D9638E3D1EBD14B600CFF318 /* MapViewController+RoutingSetup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MapViewController+RoutingSetup.swift"; sourceTree = "<group>"; };
@@ -195,6 +193,7 @@
 		D96B73CB1EF83A10004B6862 /* BasemapCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasemapCollectionCell.swift; sourceTree = "<group>"; };
 		D96B73CD1EF86E20004B6862 /* BasemapNotifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasemapNotifications.swift; sourceTree = "<group>"; };
 		D96B73CF1EF872A8004B6862 /* MapViewController+Basemap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MapViewController+Basemap.swift"; sourceTree = "<group>"; };
+		D96E97201F211B6700167C67 /* AppContext+Login.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AppContext+Login.swift"; sourceTree = "<group>"; };
 		D9774AF51EBAD56D0099D4A5 /* PortalUserFolder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PortalUserFolder.swift; sourceTree = "<group>"; };
 		D979AD3D1F03483C00199AAA /* ASGDirectionManeuverType+CustomStringConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ASGDirectionManeuverType+CustomStringConvertible.swift"; sourceTree = "<group>"; };
 		D979AD431F03779B00199AAA /* DirectionsViewNotifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DirectionsViewNotifications.swift; sourceTree = "<group>"; };
@@ -212,7 +211,6 @@
 		D9AB70AE1EF35C3300123FEA /* AccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		D9B5074E1EB23399006BA131 /* URL+QueryString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URL+QueryString.swift"; sourceTree = "<group>"; };
 		D9B507501EB23400006BA131 /* AGSPortal+AutoLogin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AGSPortal+AutoLogin.swift"; sourceTree = "<group>"; };
-		D9B507521EB23C3A006BA131 /* MapsAppDelegate+PortalLogin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MapsAppDelegate+PortalLogin.swift"; sourceTree = "<group>"; };
 		D9B5B90F1F1AD896002FBBA9 /* FeedbackViewController+RelatedViewControllers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FeedbackViewController+RelatedViewControllers.swift"; sourceTree = "<group>"; };
 		D9BCC5EF1EB7A172000C0587 /* MapViewMode+Equatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MapViewMode+Equatable.swift"; sourceTree = "<group>"; };
 		D9BCC5F31EB7CCCB000C0587 /* PortalItemCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PortalItemCollectionViewController.swift; sourceTree = "<group>"; };
@@ -303,10 +301,7 @@
 		D91083BE1EBC2C8C00BACD96 /* Maps App */ = {
 			isa = PBXGroup;
 			children = (
-				D96A77541E8594C000F441D3 /* MapsAppDelegate.swift */,
-				D95AD1CC1F1928F0002BC78A /* MapsAppDelegate+AppStartup.swift */,
-				D95AD1CA1F1927B9002BC78A /* MapsAppDelegate+AppLifecycle.swift */,
-				D95AD1C81F19273F002BC78A /* MapsAppDelegate+UserFeedback.swift */,
+				D96E97221F21258500167C67 /* Maps App Delegate */,
 				D95AD1CE1F192ACA002BC78A /* MapsAppGlobals.swift */,
 				D95AD1D31F1930CD002BC78A /* App Context */,
 				D9B507541EB24859006BA131 /* Portal Login */,
@@ -396,6 +391,7 @@
 				D9638E391EBCFCA000CFF318 /* AppContext.swift */,
 				D95B72C71F06AA3D00224AB9 /* AppContext+Portal.swift */,
 				D95AD1D01F192B53002BC78A /* AppContext+PortalServices.swift */,
+				D96E97201F211B6700167C67 /* AppContext+Login.swift */,
 			);
 			path = "App Context";
 			sourceTree = "<group>";
@@ -494,13 +490,21 @@
 			path = "Basemaps View";
 			sourceTree = "<group>";
 		};
+		D96E97221F21258500167C67 /* Maps App Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				D96A77541E8594C000F441D3 /* MapsAppDelegate.swift */,
+				D95AD1CC1F1928F0002BC78A /* MapsAppDelegate+AppStartup.swift */,
+				D96387A21EB2FBC500764D8D /* MapsAppDelegate+OAuthLogin.swift */,
+				D95AD1C81F19273F002BC78A /* MapsAppDelegate+UserFeedback.swift */,
+				D95AD1CA1F1927B9002BC78A /* MapsAppDelegate+AppLifecycle.swift */,
+			);
+			path = "Maps App Delegate";
+			sourceTree = "<group>";
+		};
 		D9B507541EB24859006BA131 /* Portal Login */ = {
 			isa = PBXGroup;
 			children = (
-				D963879A1EB2547600764D8D /* LoginStatus.swift */,
-				D9B507521EB23C3A006BA131 /* MapsAppDelegate+PortalLogin.swift */,
-				D96387A21EB2FBC500764D8D /* MapsAppDelegate+PortalOAuth.swift */,
-				D9B507501EB23400006BA131 /* AGSPortal+AutoLogin.swift */,
 			);
 			path = "Portal Login";
 			sourceTree = "<group>";
@@ -566,6 +570,7 @@
 		D9CBE34B1E8B751B00776053 /* ArcGIS Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				D9B507501EB23400006BA131 /* AGSPortal+AutoLogin.swift */,
 				D96A77841E86E88600F441D3 /* AGSLicense+CustomStringConvertible.swift */,
 				D94E6C611EBBFCA400F07BA6 /* AGSLocationDisplayAutoPanMode+CustomStringConvertible.swift */,
 				D979AD491F04A74200199AAA /* Bundle+AGSSymbol.swift */,
@@ -801,6 +806,7 @@
 				D96B73C51EF73E03004B6862 /* RoundedView.swift in Sources */,
 				D9638E3A1EBCFCA000CFF318 /* AppContext.swift in Sources */,
 				D9CBE3411E8B4F2A00776053 /* SearchViewController.swift in Sources */,
+				D96E97211F211B6700167C67 /* AppContext+Login.swift in Sources */,
 				D9AB70AF1EF35C3300123FEA /* AccountViewController.swift in Sources */,
 				D9FF8D741F06D4DC00BD9B04 /* UIViewAnimationCurve+UIViewAnimationOptions.swift in Sources */,
 				D9638E3C1EBD146300CFF318 /* MapViewController+SearchSetup.swift in Sources */,
@@ -808,7 +814,6 @@
 				D979AD441F03779B00199AAA /* DirectionsViewNotifications.swift in Sources */,
 				D96A77571E8594C000F441D3 /* MapViewController.swift in Sources */,
 				D9C080B91F01BFCD00968FB3 /* DirectionManeuverCell.swift in Sources */,
-				D963879B1EB2547600764D8D /* LoginStatus.swift in Sources */,
 				D96B73C11EF73760004B6862 /* RoundedImageView.swift in Sources */,
 				D98D92281EF6F5F9001BFF03 /* NorthArrowView.swift in Sources */,
 				D95AD1CF1F192ACA002BC78A /* MapsAppGlobals.swift in Sources */,
@@ -820,7 +825,7 @@
 				D96A77851E86E88600F441D3 /* AGSLicense+CustomStringConvertible.swift in Sources */,
 				D9FF8D721F06D49300BD9B04 /* MapViewController+KeyboardTracking.swift in Sources */,
 				D94380D01F1A94A4000B58AE /* AccountDetailsViewController+PortalItemsCollectionView.swift in Sources */,
-				D96387A31EB2FBC500764D8D /* MapsAppDelegate+PortalOAuth.swift in Sources */,
+				D96387A31EB2FBC500764D8D /* MapsAppDelegate+OAuthLogin.swift in Sources */,
 				D9BCC5F01EB7A172000C0587 /* MapViewMode+Equatable.swift in Sources */,
 				D95AD1CB1F1927B9002BC78A /* MapsAppDelegate+AppLifecycle.swift in Sources */,
 				D9AB70AD1EF359F300123FEA /* AccountLoginViewController.swift in Sources */,
@@ -832,7 +837,6 @@
 				D98F78B31E89B9A100E7CBC2 /* AGSAppPreferences.swift in Sources */,
 				D920A5821EB6CFCF00D565E2 /* LoginNotifications.swift in Sources */,
 				D979AD3E1F03483C00199AAA /* ASGDirectionManeuverType+CustomStringConvertible.swift in Sources */,
-				D9B507531EB23C3A006BA131 /* MapsAppDelegate+PortalLogin.swift in Sources */,
 				D96B73CE1EF86E20004B6862 /* BasemapNotifications.swift in Sources */,
 				D979AD4A1F04A74200199AAA /* Bundle+AGSSymbol.swift in Sources */,
 				D95AD1C71F186E2B002BC78A /* ArcGISServices+Routing.swift in Sources */,

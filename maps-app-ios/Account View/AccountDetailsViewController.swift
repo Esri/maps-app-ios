@@ -101,7 +101,7 @@ class AccountDetailsViewController: UIViewController {
 
     // MARK: UI Actions
     @IBAction func logOut(_ sender: Any) {
-        mapsApp.logOut()
+        mapsAppContext.logOut()
     }
     
     @IBAction func folderNameTapped(_ sender: Any) {

@@ -10,6 +10,6 @@ import UIKit
 
 class AccountLoginViewController: UIViewController {
     @IBAction func logIn(_ sender: Any) {
-        mapsApp.logIn(portalURL: nil)
+        mapsAppContext.logIn(portalURL: nil)
     }
 }

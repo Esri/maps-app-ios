@@ -31,7 +31,7 @@ extension AGSGeocodeResult : MapsAppStopProvider {
 }
 
 extension AGSMapView : MapsAppStopProvider {
-    func routeStop(inSpatialReference sr: AGSSpatialReference) -> AGSStop {
+    func routeStop(inSpatialReference sr: AGSSpatialReference = AGSSpatialReference.wgs84()) -> AGSStop {
         // For a MapView, if the LocationDisplay is started, route to that
         if let mapLocation = self.locationDisplay.location?.position, self.locationDisplay.started {
             let stop = mapLocation.routeStop(inSpatialReference: sr)

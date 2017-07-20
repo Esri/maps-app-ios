@@ -9,7 +9,11 @@
 import ArcGIS
 
 extension AppContext {
+
     // MARK: ArcGIS Services
+    /**
+     Given an AGSPortal, retrieve the service URLs for Route and Geocoding tasks, and load the basemaps group.
+    */
     func updateServices(forPortal portal:AGSPortal) {
         portal.load { error in
             guard error == nil else {
@@ -32,6 +36,9 @@ extension AppContext {
     }
     
     // MARK: Basemaps
+    /**
+     Given an AGSPortal, load the basemaps group.
+     */
     private func loadBasemaps(portal:AGSPortal) {
         if let basemapGroupQuery = portal.portalInfo?.basemapGalleryGroupQuery {
             let params = AGSPortalQueryParameters(query: basemapGroupQuery)
@@ -57,6 +64,9 @@ extension AppContext {
         }
     }
     
+    /**
+     Given an AGSPortal, and the basemaps group, load the basemap items a page at a time.
+     */
     private func getNextPageOfBasemaps(portal:AGSPortal, params: AGSPortalQueryParameters) {
         portal.findItems(with: params, completion: { groupQueryResults, error in
             guard error == nil else {
@@ -80,4 +90,5 @@ extension AppContext {
             }
         })
     }
+
 }

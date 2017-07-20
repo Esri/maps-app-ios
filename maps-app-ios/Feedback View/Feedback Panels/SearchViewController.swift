@@ -12,20 +12,13 @@ import ArcGIS
 class SearchViewController : UIViewController, UISearchBarDelegate {
     
     @IBOutlet weak var searchBar: UISearchBar!
-    var debouncerCanceled:Bool = false {
-        didSet {
-            if debouncerCanceled {
-                suggestDebouncer.cancel()
-            }
-        }
-    }
     
     lazy var suggestDebouncer:Debouncer = {
         let debouncer = Debouncer(delay: 0.1) {
             defer {
                 self.debouncerCanceled = false
             }
-
+            
             guard !self.debouncerCanceled else {
                 return
             }
@@ -40,20 +33,15 @@ class SearchViewController : UIViewController, UISearchBarDelegate {
         return debouncer
     }()
     
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        debouncerCanceled = true
-        mapsAppContext.validToShowSuggestions = false
-
-        if let searchText = searchBar.text {
-            arcGISServices.search(searchText: searchText)
+    var debouncerCanceled:Bool = false {
+        didSet {
+            if debouncerCanceled {
+                suggestDebouncer.cancel()
+            }
         }
     }
     
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        mapsAppContext.validToShowSuggestions = true
-        suggestDebouncer.call()
-    }
-    
+    // MARK: UI Appearance
     func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
         searchBar.showsCancelButton = true
         return true
@@ -64,14 +52,33 @@ class SearchViewController : UIViewController, UISearchBarDelegate {
         return true
     }
     
+    // MARK: Suggestions UI masking
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        mapsAppContext.validToShowSuggestions = true
+    }
+    
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         mapsAppContext.validToShowSuggestions = false
         MapsAppNotifications.postSearchCompletedNotification()
     }
     
+    // MARK: Suggestions UI trigger
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        suggestDebouncer.call()
+    }
+    
+    // MARK: Search
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        debouncerCanceled = true
+
+        if let searchText = searchBar.text {
+            arcGISServices.search(searchText: searchText)
+        }
+    }
+    
+    // MARK: Cancel
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         debouncerCanceled = true
-        mapsAppContext.validToShowSuggestions = false
 
         searchBar.resignFirstResponder()
         searchBar.text = nil
