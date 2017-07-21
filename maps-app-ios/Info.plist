@@ -4,7 +4,7 @@
 <dict>
 	<key>AGSConfiguration</key>
 	<dict>
-		<key>AppSchema</key>
+		<key>AppURLScheme</key>
 		<string>maps-app-ios</string>
 		<key>AuthURLPath</key>
 		<string>auth</string>

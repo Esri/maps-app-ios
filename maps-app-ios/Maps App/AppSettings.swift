@@ -34,7 +34,7 @@ struct AppSettings {
     // Then the app should register maps-app-ios as a URL Type's scheme. And OAuth will call back to maps-app-ios://auth.
     //
     // See also MapsAppDelegate+PortalOAuth.swift
-    static let appSchema = getAgsSetting(named: "AppSchema") ?? ""
+    static let appSchema = getAgsSetting(named: "AppURLScheme") ?? ""
     static let authURLPath = getAgsSetting(named: "AuthURLPath") ?? ""
     
 
