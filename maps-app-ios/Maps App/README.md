@@ -1,31 +1,9 @@
-# Maps App
-
-The Maps App for iOS shows how a robust application can be built around the ArcGIS Platform using the Runtime SDK. It demonstrates best practices around some simple but key functionality of the ArcGIS Runtime, including:
-
-* Search, including Geocoding and Reverse Geocoding.
-* Turn-by-turn Routing and Directions.
-* Opening ArcGIS Web Map content.
-* Accessing and using Basemaps.
-* Working with ArcGIS Online or an on-premise ArcGIS Portal.
-* OAuth authentication.
-* Defining a modular, decoupled UI that operates alongside a map view.
-
-
-## Architecture
-The Maps App is built around 3 core components:
-
-1. A central AppContext to manage the app's current state.
-2. An interactive Map View.
-3. A decoupled, modular UI.
-
-All components of the app can directly read and write the AppContext, and operations on the AppContext raise Notifications using iOS's in-built NSNotificationCenter to which other parts of the app (e.g. the Map or the UI) can respond.
-
 ## Implementation
-When an iOS application starts up, iOS instatiates a singleton obect implementing the `UIApplicationDelegate` protocol. In this case, this is an instance of the `MapsAppDelegate` class. Read more about the `MapsAppDelegate` class [here](/maps-app-ios/Maps%20App/Maps%20App%20Delegate).
+When an iOS application starts up, a singleton instance of an obect implementing the `UIApplicationDelegate` protocol is created (learn more [here](https://developer.apple.com/library/content/documentation/iPhone/Conceptual/iPhoneOSProgrammingGuide/TheAppLifeCycle/TheAppLifeCycle.html#//apple_ref/doc/uid/TP40007072-CH2-SW2)). In the Maps App's case, this is an instance of the `MapsAppDelegate` class. Read more about the `MapsAppDelegate` class [here](/maps-app-ios/Maps%20App/Maps%20App%20Delegate).
 
 That singleton instance maintains a few key components which are referenced through global shortcuts.
 
-The most important of these are the `AppContext` instance and the `ArcGISServices` instance. Changes to the AppContext or functions called on either of these objects may cause Notifications to be raised which the rest of the application can react to. To find out more, see here.
+The most important of these are `AppContext` and `ArcGISServices` instances. Changes to the AppContext or functions called on either of these objects cause Notifications to be raised which the rest of the application can react to. To find out more, see here.
 
 ### AppContext
 The AppContext is the core of the app. Any component of the app can interact with the AppContext to set or read changes in the app's state, such as whether the user is logged in or not, or what the current portal is.
