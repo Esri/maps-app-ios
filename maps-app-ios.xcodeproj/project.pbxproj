@@ -155,7 +155,7 @@
 		D94380D71F1AC367000B58AE /* FeedbackViewController+Notifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FeedbackViewController+Notifications.swift"; sourceTree = "<group>"; };
 		D94380D91F1AC405000B58AE /* FeedbackViewController+FeedbackMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FeedbackViewController+FeedbackMode.swift"; sourceTree = "<group>"; };
 		D94E6C611EBBFCA400F07BA6 /* AGSLocationDisplayAutoPanMode+CustomStringConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AGSLocationDisplayAutoPanMode+CustomStringConvertible.swift"; sourceTree = "<group>"; };
-		D9513A331E985D49007B36C8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D9513A331E985D49007B36C8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../Assets.xcassets; sourceTree = "<group>"; };
 		D95AD1C21F17F67C002BC78A /* ArcGISServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArcGISServices.swift; sourceTree = "<group>"; };
 		D95AD1C41F17F6B9002BC78A /* ArcGISServices+Search.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ArcGISServices+Search.swift"; sourceTree = "<group>"; };
 		D95AD1C61F186E2B002BC78A /* ArcGISServices+Routing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ArcGISServices+Routing.swift"; sourceTree = "<group>"; };
@@ -302,13 +302,12 @@
 			isa = PBXGroup;
 			children = (
 				D96E97221F21258500167C67 /* Maps App Delegate */,
-				D95AD1CE1F192ACA002BC78A /* MapsAppGlobals.swift */,
 				D95AD1D31F1930CD002BC78A /* App Context */,
-				D9B507541EB24859006BA131 /* Portal Login */,
 				D95AD1D21F1930AA002BC78A /* ArcGIS Services */,
 				D920A5801EB6CA0200D565E2 /* App Notifications */,
 				D9CBE3511E8B7E2500776053 /* App Preferences */,
 				D96387A01EB2FA7300764D8D /* AppSettings.swift */,
+				D95AD1CE1F192ACA002BC78A /* MapsAppGlobals.swift */,
 			);
 			path = "Maps App";
 			sourceTree = "<group>";
@@ -443,17 +442,7 @@
 			isa = PBXGroup;
 			children = (
 				D91083BE1EBC2C8C00BACD96 /* Maps App */,
-				D96A77581E8594C000F441D3 /* Main.storyboard */,
-				D9513A331E985D49007B36C8 /* Assets.xcassets */,
-				D93381B11E9184FD00A0F93E /* Map View */,
-				D9CBE3421E8B4F3200776053 /* Feedback View */,
-				D9430A3E1EF1D73F002F6CA1 /* Suggestions View */,
-				D9C080B31F01BE4600968FB3 /* Directions View */,
-				D96B73C61EF838C8004B6862 /* Basemaps View */,
-				D90E7DFC1EB8602100EE520E /* Account View */,
-				D95AD1D91F195644002BC78A /* Portal Items Browser */,
-				D98D92271EF6F5F9001BFF03 /* NorthArrowView.swift */,
-				D95AD1D41F1933C3002BC78A /* Rounded Views */,
+				D96E97231F21A9F300167C67 /* UI */,
 				D9CF2A6D1E90346A0019701F /* Extensions */,
 				D9D756B81F1193B400D52B25 /* 3rd Party */,
 				D9CBE34C1E8B752F00776053 /* Resources */,
@@ -502,11 +491,22 @@
 			path = "Maps App Delegate";
 			sourceTree = "<group>";
 		};
-		D9B507541EB24859006BA131 /* Portal Login */ = {
+		D96E97231F21A9F300167C67 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				D96A77581E8594C000F441D3 /* Main.storyboard */,
+				D9513A331E985D49007B36C8 /* Assets.xcassets */,
+				D93381B11E9184FD00A0F93E /* Map View */,
+				D9CBE3421E8B4F3200776053 /* Feedback View */,
+				D9430A3E1EF1D73F002F6CA1 /* Suggestions View */,
+				D9C080B31F01BE4600968FB3 /* Directions View */,
+				D96B73C61EF838C8004B6862 /* Basemaps View */,
+				D90E7DFC1EB8602100EE520E /* Account View */,
+				D95AD1D91F195644002BC78A /* Portal Items Browser */,
+				D98D92271EF6F5F9001BFF03 /* NorthArrowView.swift */,
+				D95AD1D41F1933C3002BC78A /* Rounded Views */,
 			);
-			path = "Portal Login";
+			path = UI;
 			sourceTree = "<group>";
 		};
 		D9BE57C11E9590F800934D30 /* MapViewController+Routing */ = {
@@ -922,6 +922,7 @@
 				D96A77591E8594C000F441D3 /* Base */,
 			);
 			name = Main.storyboard;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		D96A775D1E8594C000F441D3 /* LaunchScreen.storyboard */ = {
