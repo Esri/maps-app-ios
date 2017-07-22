@@ -3,21 +3,30 @@
 The Maps App for iOS shows how a robust application can be built around the ArcGIS Platform using the [ArcGIS Runtime SDK for iOS](https://developers.arcgis.com/ios/). It demonstrates best practices around some simple but key functionality of the ArcGIS Runtime. You can use the Maps App as is, or extend it to meet your specific needs.
 
 ## Features
-* Place Search.
-* Geocoding.
-* Reverse Geocoding.
-* Turn-by-turn Directions.
-* Dynamically switching basemaps.
-* Opening Web Maps.
-* Working with ArcGIS Online or an on-premise ArcGIS Portal.
-* OAuth authentication.
+* Place Search
+* Geocode addresses
+* Reverse Geocode
+* Turn-by-turn Directions
+* Dynamically switch basemaps
+* Open Web Maps
+* Work with ArcGIS Online or an on-premise ArcGIS Portal
+* OAuth authentication
 
 ## Best Practices
 The project also demonstrates some patterns for building real-world apps around the ArcGIS Runtime SDK.
 
-* Defining a modular, decoupled UI that operates alongside a map view.
-* Internal application communication patterns.
-* Asynchronous service and UI coding patterns.
+* Defining a modular, decoupled UI that operates alongside a map view
+* Asynchronous service and UI coding patterns
+* Internal application communication patterns
+
+## Get Started
+To learn more about this project and get started, see [here](maps-app-ios).
+
+## Requirements
+* [Xcode](https://itunes.apple.com/us/app/xcode/id497799835?mt=12)
+* [ArcGIS Runtime SDK for iOS](https://developers.arcgis.com/ios/)
+
+For some components of the app (e.g. driving directions) you will also need an ArcGIS Online Organizational account or an ArcGIS Online Developer account.
 
 ## Contributing
 Anyone and everyone is welcome to [contribute](https://github.com/Esri/maps-app-ios/blob/master/CONTRIBUTING.md). We do accept pull requests.
