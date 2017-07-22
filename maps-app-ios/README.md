@@ -83,8 +83,7 @@ The Map View operates in one of 3 "modes":
 
 The main UI component is the Feedback View at the top of the Map View. It reflects the current mode and can be a SearchBar, a Geocode Result, or a Directions Result.
 
-![Search Mode](/docs/images/app-mode-search.png)![Geocode Mode](/docs/images/app-mode-geocode.png)
-![Directions Mode](/docs/images/app-mode-directions.png)
+![Search Mode](/docs/images/app-modes.png)
 
  The controls at the bottom right are as follows:
 
@@ -93,4 +92,3 @@ The main UI component is the Feedback View at the top of the Map View. It reflec
  | ![GPS Tracking](/docs/images/control-gps.png) | Cycle through GPS recentering modes. |
  | ![Basemap Picker](/docs/images/control-basemaps.png) | Display a basemap picker. |
  | ![Account View](/docs/images/control-account.png) | Display the Account Items viewer. |
-
