@@ -39,8 +39,8 @@ For OAuth configuration, you should create a new Application in your ArcGIS Port
 Open the project in Xcode and browse to the `maps-app-ios` target's `Info` panel and expand the `AGSConfiguration` dictionary (see steps 1...4 in the screenshot below).
 
 1. Set the `ClientID` value to the application's Client ID noted above.
-2. Set the `AppURLScheme` value to match the Redirect URL scheme (the part *before* the `://`, e.g. `my-maps-app`) configured in "Register an Application" above.
-3. Expand the **URL Types** section and modify the existing entry. ![Configure the App URL Scheme](/docs/images/configure-xcode-target.png)
+2. Set the `AppURLScheme` value to match the Redirect URL scheme (the part *before* the `://`, e.g. `my-maps-app`) configured in "Register an Application" above. Note how the `AppURLScheme` and `AuthURLPath` combine to construct the Redirect URL. ![Configure the App URL Scheme](/docs/images/configure-xcode-target.png)
+3. Expand the **URL Types** section and modify the existing entry.
     1. The **Identifier** doesn't matter, but should be unique (e.g. `com.my-org.awesome-maps-app`).
     2. The **URL Scheme** should match the Redirect URL scheme (the part *before* the `://`, e.g. `my-maps-app`) configured in "Register an Application" above.
 
@@ -50,8 +50,8 @@ To remove the _Licensed for Developer Use Only_ watermark on the map view, set t
 ## Architecture
 The Maps App is built around 4 core components:
 
-1. A singleton `AppContext` to manage the app's current state.
-2. A singleton `ArcGISServices` component to handle geocode and directions calls to the ArcGIS platform.
+1. A singleton `AppContext` to manage the app's current state ([learn more](Maps%20App/App%20Context)).
+2. A singleton `ArcGISServices` component to handle geocode and directions calls to the ArcGIS platform ([learn more](Maps%20App/ArcGIS%20Services)).
 2. An interactive Map View and [controller](UI/Map%20View).
 3. A decoupled, [modular UI](UI).
 
