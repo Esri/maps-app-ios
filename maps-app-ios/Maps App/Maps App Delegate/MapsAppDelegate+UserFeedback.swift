@@ -67,7 +67,8 @@ extension MapsAppDelegate {
         - Parameters:
             - status: The status string to display with the spinner.
     */
-    func showProgressFeedback(status:String) {
+    func showProgressFeedback(status:String, forView view:UIView? = nil) {
+        configHUD(forView: view)
         SVProgressHUD.show(withStatus: status)
     }
     
@@ -78,4 +79,18 @@ extension MapsAppDelegate {
         SVProgressHUD.dismiss()
     }
     
+    /**
+        Show error for progress spinning operation.
+    */
+    func showProgressError(errorMessage:String, forView view:UIView? = nil) {
+        configHUD(forView: view)
+        SVProgressHUD.showError(withStatus: errorMessage)
+    }
+    
+    private func configHUD(forView view:UIView?) {
+        if let view = view ?? window?.rootViewController?.view {
+            SVProgressHUD.setContainerView(view)
+        }
+        SVProgressHUD.setDefaultMaskType(.black)
+    }
 }

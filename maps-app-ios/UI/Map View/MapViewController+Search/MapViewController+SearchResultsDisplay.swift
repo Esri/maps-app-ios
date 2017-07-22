@@ -25,9 +25,4 @@ extension MapViewController {
             graphicsOverlays[geocodeResultLayerName] = newValue
         }
     }
-    
-    // MARK: UI Feedback
-    var suggestionDisplayViewController: SuggestionDisplayViewController? {
-        return self.childViewControllers.filter({ $0 is SuggestionDisplayViewController }).first as? SuggestionDisplayViewController
-    }
 }
