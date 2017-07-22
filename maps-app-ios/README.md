@@ -54,11 +54,3 @@ iOS then calls the MapsAppDelegate's `application(_:didFinishLaunchingWithOption
 iOS will then begin setting up the UI. The Maps App is a Single View Application and the main storyboard defines the `MapViewController` and various UI components to go with it.
 
 When the `MapViewController` and UI are initialized, they read the current `AppContext` to initialize their appearance. They then register themselves as observers on specific custom Notifications that indicate changes to the `AppContext` so they can later update their appearance as appropriate whenever the `AppContext` is udpated.
-
-Notifications include:
-
-| Source | Notifications |
-| ------ | ------------- |
-| AppContext | Login, Logout, New Basemap Selected, New Web Map Selected |
-| ArcGISServices | Search Suggestions Available, Search/Geocode completed, Route calculated |
-| MapViewController | Mode Changed |

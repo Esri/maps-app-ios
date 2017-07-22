@@ -19,10 +19,8 @@ extension FeedbackViewController {
     }
     
     func setupModeChangeListener() {
-        NotificationCenter.default.addObserver(forName: MapsAppNotifications.Names.MapViewModeChanged, object: nil, queue: OperationQueue.main) { notification in
-            if let newValue = notification.newMapViewMode, let oldValue = notification.oldMapViewMode {
-                self.setUIForMode(mode: newValue, previousMode: oldValue)
-            }
+        MapsAppNotifications.observeModeChangeNotification { oldValue, newValue in
+            self.setUIForMode(mode: newValue, previousMode: oldValue)
         }
     }
     
