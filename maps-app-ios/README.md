@@ -42,32 +42,18 @@ The Maps App is built around 4 core components:
 2. An interactive Map View and [controller](UI/Map%20View).
 3. A decoupled, [modular UI](UI).
 
-Components of the app read from and write to the `AppContext`. Changes to the `AppContext` raise Notifications using iOS's in-built `NSNotificationCenter` to which the Map View and the UI can react.
+Components of the app read from and write to the `AppContext`. Changes to the `AppContext` raise Notifications using iOS's in-built `NSNotificationCenter` to which the UI can react.
 
 ![App Architecture](/docs/images/app-architecture.png)
 
-There is also a modular UI made up of the following components:
-
-* Map View
-* Feedback View
-    * Suggestions View
-    * Directions Maneuver View
-* Account View & Web Maps Browser
-* Basemaps Browser
-* North Arrow
-
-The Web Map Browser and Basemap Browser both make use of a Portal Item Browser control that can display an array of Portal Items.
-
-Many of these components can be reused in your own applications.
-
 ## App Lifecycle
-When the app starts up, the `MapsAppDelegate` instance is created, which instatiates the `AppContext` and `ArcGISServices` singletons.
+When the app starts up, the `MapsAppDelegate` instance is created, which instantiates the `AppContext` and `ArcGISServices` singletons.
 
-iOS then calls the MapsAppDelegate's `application(_:didFinishLaunchingWithOptions:)` function where the app sets the ArcGIS Runtime License and sets up the initial AGSPortal object. This object will point to either ArcGIS Online or a custom on-premise ArcGIS Portal, depending on what URL is stored in the user preferences.
+iOS then calls the MapsAppDelegate's `application(_:didFinishLaunchingWithOptions:)` function where the app sets the ArcGIS Runtime License and sets up the initial AGSPortal object. This object will point to either ArcGIS Online or a custom on-premise ArcGIS Portal, depending on any URL stored in the user preferences.
 
-iOS will then begin setting up the UI. The Maps App is a Single View Application and the main storyboard defines the MapViewController and various UI components to go with it.
+iOS will then begin setting up the UI. The Maps App is a Single View Application and the main storyboard defines the `MapViewController` and various UI components to go with it.
 
-When the MapViewController and UI are initialized, they read the current `AppContext` to initialize their appearance. They then register themselves as observers on specific custom Notifications that indicate changes to the `AppContext` so they can later update their appearance as appropriate as the `AppContext` is udpated.
+When the `MapViewController` and UI are initialized, they read the current `AppContext` to initialize their appearance. They then register themselves as observers on specific custom Notifications that indicate changes to the `AppContext` so they can later update their appearance as appropriate whenever the `AppContext` is udpated.
 
 Notifications include:
 
