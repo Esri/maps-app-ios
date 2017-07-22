@@ -22,14 +22,14 @@ extension ArcGISServices {
         
         routeTask.defaultRouteParameters() { defaultParams, error in
             guard error == nil else {
-                SVProgressHUD.showError(withStatus: "Error getting default parameters")
+                mapsApp.showProgressError(errorMessage: "Error getting default parameters")
                 print("Error getting default parameters: \(error!.localizedDescription)")
                 return
             }
             
             // To make best use of the service, we will base our request off the service's default parameters.
             guard let params = defaultParams else {
-                SVProgressHUD.showError(withStatus: "No default parameters available.")
+                mapsApp.showProgressError(errorMessage: "No default parameters available.")
                 print("No default parameters available.")
                 return
             }
@@ -45,13 +45,13 @@ extension ArcGISServices {
 
             self.routeTask.solveRoute(with: params) { result, error in
                 guard error == nil else {
-                    SVProgressHUD.showError(withStatus: "Unable to solve route.")
+                    mapsApp.showProgressError(errorMessage: "Unable to solve route.")
                     print("Error solving route between \(from) and \(to): \(error!.localizedDescription)")
                     return
                 }
                 
                 guard let routeResult = result?.routes.first else {
-                    SVProgressHUD.showError(withStatus: "Route result unexpectedly empty")
+                    mapsApp.showProgressError(errorMessage: "Route result unexpectedly empty")
                     print("Route result unexpectedly empty between \(from) and \(to)")
                     return
                 }

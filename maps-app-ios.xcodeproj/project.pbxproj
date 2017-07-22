@@ -380,6 +380,7 @@
 				D95AD1C21F17F67C002BC78A /* ArcGISServices.swift */,
 				D95AD1C61F186E2B002BC78A /* ArcGISServices+Routing.swift */,
 				D95AD1C41F17F6B9002BC78A /* ArcGISServices+Search.swift */,
+				D9CF2A721E9045A70019701F /* MapsAppStopProvider.swift */,
 			);
 			path = "ArcGIS Services";
 			sourceTree = "<group>";
@@ -514,7 +515,6 @@
 			children = (
 				D9638E3D1EBD14B600CFF318 /* MapViewController+RoutingSetup.swift */,
 				D9822A0A1EA2EA35009FA0E5 /* MapViewController+RoutingResultsDisplay.swift */,
-				D9CF2A721E9045A70019701F /* MapsAppStopProvider.swift */,
 				D979AD451F0427EF00199AAA /* DirectionsManeuverSymbol.json */,
 			);
 			path = "MapViewController+Routing";
