@@ -10,21 +10,29 @@ The app operates in one of 3 "modes":
 * Display a Geocode Result
 * Display a Directions Result
 
+The app user can be logged in or logged out from ArcGIS Online or an ArcGIS Portal. When logged in the user can browse their account's Web Maps and can get directions (which consumes credits).
+
+Additionally, if the user's organization has custom basemaps configured, when logged in the user will be able to pick from those in the Basemap picker, but otherwise will see just the default ArcGIS Online basemaps.
+
+### User Interface
 The main UI component is the Feedback View at the top of the Map View. It reflects the current mode and can be a SearchBar, a Geocode Result, or a Directions Result.
 
 ![Search Mode](/docs/images/app-modes.png)
 
- The controls at the bottom right are as follows:
+The controls at the bottom right are as follows:
 
- | Icon | Description |
- | ---- | ----------- |
- | ![GPS Tracking](/docs/images/control-gps.png) | Cycle through GPS recentering modes. |
- | ![Basemap Picker](/docs/images/control-basemaps.png) | Display a basemap picker. |
- | ![Account View](/docs/images/control-account.png) | Display the Account Items viewer. |
+| Icon | Description |
+| ---- | ----------- |
+| ![GPS Tracking](/docs/images/control-gps.png) | Cycle through GPS recentering modes. |
+| ![Basemap Picker](/docs/images/control-basemaps.png) | Display a basemap picker. |
+| ![Account View](/docs/images/control-account.png) | Display the Account Items viewer. |
 
- In addition, a user can be logged in or logged out. When logged in the user can browse their account's Web Maps and can get directions (which consumes credits).
+The app maintains a history of Search/Geocode/Reverse Geocode/Directions results and displays a `Previous` and `Next` button to browse through them if appropriate.
 
- Additionally, if the user's organization has custom basemaps configured, when logged in the user will be able to pick from those in the Basemap picker, but otherwise will see just the default ArcGIS Online basemaps.
+| Icon | Description |
+| ---- | ----------- |
+| ![Previous Result](/docs/images/control-prev-result.png) | View the previous result. |
+| ![Next Result](/docs/images/control-next-result.png) | View the next result. |
 
 ## Architecture
 The Maps App is built around 4 core components:
@@ -38,7 +46,6 @@ Any component of the app can directly read and write the `AppContext`. Changes t
 
 ![App Architecture](/docs/images/app-architecture.png)
 
-### UI
 There is also a modular UI made up of the following components:
 
 * Map View
@@ -51,6 +58,8 @@ There is also a modular UI made up of the following components:
 
 The Web Map Browser and Basemap Browser both make use of a Portal Item Browser control that can display an array of AGSPortalItems.
 
+Many of these components can be reused in your own applications.
+
 ## App Lifecycle
 When the app starts up, the MapsAppDelegate instance is created, which instatiates three singletons as instance variables:
 
@@ -62,3 +71,13 @@ iOS then calls the MapsAppDelegate's `application(_:didFinishLaunchingWithOption
 
 iOS will then begin setting up the UI. This is a Single View Application and the main storyboard defines the MapViewController and various UI components to go with it.
 
+When the MapView and UI are initialized, they read the current AppContext to initialize their appearance. They then register themselves as observers on certain custom Notifications that indicate changes to the AppContext and update their appearance as appropriate.
+
+Notifications include:
+* Login/Logout
+* App Mode Changed
+* Search Suggestions Available
+* Search/Geocode completed
+* Directions calculated
+* New Basemap Selected
+* New Web Map Selected
