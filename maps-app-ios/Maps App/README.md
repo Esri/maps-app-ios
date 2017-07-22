@@ -12,7 +12,7 @@ The AppContext is the core of the app. Any component of the app can interact wit
 The ArcGIS Services object can be used to make Geocode or Routing requests. When these requests are completed, Notifications are raised which can be reacted to by the rest of the app (e.g. the UI or the Map View).
 
 ## Configuration
-Configuration of the app is split in two between [static settings](AppSettings.swift) and [User Preferences](AppPreferences.swift).
+Configuration of the app is split in two between [static settings](AppSettings.swift) and [User Preferences](App%20Preferences/AppPreferences.swift).
 
 ### Preferences
 Preferences such as the current portal and the current map extent are stored by the AppPreferences instance using iOS's UserDefaults.
