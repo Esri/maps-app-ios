@@ -13,16 +13,16 @@ The Maps App for iOS shows how a robust application can be built around the ArcG
 * OAuth authentication.
 
 ## Best Practices
-Also demonstrated are some patterns for building real-world apps around the ArcGIS Runtime SDK.
+The project also demonstrates some patterns for building real-world apps around the ArcGIS Runtime SDK.
 
 * Defining a modular, decoupled UI that operates alongside a map view.
 * Internal application communication patterns.
 * Asynchronous service and UI coding patterns.
 
 ## Development Instructions
-The Maps App is a GitHub repository that can be cloned and opened in Apple's Xcode. You will need Xcode and the ArcGIS Runtime SDK (v100.1 or later) installed locally.
+The Maps App is a GitHub repository that can be cloned and opened in Apple's Xcode. You will need Xcode and the ArcGIS Runtime SDK (v100.1 or later) installed locally. Then open the maps-app-ios.xcodeproj file in Xcode.
 
-The app can be run as it is, but for turn-by-turn directions and to open your own Portal's Web Maps, you will need to do some one-off configuration, as follows:
+The app can be run as is, but for turn-by-turn directions and to open your own Portal's Web Maps, you will need to do some one-off configuration, as follows:
 
 1. Register an ArcGIS Portal Application.
 2. Configure the Maps App project to reference that application.
