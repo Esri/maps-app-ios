@@ -17,6 +17,6 @@ extension MapViewController {
             if let result = result {
                 self.mode = .geocodeResult(result)
             }
-        }, suggestionsAvailableHandler: nil)
+        })
     }
 }
