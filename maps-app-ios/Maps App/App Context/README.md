@@ -9,7 +9,7 @@ When the portal is updated or the user logs in or logs out, the `AppContext` wil
 It also provides methods and logic to log in and log out of the current portal. These methods can be called from the app's UI. They use the ArcGIS Runtime SDK's `AGSPortal` and `AGSCredentialCache` along with `AGSOAuthConfiguration` to log in to the portal.
 
 ## Log in to an AGSPortal
-To log in, the AppContext creates a new AGSPortal instance passing in `loginRequired: true`:
+To log in, the `AppContext` creates a new `AGSPortal` instance passing in `loginRequired: true`:
 
 ``` Swift
 // From AppContext+Login.swift
@@ -67,7 +67,7 @@ func setupAndLoadPortal(portal:AGSPortal) {
 
 The `setupAndLoadPortal()` function ensures the portal is configured for OAuth. Since it was created with `loginRequired: true`, the OAuth workflow will be triggered when `portal.load()` is called.
 
-Once the portal has loaded, its `user` property will reflect the current user. If no user logged in, this will be `nil`, otherwise it will point to a valid `AGSPortalUser` instance. setupAndLoadPortal() will set the `AppContext.loginStatus` instance variable, which will raise a [AppLogin or AppLogout Notification](/maps-app-ios/Maps%20App/App%20Notifications) which the app's UI can react to.
+Once the portal has loaded, its `user` property will reflect the current user. If no user logged in, this will be `nil`, otherwise it will point to a valid `AGSPortalUser` instance. `setupAndLoadPortal()` will set the `AppContext.loginStatus` instance variable, which will raise a [AppLogin or AppLogout Notification](/maps-app-ios/Maps%20App/App%20Notifications) which the app's UI can react to.
 
 ``` Swift
 var loginStatus:LoginStatus = .loggedOut {
@@ -102,6 +102,25 @@ func logOut() {
 }
 ```
 
-The `AGSCredentialCache` maintains credentials for the ArcGIS Runtime, synced to the iOS Keychain. To ensure no credentials are left behind after a logout (which could allow authenticated access) call `removeAllCredentials()` as above.
+The `AGSCredentialCache` maintains credentials for the ArcGIS Runtime, synced to the iOS Keychain (this is not the default behavior, but Maps App opts in to this [on app launch](AppContext+Portal.swift#L20) in `setInitialPortal()`). To ensure no credentials are left behind after a logout (which could allow authenticated access) call `removeAllCredentials()` as above.
 
 This time when `setupAndLoadPortal()` is called, the `portal.user` property will be `nil`.
+
+## Read a portal's Geocoder and Route Service URLs
+An `AGSPortal` maintains information about helper services. ArcGIS Online provides powerful default global services, but many Portal Administrators override or augment these with their own (e.g. a municipality's geocoder or a utility company's routing service).
+
+The Maps App reads these services from the `AGSPortal` to reflect the services configured by the Portal Administrator (see [AppContext+PortalServices.swift](AppContext+PortalServices.swift), and instantiates both an `AGSLocatorTask` and an `AGSRouteTask` accordingly:
+
+``` Swift
+if let svcs = portal.portalInfo?.helperServices {
+    if let geocoderURL = svcs.geocodeServiceURLs?.first, geocoderURL != arcGISServices.locator.url {
+        arcGISServices.locator = AGSLocatorTask(url: geocoderURL)
+    }
+    
+    if let routeTaskURL = svcs.routeServiceURL, routeTaskURL != arcGISServices.routeTask.url {
+        arcGISServices.routeTask = AGSRouteTask(url: routeTaskURL)
+    }
+}
+```
+
+Note that there could be many geocoders defined for a Portal, but the Maps App current only uses the first one found.
