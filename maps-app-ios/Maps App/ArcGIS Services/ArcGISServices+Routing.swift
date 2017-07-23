@@ -58,7 +58,7 @@ extension ArcGISServices {
                 
                 mapsApp.dismissProgressFeedback()
 
-                MapsAppNotifications.postRouteResultNotification(result: routeResult)
+                MapsAppNotifications.postRouteSolvedNotification(result: routeResult)
             }
         }
         

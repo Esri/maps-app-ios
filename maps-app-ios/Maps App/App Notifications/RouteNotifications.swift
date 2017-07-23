@@ -24,7 +24,7 @@ extension MapsAppNotifications {
 
 // MARK: Internals
 extension MapsAppNotifications {
-    static func postRouteResultNotification(result:AGSRoute) {
+    static func postRouteSolvedNotification(result:AGSRoute) {
         NotificationCenter.default.post(name: MapsAppNotifications.Names.RouteSolved, object: mapsApp, userInfo: [RouteNotificationKeys.route:result])
     }
     
