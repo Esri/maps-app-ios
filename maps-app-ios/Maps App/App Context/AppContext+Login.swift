@@ -27,6 +27,7 @@ extension AppContext {
         if let url = portalURL {
             currentPortal = AGSPortal(url: url, loginRequired: true)
         } else {
+            // No URL was provided, so we'll just use ArcGIS Online.
             currentPortal = AGSPortal.arcGISOnline(withLoginRequired: true)
         }
     }
@@ -47,6 +48,7 @@ extension AppContext {
         if let portalURL = mapsAppPrefs.portalURL {
             currentPortal = AGSPortal(url: portalURL, loginRequired: false)
         } else {
+            // No URL was provided, so we'll just use ArcGIS Online.
             currentPortal = AGSPortal.arcGISOnline(withLoginRequired: false)
         }
     }
