@@ -34,9 +34,9 @@ extension AppContext {
      and loading basemaps into the AppContext. Once loaded, see if we are logged in and set the AppContext appropriately.
      */
     func setupAndLoadPortal(portal:AGSPortal) {
+        let oAuthRedirectURL = "\(AppSettings.appSchema)://\(AppSettings.authURLPath)"
         // Ensure the Runtime knows how to authenticate against this portal should the need arise.
-        let oauthConfig = AGSOAuthConfiguration(portalURL: portal.url, clientID: AppSettings.clientID,
-                                                redirectURL: "\(AppSettings.appSchema)://\(AppSettings.authURLPath)")
+        let oauthConfig = AGSOAuthConfiguration(portalURL: portal.url, clientID: AppSettings.clientID, redirectURL: oAuthRedirectURL)
         AGSAuthenticationManager.shared().oAuthConfigurations.add(oauthConfig)
         
         // Now load the portal so we can get some portal-specific information from it.

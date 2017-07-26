@@ -1,4 +1,4 @@
-# Maps-App iOS
+# Maps App iOS
 
 The Maps App is an example application to show some good practices when building applications around the ArcGIS Runtime SKD for iOS. It also includes a modular UI, components of which can be re-used in your own applications.
 

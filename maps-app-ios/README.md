@@ -21,13 +21,13 @@ As an administrator of an ArcGIS Online organization or Portal you can configure
 ``` Swift
 if let basemapGroupQuery = portal.portalInfo?.basemapGalleryGroupQuery {
     let params = AGSPortalQueryParameters(query: basemapGroupQuery)
-    portal.findGroups(with: params, completion: { results, error in
+    portal.findGroups(with: params, completion: { groups, error in
         guard error == nil else {
             print("Unable to get Basemaps Group! \(error!.localizedDescription)")
             return
         }
         
-        guard let basemapGroup = results?.results?.first as? AGSPortalGroup, let groupID = basemapGroup.groupID else {
+        guard let basemapGroup = groups?.results?.first as? AGSPortalGroup, let groupID = basemapGroup.groupID else {
             print("No error, but also no Basemap Group query results!")
             return
         }
@@ -284,4 +284,5 @@ func requestRoute(from:AGSStop, to:AGSStop) {
 }
 ```
 The resulting route is shown:
-![](assets/route.png)
+
+![](/docs/images/app-directions-result.png)
