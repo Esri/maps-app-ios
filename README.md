@@ -53,7 +53,7 @@ This step is optional during development, but required for deployment.
 To remove the _Licensed for Developer Use Only_ watermark on the map view, set the `LicenseKey` in the `AGSConfiguration` dictionary. Retrieve this value by clicking the `Show my ArcGIS Runtime Lite license key` at the top-right of the [Licensing Your ArcGIS Runtime App](https://developers.arcgis.com/arcgis-runtime/licensing/) page (you must be logged in).
 
 ## Learn More
-To learn more about the App Architecture and usage, start [here](maps-app-ios/About.md).
+Learn more about the App Architecture and usage [here](maps-app-ios/About.md).
 
 ## Requirements
 * [Xcode](https://itunes.apple.com/us/app/xcode/id497799835?mt=12)

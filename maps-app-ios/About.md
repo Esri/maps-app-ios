@@ -10,9 +10,9 @@ The app operates in one of 3 "modes":
 * Display a Geocode Result
 * Display a Route Result
 
-The app user can be logged in or logged out from ArcGIS Online or an ArcGIS Portal. The user must log in to browse their account's Web Maps and get route directions (which consumes credits).
+The app allows a user to log in to ArcGIS Online or an ArcGIS Portal. The user must log in to browse their account's Web Maps and get route directions (which consumes credits).
 
-Additionally, if the user's organization has custom basemaps configured, when logged in the user will be able to pick from those in the Basemap picker, but otherwise will see just the default ArcGIS Online basemaps.
+If the user's organization or Portal has custom basemaps configured, when logged in the user will be able to pick from those in the Basemap picker, but otherwise will see just the default ArcGIS Online basemaps.
 
 ### User Interface
 The main UI component is the Feedback View at the top of the Map View. It reflects the current mode and can be a SearchBar, a Geocode Result, or a Directions Result.
