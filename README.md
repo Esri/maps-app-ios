@@ -1,4 +1,4 @@
-# Maps-App iOS
+# Maps App iOS
 
 The Maps App for iOS shows how a robust application can be built around the ArcGIS Platform using the [ArcGIS Runtime SDK for iOS](https://developers.arcgis.com/ios/). It demonstrates best practices around some simple but key functionality of the ArcGIS Runtime. You can use the Maps App as is, or extend it to meet your specific needs.
 
