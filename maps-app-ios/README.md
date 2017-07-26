@@ -44,9 +44,8 @@ if let basemapGroupQuery = portal.portalInfo?.basemapGalleryGroupQuery {
                 print("Basemap results were not a set of AGSPortalItems")
                 return
             }
-            
-            basemaps = basemapItems
-            print(basemaps)
+
+            // Display the basemaps in a basemaps picker...
         })
     })
 }
