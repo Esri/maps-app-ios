@@ -198,32 +198,8 @@
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kFB-HB-fmT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JsC-DV-713" customClass="RoundedButton" customModule="maps_app_ios" customModuleProvider="target">
-                                <rect key="frame" x="62" y="233" width="251" height="84"/>
-                                <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="JsC-DV-713" secondAttribute="height" multiplier="3:1" id="1Gs-L2-oyj"/>
-                                    <constraint firstAttribute="width" priority="999" constant="300" id="wzu-9A-4Jz"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="50"/>
-                                <state key="normal" title="Log In">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="0.0"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                        <real key="value" value="0.0"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="circular" value="NO"/>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="logIn:" destination="lvC-tV-PuD" eventType="touchUpInside" id="yG3-kA-T6G"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sty-Bh-wX3">
                                 <rect key="frame" x="331" y="0.0" width="28" height="22"/>
                                 <state key="normal" image="Collapse"/>
@@ -231,40 +207,113 @@
                                     <segue destination="Cva-Z2-RsU" kind="unwind" unwindAction="closeAccountViewer:" id="cNF-a4-WCq"/>
                                 </connections>
                             </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="fPo-DC-PWb">
+                                <rect key="frame" x="16" y="0.0" width="343" height="639"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mnh-Uc-Cwl">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="480"/>
+                                        <subviews>
+                                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JsC-DV-713" customClass="RoundedButton" customModule="maps_app_ios" customModuleProvider="target">
+                                                <rect key="frame" x="56.5" y="202" width="230" height="77"/>
+                                                <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="JsC-DV-713" secondAttribute="height" multiplier="3:1" id="1Gs-L2-oyj"/>
+                                                    <constraint firstAttribute="width" priority="999" constant="300" id="wzu-9A-4Jz"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="50"/>
+                                                <state key="normal" title="Log In">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="0.0"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                        <real key="value" value="0.0"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="circular" value="NO"/>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="logIn:" destination="lvC-tV-PuD" eventType="touchUpInside" id="yG3-kA-T6G"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="JsC-DV-713" firstAttribute="centerX" secondItem="Mnh-Uc-Cwl" secondAttribute="centerX" id="4QH-zK-ghG"/>
+                                            <constraint firstItem="JsC-DV-713" firstAttribute="width" relation="lessThanOrEqual" secondItem="Mnh-Uc-Cwl" secondAttribute="width" multiplier="0.67" id="5rG-1t-oQF"/>
+                                            <constraint firstItem="JsC-DV-713" firstAttribute="centerY" secondItem="Mnh-Uc-Cwl" secondAttribute="centerY" id="SKz-OJ-Tb5"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="laW-TT-1yb">
+                                        <rect key="frame" x="0.0" y="490" width="343" height="149"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="hbT-s9-JGN">
+                                                <rect key="frame" x="8" y="8" width="327" height="133"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="infinite" placeholderIntrinsicHeight="100" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YIC-cg-giT" userLabel="Account Benefits">
+                                                        <rect key="frame" x="0.0" y="0.0" width="327" height="90"/>
+                                                        <string key="text">Log in with your ArcGIS Online Organization or Developer account to access your Web Maps and to use premium services such as Routing.</string>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D6D-i6-f6E" customClass="RoundedButton" customModule="maps_app_ios" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="100" width="327" height="33"/>
+                                                        <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                        <state key="normal" title="Sign up for a free Developer account">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        </state>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <real key="value" value="0.0"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                                <real key="value" value="0.0"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="circular" value="NO"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="signUp:" destination="lvC-tV-PuD" eventType="touchUpInside" id="xJA-24-DOI"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="hbT-s9-JGN" firstAttribute="leading" secondItem="laW-TT-1yb" secondAttribute="leading" constant="8" id="Bt6-Hi-szi"/>
+                                            <constraint firstItem="hbT-s9-JGN" firstAttribute="top" secondItem="laW-TT-1yb" secondAttribute="top" constant="8" id="QHN-1C-LV8"/>
+                                            <constraint firstAttribute="bottom" secondItem="hbT-s9-JGN" secondAttribute="bottom" constant="8" id="VKu-74-qQe"/>
+                                            <constraint firstAttribute="trailing" secondItem="hbT-s9-JGN" secondAttribute="trailing" constant="8" id="mnC-U2-qmh"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="JsC-DV-713" firstAttribute="centerY" secondItem="kFB-HB-fmT" secondAttribute="centerY" multiplier="0.85" priority="750" id="2b1-AC-Lli"/>
-                            <constraint firstItem="JsC-DV-713" firstAttribute="centerX" secondItem="kFB-HB-fmT" secondAttribute="centerX" id="2yy-dp-iv9"/>
-                            <constraint firstItem="JsC-DV-713" firstAttribute="centerY" secondItem="kFB-HB-fmT" secondAttribute="centerY" id="BSp-dy-nne"/>
+                            <constraint firstItem="fPo-DC-PWb" firstAttribute="top" secondItem="kFB-HB-fmT" secondAttribute="topMargin" id="6eO-hq-PzQ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Sty-Bh-wX3" secondAttribute="trailing" id="DTf-Gi-LV3"/>
                             <constraint firstItem="Sty-Bh-wX3" firstAttribute="top" secondItem="xcZ-Nx-9g3" secondAttribute="bottom" id="Ege-OD-mxM"/>
                             <constraint firstItem="Sty-Bh-wX3" firstAttribute="top" secondItem="xcZ-Nx-9g3" secondAttribute="bottom" id="MfI-8S-0EO"/>
-                            <constraint firstItem="JsC-DV-713" firstAttribute="height" relation="lessThanOrEqual" secondItem="kFB-HB-fmT" secondAttribute="height" multiplier="0.67" id="RSb-dB-qhd"/>
-                            <constraint firstItem="JsC-DV-713" firstAttribute="width" relation="lessThanOrEqual" secondItem="kFB-HB-fmT" secondAttribute="width" multiplier="0.67" id="rEM-BK-Y5E"/>
+                            <constraint firstItem="fPo-DC-PWb" firstAttribute="leading" secondItem="kFB-HB-fmT" secondAttribute="leadingMargin" id="UqR-d5-FcO"/>
+                            <constraint firstItem="RfR-lK-LxE" firstAttribute="top" secondItem="fPo-DC-PWb" secondAttribute="bottom" constant="8" symbolic="YES" id="dpp-55-y5H"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="fPo-DC-PWb" secondAttribute="trailing" id="hbe-fc-n5e"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="BSp-dy-nne"/>
-                            </mask>
-                        </variation>
-                        <variation key="heightClass=compact-widthClass=compact">
-                            <mask key="constraints">
-                                <include reference="BSp-dy-nne"/>
-                            </mask>
-                        </variation>
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VM7-zc-65d" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="Cva-Z2-RsU" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1833" y="815"/>
+            <point key="canvasLocation" x="1832.8" y="814.54272863568224"/>
         </scene>
     </scenes>
     <resources>
         <image name="Collapse" width="28" height="14"/>
         <image name="Folder" width="28" height="24"/>
-        <image name="User" width="44" height="44"/>
+        <image name="User" width="132" height="132"/>
     </resources>
 </document>

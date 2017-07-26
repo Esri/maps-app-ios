@@ -8,8 +8,14 @@
 
 import UIKit
 
+fileprivate let signUpURL = URL(string: "https://developers.arcgis.com/sign-up")!
+
 class AccountLoginViewController: UIViewController {
     @IBAction func logIn(_ sender: Any) {
         mapsAppContext.logIn(portalURL: nil)
+    }
+    
+    @IBAction func signUp(_ sender: Any) {
+        UIApplication.shared.open(signUpURL, options: [:], completionHandler: nil)
     }
 }
