@@ -249,7 +249,7 @@ if let routeTaskURL = portal.portalInfo?.helperServices?.routeServiceURL {
     routeTask = AGSRouteTask(url: routeTaskURL)
 }
 ```
-You can instantiate a new RouteParameters object by using the `defaultRouteParameters()` method on your `AGSRouteTask` object. Using this method will set the appropriate default settings for routing, add the stops and request route directions, and allow the units of measure for the directions to be specified. The default parameters are loaded when the AGSRouteTask loads, and are cached for subsequent calls, so once the AGSRouteTask has loaded its metadata once from the REST service, the following code will move immediately on to solving the route:
+You can instantiate a new `AGSRouteParameters` object by using the `defaultRouteParameters()` function on the `AGSRouteTask` instance. This retrieves the appropriate default settings for the route service. We then add the stops and request route directions. The default parameters are loaded when the `AGSRouteTask` loads, and are cached for subsequent calls, so once the `AGSRouteTask` has loaded its metadata once from the REST service, the following code will move immediately on to solving the route:
 
 ``` Swift
 func requestRoute(from:AGSStop, to:AGSStop) {
