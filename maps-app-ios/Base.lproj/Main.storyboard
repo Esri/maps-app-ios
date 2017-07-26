@@ -122,12 +122,12 @@
                                                             <constraint firstAttribute="height" constant="1" id="4CW-P7-q1Q"/>
                                                         </constraints>
                                                     </view>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ay3-0t-kAq">
+                                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ay3-0t-kAq">
                                                         <rect key="frame" x="0.0" y="82" width="40" height="40"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="40" id="xI1-vk-oNX"/>
                                                         </constraints>
-                                                        <state key="normal" image="Burger Button"/>
+                                                        <state key="normal" image="Account"/>
                                                         <connections>
                                                             <segue destination="Q6l-Ds-Fna" kind="presentation" modalPresentationStyle="overFullScreen" id="TZ3-Fn-ka8"/>
                                                         </connections>
@@ -280,7 +280,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Burger Button" width="30" height="30"/>
+        <image name="Account" width="30" height="30"/>
         <image name="Choose Basemap" width="30" height="30"/>
         <image name="Compass" width="36" height="36"/>
         <image name="GPS Off" width="22" height="22"/>
