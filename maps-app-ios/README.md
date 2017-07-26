@@ -1,7 +1,7 @@
-Maps-App
+Maps App
 =======================
 ## Description
-Get your organization's authoritative map data into the hands of your workers with this ArcGIS Runtime iOS app. The application you build can include a custom web map from your [ArcGIS Online organization](https://doc.arcgis.com/en/arcgis-online/reference/what-is-agol.htm). For example, a [web map](http://doc.arcgis.com/en/living-atlas/item/?itemId=26888b0c21a44eb1ba2f26d1eb7981fe) from the Living Atlas can be used as a starting place for your app. The maps-app also includes examples of place search and routing capabilities using either ArcGIS Online's powerful services or your own services. It also leverages your organizations configured basemaps to allow users to switch between the basemap that make sense for them.
+Get your organization's authoritative map data into the hands of your workers with this ArcGIS Runtime iOS app. The application you build can include a custom web map from your [ArcGIS Online organization](https://doc.arcgis.com/en/arcgis-online/reference/what-is-agol.htm). For example, a [web map](http://doc.arcgis.com/en/living-atlas/item/?itemId=26888b0c21a44eb1ba2f26d1eb7981fe) from the Living Atlas can be used as a starting place for your app. The Maps App also includes examples of place search and routing capabilities using either ArcGIS Online's powerful services or your own services. It also leverages your organizations configured basemaps to allow users to switch between the basemap that make sense for them.
 
 This example application is open source so grab the code at [GitHub](https://github.com/Esri/maps-app-ios) and either configure the app for your organization, or just learn how to integrate similar capabilities into your own app!
 
@@ -240,9 +240,9 @@ func geoView(_ geoView: AGSGeoView, didEndLongPressAtScreenPoint screenPoint: CG
 ```
 
 ## Route
-Getting navigation directions in the maps-app is just as easy in the [Runtime SDK](https://developers.arcgis.com/features/directions/) as it is on [ArcGIS Online](http://doc.arcgis.com/en/arcgis-online/use-maps/get-directions.htm). You can [customize](http://doc.arcgis.com/en/arcgis-online/administer/configure-services.htm#ESRI_SECTION1_567C344D5DEE444988CA2FE5193F3CAD) your navigation service for your organization, add new travel modes that better reflect your organization’s workflows, or remove travel modes that are not suitable for your organization’s workflows.
+Getting navigation directions in the Maps App is just as easy in the [Runtime SDK](https://developers.arcgis.com/features/directions/) as it is on [ArcGIS Online](http://doc.arcgis.com/en/arcgis-online/use-maps/get-directions.htm). You can [customize](http://doc.arcgis.com/en/arcgis-online/administer/configure-services.htm#ESRI_SECTION1_567C344D5DEE444988CA2FE5193F3CAD) your navigation service for your organization, add new travel modes that better reflect your organization’s workflows, or remove travel modes that are not suitable for your organization’s workflows.
 
-Navigating from point to point in the Map App is enabled by first geocoding or reverse geocoding a location. You can then get directions to that location from the current GPS location (or if GPS is disabled, from the center of the map). In the maps-app, routing requires you to provide credentials to your Portal or ArcGIS Online organization. As mentioned earlier in the Identity section above, we use the `AGSOAuthConfiguration` object to manage the authentication process.
+Navigating from point to point in the Map App is enabled by first geocoding or reverse geocoding a location. You can then get directions to that location from the current GPS location (or if GPS is disabled, from the center of the map). In the Maps App, routing requires you to provide credentials to your Portal or ArcGIS Online organization. As mentioned earlier in the Identity section above, we use the `AGSOAuthConfiguration` object to manage the authentication process.
 
 ``` Swift
 if let routeTaskURL = portal.portalInfo?.helperServices?.routeServiceURL {
