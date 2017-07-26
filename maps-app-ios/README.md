@@ -92,7 +92,7 @@ To tell iOS to call back like this, the Maps App configures a `URL Type` in the 
 
 Note the value for URL Schemes. Combined with the text `auth` to make `maps-app-ios://auth`, this is the [redirect URI](https://developers.arcgis.com/authentication/browser-based-user-logins/#configuring-a-redirect-uri) that you configured when you registered your app [here](https://developers.arcgis.com/). For more details on the user authorization flow, see the [Authorize REST API](http://resources.arcgis.com/en/help/arcgis-rest-api/#/Authorize/02r300000214000000/).
 
-For more details on configuring the Maps App for OAuth, see [the main README.md](/README.md)
+For more details on configuring the Maps App for OAuth, see [the main README.md](/README.md#2-configuring-the-project)
 
 ## Place Search & Geocoding
 [Geocoding](https://developers.arcgis.com/ios/latest/swift/guide/search-for-places-geocoding-.htm) lets you transform an address or a place name to a specific geographic location. The reverse lets you use a geographic location to find a description of the location, like a postal address or place name. In the Maps App, we use a [AGSLocatorTask](https://developers.arcgis.com/ios/latest/swift/guide/search-for-places-geocoding-.htm#ESRI_SECTION1_62AE6A47EB4B403ABBC72337A1255F8A) to perform geocoding and reverse geocoding functions provided by [Esri's World Geocoding Service](https://developers.arcgis.com/features/geocoding/). The `AGSLocatorTask` has various asynchronous methods that we use to provide address suggestions when searching for places or geocoding locations.
