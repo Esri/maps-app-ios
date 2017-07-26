@@ -105,13 +105,15 @@ if let geocoderURL = portal.portalInfo?.helperServices?.geocodeServiceURLs?.firs
 }
 ```
 
-Before using the LocatorTask for geocode or searching for places, the `AGSLocatorTask` must be LOADED. The loadable pattern is described [here](https://developers.arcgis.com/ios/latest/swift/guide/loadable-pattern.htm). The ArcGIS Runtime SDK for iOS is implemented so that any action on a loadable task waits internally until the task is loaded. This means that you can safely write code like this and allow the ArcGIS Runtime to handle the load behind the scenes before any geocode request is sent (if the locator is already loaded, it doesn't try to load again but moves straight on to the actual geocode):
+Before using the `AGSLocatorTask` for geocode or searching for places, it must be LOADED. The loadable pattern is described [here](https://developers.arcgis.com/ios/latest/swift/guide/loadable-pattern.htm).
+
+The ArcGIS Runtime SDK for iOS is implemented so that any action on a loadable task is queued internally until the task is loaded. This means that you can safely write code like the following and allow the ArcGIS Runtime to handle the load behind the scenes before any geocode request is sent:
 
 ``` Swift
 func search(searchText:String) {
     locator.geocode(withSearchText: searchText, parameters: params) { results, error in
         guard error == nil else {
-            // This error could be because the locator failed to load...
+            // This could be a load error OR a search error...
             print("Error performing search! \(error!.localizedDescription)")
             return
         }
@@ -125,14 +127,18 @@ func search(searchText:String) {
 }
 ```
 
-## Place Suggestions
-Typing the first few letters of a place into the Map App search box (e.g. “Central Park”) shows a number of suggestions near the device’s location
+ If the `AGSLocatorTask` above is already loaded, the ArcGIS Runtime SDK doesn't try to load again but moves straight on to the actual geocode.
 
-![] (assets/suggest.png)
+## Place Suggestions
+Typing the first few letters of a place into the Map App search box (e.g. “Central Park”) shows a number of suggestions near the device’s location.
+
+![](/docs/images/app-suggestions.png)
+
+This is a simple call on the `AGSLocatorTask`:
 
 ``` Swift
 func getSuggestions(forSearchText searchText:String) {
-    self.locator.suggest(withSearchText: searchText) { suggestions, error in
+    locator.suggest(withSearchText: searchText) { suggestions, error in
         guard error == nil else {
             // This could be a load error OR a suggestions error...
             print("Error getting suggestions for \"\(searchText)\": \(error!.localizedDescription)")
@@ -144,7 +150,7 @@ func getSuggestions(forSearchText searchText:String) {
 }
 ```
 
-If there is a property you need to read before calling an async action on the loadable task, then you must explicitly load the task (in this case we modify the above code because we want to know if the locator supports providing interactive suggestions as the user types into a search bar):
+If there is a property you need to read before calling an async action on the loadable task, then you must explicitly load the task (in the following code, the above code is updated slightly to determine whether the locator supports interactive suggestions):
 
 ``` Swift
 func getSuggestions(forSearchText searchText:String) {
@@ -173,7 +179,7 @@ func getSuggestions(forSearchText searchText:String) {
 }
 ```
 
-Note how the above two patterns work to coalesce loading and asynchronous actions, and how this could impact the errors that are returned. Understanding this can guide how you might present errors to the user.
+Note how the above two patterns work to coalesce loading and asynchronous actions. Understanding this can guide how you might present errors to the user.
 
 ## Searching from a Suggestion
 Once a suggestion in the list has been selected by the user, the suggested address is geocoded using the geocode function of the `AGSLocatorTask`. Along with the address, specific [geocoding parameters](https://developers.arcgis.com/ios/latest/swift/guide/search-for-places-geocoding-.htm#ESRI_SECTION1_62AE6A47EB4B403ABBC72337A1255F8A) can be set to tune the results. For example, in the maps app, we set the [preferred location](https://developers.arcgis.com/ios/latest/api-reference/interface_a_g_s_geocode_parameters.html#a8d2dbede94ed26ecde13f9d766d767e2) to prioritize results closer to the center of the map.
