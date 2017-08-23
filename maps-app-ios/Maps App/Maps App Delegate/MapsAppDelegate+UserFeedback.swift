@@ -20,7 +20,7 @@ extension MapsAppDelegate {
             - buttonText: Text for the single default button. Defaults to "OK"
     */
     func showDefaultAlert(title:String? = nil, message:String, buttonText:String = "OK") {
-        if let currentViewController = window?.rootViewController {
+        if let currentViewController = window?.rootViewController?.presentedViewController ?? window?.rootViewController {
             let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: buttonText, style: .default))
             currentViewController.present(alert, animated: true)
@@ -50,7 +50,7 @@ extension MapsAppDelegate {
             continueHandler()
         } else {
             // Present a warning message if the user is not logged in before performing the block or canceling the action.
-            if let currentViewController = window?.rootViewController {
+            if let currentViewController = window?.rootViewController?.presentedViewController ?? window?.rootViewController {
                 let alert = UIAlertController(title: "Login Required", message: explanation, preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "Login", style: .default, handler: { _ in continueHandler() }))
                 alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { _ in cancelHandler?() }))

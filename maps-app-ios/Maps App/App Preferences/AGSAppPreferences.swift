@@ -42,12 +42,44 @@ class AGSAppPreferences: NSObject {
         }
     }
     
+    func getURL<K:RawRepresentable>(forKey key:K) -> URL? where K.RawValue == String {
+        return AppSettings.preferencesStore.url(forKey: key.rawValue)
+    }
+    
+    func getBool<K:RawRepresentable>(forKey key:K) -> Bool? where K.RawValue == String {
+        return AppSettings.preferencesStore.bool(forKey: key.rawValue)
+    }
+    
+    func getDouble<K:RawRepresentable>(forKey key:K) -> Double? where K.RawValue == String {
+        return AppSettings.preferencesStore.double(forKey: key.rawValue)
+    }
+    
+    func getFloat<K:RawRepresentable>(forKey key:K) -> Float? where K.RawValue == String {
+        return AppSettings.preferencesStore.float(forKey: key.rawValue)
+    }
+    
+    func getInt<K:RawRepresentable>(forKey key:K) -> Int? where K.RawValue == String {
+        return AppSettings.preferencesStore.integer(forKey: key.rawValue)
+    }
+    
     func get<K:RawRepresentable>(forKey key:K) -> Any? where K.RawValue == String {
         return AppSettings.preferencesStore.object(forKey: key.rawValue)
     }
     
     func set<K:RawRepresentable>(value: Any?, forKey key:K) where K.RawValue == String {
-        AppSettings.preferencesStore.set(value, forKey: key.rawValue)
+        if let url = value as? URL {
+            AppSettings.preferencesStore.set(url, forKey: key.rawValue)
+        } else if let bool = value as? Bool {
+            AppSettings.preferencesStore.set(bool, forKey: key.rawValue)
+        } else if let double = value as? Double {
+            AppSettings.preferencesStore.set(double, forKey: key.rawValue)
+        } else if let float = value as? Float {
+            AppSettings.preferencesStore.set(float, forKey: key.rawValue)
+        } else if let anInt = value as? Int {
+            AppSettings.preferencesStore.set(anInt, forKey: key.rawValue)
+        } else {
+            AppSettings.preferencesStore.set(value, forKey: key.rawValue)
+        }
     }
     
     private func writeToPreferences<T:AGSJSONSerializable>(agsObject:T, withKey key:String) {

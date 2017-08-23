@@ -15,7 +15,7 @@ class GeocodeResultViewController : UIViewController {
     var result:AGSGeocodeResult? {
         didSet {
             if let result = self.result {
-                self.addressLabel.text = result.label
+                self.addressLabel.text = result.attributes?["LongLabel"] as? String ?? result.label
             }
         }
     }

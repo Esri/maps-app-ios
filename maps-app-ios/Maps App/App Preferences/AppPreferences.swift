@@ -36,10 +36,10 @@ class AppPreferences: AGSAppPreferences {
     
     var portalURL:URL? {
         get {
-            return get(forKey: AppPreferenceKey.portalURL) as? URL
+            return getURL(forKey: AppPreferenceKey.portalURL)
         }
         set {
-            set(value: portalURL, forKey: AppPreferenceKey.portalURL)
+            set(value: newValue, forKey: AppPreferenceKey.portalURL)
         }
     }
 }
