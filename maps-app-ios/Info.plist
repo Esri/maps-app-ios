@@ -2,16 +2,19 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>AGSConfiguration</key>
+	<key>AppConfiguration</key>
 	<dict>
+		<key>PortalAuthConfig</key>
+		<dict>
+			<key>ClientID</key>
+			<string>nFA1bEfbJ3qelBRr</string>
+		</dict>
 		<key>AppURLScheme</key>
 		<string>maps-app-ios</string>
 		<key>AuthURLPath</key>
 		<string>auth</string>
 		<key>BasemapQueryPageSize</key>
 		<integer>50</integer>
-		<key>ClientID</key>
-		<string>nFA1bEfbJ3qelBRr</string>
 		<key>DefaultGeocodeServiceURL</key>
 		<string>https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer</string>
 		<key>DefaultRouteServiceURL</key>

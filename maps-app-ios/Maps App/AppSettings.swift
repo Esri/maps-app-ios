@@ -9,10 +9,16 @@
 import Foundation
 
 struct AppSettings {
-    private static let agsSettings:[String:Any] = (Bundle.main.infoDictionary?["AGSConfiguration"] as? [String:Any]) ?? [:]
+    private static let agsSettings:[String:Any] = (Bundle.main.infoDictionary?["AppConfiguration"] as? [String:Any]) ?? [:]
     private static func getAgsSetting<T>(named name:String) -> T? {
         return (agsSettings[name] as? T)
     }
+
+    private static let authSettings:[String:Any] = getAgsSetting(named: "PortalAuthConfig") ?? [String:Any]()
+    private static func getAuthSetting<T>(named name:String) -> T? {
+        return (authSettings[name] as? T)
+    }
+
     
     // MARK: Runtime Licensing
     // Set up AGSLicenseKey in the project's info.plist to remove the Developer watermark.
@@ -20,11 +26,24 @@ struct AppSettings {
     static let licenseKey = getAgsSetting(named: "LicenseKey") ?? ""
 
 
-    // MARK: OAuth Logins
-    // Set up AppClientID in the project's info.plist. This is used for the OAuth panel and will determine what app users see
-    // when they log in to authorize the app to view their account and use their routing/geocoding tasks.
-    static let clientID = getAgsSetting(named: "ClientID") ?? ""
 
+    // MARK: Portal Auth Config
+    // If there is a PortalURL setting in the info.plist file, then use that, otherwise leave it blank and the
+    // app will fall back to ArcGIS Online.
+    static let portalURL:URL? = {
+        if let urlString:String = getAuthSetting(named: "PortalURL"), let url = URL(string: urlString) {
+            return url
+        }
+        return nil
+    }()
+
+    // Set up AppClientID in the project's info.plist. This is used for the OAuth panel and will determine what app users see
+    // when they log in to authorize the app to view their account and use their routing/geocoding tasks. A ClientID is specific
+    // to a particular portal (and is derived from an Application created within that portal).
+    static let clientID = getAuthSetting(named: "ClientID") ?? ""
+
+
+    // MARK: Runtime OAuth Configuration
     // appScheme and authURLPath are used to tell OAuth how to call back to this app.
     // For example, if they're set up as follows:
     //    AppURLSchema   = "maps-app-ios"

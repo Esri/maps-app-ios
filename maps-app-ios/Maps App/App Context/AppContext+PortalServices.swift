@@ -17,7 +17,7 @@ extension AppContext {
     func updateServices(forPortal portal:AGSPortal) {
         portal.load { error in
             guard error == nil else {
-                print("Error loading the portal: \(error!.localizedDescription)")
+                print("Error loading the portal to update services: \(error!.localizedDescription)")
                 return
             }
             
