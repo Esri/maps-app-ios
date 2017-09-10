@@ -20,7 +20,7 @@ extension AppContext {
         AGSAuthenticationManager.shared().credentialCache.enableAutoSyncToKeychain(withIdentifier: AppSettings.keychainIdentifier, accessGroup: nil, acrossDevices: false)
         
         // Use a custom Portal URL if we've got one saved
-        let savedPortalURL = mapsAppPrefs.portalURL
+        let savedPortalURL = mapsAppPrefs.portalURL ?? AppSettings.portalURL
         
         // Find the "most logged-in portal" we can using any cached credentials.
         // For more info see comments in AGSPortal+Autologin.swift.
@@ -42,7 +42,7 @@ extension AppContext {
         // Now load the portal so we can get some portal-specific information from it.
         portal.load() { error in
             guard error == nil else {
-                print("Error loading the portal: \(error!.localizedDescription)")
+                print("Error loading the portal for setup: \(error!.localizedDescription)")
                 return
             }
             
@@ -65,7 +65,7 @@ extension AppContext {
         // Try to take the current portal and update it to be in a logged in state.
         currentPortal?.load() { error in
             guard error == nil else {
-                print("Error loading the portal: \(error!.localizedDescription)")
+                print("Error loading the portal during login attempt: \(error!.localizedDescription)")
                 return
             }
             

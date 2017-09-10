@@ -17,17 +17,19 @@ extension AppContext {
     func updateServices(forPortal portal:AGSPortal) {
         portal.load { error in
             guard error == nil else {
-                print("Error loading the portal: \(error!.localizedDescription)")
+                print("Error loading the portal to update services: \(error!.localizedDescription)")
                 return
             }
             
             if let svcs = portal.portalInfo?.helperServices {
                 if let geocoderURL = svcs.geocodeServiceURLs?.first, geocoderURL != arcGISServices.locator.url {
                     arcGISServices.locator = AGSLocatorTask(url: geocoderURL)
+                    print("Locator set to: \(geocoderURL)")
                 }
                 
                 if let routeTaskURL = svcs.routeServiceURL, routeTaskURL != arcGISServices.routeTask.url {
                     arcGISServices.routeTask = AGSRouteTask(url: routeTaskURL)
+                    print("Route Task set to: \(routeTaskURL)")
                 }
             }
             
