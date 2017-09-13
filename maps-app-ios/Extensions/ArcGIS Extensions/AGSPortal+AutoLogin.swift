@@ -31,6 +31,12 @@ extension AGSPortal {
         // We'll temporarily disable prompting the user to log in if the cached credentials are not suitable to log us in.
         // I.e. if the cached credentials aren't good enough to find ourselves logged in to the portal/ArcGIS Online, then just 
         // accept it and don't prompt us to log in. We revert that behaviour as soon as the portal loads below.
+        
+        // REVIEW - a better way to do this is to `copy` the global() configuration, set the `shouldIssueAuthenticationChallenge`,
+        // then set the copy on `newPortal.requestConfiguration`.  In the load completion block, you would then set the newPortal.requestConfiguration
+        // back to nil.  That way you're not messing with the global configuration, which *could* be used in between the call to `load`
+        // and the call to the completion block.
+        //
         let preferredAuthChallengeRule = AGSRequestConfiguration.global().shouldIssueAuthenticationChallenge
         AGSRequestConfiguration.global().shouldIssueAuthenticationChallenge = { _ in return false }
         

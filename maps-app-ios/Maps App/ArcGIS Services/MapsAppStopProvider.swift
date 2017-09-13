@@ -17,6 +17,9 @@ protocol MapsAppStopProvider {
 
 extension AGSPoint : MapsAppStopProvider {
     func routeStop(inSpatialReference sr: AGSSpatialReference) -> AGSStop {
+        
+        //REVIEW - This will crash if the projectGeometry call fails;  In general, we should avoid force-unwrapping optionals.
+        // Maybe do what the `AGSMapView` extension does and return 0,0
         return AGSStop(point:AGSGeometryEngine.projectGeometry(self, to: sr) as! AGSPoint)
     }
 }
@@ -24,6 +27,8 @@ extension AGSPoint : MapsAppStopProvider {
 extension AGSGeocodeResult : MapsAppStopProvider {
     func routeStop(inSpatialReference sr: AGSSpatialReference) -> AGSStop {
         // If we want to route to an AGSGeocodeResult, let's try the routeLocation first, else fall back to the displayLocation
+
+        //REVIEW - Same here: this will crash if the projectGeometry call fails
         let stop = (self.routeLocation ?? self.displayLocation!).routeStop(inSpatialReference: sr)
         stop.name = self.label
         return stop
