@@ -21,12 +21,7 @@ class AccountViewController: UIViewController {
     }
     
     func showAccountPanelForLoginStatus() {
-        switch mapsAppContext.loginStatus {
-        case .loggedOut:
-            loggedOutContainer.isHidden = false
-        case .loggedIn:
-            loggedOutContainer.isHidden = true
-        }
+        loggedOutContainer.isHidden = mapsAppContext.isLoggedIn
         loggedInContainer.isHidden = !loggedOutContainer.isHidden
     }
     

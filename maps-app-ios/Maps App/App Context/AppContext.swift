@@ -8,11 +8,6 @@
 
 import ArcGIS
 
-enum LoginStatus {
-    case loggedIn(user:AGSPortalUser)
-    case loggedOut
-}
-
 class AppContext {
     
     // MARK: Portal Information
@@ -79,27 +74,6 @@ class AppContext {
         }
     }
 
-    // MARK: Login Status
-    /**
-     The user's current logged in state. Setting this will post notifications to the rest of the app.
-     
-     See also MapsAppNotifications.Names.AppLogin and MapsAppNotifications.Names.AppLogout
-     */
-    var loginStatus:LoginStatus = .loggedOut {
-        didSet {
-            switch loginStatus {
-            case .loggedIn(let user):
-                print("Logged in as user \(user)")
-                self.rootFolder = PortalUserFolder.rootFolder(forUser: user)
-                MapsAppNotifications.postLoginNotification(user: user)
-            case .loggedOut:
-                print("Logged out")
-                self.rootFolder = nil
-                MapsAppNotifications.postLogoutNotification()
-            }
-        }
-    }
-    
     /**
      Returns whether we are currently logged in to the current portal.
      */
@@ -111,11 +85,18 @@ class AppContext {
      Return the current logged in user, if any.
      */
     var currentUser:AGSPortalUser? {
-        switch self.loginStatus {
-        case .loggedIn(let user):
-            return user
-        case .loggedOut:
-            return nil
+        didSet {
+            if let user = currentUser {
+                print("Logged in as user \(user)")
+                self.rootFolder = PortalUserFolder.rootFolder(forUser: user)
+                MapsAppNotifications.postLoginNotification(user: user)
+            } else {
+                if let oldUser = oldValue {
+                    print("\(oldUser) logged out")
+                }
+                self.rootFolder = nil
+                MapsAppNotifications.postLogoutNotification()
+            }
         }
     }
 
