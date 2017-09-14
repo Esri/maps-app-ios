@@ -50,11 +50,7 @@ extension AppContext {
             self.updateServices(forPortal: portal)
             
             // Record whether we're logged in to this new portal.
-            if let user = portal.user {
-                self.loginStatus = .loggedIn(user: user)
-            } else {
-                self.loginStatus = .loggedOut
-            }
+            self.currentUser = portal.user
         }
     }
     
