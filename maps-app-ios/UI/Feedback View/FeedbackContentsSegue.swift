@@ -19,7 +19,7 @@ class FeedbackContentsSegue: UIStoryboardSegue {
     }
     
     func swapChildVCs(from:UIViewController?, to:UIViewController) {
-        // Code stolen from https://github.com/mluton/EmbeddedSwapping and modified for Swift 3
+        // Code derived from https://github.com/mluton/EmbeddedSwapping and modified for Swift 3
         // https://stackoverflow.com/questions/35014362/sizing-a-container-view-with-a-controller-of-dynamic-size-inside-a-scrollview helped a lot here
         //
         // This above snippets were also modified to make use of NSConstraints.
