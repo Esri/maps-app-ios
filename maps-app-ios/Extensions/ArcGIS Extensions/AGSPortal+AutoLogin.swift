@@ -38,16 +38,18 @@ extension AGSPortal {
         // I.e. if the cached credentials aren't good enough to find ourselves logged in to the portal/ArcGIS Online, then just 
         // accept it and don't prompt us to log in, resulting in a Portal being accessed anonymously.
         // We revert from that behaviour as soon as the portal loads below.
-        let originalPortalRequestConfiguration = newPortal.requestConfiguration
-        let silentAuthRequestConfiguration = (originalPortalRequestConfiguration ?? AGSRequestConfiguration.global()).copy() as? AGSRequestConfiguration
-        silentAuthRequestConfiguration?.shouldIssueAuthenticationChallenge = { _ in return false }
-        
-        newPortal.requestConfiguration = silentAuthRequestConfiguration
-        
+        let originalPortalRC = newPortal.requestConfiguration,
+            sourceRC = originalPortalRC ?? AGSRequestConfiguration.global(),
+            silentAuthRC = sourceRC.copy() as? AGSRequestConfiguration
+
+        silentAuthRC?.shouldIssueAuthenticationChallenge = { _ in return false }
+
+        newPortal.requestConfiguration = silentAuthRC
+
         newPortal.load() { error in
             // Before we do anything else, go back to handling auth challenges as before.
-            newPortal.requestConfiguration = originalPortalRequestConfiguration
-            
+            newPortal.requestConfiguration = originalPortalRC
+    
             // If we were able to log in with cached credentials, there will be no error.
             if error == nil {
                 completion(newPortal, true)
