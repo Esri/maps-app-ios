@@ -17,14 +17,15 @@ protocol MapsAppStopProvider {
 
 extension AGSPoint : MapsAppStopProvider {
     func routeStop(inSpatialReference sr: AGSSpatialReference) -> AGSStop {
-        return AGSStop(point:AGSGeometryEngine.projectGeometry(self, to: sr) as! AGSPoint)
+        let stopGeometry = (AGSGeometryEngine.projectGeometry(self, to: sr) as? AGSPoint) ?? AGSPoint.zeroPoint(spatialReference: sr)
+        return AGSStop(point:stopGeometry)
     }
 }
 
 extension AGSGeocodeResult : MapsAppStopProvider {
     func routeStop(inSpatialReference sr: AGSSpatialReference) -> AGSStop {
         // If we want to route to an AGSGeocodeResult, let's try the routeLocation first, else fall back to the displayLocation
-        let stop = (self.routeLocation ?? self.displayLocation!).routeStop(inSpatialReference: sr)
+        let stop = (self.routeLocation ?? self.displayLocation ?? AGSPoint.zeroPoint(spatialReference: sr)).routeStop(inSpatialReference: sr)
         stop.name = self.label
         return stop
     }
@@ -50,5 +51,12 @@ extension AGSMapView : MapsAppStopProvider {
         let stop = pt.routeStop(inSpatialReference: sr)
         stop.name = "Unknown start point"
         return stop
+    }
+}
+
+// MARK: Fallback Point Constructor
+extension AGSPoint {
+    static func zeroPoint(spatialReference sr:AGSSpatialReference) -> AGSPoint {
+        return AGSPoint(x: 0, y: 0, z: 0, m: 0, spatialReference: sr)
     }
 }
