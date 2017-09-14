@@ -31,12 +31,15 @@ extension AGSPortal {
         // We'll temporarily disable prompting the user to log in if the cached credentials are not suitable to log us in.
         // I.e. if the cached credentials aren't good enough to find ourselves logged in to the portal/ArcGIS Online, then just 
         // accept it and don't prompt us to log in. We revert that behaviour as soon as the portal loads below.
-        let preferredAuthChallengeRule = AGSRequestConfiguration.global().shouldIssueAuthenticationChallenge
-        AGSRequestConfiguration.global().shouldIssueAuthenticationChallenge = { _ in return false }
+        let originalPortalRequestConfiguration = newPortal.requestConfiguration
+        let silentAuthRequestConfiguration = AGSRequestConfiguration.global().mutableCopy() as! AGSRequestConfiguration        
+        silentAuthRequestConfiguration.shouldIssueAuthenticationChallenge = { _ in return false }
+        
+        newPortal.requestConfiguration = silentAuthRequestConfiguration
         
         newPortal.load() { error in
             // Before we do anything else, go back to handling auth challenges as before.
-            AGSRequestConfiguration.global().shouldIssueAuthenticationChallenge = preferredAuthChallengeRule
+            newPortal.requestConfiguration = originalPortalRequestConfiguration
             
             // If we were able to log in with cached credentials, there will be no error.
             if error == nil {
