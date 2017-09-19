@@ -55,11 +55,15 @@ class SuggestionDisplayViewController: UIViewController, UITableViewDataSource, 
         
         suggestions = nil
         
-        MapsAppNotifications.observeSearchNotifications(searchResultHandler: { _ in
+        MapsAppNotifications.observeSearchNotifications(owner: self, searchResultHandler: { _ in
             self.suggestions = nil
         }, suggestionsAvailableHandler: { suggestions in
             self.suggestions = suggestions
         })        
+    }
+    
+    deinit {
+        MapsAppNotifications.deregisterNotificationBlocks(forOwner: self)
     }
     
     override func viewWillAppear(_ animated: Bool) {

@@ -18,7 +18,7 @@ extension MapViewController {
     func setupRouting() {
         self.mapView.graphicsOverlays.add(self.routeResultsOverlay)
 
-        MapsAppNotifications.observeRouteSolvedNotification { result in
+        MapsAppNotifications.observeRouteSolvedNotification(owner: self) { result in
             self.mode = .routeResult(result)
         }
 

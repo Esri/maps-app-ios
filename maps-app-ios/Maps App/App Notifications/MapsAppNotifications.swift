@@ -13,9 +13,31 @@
 // limitations under the License.
 
 import Foundation
+import ObjectiveC
 
 // Intentionally blank structure. Additional Swift Files will extend this.
 struct MapsAppNotifications {
     struct Names {
+    }
+}
+
+extension MapsAppNotifications {
+    private struct AssociatedKeys {
+        static var notificationBlockReference = "notificationBlockReferences"
+    }
+
+    static internal func registerBlockHandler(blockHandler:NSObjectProtocol, forOwner owner:Any) {
+        var blockHandlers = (objc_getAssociatedObject(owner, &AssociatedKeys.notificationBlockReference) as? [NSObjectProtocol]) ?? []
+        blockHandlers.append(blockHandler)
+        objc_setAssociatedObject(owner, &AssociatedKeys.notificationBlockReference, blockHandlers, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+    }
+
+    static func deregisterNotificationBlocks(forOwner owner:Any) {
+        if let blockHandlersForOwner = objc_getAssociatedObject(owner, &AssociatedKeys.notificationBlockReference) as? [NSObjectProtocol] {
+            for blockHandler in blockHandlersForOwner {
+                print("Removing observer block \(blockHandler) on owner \(owner)")
+                NotificationCenter.default.removeObserver(blockHandler)
+            }
+        }
     }
 }

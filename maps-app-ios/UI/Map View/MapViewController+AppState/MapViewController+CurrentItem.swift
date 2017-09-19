@@ -18,7 +18,7 @@ fileprivate let fallbackWebMapVersionErrorMessage = "The WebMap version is pre 2
 
 extension MapViewController {
     func setupCurrentItemChangeHandler() {
-        MapsAppNotifications.observeCurrentItemChanged() {
+        MapsAppNotifications.observeCurrentItemChanged(owner: self) {
             // The app's current item has changed. Let's show the new item in the MapView.
             self.displayCurrentItem()
         }

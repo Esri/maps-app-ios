@@ -28,4 +28,8 @@ class FeedbackViewController : UIViewController {
     @IBAction func returnToSearch(_ segue:UIStoryboardSegue) {
         self.mode = .search
     }
+    
+    deinit {
+        MapsAppNotifications.deregisterNotificationBlocks(forOwner: self)
+    }
 }

@@ -17,12 +17,13 @@ import ArcGIS
 // MARK: External Notification API
 extension MapsAppNotifications {
     // MARK: Register Listeners
-    static func observeRouteSolvedNotification(routeSolvedHandler: @escaping ((AGSRoute)->Void)) {
-        NotificationCenter.default.addObserver(forName: MapsAppNotifications.Names.RouteSolved, object: mapsApp, queue: OperationQueue.main) { notification in
+    static func observeRouteSolvedNotification(owner:Any, routeSolvedHandler: @escaping ((AGSRoute)->Void)) {
+        let ref = NotificationCenter.default.addObserver(forName: MapsAppNotifications.Names.RouteSolved, object: mapsApp, queue: OperationQueue.main) { notification in
             if let routeResult = notification.routeResult {
                 routeSolvedHandler(routeResult)
             }
         }
+        MapsAppNotifications.registerBlockHandler(blockHandler: ref, forOwner: owner)
     }
 }
 

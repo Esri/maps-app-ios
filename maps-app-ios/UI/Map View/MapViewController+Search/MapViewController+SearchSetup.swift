@@ -19,7 +19,7 @@ extension MapViewController {
         // Add a layer to the map to display search results
         mapView.graphicsOverlays.add(geocodeResultsOverlay)
         
-        MapsAppNotifications.observeSearchNotifications(searchResultHandler: { result in
+        MapsAppNotifications.observeSearchNotifications(owner: self, searchResultHandler: { result in
             if let result = result {
                 self.mode = .geocodeResult(result)
             }

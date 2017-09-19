@@ -16,7 +16,7 @@ import ArcGIS
 
 extension MapViewController {
     func setupBasemapChangeHandler() {
-        MapsAppNotifications.observeBasemapChangedNotification { newBasemap in
+        MapsAppNotifications.observeBasemapChangedNotification(owner: self) { newBasemap in
             self.mapView.map?.basemap = newBasemap
             
             newBasemap.load(){ error in

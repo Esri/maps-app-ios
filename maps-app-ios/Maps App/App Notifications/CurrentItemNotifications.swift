@@ -16,16 +16,18 @@ import Foundation
 
 // MARK: External Notification API
 extension MapsAppNotifications {
-    static func observeCurrentItemChanged(handler:@escaping ()->Void) {
-        NotificationCenter.default.addObserver(forName: MapsAppNotifications.Names.CurrentItemChanged, object: mapsApp, queue: OperationQueue.main) { _ in
+    static func observeCurrentItemChanged(owner:Any, handler:@escaping ()->Void) {
+        let ref = NotificationCenter.default.addObserver(forName: MapsAppNotifications.Names.CurrentItemChanged, object: mapsApp, queue: OperationQueue.main) { _ in
             handler()
         }
+        MapsAppNotifications.registerBlockHandler(blockHandler: ref, forOwner: owner)
     }
 
-    static func observeCurrentFolderChanged(handler:@escaping ()->Void) {
-        NotificationCenter.default.addObserver(forName: MapsAppNotifications.Names.CurrentFolderChanged, object: mapsApp, queue: OperationQueue.main) { _ in
+    static func observeCurrentFolderChanged(owner:Any, handler:@escaping ()->Void) {
+        let ref = NotificationCenter.default.addObserver(forName: MapsAppNotifications.Names.CurrentFolderChanged, object: mapsApp, queue: OperationQueue.main) { _ in
             handler()
         }
+        MapsAppNotifications.registerBlockHandler(blockHandler: ref, forOwner: owner)
     }
 }
 

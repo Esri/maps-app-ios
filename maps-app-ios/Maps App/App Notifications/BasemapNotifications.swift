@@ -16,13 +16,14 @@ import ArcGIS
 
 // MARK: External Notification API
 extension MapsAppNotifications {
-    static func observeBasemapChangedNotification(handler:@escaping ((AGSBasemap)->Void)) {
-        NotificationCenter.default.addObserver(forName: MapsAppNotifications.Names.CurrentBasemapChanged, object: mapsApp, queue: OperationQueue.main) { notification in
+    static func observeBasemapChangedNotification(owner:Any, handler:@escaping ((AGSBasemap)->Void)) {
+        let ref = NotificationCenter.default.addObserver(forName: MapsAppNotifications.Names.CurrentBasemapChanged, object: mapsApp, queue: OperationQueue.main) { notification in
             // The user selected a new basemap. Let's show it in the MapView.
             if let newBasemap = notification.basemap {
                 handler(newBasemap)
             }
         }
+        MapsAppNotifications.registerBlockHandler(blockHandler: ref, forOwner: owner)
     }
 }
 

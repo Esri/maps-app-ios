@@ -17,15 +17,17 @@ import ArcGIS
 // MARK: External Notification API
 extension MapsAppNotifications {
     // MARK: Register Listeners
-    static func observeSearchNotifications(searchResultHandler:@escaping ((AGSGeocodeResult?)->Void), suggestionsAvailableHandler:(([AGSSuggestResult]?)->Void)? = nil) {
-        NotificationCenter.default.addObserver(forName: MapsAppNotifications.Names.SearchCompleted, object: mapsApp, queue: OperationQueue.main) { notification in
+    static func observeSearchNotifications(owner:Any, searchResultHandler:@escaping ((AGSGeocodeResult?)->Void), suggestionsAvailableHandler:(([AGSSuggestResult]?)->Void)? = nil) {
+        let ref = NotificationCenter.default.addObserver(forName: MapsAppNotifications.Names.SearchCompleted, object: mapsApp, queue: OperationQueue.main) { notification in
             searchResultHandler(notification.searchResult)
         }
+        MapsAppNotifications.registerBlockHandler(blockHandler: ref, forOwner: owner)
         
         if let suggestionsAvailableHandler = suggestionsAvailableHandler {
-            NotificationCenter.default.addObserver(forName: MapsAppNotifications.Names.SearchSuggestionsAvailable, object: mapsApp, queue: OperationQueue.main) { notification in
+            let ref = NotificationCenter.default.addObserver(forName: MapsAppNotifications.Names.SearchSuggestionsAvailable, object: mapsApp, queue: OperationQueue.main) { notification in
                 suggestionsAvailableHandler(notification.searchSuggestions)
             }
+            MapsAppNotifications.registerBlockHandler(blockHandler: ref, forOwner: owner)
         }
     }
 }

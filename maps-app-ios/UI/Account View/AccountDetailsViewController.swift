@@ -37,13 +37,17 @@ class AccountDetailsViewController: UIViewController {
         setDisplayForLoginStatus()
     }
     
+    deinit {
+        MapsAppNotifications.deregisterNotificationBlocks(forOwner: self)
+    }
+    
     func setupLoginNotificationHandlers() {
-        MapsAppNotifications.observeLoginStateNotifications(loginHandler: { _ in self.setDisplayForLoginStatus() },
+        MapsAppNotifications.observeLoginStateNotifications(owner: self, loginHandler: { _ in self.setDisplayForLoginStatus() },
                                                             logoutHandler: { self.setDisplayForLoginStatus() })
     }
     
     func setupFolderChangeNotificationHandlers() {
-        MapsAppNotifications.observeCurrentFolderChanged() { self.showContent() }
+        MapsAppNotifications.observeCurrentFolderChanged(owner: self) { self.showContent() }
     }
     
     func setDisplayForLoginStatus() {

@@ -120,6 +120,10 @@ class MapViewController: UIViewController {
         mode = .search
     }
     
+    deinit {
+        MapsAppNotifications.deregisterNotificationBlocks(forOwner: self)
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 

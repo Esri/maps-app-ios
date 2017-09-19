@@ -26,13 +26,19 @@ class AccountViewController: UIViewController {
         setupLoginNotificationHandlers()
     }
     
+
+    deinit {
+        MapsAppNotifications.deregisterNotificationBlocks(forOwner: self)
+    }
+
+    
     func showAccountPanelForLoginStatus() {
         loggedOutContainer.isHidden = mapsAppContext.isLoggedIn
         loggedInContainer.isHidden = !loggedOutContainer.isHidden
     }
     
     func setupLoginNotificationHandlers() {
-        MapsAppNotifications.observeLoginStateNotifications(loginHandler: { _ in self.showAccountPanelForLoginStatus() },
+        MapsAppNotifications.observeLoginStateNotifications(owner: self, loginHandler: { _ in self.showAccountPanelForLoginStatus() },
                                                             logoutHandler: { _ in self.showAccountPanelForLoginStatus() })
     }
 

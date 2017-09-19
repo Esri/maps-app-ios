@@ -19,12 +19,13 @@ extension MapsAppNotifications.Names {
 }
 
 extension MapsAppNotifications {
-    static func observeModeChangeNotification(modeChangeHandler:@escaping (MapViewMode,MapViewMode)->Void) {
-        NotificationCenter.default.addObserver(forName: MapsAppNotifications.Names.MapViewModeChanged, object: nil, queue: OperationQueue.main) { notification in
+    static func observeModeChangeNotification(owner:Any, modeChangeHandler:@escaping (MapViewMode,MapViewMode)->Void) {
+        let ref = NotificationCenter.default.addObserver(forName: MapsAppNotifications.Names.MapViewModeChanged, object: nil, queue: OperationQueue.main) { notification in
             if let newValue = notification.newMapViewMode, let oldValue = notification.oldMapViewMode {
                 modeChangeHandler(oldValue, newValue)
             }
         }
+        MapsAppNotifications.registerBlockHandler(blockHandler: ref, forOwner: owner)
     }
     
     static func postModeChangeNotification(oldMode:MapViewMode, newMode:MapViewMode) {

@@ -25,7 +25,7 @@ extension FeedbackViewController {
     }
     
     func setupModeChangeListener() {
-        MapsAppNotifications.observeModeChangeNotification { oldValue, newValue in
+        MapsAppNotifications.observeModeChangeNotification(owner: self) { oldValue, newValue in
             self.setUIForMode(mode: newValue, previousMode: oldValue)
         }
     }
