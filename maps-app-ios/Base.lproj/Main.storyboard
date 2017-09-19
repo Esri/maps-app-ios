@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -30,11 +30,10 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="PDq-F2-UJ4">
                                 <rect key="frame" x="319" y="393" width="40" height="262"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Compass" translatesAutoresizingMaskIntoConstraints="NO" id="Xte-Zv-XAA" customClass="NorthArrowView" customModule="maps_app_ios" customModuleProvider="target">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Compass" translatesAutoresizingMaskIntoConstraints="NO" id="Xte-Zv-XAA" userLabel="North Arrow" customClass="NorthArrowView" customModule="maps_app_ios" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" secondItem="Xte-Zv-XAA" secondAttribute="height" multiplier="1:1" id="6mA-nX-ayE"/>
-                                            <constraint firstAttribute="width" constant="40" id="zqg-fo-etC"/>
+                                            <constraint firstAttribute="width" secondItem="Xte-Zv-XAA" secondAttribute="height" multiplier="1:1" priority="999" id="6mA-nX-ayE"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="circular" value="YES"/>
@@ -108,7 +107,7 @@
                                                             <constraint firstAttribute="height" constant="1" id="LPw-Oj-xA8"/>
                                                         </constraints>
                                                     </view>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O2i-Kj-Tm3">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O2i-Kj-Tm3" userLabel="Basemaps Button">
                                                         <rect key="frame" x="0.0" y="41" width="40" height="40"/>
                                                         <state key="normal" image="Choose Basemap"/>
                                                         <connections>
@@ -122,7 +121,7 @@
                                                             <constraint firstAttribute="height" constant="1" id="4CW-P7-q1Q"/>
                                                         </constraints>
                                                     </view>
-                                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ay3-0t-kAq">
+                                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ay3-0t-kAq" userLabel="Account View Button">
                                                         <rect key="frame" x="0.0" y="82" width="40" height="40"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="40" id="xI1-vk-oNX"/>
@@ -135,13 +134,13 @@
                                                 </subviews>
                                                 <constraints>
                                                     <constraint firstItem="O2i-Kj-Tm3" firstAttribute="height" secondItem="Ay3-0t-kAq" secondAttribute="height" id="Faw-sX-7Q1"/>
-                                                    <constraint firstAttribute="width" constant="40" id="QGT-eY-87p"/>
                                                     <constraint firstItem="0ng-Np-3qj" firstAttribute="height" secondItem="O2i-Kj-Tm3" secondAttribute="height" id="yTT-qW-uGn"/>
                                                 </constraints>
                                             </stackView>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
+                                            <constraint firstAttribute="width" constant="40" id="7sg-EG-Rrz"/>
                                             <constraint firstItem="nv9-AX-PSE" firstAttribute="leading" secondItem="1Qf-QF-G41" secondAttribute="leading" id="MiA-4p-sDd"/>
                                             <constraint firstAttribute="bottom" secondItem="nv9-AX-PSE" secondAttribute="bottom" id="Nhr-Kz-emS"/>
                                             <constraint firstAttribute="trailing" secondItem="nv9-AX-PSE" secondAttribute="trailing" id="Vl5-l5-Fu6"/>
@@ -159,6 +158,7 @@
                                     </view>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="Xte-Zv-XAA" firstAttribute="width" secondItem="1Qf-QF-G41" secondAttribute="width" id="9Zw-Vi-Tkz"/>
                                     <constraint firstItem="sDr-0H-15M" firstAttribute="height" secondItem="0ng-Np-3qj" secondAttribute="height" priority="999" id="HuY-Y9-Lag"/>
                                     <constraint firstItem="I5G-Ky-yTQ" firstAttribute="width" secondItem="1Qf-QF-G41" secondAttribute="width" id="zxh-Uc-NOZ"/>
                                 </constraints>
