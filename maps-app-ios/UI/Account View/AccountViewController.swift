@@ -38,8 +38,8 @@ class AccountViewController: UIViewController {
     }
     
     func setupLoginNotificationHandlers() {
-        MapsAppNotifications.observeLoginStateNotifications(owner: self, loginHandler: { _ in self.showAccountPanelForLoginStatus() },
-                                                            logoutHandler: { _ in self.showAccountPanelForLoginStatus() })
+        MapsAppNotifications.observeLoginStateNotifications(owner: self, loginHandler: { [weak self] () in self?.showAccountPanelForLoginStatus() },
+                                                            logoutHandler: { [weak self] () in self?.showAccountPanelForLoginStatus() })
     }
 
     @IBAction func closeAccountViewer(_: UIStoryboardSegue) {

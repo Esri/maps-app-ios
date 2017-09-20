@@ -42,12 +42,12 @@ class AccountDetailsViewController: UIViewController {
     }
     
     func setupLoginNotificationHandlers() {
-        MapsAppNotifications.observeLoginStateNotifications(owner: self, loginHandler: { _ in self.setDisplayForLoginStatus() },
-                                                            logoutHandler: { self.setDisplayForLoginStatus() })
+        MapsAppNotifications.observeLoginStateNotifications(owner: self, loginHandler: { [weak self] () in self?.setDisplayForLoginStatus() },
+                                                            logoutHandler: { [weak self] () in self?.setDisplayForLoginStatus() })
     }
     
     func setupFolderChangeNotificationHandlers() {
-        MapsAppNotifications.observeCurrentFolderChanged(owner: self) { self.showContent() }
+        MapsAppNotifications.observeCurrentFolderChanged(owner: self) { [weak self] () in self?.showContent() }
     }
     
     func setDisplayForLoginStatus() {

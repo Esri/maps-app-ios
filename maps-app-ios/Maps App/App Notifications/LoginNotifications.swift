@@ -17,11 +17,11 @@ import ArcGIS
 // MARK: External Notification API
 extension MapsAppNotifications {
     // MARK: Register Listeners
-    static func observeLoginStateNotifications(owner:Any, loginHandler:((AGSPortalUser)->Void)?, logoutHandler:(()->Void)?) {
+    static func observeLoginStateNotifications(owner:Any, loginHandler:(()->Void)?, logoutHandler:(()->Void)?) {
         if let loginHandler = loginHandler {
             let ref = NotificationCenter.default.addObserver(forName: MapsAppNotifications.Names.AppLogin, object: mapsApp, queue: OperationQueue.main) { notification in
-                if let loggedInUser = notification.loggedInUser {
-                    loginHandler(loggedInUser)
+                if let _ = notification.loggedInUser {
+                    loginHandler()
                 }
             }
             MapsAppNotifications.registerBlockHandler(blockHandler: ref, forOwner: owner)
