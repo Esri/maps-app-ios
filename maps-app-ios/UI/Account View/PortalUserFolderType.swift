@@ -1,0 +1,49 @@
+// Copyright 2017 Esri.
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//   http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+import ArcGIS
+
+enum PortalUserFolderType: Hashable, Equatable, CustomStringConvertible {
+    case rootFolder(subFolders:[AGSPortalFolder])
+    case folder(agsFolder: AGSPortalFolder)
+    
+    var hashValue: Int {
+        switch self {
+        case .rootFolder:
+            return 0
+        case .folder(let agsFolder):
+            return agsFolder.hash
+        }
+    }
+    
+    static func ==(lhs:PortalUserFolderType, rhs:PortalUserFolderType) -> Bool {
+        return lhs.hashValue == rhs.hashValue
+    }
+    
+    var description: String {
+        switch self {
+        case .rootFolder: return "Root Folder"
+        case .folder(let folder): return folder.title ?? "Unknown"
+        }
+    }
+    
+    var isRoot:Bool {
+        switch self {
+        case .rootFolder:
+            return true
+        default:
+            return false
+        }
+    }
+}
