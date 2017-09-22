@@ -88,3 +88,4 @@ For information about licensing your deployed app, see [License your app](https:
 ### 3rd Party Component Licensing
 Some great open source components are available out there for iOS developers. The following have been used in this project, with much gratitude to their authors.
 * [SVProgressHUD](https://github.com/SVProgressHUD/SVProgressHUD) is licensed under the MIT License (see [LICENSE.txt](https://github.com/esri/maps-app-ios/blob/master/maps-app-ios/3rd%20Party/SVProgressHUD/LICENSE.txt)).
+* [FlexiblePageControl](https://github.com/shima11/FlexiblePageControl) is licensed under the MIT License (see [LICENSE](https://github.com/esri/maps-app-ios/blob/master/maps-app-ios/3rd%20Party/FlexiblePageControl/LICENSE)).

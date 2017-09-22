@@ -105,6 +105,7 @@
 		D9D756C61F1193E500D52B25 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = D9D756C01F1193E500D52B25 /* SVProgressHUD.m */; };
 		D9D756C71F1193E500D52B25 /* SVRadialGradientLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = D9D756C21F1193E500D52B25 /* SVRadialGradientLayer.m */; };
 		D9D756C91F119D2000D52B25 /* MapViewControllerNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D756C81F119D2000D52B25 /* MapViewControllerNotifications.swift */; };
+		D9DE672A1F759378004934AE /* FlexiblePageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9DE67291F759378004934AE /* FlexiblePageControl.swift */; };
 		D9FF8D6E1F06CC7A00BD9B04 /* FeedbackMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9FF8D6D1F06CC7A00BD9B04 /* FeedbackMode.swift */; };
 		D9FF8D701F06D0D900BD9B04 /* MapViewController+MapViewModeHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9FF8D6F1F06D0D900BD9B04 /* MapViewController+MapViewModeHistory.swift */; };
 		D9FF8D721F06D49300BD9B04 /* MapViewController+KeyboardTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9FF8D711F06D49300BD9B04 /* MapViewController+KeyboardTracking.swift */; };
@@ -239,6 +240,7 @@
 		D9D756C11F1193E500D52B25 /* SVRadialGradientLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVRadialGradientLayer.h; sourceTree = "<group>"; };
 		D9D756C21F1193E500D52B25 /* SVRadialGradientLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVRadialGradientLayer.m; sourceTree = "<group>"; };
 		D9D756C81F119D2000D52B25 /* MapViewControllerNotifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapViewControllerNotifications.swift; path = ../MapViewControllerNotifications.swift; sourceTree = "<group>"; };
+		D9DE67291F759378004934AE /* FlexiblePageControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlexiblePageControl.swift; sourceTree = "<group>"; };
 		D9FF8D6D1F06CC7A00BD9B04 /* FeedbackMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackMode.swift; sourceTree = "<group>"; };
 		D9FF8D6F1F06D0D900BD9B04 /* MapViewController+MapViewModeHistory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MapViewController+MapViewModeHistory.swift"; sourceTree = "<group>"; };
 		D9FF8D711F06D49300BD9B04 /* MapViewController+KeyboardTracking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MapViewController+KeyboardTracking.swift"; sourceTree = "<group>"; };
@@ -623,9 +625,18 @@
 			isa = PBXGroup;
 			children = (
 				D9D756A71F11939500D52B25 /* maps-app-ios-Bridging-Header.h */,
+				D9DE672B1F75A611004934AE /* FlexiblePageControl */,
 				D9D756B71F1193AA00D52B25 /* SVProgressHUD */,
 			);
 			path = "3rd Party";
+			sourceTree = "<group>";
+		};
+		D9DE672B1F75A611004934AE /* FlexiblePageControl */ = {
+			isa = PBXGroup;
+			children = (
+				D9DE67291F759378004934AE /* FlexiblePageControl.swift */,
+			);
+			path = FlexiblePageControl;
 			sourceTree = "<group>";
 		};
 		D9FF8D751F07068B00BD9B04 /* MapViewController+AppState */ = {
@@ -814,6 +825,7 @@
 				D9CF2A731E9045A70019701F /* MapsAppStopProvider.swift in Sources */,
 				D9D756C41F1193E500D52B25 /* SVProgressAnimatedView.m in Sources */,
 				D90A07C61EF38C1400A9B253 /* RoundedButton.swift in Sources */,
+				D9DE672A1F759378004934AE /* FlexiblePageControl.swift in Sources */,
 				D94380D21F1A9530000B58AE /* PortalItemCollectionViewDelegate.swift in Sources */,
 				D94380D81F1AC367000B58AE /* FeedbackViewController+Notifications.swift in Sources */,
 				D96A77851E86E88600F441D3 /* AGSLicense+CustomStringConvertible.swift in Sources */,

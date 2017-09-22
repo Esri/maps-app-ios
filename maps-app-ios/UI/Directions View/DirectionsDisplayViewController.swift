@@ -14,12 +14,19 @@
 
 import ArcGIS
 
+let maxPageDisplayCount:Int = 10
+
 class DirectionsDisplayViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
     @IBOutlet weak var maneuversView: UICollectionView!
+    @IBOutlet weak var roundedContainerView: RoundedView!
+    @IBOutlet weak var pageControl: FlexiblePageControl!
     
     var directions:AGSRoute? {
         didSet {
+            pageControl.displayCount = maxPageDisplayCount
+            pageControl.numberOfPages = directions?.directionManeuvers.count ?? 0
+            
             if directions == nil {
                 currentCellIndex = nil
             }
@@ -36,7 +43,11 @@ class DirectionsDisplayViewController: UIViewController, UICollectionViewDataSou
         }
     }
     
-    var currentCellIndex:IndexPath?
+    var currentCellIndex:IndexPath? {
+        didSet {
+            pageControl.currentPage = currentCellIndex?.row ?? 0
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,7 +64,11 @@ class DirectionsDisplayViewController: UIViewController, UICollectionViewDataSou
                 self?.directions = nil
             }
         }
-                
+        
+        // Workaround to ensure the UICollectionView doesn't extend beyond the RoundedView container.
+        maneuversView.layer.masksToBounds = true
+        maneuversView.layer.cornerRadius = roundedContainerView.layer.cornerRadius
+
         directions = nil
     }
     
