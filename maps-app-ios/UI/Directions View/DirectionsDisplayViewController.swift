@@ -72,6 +72,10 @@ class DirectionsDisplayViewController: UIViewController, UICollectionViewDataSou
         directions = nil
     }
     
+    deinit {
+        MapsAppNotifications.deregisterNotificationBlocks(forOwner: self)
+    }
+    
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         setCurrentCell()
     }

@@ -52,7 +52,7 @@ class AccountDetailsViewController: UIViewController {
     }
     
     func setupFolderChangeNotificationHandlers() {
-        MapsAppNotifications.observeCurrentFolderChanged(owner: self) { [weak self] in self?.showContent() }
+        MapsAppNotifications.observeCurrentFolderChangedNotification(owner: self) { [weak self] in self?.showContent() }
     }
     
     func setDisplayForLoginStatus() {
