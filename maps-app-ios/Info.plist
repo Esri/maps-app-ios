@@ -24,6 +24,8 @@
 		<key>LicenseKey</key>
 		<string>YOURLICENSEKEY</string>
 	</dict>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Your location may be shown in the map and used for directions.</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
@@ -77,8 +79,6 @@
 			</dict>
 		</dict>
 	</dict>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Your location may be shown in the map and used for directions.</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
