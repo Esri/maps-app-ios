@@ -67,7 +67,7 @@ Learn more about Esri Example Apps [here](https://developers.arcgis.com/example-
 * For directions and to browse Web Maps you will also need an ArcGIS Online Organizational account or an ArcGIS Online Developer account.
 
 ## Contributing
-Anyone and everyone is welcome to [contribute](https://github.com/Esri/maps-app-ios/blob/master/CONTRIBUTING.md). We do accept pull requests.
+Anyone and everyone is welcome to [contribute](CONTRIBUTING.md). We do accept pull requests.
 
 1. Get involved
 2. Report issues
@@ -83,11 +83,11 @@ http://www.apache.org/licenses/LICENSE-2.0
 
 Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
 
-A copy of the license is available in the repository's [license.txt](/license.txt) file.
+A copy of the license is available in the repository's [LICENSE](LICENSE) file.
 
 For information about licensing your deployed app, see [License your app](https://developers.arcgis.com/ios/latest/swift/guide/license-your-app.htm).
 
 ### 3rd Party Component Licensing
 Some great open source components are available out there for iOS developers. The following have been used in this project, with much gratitude to their authors.
-* [SVProgressHUD](https://github.com/SVProgressHUD/SVProgressHUD) is licensed under the MIT License (see [LICENSE.txt](https://github.com/esri/maps-app-ios/blob/master/maps-app-ios/3rd%20Party/SVProgressHUD/LICENSE.txt)).
-* [FlexiblePageControl](https://github.com/shima11/FlexiblePageControl) is licensed under the MIT License (see [LICENSE](https://github.com/esri/maps-app-ios/blob/master/maps-app-ios/3rd%20Party/FlexiblePageControl/LICENSE)).
+* [SVProgressHUD](https://github.com/SVProgressHUD/SVProgressHUD) is licensed under the MIT License.
+* [FlexiblePageControl](https://github.com/shima11/FlexiblePageControl) is licensed under the MIT License.
