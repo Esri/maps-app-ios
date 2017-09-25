@@ -22,7 +22,7 @@ The project also demonstrates some patterns for building real-world apps around 
 * Internal application communication patterns
 
 ## Get Started
-You will need [Xcode](https://itunes.apple.com/us/app/xcode/id497799835?mt=12) and the [ArcGIS Runtime SDK](https://developers.arcgis.com/ios/) (v100.1 or later) installed locally.
+You will need [Xcode](https://itunes.apple.com/us/app/xcode/id497799835?mt=12) and the [ArcGIS Runtime SDK](https://developers.arcgis.com/ios/latest/swift/guide/install.htm#ESRI_SECTION1_D57435A2BEBC4D29AFA3A4CAA722506A) (v100.1 or later) installed locally.
 
 Clone the GitHub repository and open `maps-app-ios.xcodeproj` in Xcode.
 
@@ -59,7 +59,7 @@ This step is optional during development, but required for deployment.
 3. Set the `LicenseKey` string to the value from step 1.
 
 ## Learn More
-Learn more about the App Architecture and usage [here](maps-app-ios/About.md).
+Learn more about Esri Example Apps [here](https://developers.arcgis.com/example-apps).
 
 ## Requirements
 * [Xcode](https://itunes.apple.com/us/app/xcode/id497799835?mt=12)
