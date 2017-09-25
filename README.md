@@ -25,7 +25,7 @@ The project also demonstrates some patterns for building real-world apps around 
 You will need [Xcode](https://itunes.apple.com/us/app/xcode/id497799835?mt=12) and the [ArcGIS Runtime SDK](https://developers.arcgis.com/ios/latest/swift/guide/install.htm#ESRI_SECTION1_D57435A2BEBC4D29AFA3A4CAA722506A) (v100.1 or later) installed locally.
 
 ### Fork the repo
-**Fork** the [Mapbook App](https://github.com/Esri/maps-app-ios/fork) repo
+**Fork** the [Maps App](https://github.com/Esri/maps-app-ios/fork) repo
 
 ### Clone the repo
 Once you have forked the repo, you can make a clone and open `maps-app-ios.xcodeproj` in Xcode.
