@@ -4,11 +4,6 @@
 <dict>
 	<key>AppConfiguration</key>
 	<dict>
-		<key>PortalAuthConfig</key>
-		<dict>
-			<key>ClientID</key>
-			<string>YOURCLIENTID</string>
-		</dict>
 		<key>AppURLScheme</key>
 		<string>maps-app-ios</string>
 		<key>AuthURLPath</key>
@@ -23,9 +18,12 @@
 		<string>MapsAppiOS</string>
 		<key>LicenseKey</key>
 		<string>YOURLICENSEKEY</string>
+		<key>PortalAuthConfig</key>
+		<dict>
+			<key>ClientID</key>
+			<string>YOURCLIENTID</string>
+		</dict>
 	</dict>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Your location may be shown in the map and used for directions.</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
@@ -56,7 +54,7 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>1</string>
+	<string>2</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>
@@ -79,6 +77,10 @@
 			</dict>
 		</dict>
 	</dict>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Your location may be shown in the map and used for directions.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>ArcGIS SDK requires access to the device's photo library.</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
