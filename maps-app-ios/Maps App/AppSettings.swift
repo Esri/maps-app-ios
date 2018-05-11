@@ -19,31 +19,23 @@ struct AppSettings {
     private static func getAgsSetting<T>(named name:String) -> T? {
         return (agsSettings[name] as? T)
     }
-
-    private static let authSettings:[String:Any]? = getAgsSetting(named: "PortalAuthConfig")
-
     
     // MARK: Runtime Licensing
     // Set up AGSLicenseKey in the project's info.plist to remove the Developer watermark.
     // See https://developers.arcgis.com/ios/latest/swift/guide/license-your-app.htm#ESRI_SECTION1_25AC0000E35A4E52B713E8D50359A75C
-    static let licenseKey = getAgsSetting(named: "LicenseKey") ?? ""
-
-
+    static let licenseKey = "YOUR-LICENSE-KEY"
+    
 
     // MARK: Portal Auth Config
-    // If there is a PortalURL setting in the info.plist file, then use that, otherwise leave it blank and the
+    // If you specify a PortalURL setting, then we'll use that, otherwise leave it blank and the
     // app will fall back to ArcGIS Online.
-    static let portalURL:URL? = {
-        if let urlString = authSettings?["PortalURL"] as? String, let url = URL(string: urlString) {
-            return url
-        }
-        return nil
-    }()
+    static let portalURL:URL? = nil
+    
 
     // Set up AppClientID in the project's info.plist. This is used for the OAuth panel and will determine what app users see
     // when they log in to authorize the app to view their account and use their routing/geocoding tasks. A ClientID is specific
     // to a particular portal (and is derived from an Application created within that portal).
-    static let clientID = authSettings?["ClientID"] as? String ?? ""
+    static let clientID = "YOUR-CLIENT-ID"
 
 
     // MARK: Runtime OAuth Configuration
