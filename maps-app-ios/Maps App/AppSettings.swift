@@ -23,7 +23,7 @@ struct AppSettings {
     // MARK: Runtime Licensing
     // Set up AGSLicenseKey in the project's info.plist to remove the Developer watermark.
     // See https://developers.arcgis.com/ios/latest/swift/guide/license-your-app.htm#ESRI_SECTION1_25AC0000E35A4E52B713E8D50359A75C
-    static let licenseKey = "YOUR-LICENSE-KEY"
+    static let licenseKey = "YOUR_LICENSE_KEY"
     
 
     // MARK: Portal Auth Config
@@ -35,7 +35,7 @@ struct AppSettings {
     // Set up AppClientID in the project's info.plist. This is used for the OAuth panel and will determine what app users see
     // when they log in to authorize the app to view their account and use their routing/geocoding tasks. A ClientID is specific
     // to a particular portal (and is derived from an Application created within that portal).
-    static let clientID = "YOUR-CLIENT-ID"
+    static let clientID = "YOUR_CLIENT_ID"
 
 
     // MARK: Runtime OAuth Configuration
