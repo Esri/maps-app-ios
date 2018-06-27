@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Rev-Z6-RLx">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Rev-Z6-RLx">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -51,15 +51,9 @@
                     <size key="freeformSize" width="375" height="44"/>
                     <connections>
                         <outlet property="containerView" destination="T5c-Uo-iRV" id="Uzo-a6-wig"/>
-                        <segue destination="Wma-xI-VYV" kind="show" identifier="SearchSegue" customClass="FeedbackContentsSegue" customModule="maps_app_ios" customModuleProvider="target" id="K8d-pR-MMI">
-                            <nil key="action"/>
-                        </segue>
-                        <segue destination="hiO-wY-blQ" kind="show" identifier="RouteResultSegue" customClass="FeedbackContentsSegue" customModule="maps_app_ios" customModuleProvider="target" id="CAy-GC-fgA">
-                            <nil key="action"/>
-                        </segue>
-                        <segue destination="DyS-dS-awY" kind="show" identifier="GeocodeResultSegue" customClass="FeedbackContentsSegue" customModule="maps_app_ios" customModuleProvider="target" id="S8c-rD-9PH">
-                            <nil key="action"/>
-                        </segue>
+                        <segue destination="Wma-xI-VYV" kind="show" identifier="SearchSegue" customClass="FeedbackContentsSegue" customModule="maps_app_ios" customModuleProvider="target" id="K8d-pR-MMI"/>
+                        <segue destination="hiO-wY-blQ" kind="show" identifier="RouteResultSegue" customClass="FeedbackContentsSegue" customModule="maps_app_ios" customModuleProvider="target" id="CAy-GC-fgA"/>
+                        <segue destination="DyS-dS-awY" kind="show" identifier="GeocodeResultSegue" customClass="FeedbackContentsSegue" customModule="maps_app_ios" customModuleProvider="target" id="S8c-rD-9PH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="te7-yc-unk" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -75,11 +69,11 @@
                         <viewControllerLayoutGuide type="bottom" id="1vd-TK-4RB"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="OkP-Fc-GQU">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Address or Place" translatesAutoresizingMaskIntoConstraints="NO" id="O7t-Dj-Ug0">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="search" enablesReturnKeyAutomatically="YES"/>
                                 <connections>
                                     <outlet property="delegate" destination="Wma-xI-VYV" id="ZlC-BY-yvZ"/>

@@ -42,7 +42,7 @@ class AccountViewController: UIViewController {
             loginHandler: { [weak self] _ in
                 self?.showAccountPanelForLoginStatus()
             },
-            logoutHandler: { [weak self] _ in
+            logoutHandler: { [weak self] in
                 self?.showAccountPanelForLoginStatus()
             })
     }
