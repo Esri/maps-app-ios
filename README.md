@@ -63,13 +63,21 @@ For OAuth configuration, create a new Application in your ArcGIS Portal to obtai
 3. In the Authentication tab, note the **Client ID** and add a **Redirect URL**, e.g. `my-maps-app://auth`. We will use this URL in the **Configuring the project** section below. ![Configure new application](/docs/images/configure-application.png)
 
 #### 2. Configuring the project
-Open the project in Xcode and browse to the `maps-app-ios` target's `Info` panel and expand the `AGSConfiguration` dictionary (see steps 1-4 in the screenshot below).
 
-1. Expand the `PortalAuthConfig` dictionary and set the `ClientID` value to the application's **Client ID** noted above.
-2. Set the `AppURLScheme` value to match the **Redirect URL** scheme (the part *before* the `://`, e.g. `my-maps-app`) configured in "Register an Application" above. Note how the `AppURLScheme` and `AuthURLPath` combine to construct the **Redirect URL**. ![Configure the App URL Scheme](/docs/images/configure-xcode-target.png)
+**Configure Redirect URL**
+
+1. Open the project in Xcode and browse to the `maps-app-ios` target's `Info` panel and expand the `AGSConfiguration` dictionary (see steps 1-4 in the screenshot below).
+2. Set the `AppURLScheme` value to match the **Redirect URL** scheme (the part *before* the `://`, e.g. `my-maps-app`) configured in "Register an Application" above. Note how the `AppURLScheme` and `AuthURLPath` combine to construct the **Redirect URL**. ![Configure the App URL Scheme](/docs/images/configure-xcode-url-scheme.png)
 3. Expand the **URL Types** section and modify the existing entry.
     1. The **Identifier** doesn't matter, but should be unique (e.g. `com.my-org.my-maps-app`).
-    2. The **URL Scheme** should match the **Redirect URL** scheme (the part *before* the `://`, e.g. `my-maps-app`) configured in "Register an Application" above. 
+    2. The **URL Scheme** should match the **Redirect URL** scheme (the part *before* the `://`, e.g. `my-maps-app`) configured in "Register an Application" above.
+
+**Configure Client ID**
+
+1. In the Navigator pane, click to expand the group `maps-app-ios/Maps App` to reveal a file named `AppSettings.swift`. 
+2. Within `AppSettings.swift` set the value of the static variable `clientID` to the application's **Client ID** noted above.
+
+![Configure the License Key](/docs/images/configure-app-settings.png)
 
 #### 3. License the app for deployment
 Remove the _Licensed for Developer Use Only_ watermark on the map view by setting the Runtime License Key.
@@ -77,8 +85,8 @@ Remove the _Licensed for Developer Use Only_ watermark on the map view by settin
 This step is optional during development, but required for deployment.
 
 1. Get your Runtime Lite License Key by clicking the `Show my ArcGIS Runtime Lite license key` at the top-right of the [Licensing Your ArcGIS Runtime App](https://developers.arcgis.com/arcgis-runtime/licensing/) page (you must be logged in).
-2. Open the project in Xcode and browse to the `maps-app-ios` target's `Info` panel and expand the `AGSConfiguration` dictionary (see steps 1-4 in the screenshot above).
-3. Set the `LicenseKey` string to the value from step 1.
+2. Open the project in Xcode and navigate to `AppSettings.swift`, the same file used to configure your applications client id.
+3. Set the value of the static variable `licenseKey` to the value from step 1.
 
 ## Learn More
 Learn more about Esri Example Apps [here](https://developers.arcgis.com/example-apps).
