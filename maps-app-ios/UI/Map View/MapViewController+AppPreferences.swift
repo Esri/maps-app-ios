@@ -29,7 +29,9 @@ extension MapViewController {
     
     func observeValueForPreferences(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         if let target = object as? AGSMapView, keyPath == navigationPropertyKey, let navigating = change?[.newKey] as? Bool, navigating == false {
-            mapsAppPrefs.viewpoint = target.currentViewpoint(with: .centerAndScale)
+            DispatchQueue.main.async {
+                mapsAppPrefs.viewpoint = target.currentViewpoint(with: .centerAndScale)
+            }
         }
     }
 }
