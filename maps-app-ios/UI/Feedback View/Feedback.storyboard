@@ -69,11 +69,11 @@
                         <viewControllerLayoutGuide type="bottom" id="1vd-TK-4RB"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="OkP-Fc-GQU">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Address or Place" translatesAutoresizingMaskIntoConstraints="NO" id="O7t-Dj-Ug0">
-                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="wvN-YM-V1y"/>
                                 </constraints>
@@ -89,13 +89,14 @@
                             <constraint firstAttribute="trailing" secondItem="O7t-Dj-Ug0" secondAttribute="trailing" priority="999" id="r83-du-UvL"/>
                         </constraints>
                     </view>
+                    <size key="freeformSize" width="375" height="44"/>
                     <connections>
                         <outlet property="searchBar" destination="O7t-Dj-Ug0" id="gyv-uY-u7u"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="86T-KB-SL6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="10001" y="-930"/>
+            <point key="canvasLocation" x="10121" y="-600"/>
         </scene>
         <!--Route Result View Controller-->
         <scene sceneID="aQS-d6-NPy">
