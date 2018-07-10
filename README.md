@@ -1,6 +1,6 @@
 # Maps App iOS
 
-The Maps App for iOS shows how a robust application can be built around the ArcGIS Platform using the [ArcGIS Runtime SDK for iOS](https://developers.arcgis.com/ios/) and Swift. It demonstrates best practices around some simple but key functionality of the ArcGIS Runtime. You can use the Maps App as is, or extend it to meet your specific needs.
+The [Maps App for iOS](https://developers.arcgis.com/example-apps/maps-app-ios/?utm_source=github&utm_medium=web&utm_campaign=example_apps_maps_app_ios) shows how a robust application can be built around the ArcGIS Platform using the [ArcGIS Runtime SDK for iOS](https://developers.arcgis.com/ios/) and Swift. It demonstrates best practices around some simple but key functionality of the ArcGIS Runtime. You can use the Maps App as is, or extend it to meet your specific needs.
 
 ![Maps App for iOS](/docs/images/app-screenshots.png)
 
