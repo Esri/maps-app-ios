@@ -21,25 +21,25 @@ fileprivate enum AppPreferenceKey: String {
 }
 
 class AppPreferences: AGSAppPreferences {
-    var map:AGSMap? {
+    static var map:AGSMap? {
         get {
-            return self.getAGS(type: AGSMap.self, forKey: AppPreferenceKey.map)
+            return getAGS(type: AGSMap.self, forKey: AppPreferenceKey.map)
         }
         set {
-            self.setAGS(agsObject: newValue, withKey: AppPreferenceKey.map)
+            setAGS(agsObject: newValue, withKey: AppPreferenceKey.map)
         }
     }
     
-    var viewpoint:AGSViewpoint? {
+    static var viewpoint:AGSViewpoint? {
         get {
-            return self.getAGS(type: AGSViewpoint.self, forKey: AppPreferenceKey.viewpoint)
+            return getAGS(type: AGSViewpoint.self, forKey: AppPreferenceKey.viewpoint)
         }
         set {
-            self.setAGS(agsObject: newValue, withKey: AppPreferenceKey.viewpoint)
+            setAGS(agsObject: newValue, withKey: AppPreferenceKey.viewpoint)
         }
     }
     
-    var portalURL:URL? {
+    static var portalURL:URL? {
         get {
             return getURL(forKey: AppPreferenceKey.portalURL)
         }
