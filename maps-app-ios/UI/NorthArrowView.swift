@@ -56,8 +56,8 @@ public class NorthArrowView: RoundedImageView {
     }
     
     func setVisibilityFromMapView(animate:Bool = false) {
-        DispatchQueue.main.async {
-            self.doSetVisibilityFromMapiew(animate: animate)
+        DispatchQueue.main.async { [weak self] in
+            self?.doSetVisibilityFromMapiew(animate: animate)
         }
     }
 
