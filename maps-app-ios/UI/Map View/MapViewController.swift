@@ -118,6 +118,7 @@ class MapViewController: UIViewController {
     
     deinit {
         MapsAppNotifications.deregisterNotificationBlocks(forOwner: self)
+        teardownAppPreferences()
     }
     
     override func viewWillAppear(_ animated: Bool) {

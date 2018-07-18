@@ -16,9 +16,7 @@ import ArcGIS
 
 fileprivate var navigatingObserver:NSKeyValueObservation? {
     willSet {
-        if let observer = navigatingObserver {
-            observer.invalidate()
-        }
+        navigatingObserver?.invalidate()
     }
 }
 
@@ -35,5 +33,9 @@ extension MapViewController {
 
             AppPreferences.viewpoint = changedMapView.currentViewpoint(with: .centerAndScale)
         }
+    }
+    
+    func teardownAppPreferences() {
+        navigatingObserver = nil
     }
 }
