@@ -26,7 +26,7 @@ extension AppContext {
         AGSAuthenticationManager.shared().credentialCache.enableAutoSyncToKeychain(withIdentifier: AppSettings.keychainIdentifier, accessGroup: nil, acrossDevices: false)
         
         // Use a custom Portal URL if we've got one saved
-        let savedPortalURL = mapsAppPrefs.portalURL ?? AppSettings.portalURL
+        let savedPortalURL = AppPreferences.portalURL ?? AppSettings.portalURL
         
         // Find the "most logged-in portal" we can using any cached credentials.
         // For more info see comments in AGSPortal+Autologin.swift.

@@ -14,22 +14,28 @@
 
 import ArcGIS
 
-fileprivate let navigationPropertyKey = #keyPath(AGSMapView.isNavigating)
+fileprivate var navigatingObserver:NSKeyValueObservation? {
+    willSet {
+        navigatingObserver?.invalidate()
+    }
+}
 
 extension MapViewController {
     func setupAppPreferences() {
         // Load the stored viewpoinrt from preferences if available.
-        if let storedViewpoint = mapsAppPrefs.viewpoint {
+        if let storedViewpoint = AppPreferences.viewpoint {
             mapView.setViewpoint(storedViewpoint)
         }
 
         // Save the viewpoint to preferences whenever the map stops navigating.
-        self.mapView.addObserver(self, forKeyPath: navigationPropertyKey, options: [.new], context: nil)
+        navigatingObserver = mapView.observe(\.isNavigating, options: [.new]) { (changedMapView, change) in
+            guard change.newValue == false else { return }
+
+            AppPreferences.viewpoint = changedMapView.currentViewpoint(with: .centerAndScale)
+        }
     }
     
-    func observeValueForPreferences(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
-        if let target = object as? AGSMapView, keyPath == navigationPropertyKey, let navigating = change?[.newKey] as? Bool, navigating == false {
-            mapsAppPrefs.viewpoint = target.currentViewpoint(with: .centerAndScale)
-        }
+    func teardownAppPreferences() {
+        navigatingObserver = nil
     }
 }

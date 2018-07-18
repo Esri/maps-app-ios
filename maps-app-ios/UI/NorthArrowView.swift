@@ -56,8 +56,14 @@ public class NorthArrowView: RoundedImageView {
     }
     
     func setVisibilityFromMapView(animate:Bool = false) {
+        DispatchQueue.main.async { [weak self] in
+            self?.doSetVisibilityFromMapiew(animate: animate)
+        }
+    }
+
+    private func doSetVisibilityFromMapiew(animate:Bool = false) {
         guard autoHide else {
-            self.isHidden = false
+            isHidden = false
             return
         }
         
@@ -73,32 +79,28 @@ public class NorthArrowView: RoundedImageView {
         
         let duration = animate ? 0.25 : 0
         
-        if self.mapView?.rotation != 0 {
-            guard self.isHidden else {
+        if mapView?.rotation != 0 {
+            guard isHidden else {
                 // Already visible. No need to animate
                 return
             }
             
             // Show if there's a MapView and rotation <> 0
-            DispatchQueue.main.async {
-                self.isHidden = false
-                UIView.animate(withDuration: duration, animations: {
-                    self.alpha = maxAlpha
-                })
-            }
+            isHidden = false
+            UIView.animate(withDuration: duration, animations: {
+                self.alpha = maxAlpha
+            })
         } else {
-            guard self.alpha > 0 else {
+            guard alpha > 0 else {
                 // Already hidden. No need to animate
                 return
             }
             
-            DispatchQueue.main.async {
-                UIView.animate(withDuration: duration, animations: {
-                    self.alpha = 0
-                }, completion: { _ in
-                    self.isHidden = true
-                })
-            }
+            UIView.animate(withDuration: duration, animations: { [weak self] in
+                self?.alpha = 0
+            }, completion: { [weak self] _ in
+                self?.isHidden = true
+            })
         }
     }
     
@@ -107,7 +109,9 @@ public class NorthArrowView: RoundedImageView {
             // Rotate north arrow to match the map view rotation.
             let mapRotation = self.degreesToRadians(degrees: (360 - (self.mapView?.rotation ?? 0)))
             let transform = CGAffineTransform(rotationAngle: mapRotation)
-            self.transform = transform
+            DispatchQueue.main.async { [weak self] in
+                self?.transform = transform
+            }
 
             setVisibilityFromMapView(animate: true)
         }

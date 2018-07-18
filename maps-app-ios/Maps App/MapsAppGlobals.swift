@@ -19,10 +19,6 @@ var mapsApp:MapsAppDelegate {
     return UIApplication.shared.delegate as! MapsAppDelegate
 }
 
-var mapsAppPrefs:AppPreferences {
-    return mapsApp.preferences
-}
-
 var mapsAppContext:AppContext {
     return mapsApp.appContext
 }

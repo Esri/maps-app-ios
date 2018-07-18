@@ -15,7 +15,7 @@
 import ArcGIS
 
 class AGSAppPreferences: NSObject {
-    func getAGS<T:AGSJSONSerializable, K:RawRepresentable>(type:T.Type, forKey key:K) -> T? where K.RawValue == String {
+    static func getAGS<T:AGSJSONSerializable, K:RawRepresentable>(type:T.Type, forKey key:K) -> T? where K.RawValue == String {
         if let json = AppSettings.preferencesStore.object(forKey: key.rawValue) {
             do {
                 let agsObject = try T.fromJSON(json) as! T
@@ -27,7 +27,7 @@ class AGSAppPreferences: NSObject {
         return nil
     }
     
-    func setAGS<T:AGSJSONSerializable, K:RawRepresentable>(agsObject:T?, withKey key:K) where K.RawValue == String {
+    static func setAGS<T:AGSJSONSerializable, K:RawRepresentable>(agsObject:T?, withKey key:K) where K.RawValue == String {
         if agsObject == nil {
             AppSettings.preferencesStore.removeObject(forKey: key.rawValue)
             return
@@ -40,38 +40,38 @@ class AGSAppPreferences: NSObject {
                     return
                 }
                 
-                self.writeToPreferences(agsObject: agsObject!, withKey: key.rawValue)
+                writeToPreferences(agsObject: agsObject!, withKey: key.rawValue)
             }
         } else {
-            self.writeToPreferences(agsObject: agsObject!, withKey: key.rawValue)
+            writeToPreferences(agsObject: agsObject!, withKey: key.rawValue)
         }
     }
     
-    func getURL<K:RawRepresentable>(forKey key:K) -> URL? where K.RawValue == String {
+    static func getURL<K:RawRepresentable>(forKey key:K) -> URL? where K.RawValue == String {
         return AppSettings.preferencesStore.url(forKey: key.rawValue)
     }
     
-    func getBool<K:RawRepresentable>(forKey key:K) -> Bool? where K.RawValue == String {
+    static func getBool<K:RawRepresentable>(forKey key:K) -> Bool? where K.RawValue == String {
         return AppSettings.preferencesStore.bool(forKey: key.rawValue)
     }
     
-    func getDouble<K:RawRepresentable>(forKey key:K) -> Double? where K.RawValue == String {
+    static func getDouble<K:RawRepresentable>(forKey key:K) -> Double? where K.RawValue == String {
         return AppSettings.preferencesStore.double(forKey: key.rawValue)
     }
     
-    func getFloat<K:RawRepresentable>(forKey key:K) -> Float? where K.RawValue == String {
+    static func getFloat<K:RawRepresentable>(forKey key:K) -> Float? where K.RawValue == String {
         return AppSettings.preferencesStore.float(forKey: key.rawValue)
     }
     
-    func getInt<K:RawRepresentable>(forKey key:K) -> Int? where K.RawValue == String {
+    static func getInt<K:RawRepresentable>(forKey key:K) -> Int? where K.RawValue == String {
         return AppSettings.preferencesStore.integer(forKey: key.rawValue)
     }
     
-    func get<K:RawRepresentable>(forKey key:K) -> Any? where K.RawValue == String {
+    static func get<K:RawRepresentable>(forKey key:K) -> Any? where K.RawValue == String {
         return AppSettings.preferencesStore.object(forKey: key.rawValue)
     }
     
-    func set<K:RawRepresentable>(value: Any?, forKey key:K) where K.RawValue == String {
+    static func set<K:RawRepresentable>(value: Any?, forKey key:K) where K.RawValue == String {
         if let url = value as? URL {
             AppSettings.preferencesStore.set(url, forKey: key.rawValue)
         } else if let bool = value as? Bool {
@@ -87,7 +87,7 @@ class AGSAppPreferences: NSObject {
         }
     }
     
-    private func writeToPreferences<T:AGSJSONSerializable>(agsObject:T, withKey key:String) {
+    private static func writeToPreferences<T:AGSJSONSerializable>(agsObject:T, withKey key:String) {
         do {
             let json = try agsObject.toJSON()
             AppSettings.preferencesStore.set(json, forKey: key)

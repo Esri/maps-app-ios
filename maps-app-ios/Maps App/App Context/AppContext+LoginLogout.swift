@@ -27,7 +27,7 @@ extension AppContext {
      */
     func logIn(portalURL:URL?) {
         // Remember this portal in the user preferences
-        mapsAppPrefs.portalURL = portalURL
+        AppPreferences.portalURL = portalURL
         
         // Explicitly log in
         if let url = portalURL {
@@ -51,7 +51,7 @@ extension AppContext {
         arcGISServices.locator.credential = nil
         
         // Explicitly log out
-        if let portalURL = mapsAppPrefs.portalURL {
+        if let portalURL = AppPreferences.portalURL {
             currentPortal = AGSPortal(url: portalURL, loginRequired: false)
         } else {
             // No URL was provided, so we'll just use ArcGIS Online.

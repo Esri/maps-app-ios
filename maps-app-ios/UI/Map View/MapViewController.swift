@@ -76,12 +76,8 @@ class MapViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view, typically from a nib.
-        if let storedMap = mapsAppPrefs.map {
-            mapView.map = storedMap
-        } else {
-            // Default fallback
-            mapView.map = AGSMap(basemapType: .topographicVector, latitude: 40.7128, longitude: -74.0059, levelOfDetail: 10)
-        }
+        // Set up a default map
+        mapView.map = AGSMap(basemapType: .topographicVector, latitude: 40.7128, longitude: -74.0059, levelOfDetail: 10)
         
         // Read any preferences and set up hooks to automatically store preferences.
         setupAppPreferences()
@@ -118,6 +114,7 @@ class MapViewController: UIViewController {
     
     deinit {
         MapsAppNotifications.deregisterNotificationBlocks(forOwner: self)
+        teardownAppPreferences()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -132,10 +129,5 @@ class MapViewController: UIViewController {
         
         // Stop caring about the keyboard display when the view disappears.
         deactivateKeyboardTracking()
-    }
-    
-    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
-        // Pass KVO through to the helper function provided by the MapViewController+AppPreferences extension. Won't need this with Swift 4 👯‍♂️!!
-        observeValueForPreferences(forKeyPath: keyPath, of: object, change: change, context: context)
     }
 }
