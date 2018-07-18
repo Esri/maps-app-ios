@@ -76,12 +76,8 @@ class MapViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view, typically from a nib.
-        if let storedMap = AppPreferences.map {
-            mapView.map = storedMap
-        } else {
-            // Default fallback
-            mapView.map = AGSMap(basemapType: .topographicVector, latitude: 40.7128, longitude: -74.0059, levelOfDetail: 10)
-        }
+        // Set up a default map
+        mapView.map = AGSMap(basemapType: .topographicVector, latitude: 40.7128, longitude: -74.0059, levelOfDetail: 10)
         
         // Read any preferences and set up hooks to automatically store preferences.
         setupAppPreferences()

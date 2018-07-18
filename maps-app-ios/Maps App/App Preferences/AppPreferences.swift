@@ -15,21 +15,11 @@
 import ArcGIS
 
 fileprivate enum AppPreferenceKey: String {
-    case map
     case viewpoint
     case portalURL
 }
 
 class AppPreferences: AGSAppPreferences {
-    static var map:AGSMap? {
-        get {
-            return getAGS(type: AGSMap.self, forKey: AppPreferenceKey.map)
-        }
-        set {
-            setAGS(agsObject: newValue, withKey: AppPreferenceKey.map)
-        }
-    }
-    
     static var viewpoint:AGSViewpoint? {
         get {
             return getAGS(type: AGSViewpoint.self, forKey: AppPreferenceKey.viewpoint)
