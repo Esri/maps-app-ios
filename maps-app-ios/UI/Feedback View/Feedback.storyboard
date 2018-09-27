@@ -77,7 +77,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="wvN-YM-V1y"/>
                                 </constraints>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="search" enablesReturnKeyAutomatically="YES"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="search" enablesReturnKeyAutomatically="YES" textContentType="location"/>
                                 <connections>
                                     <outlet property="delegate" destination="Wma-xI-VYV" id="ZlC-BY-yvZ"/>
                                 </connections>

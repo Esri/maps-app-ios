@@ -73,7 +73,7 @@
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Your location may be shown in the map and used for directions.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>ArcGIS SDK requires access to the device&apos;s photo library.</string>
+	<string>ArcGIS SDK requires access to the device's photo library.</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
