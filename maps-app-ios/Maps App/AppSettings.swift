@@ -32,13 +32,14 @@ struct AppSettings {
     static let portalURL:URL? = nil
     
 
-    // Set up AppClientID in the project's info.plist. This is used for the OAuth panel and will determine what app users see
-    // when they log in to authorize the app to view their account and use their routing/geocoding tasks. A ClientID is specific
-    // to a particular portal (and is derived from an Application created within that portal).
-    static let clientID = "YOUR_CLIENT_ID"
+    /// The App's public client ID.
+    /// - The client ID is used by oAuth to authenticate a user.
+    /// - The client ID can be found in the **Credentials** section of the **Authentication** tab within the [Dashboard of the ArcGIS for Developers site](https://developers.arcgis.com/applications).
+    /// - Note: Change this to reflect your organization's client ID.
+    static let clientID = "qROUHcZXdrlJ7cyo"
 
 
-    // MARK: Runtime OAuth Configuration
+    // MARK: Runtime OAuth Configuration5
     // appScheme and authURLPath are used to tell OAuth how to call back to this app.
     // For example, if they're set up as follows:
     //    AppURLSchema   = "maps-app-ios"
