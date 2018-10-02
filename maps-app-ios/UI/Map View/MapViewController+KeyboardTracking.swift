@@ -53,14 +53,12 @@ extension MapViewController {
         // Derived from code found at https://stackoverflow.com/questions/8704137/keeping-object-on-top-of-keyboard-in-the-event-of-becomefirstresponder-or-resign
         if let userInfo = notification.userInfo,
             let duration = (userInfo[UIKeyboardAnimationDurationUserInfoKey] as? NSNumber)?.doubleValue,
-            let endFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue,
-            let rawCurve = (userInfo[UIKeyboardAnimationCurveUserInfoKey] as? NSNumber)?.uint32Value,
-            let curve = UIViewAnimationCurve(rawValue: Int(rawCurve) << 16) {
+            let endFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
             
             let endFrameInContext = view.convert(endFrame, to: self.view)
             let newHeight = view.bounds.maxY - endFrameInContext.minY
             
-            UIView.animate(withDuration: duration, delay: 0, options: [.beginFromCurrentState, curve.correspondingAnimationOption], animations: {
+            UIView.animate(withDuration: duration) {
                 if notification.name == .UIKeyboardWillShow {
                     self.attributeAnchor?.isActive = false
                     self.keyboardAnchor?.isActive = true
@@ -71,7 +69,7 @@ extension MapViewController {
                 
                 self.keyboardSpacerHeightConstraint.constant = newHeight
                 self.view.layoutIfNeeded()
-            }, completion: nil)
+            }
         }
     }
 }
