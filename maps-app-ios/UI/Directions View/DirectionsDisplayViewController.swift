@@ -52,7 +52,7 @@ class DirectionsDisplayViewController: UIViewController, UICollectionViewDataSou
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        maneuversView.decelerationRate = UIScrollViewDecelerationRateNormal
+        maneuversView.decelerationRate = UIScrollView.DecelerationRate.normal
         
         view.translatesAutoresizingMaskIntoConstraints = false
         
@@ -121,7 +121,7 @@ class DirectionsDisplayViewController: UIViewController, UICollectionViewDataSou
             
             // If we have a current cell, make sure it's displayed.
             if let cellIndex = self.currentCellIndex {
-                self.maneuversView.scrollToItem(at: cellIndex, at: UICollectionViewScrollPosition.centeredHorizontally, animated: false)
+                self.maneuversView.scrollToItem(at: cellIndex, at: UICollectionView.ScrollPosition.centeredHorizontally, animated: false)
             }
         }
     }

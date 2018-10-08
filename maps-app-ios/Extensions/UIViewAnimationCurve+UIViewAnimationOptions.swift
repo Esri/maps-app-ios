@@ -14,17 +14,17 @@
 
 import UIKit
 
-extension UIViewAnimationCurve {
-    var correspondingAnimationOption:UIViewAnimationOptions {
+extension UIView.AnimationCurve {
+    var correspondingAnimationOption:UIView.AnimationOptions {
         switch self {
         case .linear:
-            return UIViewAnimationOptions.curveLinear
+            return UIView.AnimationOptions.curveLinear
         case .easeIn:
-            return UIViewAnimationOptions.curveEaseIn
+            return UIView.AnimationOptions.curveEaseIn
         case .easeOut:
-            return UIViewAnimationOptions.curveEaseOut
+            return UIView.AnimationOptions.curveEaseOut
         case .easeInOut:
-            return UIViewAnimationOptions.curveEaseInOut
+            return UIView.AnimationOptions.curveEaseInOut
         }
     }
 }

@@ -19,7 +19,7 @@ class FeedbackContentsSegue: UIStoryboardSegue {
     var feedbackViewController:FeedbackViewController!
     
     override func perform() {
-        let from = feedbackViewController.childViewControllers.first
+        let from = feedbackViewController.children.first
         let to = self.destination
         swapChildVCs(from: from, to: to)
     }
@@ -45,24 +45,24 @@ class FeedbackContentsSegue: UIStoryboardSegue {
         
         guard let from = from else {
             // First time we're installing a contained view controller, just add it, don't transition to it.
-            feedbackViewController.addChildViewController(to)
+            feedbackViewController.addChild(to)
             feedbackViewController.containerView.addSubview(to.view)
-            to.didMove(toParentViewController: feedbackViewController)
+            to.didMove(toParent: feedbackViewController)
             
             return
         }
         
         // Switch from one view controller to another.
-        from.willMove(toParentViewController: nil)
-        feedbackViewController.addChildViewController(to)
+        from.willMove(toParent: nil)
+        feedbackViewController.addChild(to)
         
         // If duration > 0, this can crash if the user double-taps quickly on redo/undo. Need to ensure that
         // transitions are enqueued before animation can be reintroduced.
         feedbackViewController.transition(from: from, to: to, duration: 0, options: .transitionCrossDissolve, animations: nil) { finished in
             // After we've moved, complete our contract to the viewcontrollers so, and notify the MapsApp, since we might
             // be a different size than before and the MapView can consider that when zooming to a geometry.
-            from.removeFromParentViewController()
-            to.didMove(toParentViewController: self.feedbackViewController)
+            from.removeFromParent()
+            to.didMove(toParent: self.feedbackViewController)
             
             MapsAppNotifications.postFeedbackPanelResizedNotification(panel: self.feedbackViewController)
         }
