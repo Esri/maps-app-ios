@@ -75,7 +75,7 @@ class PortalUserFolder: AGSLoadableBase {
     }
     
     // MARK: Hashable
-    override var hashValue: Int {
+    override var hash: Int {
         return containerType.hashValue
     }
     
