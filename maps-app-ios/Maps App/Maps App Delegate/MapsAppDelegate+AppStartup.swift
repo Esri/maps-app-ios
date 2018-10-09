@@ -17,7 +17,7 @@ import ArcGIS
 extension MapsAppDelegate {
     
     // MARK: App start
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // License the runtime
         do {
             try AGSArcGISRuntimeEnvironment.setLicenseKey(AppSettings.licenseKey)

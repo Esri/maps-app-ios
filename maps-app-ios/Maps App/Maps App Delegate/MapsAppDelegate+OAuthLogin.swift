@@ -17,7 +17,7 @@ import ArcGIS
 extension MapsAppDelegate {
     
     // MARK: OAuth
-    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
         // Handle OAuth callback from application(app,url,options) when the app's URL schema is called.
         //
         // See also AppSettings and AppContext.setupAndLoadPortal() to see how the AGSPortal is configured

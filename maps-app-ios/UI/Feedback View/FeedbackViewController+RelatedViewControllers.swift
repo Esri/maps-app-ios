@@ -20,10 +20,10 @@ extension FeedbackViewController {
     }
     
     var geocodeResultViewController:GeocodeResultViewController? {
-        return self.childViewControllers.filter({ $0 is GeocodeResultViewController }).first as? GeocodeResultViewController
+        return self.children.filter({ $0 is GeocodeResultViewController }).first as? GeocodeResultViewController
     }
     
     var routeResultViewController:RouteResultViewController? {
-        return self.childViewControllers.filter({ $0 is RouteResultViewController }).first as? RouteResultViewController
+        return self.children.filter({ $0 is RouteResultViewController }).first as? RouteResultViewController
     }    
 }

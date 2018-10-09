@@ -110,7 +110,6 @@
 		D9FF8D6E1F06CC7A00BD9B04 /* FeedbackMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9FF8D6D1F06CC7A00BD9B04 /* FeedbackMode.swift */; };
 		D9FF8D701F06D0D900BD9B04 /* MapViewController+MapViewModeHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9FF8D6F1F06D0D900BD9B04 /* MapViewController+MapViewModeHistory.swift */; };
 		D9FF8D721F06D49300BD9B04 /* MapViewController+KeyboardTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9FF8D711F06D49300BD9B04 /* MapViewController+KeyboardTracking.swift */; };
-		D9FF8D741F06D4DC00BD9B04 /* UIViewAnimationCurve+UIViewAnimationOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9FF8D731F06D4DC00BD9B04 /* UIViewAnimationCurve+UIViewAnimationOptions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -246,7 +245,6 @@
 		D9FF8D6D1F06CC7A00BD9B04 /* FeedbackMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackMode.swift; sourceTree = "<group>"; };
 		D9FF8D6F1F06D0D900BD9B04 /* MapViewController+MapViewModeHistory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MapViewController+MapViewModeHistory.swift"; sourceTree = "<group>"; };
 		D9FF8D711F06D49300BD9B04 /* MapViewController+KeyboardTracking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MapViewController+KeyboardTracking.swift"; sourceTree = "<group>"; };
-		D9FF8D731F06D4DC00BD9B04 /* UIViewAnimationCurve+UIViewAnimationOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewAnimationCurve+UIViewAnimationOptions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -602,7 +600,6 @@
 				D9CBE34B1E8B751B00776053 /* ArcGIS Extensions */,
 				D9B5074E1EB23399006BA131 /* URL+QueryString.swift */,
 				D979AD471F04A0BB00199AAA /* UICollectionView+CellAtCenter.swift */,
-				D9FF8D731F06D4DC00BD9B04 /* UIViewAnimationCurve+UIViewAnimationOptions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -720,20 +717,20 @@
 				TargetAttributes = {
 					D96A77501E8594BF00F441D3 = {
 						CreatedOnToolsVersion = 8.2.1;
-						LastSwiftMigration = 0940;
+						LastSwiftMigration = 1000;
 						ProvisioningStyle = Manual;
 					};
 					D96A77641E8594C000F441D3 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = J8UEUYLV27;
-						LastSwiftMigration = 0940;
+						LastSwiftMigration = 1000;
 						ProvisioningStyle = Automatic;
 						TestTargetID = D96A77501E8594BF00F441D3;
 					};
 					D96A776F1E8594C000F441D3 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = J8UEUYLV27;
-						LastSwiftMigration = 0940;
+						LastSwiftMigration = 1000;
 						ProvisioningStyle = Automatic;
 						TestTargetID = D96A77501E8594BF00F441D3;
 					};
@@ -818,7 +815,6 @@
 				D9CBE3411E8B4F2A00776053 /* SearchViewController.swift in Sources */,
 				D96E97211F211B6700167C67 /* AppContext+LoginLogout.swift in Sources */,
 				D9AB70AF1EF35C3300123FEA /* AccountViewController.swift in Sources */,
-				D9FF8D741F06D4DC00BD9B04 /* UIViewAnimationCurve+UIViewAnimationOptions.swift in Sources */,
 				D9638E3C1EBD146300CFF318 /* MapViewController+SearchSetup.swift in Sources */,
 				D95B72C81F06AA3D00224AB9 /* AppContext+PortalSetup.swift in Sources */,
 				D979AD441F03779B00199AAA /* DirectionsViewNotifications.swift in Sources */,
@@ -1078,8 +1074,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "maps-app-ios/3rd Party/maps-app-ios-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -1107,8 +1102,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "maps-app-ios/3rd Party/maps-app-ios-Bridging-Header.h";
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
@@ -1123,8 +1117,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.esri.example-apps.maps-app-iosTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/maps-app-ios.app/maps-app-ios";
 			};
 			name = Debug;
@@ -1139,8 +1132,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.esri.example-apps.maps-app-iosTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/maps-app-ios.app/maps-app-ios";
 			};
 			name = Release;
@@ -1154,8 +1146,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.esri.example-apps.maps-app-iosUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TEST_TARGET_NAME = "maps-app-ios";
 			};
 			name = Debug;
@@ -1169,8 +1160,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.esri.example-apps.maps-app-iosUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TEST_TARGET_NAME = "maps-app-ios";
 			};
 			name = Release;

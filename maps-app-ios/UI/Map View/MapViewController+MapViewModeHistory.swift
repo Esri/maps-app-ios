@@ -71,7 +71,7 @@ extension MapViewController {
     }
 
     // MARK: Shake to "undo" mode change.
-    override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
+    override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
         guard hasPreviousMode || hasNextMode else {
             return
         }
@@ -99,7 +99,7 @@ extension MapViewController {
             prevNextAlertController.addAction(nextAction)
         }
         
-        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: { _ in
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: { _ in
             prevNextAlertController.dismiss(animated: true, completion: nil)
         })
         prevNextAlertController.addAction(cancelAction)

@@ -94,7 +94,7 @@ extension MapViewMode {
     }
 
     private func envelopeForGraphics(graphics:[AGSGraphic], expansionFactor:Double = 1) -> AGSEnvelope? {
-        let geoms = graphics.flatMap({ graphic -> AGSGeometry? in
+        let geoms = graphics.compactMap({ graphic -> AGSGeometry? in
             return graphic.geometry
         })
         if let builder = geoms.first?.extent.toBuilder() {
