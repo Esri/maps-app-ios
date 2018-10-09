@@ -29,7 +29,7 @@ extension MapViewController {
     
     func activateKeyboardTracking() {
         // Listen to keyboard notifications.
-        for notificationName:Notification.Name in [UIResponder.keyboardWillShowNotification, UIResponder.keyboardWillHideNotification] {
+        for notificationName in [UIResponder.keyboardWillShowNotification, UIResponder.keyboardWillHideNotification] {
             keyboardObservers.append(NotificationCenter.default.addObserver(forName: notificationName, object: nil, queue: nil) { notification in
                 // Set our special view that tracks the keyboard. Either display or hide.
                 self.setKeyboardSpacerFromKeyboardNotification(notification: notification)
@@ -52,8 +52,8 @@ extension MapViewController {
         // to avoid being hidden by the keyboard.
         // Derived from code found at https://stackoverflow.com/questions/8704137/keeping-object-on-top-of-keyboard-in-the-event-of-becomefirstresponder-or-resign
         if let userInfo = notification.userInfo,
-            let duration = (userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as? NSNumber)?.doubleValue,
-            let endFrame = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            let duration = userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as? Double,
+            let endFrame = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect {
             
             let endFrameInContext = view.convert(endFrame, to: self.view)
             let newHeight = view.bounds.maxY - endFrameInContext.minY

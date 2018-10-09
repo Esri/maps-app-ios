@@ -99,7 +99,7 @@ extension MapViewController {
             prevNextAlertController.addAction(nextAction)
         }
         
-        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: { _ in
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: { _ in
             prevNextAlertController.dismiss(animated: true, completion: nil)
         })
         prevNextAlertController.addAction(cancelAction)
