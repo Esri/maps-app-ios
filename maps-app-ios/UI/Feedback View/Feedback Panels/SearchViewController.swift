@@ -18,6 +18,15 @@ class SearchViewController : UIViewController, UISearchBarDelegate {
     
     @IBOutlet weak var searchBar: UISearchBar!
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        guard #available(iOS 11, *) else {
+            searchBar.constraints.filter({ $0.identifier == "ios11SearchbarHeight" }).first?.isActive = false
+            return
+        }
+    }
+    
     lazy var suggestDebouncer:Debouncer = {
         let debouncer = Debouncer(delay: 0.1) {
             defer {
