@@ -70,12 +70,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Address or Place" translatesAutoresizingMaskIntoConstraints="NO" id="O7t-Dj-Ug0">
+                            <searchBar contentMode="redraw" verticalCompressionResistancePriority="1000" searchBarStyle="minimal" placeholder="Address or Place" translatesAutoresizingMaskIntoConstraints="NO" id="O7t-Dj-Ug0">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" identifier="ios10SearchbarHeight" id="QbO-WJ-dQW"/>
-                                    <constraint firstAttribute="height" priority="999" constant="56" identifier="ios11SearchbarHeight" id="SmJ-u4-nHc"/>
-                                </constraints>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="search" enablesReturnKeyAutomatically="YES" textContentType="location"/>
                                 <connections>
                                     <outlet property="delegate" destination="Wma-xI-VYV" id="ZlC-BY-yvZ"/>
