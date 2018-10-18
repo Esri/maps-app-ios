@@ -69,14 +69,11 @@
                         <viewControllerLayoutGuide type="bottom" id="1vd-TK-4RB"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="OkP-Fc-GQU">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Address or Place" translatesAutoresizingMaskIntoConstraints="NO" id="O7t-Dj-Ug0">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="wvN-YM-V1y"/>
-                                </constraints>
+                            <searchBar contentMode="redraw" verticalCompressionResistancePriority="1000" searchBarStyle="minimal" placeholder="Address or Place" translatesAutoresizingMaskIntoConstraints="NO" id="O7t-Dj-Ug0">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="search" enablesReturnKeyAutomatically="YES" textContentType="location"/>
                                 <connections>
                                     <outlet property="delegate" destination="Wma-xI-VYV" id="ZlC-BY-yvZ"/>
@@ -86,10 +83,11 @@
                         <constraints>
                             <constraint firstItem="O7t-Dj-Ug0" firstAttribute="top" secondItem="EA4-Qf-zbq" secondAttribute="bottom" id="54O-6f-WOS"/>
                             <constraint firstItem="O7t-Dj-Ug0" firstAttribute="leading" secondItem="OkP-Fc-GQU" secondAttribute="leading" id="6tU-wf-4hq"/>
-                            <constraint firstAttribute="trailing" secondItem="O7t-Dj-Ug0" secondAttribute="trailing" priority="999" id="r83-du-UvL"/>
+                            <constraint firstAttribute="bottom" secondItem="O7t-Dj-Ug0" secondAttribute="bottom" id="IyZ-SF-cEy"/>
+                            <constraint firstAttribute="trailing" secondItem="O7t-Dj-Ug0" secondAttribute="trailing" id="r83-du-UvL"/>
                         </constraints>
                     </view>
-                    <size key="freeformSize" width="375" height="44"/>
+                    <size key="freeformSize" width="375" height="56"/>
                     <connections>
                         <outlet property="searchBar" destination="O7t-Dj-Ug0" id="gyv-uY-u7u"/>
                     </connections>
