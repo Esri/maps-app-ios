@@ -738,10 +738,9 @@
 			};
 			buildConfigurationList = D96A774C1E8594BF00F441D3 /* Build configuration list for PBXProject "maps-app-ios" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				English,
 				en,
 				Base,
 			);
