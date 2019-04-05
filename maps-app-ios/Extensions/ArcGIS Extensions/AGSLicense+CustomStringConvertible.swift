@@ -39,6 +39,8 @@ extension AGSLicense {
             case .invalid:
                 // Not a valid license. Expiration means nothing.
                 return "\(self.licenseStatus)"
+            @unknown default:
+                fatalError("Unsupported enum case.")
             }
         } else {
             // No expiry…
@@ -73,6 +75,8 @@ extension AGSLicenseLevel : CustomStringConvertible {
             return "Standard"
         case .advanced:
             return "Advanced"
+        @unknown default:
+            fatalError("Unsupported enum case.")
         }
     }
 }
@@ -88,6 +92,8 @@ extension AGSLicenseStatus : CustomStringConvertible {
             return "Expired"
         case .loginRequired:
             return "Login Required"
+        @unknown default:
+            fatalError("Unsupported enum case.")
         }
     }
 }
@@ -101,6 +107,8 @@ extension AGSLicenseType : CustomStringConvertible {
             return "Named User"
         case .licenseKey:
             return "License Key"
+        @unknown default:
+            fatalError("Unsupported enum case.")
         }
     }
 }
