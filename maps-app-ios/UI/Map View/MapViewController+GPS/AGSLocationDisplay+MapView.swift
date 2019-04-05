@@ -39,6 +39,8 @@ extension AGSLocationDisplay {
             return #imageLiteral(resourceName: "GPS Follow")
         case .compassNavigation:
             return #imageLiteral(resourceName: "GPS Compass")
+        @unknown default:
+            fatalError("Unsupported enum case.")
         }
     }
 }
