@@ -674,6 +674,7 @@
 				D96A774E1E8594BF00F441D3 /* Frameworks */,
 				D96A774F1E8594BF00F441D3 /* Resources */,
 				9422EDD92257DACA00F74042 /* Embed Frameworks */,
+				9422EE6B225E5E4F00F74042 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -811,6 +812,26 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		9422EE6B225E5E4F00F74042 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "bash \"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/ArcGIS.framework/strip-frameworks.sh\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D96A774D1E8594BF00F441D3 /* Sources */ = {
