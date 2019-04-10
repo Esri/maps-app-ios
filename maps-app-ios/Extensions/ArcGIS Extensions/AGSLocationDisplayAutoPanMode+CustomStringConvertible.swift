@@ -25,6 +25,8 @@ extension AGSLocationDisplayAutoPanMode: CustomStringConvertible {
             return "Navigation"
         case .compassNavigation:
             return "Compass Navigation"
+        @unknown default:
+            fatalError("Unsupported enum case.")
         }
     }
 }

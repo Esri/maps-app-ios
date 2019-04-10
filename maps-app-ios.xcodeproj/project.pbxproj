@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9422EDDF2257DB2900F74042 /* ArcGIS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9422EDDD2257DB2900F74042 /* ArcGIS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		944FC15320240AA8007535DB /* AppIcon.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 944FC15220240AA7007535DB /* AppIcon.xcassets */; };
 		D90A07C61EF38C1400A9B253 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90A07C51EF38C1400A9B253 /* RoundedButton.swift */; };
 		D90DF41B1EAE595000EC0960 /* AccountDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90DF41A1EAE595000EC0960 /* AccountDetailsViewController.swift */; };
@@ -55,7 +56,6 @@
 		D96A775F1E8594C000F441D3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D96A775D1E8594C000F441D3 /* LaunchScreen.storyboard */; };
 		D96A776A1E8594C000F441D3 /* maps_app_iosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96A77691E8594C000F441D3 /* maps_app_iosTests.swift */; };
 		D96A77751E8594C000F441D3 /* maps_app_iosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96A77741E8594C000F441D3 /* maps_app_iosUITests.swift */; };
-		D96A77831E8598DF00F441D3 /* ArcGIS.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D96A77821E8598DF00F441D3 /* ArcGIS.bundle */; };
 		D96A77851E86E88600F441D3 /* AGSLicense+CustomStringConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96A77841E86E88600F441D3 /* AGSLicense+CustomStringConvertible.swift */; };
 		D96B73C11EF73760004B6862 /* RoundedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96B73C01EF73760004B6862 /* RoundedImageView.swift */; };
 		D96B73C51EF73E03004B6862 /* RoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96B73C41EF73E03004B6862 /* RoundedView.swift */; };
@@ -129,7 +129,22 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		9422EDD92257DACA00F74042 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				9422EDDF2257DB2900F74042 /* ArcGIS.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		9422EDDD2257DB2900F74042 /* ArcGIS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ArcGIS.framework; path = $HOME/Library/SDKs/ArcGIS/iOS/Frameworks/Dynamic/ArcGIS.framework; sourceTree = "<absolute>"; };
 		944FC15220240AA7007535DB /* AppIcon.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = AppIcon.xcassets; sourceTree = "<group>"; };
 		D90A07C51EF38C1400A9B253 /* RoundedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		D90DF41A1EAE595000EC0960 /* AccountDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = AccountDetailsViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -184,7 +199,6 @@
 		D96A77701E8594C000F441D3 /* maps-app-iosUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "maps-app-iosUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D96A77741E8594C000F441D3 /* maps_app_iosUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = maps_app_iosUITests.swift; sourceTree = "<group>"; };
 		D96A77761E8594C000F441D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D96A77821E8598DF00F441D3 /* ArcGIS.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = ArcGIS.bundle; path = $HOME/Library/SDKs/ArcGIS/iOS/Frameworks/Static/ArcGIS.framework/Versions/Current/Resources/ArcGIS.bundle; sourceTree = "<group>"; };
 		D96A77841E86E88600F441D3 /* AGSLicense+CustomStringConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AGSLicense+CustomStringConvertible.swift"; sourceTree = "<group>"; };
 		D96B73C01EF73760004B6862 /* RoundedImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedImageView.swift; sourceTree = "<group>"; };
 		D96B73C41EF73E03004B6862 /* RoundedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedView.swift; sourceTree = "<group>"; };
@@ -420,6 +434,7 @@
 		D96A77481E8594BF00F441D3 = {
 			isa = PBXGroup;
 			children = (
+				9422EDDD2257DB2900F74042 /* ArcGIS.framework */,
 				D96A77531E8594C000F441D3 /* maps-app-ios */,
 				D96A77681E8594C000F441D3 /* maps-app-iosTests */,
 				D96A77731E8594C000F441D3 /* maps-app-iosUITests */,
@@ -580,7 +595,6 @@
 				944FC15220240AA7007535DB /* AppIcon.xcassets */,
 				D96A775D1E8594C000F441D3 /* LaunchScreen.storyboard */,
 				D96A77601E8594C000F441D3 /* Info.plist */,
-				D96A77821E8598DF00F441D3 /* ArcGIS.bundle */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -659,7 +673,8 @@
 				D96A774D1E8594BF00F441D3 /* Sources */,
 				D96A774E1E8594BF00F441D3 /* Frameworks */,
 				D96A774F1E8594BF00F441D3 /* Resources */,
-				94FC1480218B676D00B85C9C /* ShellScript */,
+				9422EDD92257DACA00F74042 /* Embed Frameworks */,
+				9422EE6B225E5E4F00F74042 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -713,25 +728,25 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0820;
-				LastUpgradeCheck = 0940;
+				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = Esri;
 				TargetAttributes = {
 					D96A77501E8594BF00F441D3 = {
 						CreatedOnToolsVersion = 8.2.1;
-						LastSwiftMigration = 1000;
-						ProvisioningStyle = Manual;
+						LastSwiftMigration = 1020;
+						ProvisioningStyle = Automatic;
 					};
 					D96A77641E8594C000F441D3 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = J8UEUYLV27;
-						LastSwiftMigration = 1000;
+						LastSwiftMigration = 1020;
 						ProvisioningStyle = Automatic;
 						TestTargetID = D96A77501E8594BF00F441D3;
 					};
 					D96A776F1E8594C000F441D3 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = J8UEUYLV27;
-						LastSwiftMigration = 1000;
+						LastSwiftMigration = 1020;
 						ProvisioningStyle = Automatic;
 						TestTargetID = D96A77501E8594BF00F441D3;
 					};
@@ -739,7 +754,7 @@
 			};
 			buildConfigurationList = D96A774C1E8594BF00F441D3 /* Build configuration list for PBXProject "maps-app-ios" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
@@ -765,7 +780,6 @@
 				D96A775F1E8594C000F441D3 /* LaunchScreen.storyboard in Resources */,
 				D979AD461F0427EF00199AAA /* DirectionsManeuverSymbol.json in Resources */,
 				D93381B01E90BBD900A0F93E /* Feedback.storyboard in Resources */,
-				D96A77831E8598DF00F441D3 /* ArcGIS.bundle in Resources */,
 				D9C080BD1F01F53C00968FB3 /* Directions.xcassets in Resources */,
 				D9A82E0C1EF475940059244A /* Account.xcassets in Resources */,
 				D928724A1E942CFB00112A53 /* Feedback.xcassets in Resources */,
@@ -799,7 +813,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		94FC1480218B676D00B85C9C /* ShellScript */ = {
+		9422EE6B225E5E4F00F74042 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -814,7 +828,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [ -e $HOME/.runtime-example-apps/xcode-run-scripts/arcgis-build-number-run-script.sh ]; then\n$HOME/.runtime-example-apps/xcode-run-scripts/arcgis-build-number-run-script.sh -p ios -o $PROJECT_DIR\nelse\necho \"Cannot update ArcGIS build number.\"\nfi\n\n";
+			shellScript = "if [ -e $HOME/.runtime-example-apps/xcode-run-scripts/arcgis-build-number-run-script.sh ]; then\n$HOME/.runtime-example-apps/xcode-run-scripts/arcgis-build-number-run-script.sh -p ios -o $PROJECT_DIR\nelse\necho \"Cannot update ArcGIS build number.\"\nfi\n\nbash \"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/ArcGIS.framework/strip-frameworks.sh\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -966,6 +980,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -1010,7 +1025,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -1024,6 +1039,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -1062,7 +1078,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -1078,24 +1094,22 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
-				FRAMEWORK_SEARCH_PATHS = "$(HOME)/Library/SDKs/ArcGIS/iOS/Frameworks/Static";
-				INFOPLIST_FILE = "maps-app-ios/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_LDFLAGS = (
-					"-ObjC",
-					"-framework",
-					ArcGIS,
-					"-l",
-					"c++",
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(HOME)/Library/SDKs/ArcGIS/iOS/Frameworks/Dynamic",
+					"$(USER_LIBRARY_DIR)/SDKs/ArcGIS/iOS/Frameworks/Dynamic",
 				);
+				INFOPLIST_FILE = "maps-app-ios/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.esri.arcgisruntime-example-apps.maps-app";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "maps-app-ios/3rd Party/maps-app-ios-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -1105,25 +1119,23 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
-				FRAMEWORK_SEARCH_PATHS = "$(HOME)/Library/SDKs/ArcGIS/iOS/Frameworks/Static";
-				INFOPLIST_FILE = "maps-app-ios/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_LDFLAGS = (
-					"-ObjC",
-					"-framework",
-					ArcGIS,
-					"-l",
-					"c++",
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(HOME)/Library/SDKs/ArcGIS/iOS/Frameworks/Dynamic",
+					"$(USER_LIBRARY_DIR)/SDKs/ArcGIS/iOS/Frameworks/Dynamic",
 				);
+				INFOPLIST_FILE = "maps-app-ios/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.esri.arcgisruntime-example-apps.maps-app";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "maps-app-ios/3rd Party/maps-app-ios-Bridging-Header.h";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
@@ -1138,7 +1150,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.esri.example-apps.maps-app-iosTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/maps-app-ios.app/maps-app-ios";
 			};
 			name = Debug;
@@ -1153,7 +1165,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.esri.example-apps.maps-app-iosTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/maps-app-ios.app/maps-app-ios";
 			};
 			name = Release;
@@ -1167,7 +1179,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.esri.example-apps.maps-app-iosUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TEST_TARGET_NAME = "maps-app-ios";
 			};
 			name = Debug;
@@ -1181,7 +1193,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.esri.example-apps.maps-app-iosUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TEST_TARGET_NAME = "maps-app-ios";
 			};
 			name = Release;

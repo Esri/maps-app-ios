@@ -23,7 +23,7 @@ private var autoPanSequence:[AGSLocationDisplayAutoPanMode] = [
 extension AGSLocationDisplayAutoPanMode {
     func next() -> AGSLocationDisplayAutoPanMode {
         // Cycle through the AutoPan modes this app wants to use...
-        let newIndex = ((autoPanSequence.index(of: self) ?? -1) + 1) % autoPanSequence.count
+        let newIndex = ((autoPanSequence.firstIndex(of: self) ?? -1) + 1) % autoPanSequence.count
         return autoPanSequence[newIndex]
     }
 }
@@ -39,6 +39,8 @@ extension AGSLocationDisplay {
             return #imageLiteral(resourceName: "GPS Follow")
         case .compassNavigation:
             return #imageLiteral(resourceName: "GPS Compass")
+        @unknown default:
+            fatalError("Unsupported enum case.")
         }
     }
 }
