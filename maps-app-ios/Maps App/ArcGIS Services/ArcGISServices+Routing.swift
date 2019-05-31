@@ -18,7 +18,7 @@ extension ArcGISServices {
     
     // MARK: Directions from A to B
     func route(from:AGSStop, to:AGSStop) {
-        mapsApp.requestConfirmationIfLoggedOut(explanation: "Getting directions requires a login and consumes credits.", continueHandler: {
+        mapsApp.requestConfirmationIfSignedOut(explanation: "Getting directions requires a login and consumes credits.", continueHandler: {
             self.requestRoute(from: from, to: to)
         })
     }

@@ -63,7 +63,7 @@
 		D96B73CA1EF83917004B6862 /* BasemapsDisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96B73C91EF83917004B6862 /* BasemapsDisplayViewController.swift */; };
 		D96B73CE1EF86E20004B6862 /* BasemapNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96B73CD1EF86E20004B6862 /* BasemapNotifications.swift */; };
 		D96B73D01EF872A8004B6862 /* MapViewController+Basemap.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96B73CF1EF872A8004B6862 /* MapViewController+Basemap.swift */; };
-		D96E97211F211B6700167C67 /* AppContext+LoginLogout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96E97201F211B6700167C67 /* AppContext+LoginLogout.swift */; };
+		D96E97211F211B6700167C67 /* AppContext+Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96E97201F211B6700167C67 /* AppContext+Authentication.swift */; };
 		D9774AF61EBAD56D0099D4A5 /* PortalUserFolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9774AF51EBAD56D0099D4A5 /* PortalUserFolder.swift */; };
 		D979AD3E1F03483C00199AAA /* ASGDirectionManeuverType+CustomStringConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = D979AD3D1F03483C00199AAA /* ASGDirectionManeuverType+CustomStringConvertible.swift */; };
 		D979AD441F03779B00199AAA /* DirectionsViewNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = D979AD431F03779B00199AAA /* DirectionsViewNotifications.swift */; };
@@ -206,7 +206,7 @@
 		D96B73C91EF83917004B6862 /* BasemapsDisplayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasemapsDisplayViewController.swift; sourceTree = "<group>"; };
 		D96B73CD1EF86E20004B6862 /* BasemapNotifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasemapNotifications.swift; sourceTree = "<group>"; };
 		D96B73CF1EF872A8004B6862 /* MapViewController+Basemap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MapViewController+Basemap.swift"; sourceTree = "<group>"; };
-		D96E97201F211B6700167C67 /* AppContext+LoginLogout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = "AppContext+LoginLogout.swift"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		D96E97201F211B6700167C67 /* AppContext+Authentication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = "AppContext+Authentication.swift"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		D9774AF51EBAD56D0099D4A5 /* PortalUserFolder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PortalUserFolder.swift; sourceTree = "<group>"; };
 		D979AD3D1F03483C00199AAA /* ASGDirectionManeuverType+CustomStringConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ASGDirectionManeuverType+CustomStringConvertible.swift"; sourceTree = "<group>"; };
 		D979AD431F03779B00199AAA /* DirectionsViewNotifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DirectionsViewNotifications.swift; sourceTree = "<group>"; };
@@ -401,7 +401,7 @@
 			isa = PBXGroup;
 			children = (
 				D9638E391EBCFCA000CFF318 /* AppContext.swift */,
-				D96E97201F211B6700167C67 /* AppContext+LoginLogout.swift */,
+				D96E97201F211B6700167C67 /* AppContext+Authentication.swift */,
 				D95B72C71F06AA3D00224AB9 /* AppContext+PortalSetup.swift */,
 				D95AD1D01F192B53002BC78A /* AppContext+PortalServices.swift */,
 			);
@@ -848,7 +848,7 @@
 				D96B73C51EF73E03004B6862 /* RoundedView.swift in Sources */,
 				D9638E3A1EBCFCA000CFF318 /* AppContext.swift in Sources */,
 				D9CBE3411E8B4F2A00776053 /* SearchViewController.swift in Sources */,
-				D96E97211F211B6700167C67 /* AppContext+LoginLogout.swift in Sources */,
+				D96E97211F211B6700167C67 /* AppContext+Authentication.swift in Sources */,
 				D9AB70AF1EF35C3300123FEA /* AccountViewController.swift in Sources */,
 				D9638E3C1EBD146300CFF318 /* MapViewController+SearchSetup.swift in Sources */,
 				D95B72C81F06AA3D00224AB9 /* AppContext+PortalSetup.swift in Sources */,

@@ -20,8 +20,8 @@ extension MapsAppNotifications {
     static func observeLoginStateNotifications(owner:Any, loginHandler:((AGSPortalUser)->Void)?, logoutHandler:(()->Void)?) {
         if let loginHandler = loginHandler {
             let ref = NotificationCenter.default.addObserver(forName: MapsAppNotifications.Names.appLogin, object: mapsApp, queue: OperationQueue.main) { notification in
-                if let loggedInUser = notification.loggedInUser {
-                    loginHandler(loggedInUser)
+                if let signedInUser = notification.signedInUser {
+                    loginHandler(signedInUser)
                 }
             }
             MapsAppNotifications.registerBlockHandler(blockHandler: ref, forOwner: owner)
@@ -40,12 +40,12 @@ extension MapsAppNotifications {
 
 // MARK: Internals
 extension MapsAppNotifications {
-    static func postLoginNotification(user:AGSPortalUser) {
+    static func postSignInNotification(user:AGSPortalUser) {
         NotificationCenter.default.post(name: MapsAppNotifications.Names.appLogin, object: mapsApp,
                                         userInfo: [LoginNotifications.userKey:user])
     }
 
-    static func postLogoutNotification() {
+    static func postSignOutNotification() {
         NotificationCenter.default.post(name: MapsAppNotifications.Names.appLogout, object: mapsApp)
     }
 
@@ -58,7 +58,7 @@ extension MapsAppNotifications.Names {
 }
 
 extension Notification {
-    var loggedInUser:AGSPortalUser? {
+    var signedInUser:AGSPortalUser? {
         guard self.name == MapsAppNotifications.Names.appLogin else {
             return nil
         }

@@ -15,8 +15,8 @@
 import UIKit
 
 class AccountViewController: UIViewController {
-    @IBOutlet weak var loggedInContainer: UIView!
-    @IBOutlet weak var loggedOutContainer: UIView!
+    @IBOutlet weak var signedInContainer: UIView!
+    @IBOutlet weak var signedOutContainer: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,8 +33,8 @@ class AccountViewController: UIViewController {
 
     
     func showAccountPanelForLoginStatus() {
-        loggedOutContainer.isHidden = mapsAppContext.isLoggedIn
-        loggedInContainer.isHidden = !loggedOutContainer.isHidden
+        signedOutContainer.isHidden = mapsAppContext.isSignedIn
+        signedInContainer.isHidden = !signedOutContainer.isHidden
     }
     
     func setupLoginNotificationHandlers() {

@@ -20,7 +20,7 @@ class AccountDetailsViewController: UIViewController {
     @IBOutlet weak var fullNameView: UILabel!
     @IBOutlet weak var folderButton: UIButton!
     
-    var loggedInUser:AGSPortalUser? {
+    var signedInUser:AGSPortalUser? {
         get {
             return mapsAppContext.currentUser
         }
@@ -62,9 +62,9 @@ class AccountDetailsViewController: UIViewController {
     
     // MARK: UI Display
     private func showUser() {
-        fullNameView.text = loggedInUser?.fullName ?? "Unknown User"
-        loggedInUser?.thumbnail?.load() { [weak self] _ in
-            self?.userThumbnailView.image = self?.loggedInUser?.thumbnail?.image ?? #imageLiteral(resourceName: "User")
+        fullNameView.text = signedInUser?.fullName ?? "Unknown User"
+        signedInUser?.thumbnail?.load() { [weak self] _ in
+            self?.userThumbnailView.image = self?.signedInUser?.thumbnail?.image ?? #imageLiteral(resourceName: "User")
         }
     }
     
@@ -115,8 +115,8 @@ class AccountDetailsViewController: UIViewController {
     }
 
     // MARK: UI Actions
-    @IBAction func logOut(_ sender: Any) {
-        mapsAppContext.logOut()
+    @IBAction func signOut(_ sender: Any) {
+        mapsAppContext.signOut()
     }
     
     @IBAction func folderNameTapped(_ sender: Any) {

@@ -31,7 +31,7 @@ extension MapsAppDelegate {
             // See if we were called back with confirmation that we're authorized.
             if let _ = urlComponents.queryParameter(named: "code") {
                 // If we were authenticated, there should now be a shared credential to use. Let's try it.
-                mapsAppContext.logInCurrentPortalIfPossible()
+                mapsAppContext.signInCurrentPortalIfPossible()
             }
         }
         return true
