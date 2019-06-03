@@ -46,19 +46,19 @@ extension MapsAppDelegate {
         Warn the user that the action they're attempting to perform requires a login and give them the option to abort the action.
      
         - Parameters:
-            - explanation: A message explaining why the action requires the user to be logged in. Also specify any points of interest (such as that the action will consume ArcGIS Online credits, for example).
-            - continueHandler: A callback block that is called if the user opts to login and continue with the action.
+            - explanation: A message explaining why the action requires the user to be signed in. Also specify any points of interest (such as that the action will consume ArcGIS Online credits, for example).
+            - continueHandler: A callback block that is called if the user opts to sign-in and continue with the action.
             - cancelHandler: A callback block that is called if the user opts not to continue with the action.
     */
-    func requestConfirmationIfLoggedOut(explanation: String, continueHandler: @escaping (()->Void), cancelHandler: (()->Void)? = nil) {
-        if mapsAppContext.isLoggedIn {
-            // If the user is already logged in, the block will be called immediately.
+    func requestConfirmationIfSignedOut(explanation: String, continueHandler: @escaping (()->Void), cancelHandler: (()->Void)? = nil) {
+        if mapsAppContext.isSignedIn {
+            // If the user is already sign in, the block will be called immediately.
             continueHandler()
         } else {
-            // Present a warning message if the user is not logged in before performing the block or canceling the action.
+            // Present a warning message if the user is not signed in before performing the block or canceling the action.
             if let currentViewController = window?.rootViewController?.presentedViewController ?? window?.rootViewController {
                 let alert = UIAlertController(title: "Login Required", message: explanation, preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "Login", style: .default, handler: { _ in continueHandler() }))
+                alert.addAction(UIAlertAction(title: "Sign in", style: .default, handler: { _ in continueHandler() }))
                 alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { _ in cancelHandler?() }))
                 currentViewController.present(alert, animated: true)
             }

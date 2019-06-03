@@ -19,16 +19,16 @@ extension MapsAppNotifications {
     // MARK: Register Listeners
     static func observeLoginStateNotifications(owner:Any, loginHandler:((AGSPortalUser)->Void)?, logoutHandler:(()->Void)?) {
         if let loginHandler = loginHandler {
-            let ref = NotificationCenter.default.addObserver(forName: MapsAppNotifications.Names.appLogin, object: mapsApp, queue: OperationQueue.main) { notification in
-                if let loggedInUser = notification.loggedInUser {
-                    loginHandler(loggedInUser)
+            let ref = NotificationCenter.default.addObserver(forName: MapsAppNotifications.Names.appSignedIn, object: mapsApp, queue: OperationQueue.main) { notification in
+                if let signedInUser = notification.signedInUser {
+                    loginHandler(signedInUser)
                 }
             }
             MapsAppNotifications.registerBlockHandler(blockHandler: ref, forOwner: owner)
         }
         
         if let logoutHandler = logoutHandler {
-            let ref = NotificationCenter.default.addObserver(forName: MapsAppNotifications.Names.appLogout, object: mapsApp, queue: OperationQueue.main) { notification in
+            let ref = NotificationCenter.default.addObserver(forName: MapsAppNotifications.Names.appSignedOut, object: mapsApp, queue: OperationQueue.main) { notification in
                 logoutHandler()
             }
             MapsAppNotifications.registerBlockHandler(blockHandler: ref, forOwner: owner)
@@ -40,26 +40,26 @@ extension MapsAppNotifications {
 
 // MARK: Internals
 extension MapsAppNotifications {
-    static func postLoginNotification(user:AGSPortalUser) {
-        NotificationCenter.default.post(name: MapsAppNotifications.Names.appLogin, object: mapsApp,
+    static func postSignedInNotification(user:AGSPortalUser) {
+        NotificationCenter.default.post(name: MapsAppNotifications.Names.appSignedIn, object: mapsApp,
                                         userInfo: [LoginNotifications.userKey:user])
     }
 
-    static func postLogoutNotification() {
-        NotificationCenter.default.post(name: MapsAppNotifications.Names.appLogout, object: mapsApp)
+    static func postSignedOutNotification() {
+        NotificationCenter.default.post(name: MapsAppNotifications.Names.appSignedOut, object: mapsApp)
     }
 
 }
 
 // MARK: Typed Notification Pattern
 extension MapsAppNotifications.Names {
-    static let appLogin = Notification.Name("MapsAppLoginNotification")
-    static let appLogout = Notification.Name("MapsAppLogoutNotification")
+    static let appSignedIn = Notification.Name("MapsAppSignedInNotification")
+    static let appSignedOut = Notification.Name("MapsAppSignedOutNotification")
 }
 
 extension Notification {
-    var loggedInUser:AGSPortalUser? {
-        guard self.name == MapsAppNotifications.Names.appLogin else {
+    var signedInUser:AGSPortalUser? {
+        guard self.name == MapsAppNotifications.Names.appSignedIn else {
             return nil
         }
 

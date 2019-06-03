@@ -20,7 +20,7 @@ class AppContext {
     /**
      The app's current portal.
      
-     The portal drives whether the user is logged in or not, the URLs for the Route and Geocoding services, and also which basemaps
+     The portal drives whether the user is signed in or not, the URLs for the Route and Geocoding services, and also which basemaps
      are available to choose from.
      
      When set, the portal is configured for OAuth authentication so that if login is required, the Runtime SDK and iOS can work together
@@ -81,27 +81,27 @@ class AppContext {
     }
 
     /**
-     Returns whether we are currently logged in to the current portal.
+     Returns whether we are currently signed in to the current portal.
      */
-    var isLoggedIn:Bool {
+    var isSignedIn:Bool {
         return self.currentUser != nil
     }
     
     /**
-     Return the current logged in user, if any.
+     Return the current signed in user, if any.
      */
     var currentUser:AGSPortalUser? {
         didSet {
             if let user = currentUser {
-                print("Logged in as user \(user)")
+                print("Signed in as user \(user)")
                 self.rootFolder = PortalUserFolder.rootFolder(forUser: user)
-                MapsAppNotifications.postLoginNotification(user: user)
+                MapsAppNotifications.postSignedInNotification(user: user)
             } else {
                 if let oldUser = oldValue {
-                    print("\(oldUser) logged out")
+                    print("\(oldUser) signed out")
                 }
                 self.rootFolder = nil
-                MapsAppNotifications.postLogoutNotification()
+                MapsAppNotifications.postSignedOutNotification()
             }
         }
     }
