@@ -95,13 +95,13 @@ class AppContext {
             if let user = currentUser {
                 print("Signed in as user \(user)")
                 self.rootFolder = PortalUserFolder.rootFolder(forUser: user)
-                MapsAppNotifications.postSignInNotification(user: user)
+                MapsAppNotifications.postSignedInNotification(user: user)
             } else {
                 if let oldUser = oldValue {
                     print("\(oldUser) signed out")
                 }
                 self.rootFolder = nil
-                MapsAppNotifications.postSignOutNotification()
+                MapsAppNotifications.postSignedOutNotification()
             }
         }
     }
