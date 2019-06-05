@@ -34,9 +34,9 @@ extension AGSPortal {
         // then in the portal.load() callback below we will find ourselves signed in to the portal.
         let newPortal = (portalURL != nil) ? AGSPortal(url: portalURL!, loginRequired: true) : AGSPortal.arcGISOnline(withLoginRequired: true)
         
-        // We'll temporarily disable prompting the user to sign-in in case the cached credentials are not suitable to sign us in.
+        // We'll temporarily disable prompting the user to sign in in case the cached credentials are not suitable to sign us in.
         // I.e. if the cached credentials aren't good enough to find ourselves signed in to the portal/ArcGIS Online, then just
-        // accept it and don't prompt us to sign-in, resulting in a Portal being accessed anonymously.
+        // accept it and don't prompt us to sign in, resulting in a Portal being accessed anonymously.
         // We revert from that behaviour as soon as the portal loads below.
         let originalPortalRC = newPortal.requestConfiguration,
             sourceRC = originalPortalRC ?? AGSRequestConfiguration.global(),
@@ -54,7 +54,7 @@ extension AGSPortal {
             if error == nil {
                 completion(newPortal, true)
             } else {
-                // Could not sign-in silently with cached credentials, so let's return a portal that doesn't require a login.
+                // Could not sign in silently with cached credentials, so let's return a portal that doesn't require a login.
                 print("Error loading the new portal: \(error!.localizedDescription)")
                 if let newURL = newPortal.url {
                     // Portal URL was specified. Let's use that.
