@@ -47,12 +47,12 @@ extension MapsAppDelegate {
      
         - Parameters:
             - explanation: A message explaining why the action requires the user to be signed in. Also specify any points of interest (such as that the action will consume ArcGIS Online credits, for example).
-            - continueHandler: A callback block that is called if the user opts to sign-in and continue with the action.
+            - continueHandler: A callback block that is called if the user opts to sign in and continue with the action.
             - cancelHandler: A callback block that is called if the user opts not to continue with the action.
     */
     func requestConfirmationIfSignedOut(explanation: String, continueHandler: @escaping (()->Void), cancelHandler: (()->Void)? = nil) {
         if mapsAppContext.isSignedIn {
-            // If the user is already sign in, the block will be called immediately.
+            // If the user is already signed in, the block will be called immediately.
             continueHandler()
         } else {
             // Present a warning message if the user is not signed in before performing the block or canceling the action.

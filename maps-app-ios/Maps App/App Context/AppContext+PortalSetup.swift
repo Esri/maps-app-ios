@@ -64,7 +64,7 @@ extension AppContext {
      Try to sign in to the AppContext's current portal if possible.
      */
     func signInCurrentPortalIfPossible() {
-        // Try to take the current portal and update it to be in a signed in state.
+        // Try to take the current portal and update it to be in a signed-in state.
         currentPortal?.load() { error in
             guard error == nil else {
                 print("Error loading the portal during sign-in attempt: \(error!.localizedDescription)")

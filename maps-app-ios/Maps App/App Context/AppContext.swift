@@ -88,7 +88,7 @@ class AppContext {
     }
     
     /**
-     Return the current signed in user, if any.
+     Return the current signed-in user, if any.
      */
     var currentUser:AGSPortalUser? {
         didSet {
