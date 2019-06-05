@@ -52,7 +52,7 @@ extension MapsAppDelegate {
     */
     func requestConfirmationIfSignedOut(explanation: String, continueHandler: @escaping (()->Void), cancelHandler: (()->Void)? = nil) {
         if mapsAppContext.isSignedIn {
-            // If the user is already sign in, the block will be called immediately.
+            // If the user is already signed in, the block will be called immediately.
             continueHandler()
         } else {
             // Present a warning message if the user is not signed in before performing the block or canceling the action.
