@@ -47,6 +47,10 @@ class AccountViewController: UIViewController {
             })
     }
 
+    @IBAction func dissmissAccountViewController(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    
     @IBAction func closeAccountViewer(_: UIStoryboardSegue) {
         dismiss(animated: true, completion: nil)
     }

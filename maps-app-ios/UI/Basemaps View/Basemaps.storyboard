@@ -1,16 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="VGr-pc-EfB">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14810.12" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="wdl-r7-L0J">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14766.15"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Basemaps Display View Controller-->
+        <!--Select a basemap-->
         <scene sceneID="BQY-Sj-ntN">
             <objects>
                 <viewController id="VGr-pc-EfB" customClass="BasemapsDisplayViewController" customModule="maps_app_ios" customModuleProvider="target" sceneMemberID="viewController">
@@ -22,49 +19,32 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="H1y-Ew-OVU">
-                                <rect key="frame" x="0.0" y="28" width="375" height="639"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="Select a basemap" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ON4-fJ-ZPK">
-                                        <rect key="frame" x="119.5" y="0.0" width="136.5" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xYy-Dm-kPt">
-                                        <rect key="frame" x="0.0" y="28.5" width="375" height="610.5"/>
-                                        <connections>
-                                            <segue destination="kGH-hE-TYD" kind="embed" id="3Vu-3d-EyG"/>
-                                        </connections>
-                                    </containerView>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="xYy-Dm-kPt" firstAttribute="leading" secondItem="H1y-Ew-OVU" secondAttribute="leading" id="qiQ-X8-bzS"/>
-                                    <constraint firstAttribute="trailing" secondItem="xYy-Dm-kPt" secondAttribute="trailing" id="sKW-Ma-VHS"/>
-                                </constraints>
-                            </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LPa-HT-Txx">
-                                <rect key="frame" x="331" y="28" width="28" height="22"/>
-                                <state key="normal" image="Collapse"/>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xYy-Dm-kPt">
+                                <rect key="frame" x="0.0" y="44" width="375" height="623"/>
                                 <connections>
-                                    <action selector="cancelBasemapPicker:" destination="VGr-pc-EfB" eventType="touchUpInside" id="ouN-Yp-F1p"/>
+                                    <segue destination="kGH-hE-TYD" kind="embed" id="3Vu-3d-EyG"/>
                                 </connections>
-                            </button>
+                            </containerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="LPa-HT-Txx" firstAttribute="top" secondItem="kTg-s4-seS" secondAttribute="bottom" constant="8" symbolic="YES" id="CnZ-A4-eKr"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="LPa-HT-Txx" secondAttribute="trailing" id="Da5-jy-mm2"/>
-                            <constraint firstItem="c9X-qK-bV3" firstAttribute="top" secondItem="H1y-Ew-OVU" secondAttribute="bottom" id="H8S-wZ-ozn"/>
-                            <constraint firstAttribute="trailing" secondItem="H1y-Ew-OVU" secondAttribute="trailing" id="f4n-XR-qNV"/>
-                            <constraint firstItem="H1y-Ew-OVU" firstAttribute="leading" secondItem="Q5q-6j-DDd" secondAttribute="leading" id="kCY-JW-8jQ"/>
-                            <constraint firstItem="H1y-Ew-OVU" firstAttribute="top" secondItem="kTg-s4-seS" secondAttribute="bottom" constant="8" id="qnF-3B-phv"/>
+                            <constraint firstItem="c9X-qK-bV3" firstAttribute="top" secondItem="xYy-Dm-kPt" secondAttribute="bottom" id="AKz-Eg-3BZ"/>
+                            <constraint firstAttribute="trailing" secondItem="xYy-Dm-kPt" secondAttribute="trailing" id="Vrw-VT-Iz5"/>
+                            <constraint firstItem="xYy-Dm-kPt" firstAttribute="leading" secondItem="Q5q-6j-DDd" secondAttribute="leading" id="lc1-7L-3wI"/>
+                            <constraint firstItem="xYy-Dm-kPt" firstAttribute="top" secondItem="kTg-s4-seS" secondAttribute="bottom" id="ns2-xN-Jtb"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Select a basemap" id="VLf-y0-aZL">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="5wC-uX-gIH">
+                            <connections>
+                                <action selector="cancelBasemapPicker:" destination="VGr-pc-EfB" id="XL3-bf-sxS"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jAI-E8-Ce7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="120.8" y="139.880059970015"/>
+            <point key="canvasLocation" x="1060" y="139.880059970015"/>
         </scene>
         <!--PortalItemsBrowser-->
         <scene sceneID="k0s-AE-wOb">
@@ -72,10 +52,25 @@
                 <viewControllerPlaceholder storyboardName="PortalItemsBrowser" id="kGH-hE-TYD" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pgo-E1-beR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="871" y="11"/>
+            <point key="canvasLocation" x="1808.8" y="10.794602698650676"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="gkF-kA-mhO">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="wdl-r7-L0J" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="y90-Sw-fWI">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="VGr-pc-EfB" kind="relationship" relationship="rootViewController" id="vFg-Z6-Ruj"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="evb-fd-J0v" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="120.8" y="139.880059970015"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="Collapse" width="28" height="14"/>
-    </resources>
 </document>
