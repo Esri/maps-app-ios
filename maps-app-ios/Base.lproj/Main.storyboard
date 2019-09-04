@@ -1,13 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14810.12" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14766.15"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -128,7 +124,7 @@
                                                         </constraints>
                                                         <state key="normal" image="Account"/>
                                                         <connections>
-                                                            <segue destination="Q6l-Ds-Fna" kind="presentation" modalPresentationStyle="overFullScreen" id="TZ3-Fn-ka8"/>
+                                                            <segue destination="Q6l-Ds-Fna" kind="presentation" id="TZ3-Fn-ka8"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -164,7 +160,7 @@
                                 </constraints>
                             </stackView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jZt-eF-xnL" userLabel="Feedback Panel Container">
-                                <rect key="frame" x="16" y="28" width="343" height="44"/>
+                                <rect key="frame" x="16" y="8" width="343" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" priority="900" constant="44" id="YZp-8X-KBS"/>
                                 </constraints>
@@ -173,7 +169,7 @@
                                 </connections>
                             </containerView>
                             <containerView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e5m-If-kPv" userLabel="Suggestions Container">
-                                <rect key="frame" x="16" y="82" width="343" height="50"/>
+                                <rect key="frame" x="16" y="62" width="343" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" priority="900" constant="50" id="TZX-JI-HVT"/>
                                 </constraints>
