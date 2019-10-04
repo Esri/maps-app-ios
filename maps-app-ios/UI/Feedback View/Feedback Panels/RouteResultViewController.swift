@@ -14,17 +14,20 @@
 
 import ArcGIS
 
-class RouteResultViewController : UIViewController {
+class RouteResultViewController : UIViewController, AGSRouteTrackerDelegate {
     
     @IBOutlet weak var fromLabel: UILabel!
     @IBOutlet weak var toLabel: UILabel!
     @IBOutlet weak var summaryLabel: UILabel!
+    var previewNextManuever = false
+    var displayManueverIndex = 0
+    var traversedRouteOverlay = AGSGraphicsOverlay()
     
-    var routeResult:AGSRoute? {
+    var prevManueverIndex = 0
+    var route:AGSRoute? {
         didSet {
             // Here we want to set the route results.
-            
-            if let result = routeResult {
+            if let result = route {
                 if let from = result.stops.first {
                     self.fromLabel.text = from.name
                 }
@@ -46,8 +49,10 @@ class RouteResultViewController : UIViewController {
         super.viewDidLoad()
         
         MapsAppNotifications.observeRouteSolvedNotification(owner: self) { [weak self] route in
-            self?.routeResult = route
+            self?.route = route
         }
+        
+        traversedRouteOverlay.renderer = AGSSimpleRenderer(symbol: AGSSimpleLineSymbol(style: .solid, color: .gray, width: 5))
     }
     
     deinit {
@@ -74,4 +79,116 @@ class RouteResultViewController : UIViewController {
         formatter.numberFormatter.maximumFractionDigits = 1
         return formatter
     }()
+    
+    
+    @IBAction func navigate(_ sender: Any) {
+        
+        
+        guard let mapView = mapsAppContext.currentMapView,
+            let routeResult = mapsAppContext.routeResult else {
+            return
+        }
+        
+        //Setup route tracker
+        if let routeTracker = AGSRouteTracker(routeResult: routeResult, routeIndex: 0) {
+
+            routeTracker.voiceGuidanceUnitSystem = .imperial
+            routeTracker.delegate = self
+        
+            //Simulate location based on GPX
+            mapView.locationDisplay.stop()
+            mapView.locationDisplay.autoPanMode = .navigation
+            let gpxDS = AGSGPXLocationDataSource(name: "nav")
+            mapView.locationDisplay.dataSource = gpxDS
+            mapView.locationDisplay.start(completion: nil)
+            
+            //For location updates....
+            mapView.locationDisplay.locationChangedHandler = {
+                location in
+                //update route tracker
+                routeTracker.trackLocation(location, completion: nil)
+            }
+
+            traversedRouteOverlay = AGSGraphicsOverlay()
+            traversedRouteOverlay.renderer = AGSSimpleRenderer(symbol: AGSSimpleLineSymbol(style: .solid, color: .gray, width: 5))
+            mapView.graphicsOverlays.add(traversedRouteOverlay)
+        }
+
+
+    }
+
+    //AGSRouteTrackerDelegate
+
+    //Handle route tracker updates to refresh Manuever & Destination display
+    func routeTracker(_ routeTracker: AGSRouteTracker, didUpdate trackingStatus: AGSTrackingStatus) {
+        
+        //Update Manuever display (direction & distance)
+        let maneuverDistance = trackingStatus.maneuverProgress.remainingDistance
+        let displayManueverIndex = manueverIndex(for: trackingStatus)
+        MapsAppNotifications.postNextManeuverNotification(manueverIndex: IndexPath(row: displayManueverIndex, section: 0), text:text(for:maneuverDistance))
+
+        
+        //Update Destination display (distance & time)
+        let remainingDestDistance = trackingStatus.routeProgress.remainingDistance
+        let remainingDestTime = trackingStatus.routeProgress.remainingTime
+        self.summaryLabel.text = text(forDistance:remainingDestDistance,time: remainingDestTime)
+        
+        //gray out the travelled route
+        updateTraveledRoute(trackingStatus.routeProgress.traversedGeometry)
+    }
+   
+    //Speak voice guidance provided by route tracker
+    func routeTracker(_ routeTracker: AGSRouteTracker, didGenerateNewVoiceGuidance voiceGuidance: AGSVoiceGuidance) {
+        
+        let utterance = AVSpeechUtterance(string: voiceGuidance.text)
+        utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
+        let synth = AVSpeechSynthesizer()
+        synth.speak(utterance)
+        
+        //Manage display of approaching manuever
+        if(voiceGuidance.type == .approachingManeuver){
+            previewNextManuever = true
+        }
+
+        
+    }
+    
+    
+    //handle re-routing
+    func routeTrackerRerouteDidStart(_ routeTracker: AGSRouteTracker) {
+        //TODO
+    }
+
+    func routeTracker(_ routeTracker: AGSRouteTracker, rerouteDidCompleteWith trackingStatus: AGSTrackingStatus?, error: Error?) {
+        //TODO
+    }
+    
+    fileprivate func text(for remainingManeuverDistance: AGSTrackingDistance) -> String {
+        return remainingManeuverDistance.displayText + " " +  remainingManeuverDistance.displayTextUnits.abbreviation + "."
+    }
+    
+    fileprivate func text(forDistance remainingDestinationDistance: AGSTrackingDistance, time remainingDestinationTime: Double) -> String {
+        return remainingDestinationDistance.displayText + " " + remainingDestinationDistance.displayTextUnits.abbreviation + " ∙ " + (durationFormatter.string(from: remainingDestinationTime*60) ?? "")
+    }
+    
+    fileprivate func manueverIndex(for trackingStatus: AGSTrackingStatus) -> Int{
+        // MARK: manage manueverIndex
+        if(self.prevManueverIndex < trackingStatus.currentManeuverIndex){
+            self.previewNextManuever = false
+        }
+        let displayManueverIndex = trackingStatus.currentManeuverIndex + (self.previewNextManuever ? 1 : 0)
+        self.prevManueverIndex = displayManueverIndex
+        return displayManueverIndex
+    }
+    
+    fileprivate func updateTraveledRoute(_ geometry: AGSGeometry) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
+            self.traversedRouteOverlay.graphics.removeAllObjects()
+            self.traversedRouteOverlay.graphics.add(AGSGraphic(geometry: geometry, symbol: nil, attributes: nil))        }
+        
+    }
+    
+
 }
+
+

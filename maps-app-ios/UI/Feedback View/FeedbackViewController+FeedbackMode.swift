@@ -43,7 +43,7 @@ extension FeedbackViewController {
         case .geocodeResult(let result):
             self.geocodeResultViewController?.result = result
         case .routeResult(let result):
-            self.routeResultViewController?.routeResult = result
+            self.routeResultViewController?.route = result
         default:
             break
         }

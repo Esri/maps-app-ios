@@ -56,6 +56,14 @@ class DirectionsDisplayViewController: UIViewController, UICollectionViewDataSou
         
         view.translatesAutoresizingMaskIntoConstraints = false
         
+        MapsAppNotifications.observeNextManeuverNotification(owner: self) { [weak self](indexPath, distanceRemaining) in
+            guard self?.maneuversView.numberOfItems(inSection: indexPath.section) ?? indexPath.row > indexPath.row else { return }
+            self?.maneuversView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+            let directionCell = self?.maneuversView.cellForItem(at: indexPath) as? DirectionManeuverCell
+            directionCell?.detailsLabel.text = distanceRemaining
+        }
+        
+        
         MapsAppNotifications.observeModeChangeNotification(owner: self) { [weak self] oldMode, newMode in
             switch newMode {
             case .routeResult(let route):
@@ -118,6 +126,7 @@ class DirectionsDisplayViewController: UIViewController, UICollectionViewDataSou
         }
     }
     
+
     private func configureCollectionViewLayout() {
         if let layout = maneuversView.collectionViewLayout as? UICollectionViewFlowLayout {
             layout.itemSize = CGSize(width: maneuversView.frame.size.width - layout.minimumInteritemSpacing, height: maneuversView.frame.size.height)

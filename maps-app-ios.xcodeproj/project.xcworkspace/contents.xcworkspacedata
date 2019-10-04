@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:maps-app-ios.xcodeproj">
+      location = "group:../maps-app-ios/nav.gpx">
+   </FileRef>
+   <FileRef
+      location = "self:">
    </FileRef>
 </Workspace>

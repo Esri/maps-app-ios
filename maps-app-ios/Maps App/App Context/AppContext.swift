@@ -114,6 +114,9 @@ class AppContext {
      one map view.
      */
     var currentMapView:AGSMapView?
+    
+    var routeResult:AGSRouteResult?
+    
     /**
      A flag determining whether it is OK to show search suggestions.
      

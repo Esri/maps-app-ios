@@ -117,14 +117,14 @@ extension MapViewController {
     }
     
     func setModeHistoryUI() {
-        guard modeHistory.count > 1 else {
-            prevNextModeView.isHidden = true
-            return
-        }
-        
-        prevNextModeView.isHidden = false
-        
-        prevModeButton.isEnabled = hasPreviousMode
-        nextModeButton.isEnabled = hasNextMode
+//        guard modeHistory.count > 1 else {
+//            prevNextModeView.isHidden = true
+//            return
+//        }
+//        
+//        prevNextModeView.isHidden = false
+//        
+//        prevModeButton.isEnabled = hasPreviousMode
+//        nextModeButton.isEnabled = hasNextMode
     }
 }
