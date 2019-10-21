@@ -23,9 +23,9 @@ extension MapViewController {
         }
         
         mapView.locationDisplay.autoPanModeChangedHandler = { [weak self] newAutoPanMode in
-            guard let self = self else { return }
             print("New autoPanMode: \(newAutoPanMode)")
             DispatchQueue.main.async {
+                guard let self = self else { return }
                 self.gpsButton.setImage(self.mapView.locationDisplay.getImage(), for: .normal)
             }
         }
