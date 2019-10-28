@@ -4,7 +4,7 @@ The Maps App is an example application to show some good practices when building
 
 Get your organization's authoritative map data into the hands of your workers with this ArcGIS Runtime iOS app. The application you build can include a custom web map from your [ArcGIS Online organization](https://doc.arcgis.com/en/arcgis-online/reference/what-is-agol.htm). For example, a web map from the [Living Atlas](https://livingatlas.arcgis.com/en/browse/?#d=1&type=maps) can be used as a starting place for your app. The Maps App also includes examples of place search and routing capabilities using either ArcGIS Online's powerful services or your own services. It also leverages your organizations configured basemaps to allow users to switch between the basemap that make sense for them.
 
-This example application is open source so grab the code at [GitHub](https://github.com/Esri/maps-app-ios) and either configure the app for your organization, or just learn how to integrate similar capabilities into your own app!
+Grab the code at [GitHub](https://github.com/Esri/maps-app-ios) and either configure the app for your organization, or just learn how to integrate similar capabilities into your own app!
 
 Follow these links to learn more:
 
@@ -103,7 +103,7 @@ To tell iOS to call back like this, the Maps App configures a `URL Type` in the 
 
 Note the value for URL Schemes. Combined with the text `auth` to make `maps-app-ios://auth`, this is the [redirect URI](https://developers.arcgis.com/authentication/browser-based-user-logins/#configuring-a-redirect-uri) that you configured when you registered your app [here](https://developers.arcgis.com/dashboard/). For more details on the user authorization flow, see the [Authorize REST API](https://developers.arcgis.com/rest/users-groups-and-items/authorize.htm).
 
-For more details on configuring the Maps App for OAuth, see [the main README.md](https://github.com/esri/maps-app-ios#2-configuring-the-project)
+For more details on configuring the Maps App for OAuth, see [the main README.md](/README.md#2-configuring-the-project)
 
 ## Place search & geocoding
 
