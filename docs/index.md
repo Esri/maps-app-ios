@@ -1,10 +1,10 @@
 ## Description
 
-The Maps App is an example application to show some good practices when building applications around the ArcGIS Runtime SDK for iOS. It also includes a modular UI, components of which can be re-used in your own applications.
+The Maps App is an open source app to show some good practices when building applications around the ArcGIS Runtime SDK for iOS. It also includes a modular UI, components of which can be re-used in your own applications.
 
 Get your organization's authoritative map data into the hands of your workers with this ArcGIS Runtime iOS app. The application you build can include a custom web map from your [ArcGIS Online organization](https://doc.arcgis.com/en/arcgis-online/reference/what-is-agol.htm). For example, a web map from the [Living Atlas](https://livingatlas.arcgis.com/en/browse/?#d=1&type=maps) can be used as a starting place for your app. The Maps App also includes examples of place search and routing capabilities using either ArcGIS Online's powerful services or your own services. It also leverages your organizations configured basemaps to allow users to switch between the basemap that make sense for them.
 
-Grab the code at [GitHub](https://github.com/Esri/maps-app-ios) and either configure the app for your organization, or just learn how to integrate similar capabilities into your own app!
+Grab the code and either configure the app for your organization, or just learn how to integrate similar capabilities into your own app!
 
 Follow these links to learn more:
 
@@ -25,7 +25,7 @@ mapView.map = AGSMap(item: webMap)
 
 ## Accessing your organization's basemaps
 
-As an administrator of an ArcGIS Online organization or Portal you can configure the basemaps that your users can switch between via a [group](http://doc.arcgis.com/en/arcgis-online/share-maps/share-items.htm). Applications can leverage this configuration using the [Portal API](/ios/latest/swift/guide/access-the-arcgis-platform.htm#ESRI_SECTION2_B8EDBBD3D4F1499C80AF43CFA73B8292). The Maps App does this by an async call to find the group containing web maps in the basemap gallery. With the returned group id, the collection of basemaps is retrieved from the portal.
+As an administrator of an ArcGIS Online organization or Portal you can configure the basemaps that your users can switch between via a [group](http://doc.arcgis.com/en/arcgis-online/share-maps/share-items.htm). Applications can leverage this configuration using the [Portal API](https://developers.arcgis.com/ios/latest/swift/guide/access-the-arcgis-platform.htm#ESRI_SECTION2_B8EDBBD3D4F1499C80AF43CFA73B8292). The Maps App does this by an async call to find the group containing web maps in the basemap gallery. With the returned group id, the collection of basemaps is retrieved from the portal.
 
 ```swift
 if let basemapGroupQuery = portal.portalInfo?.basemapGalleryGroupQuery {
