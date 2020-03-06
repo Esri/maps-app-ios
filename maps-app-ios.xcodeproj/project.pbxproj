@@ -54,8 +54,6 @@
 		D96A77571E8594C000F441D3 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96A77561E8594C000F441D3 /* MapViewController.swift */; };
 		D96A775A1E8594C000F441D3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D96A77581E8594C000F441D3 /* Main.storyboard */; };
 		D96A775F1E8594C000F441D3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D96A775D1E8594C000F441D3 /* LaunchScreen.storyboard */; };
-		D96A776A1E8594C000F441D3 /* maps_app_iosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96A77691E8594C000F441D3 /* maps_app_iosTests.swift */; };
-		D96A77751E8594C000F441D3 /* maps_app_iosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96A77741E8594C000F441D3 /* maps_app_iosUITests.swift */; };
 		D96A77851E86E88600F441D3 /* AGSLicense+CustomStringConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96A77841E86E88600F441D3 /* AGSLicense+CustomStringConvertible.swift */; };
 		D96B73C11EF73760004B6862 /* RoundedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96B73C01EF73760004B6862 /* RoundedImageView.swift */; };
 		D96B73C51EF73E03004B6862 /* RoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96B73C41EF73E03004B6862 /* RoundedView.swift */; };
@@ -111,23 +109,6 @@
 		D9FF8D701F06D0D900BD9B04 /* MapViewController+MapViewModeHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9FF8D6F1F06D0D900BD9B04 /* MapViewController+MapViewModeHistory.swift */; };
 		D9FF8D721F06D49300BD9B04 /* MapViewController+KeyboardTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9FF8D711F06D49300BD9B04 /* MapViewController+KeyboardTracking.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		D96A77661E8594C000F441D3 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D96A77491E8594BF00F441D3 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = D96A77501E8594BF00F441D3;
-			remoteInfo = "maps-app-ios";
-		};
-		D96A77711E8594C000F441D3 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D96A77491E8594BF00F441D3 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = D96A77501E8594BF00F441D3;
-			remoteInfo = "maps-app-ios";
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		9422EDD92257DACA00F74042 /* Embed Frameworks */ = {
@@ -193,10 +174,8 @@
 		D96A77591E8594C000F441D3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D96A775E1E8594C000F441D3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D96A77601E8594C000F441D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D96A77651E8594C000F441D3 /* maps-app-iosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "maps-app-iosTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D96A77691E8594C000F441D3 /* maps_app_iosTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = maps_app_iosTests.swift; sourceTree = "<group>"; };
 		D96A776B1E8594C000F441D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D96A77701E8594C000F441D3 /* maps-app-iosUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "maps-app-iosUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D96A77741E8594C000F441D3 /* maps_app_iosUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = maps_app_iosUITests.swift; sourceTree = "<group>"; };
 		D96A77761E8594C000F441D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D96A77841E86E88600F441D3 /* AGSLicense+CustomStringConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AGSLicense+CustomStringConvertible.swift"; sourceTree = "<group>"; };
@@ -263,20 +242,6 @@
 
 /* Begin PBXFrameworksBuildPhase section */
 		D96A774E1E8594BF00F441D3 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D96A77621E8594C000F441D3 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D96A776D1E8594C000F441D3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -446,8 +411,6 @@
 			isa = PBXGroup;
 			children = (
 				D96A77511E8594C000F441D3 /* maps-app-ios.app */,
-				D96A77651E8594C000F441D3 /* maps-app-iosTests.xctest */,
-				D96A77701E8594C000F441D3 /* maps-app-iosUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -685,42 +648,6 @@
 			productReference = D96A77511E8594C000F441D3 /* maps-app-ios.app */;
 			productType = "com.apple.product-type.application";
 		};
-		D96A77641E8594C000F441D3 /* maps-app-iosTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = D96A777C1E8594C000F441D3 /* Build configuration list for PBXNativeTarget "maps-app-iosTests" */;
-			buildPhases = (
-				D96A77611E8594C000F441D3 /* Sources */,
-				D96A77621E8594C000F441D3 /* Frameworks */,
-				D96A77631E8594C000F441D3 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				D96A77671E8594C000F441D3 /* PBXTargetDependency */,
-			);
-			name = "maps-app-iosTests";
-			productName = "maps-app-iosTests";
-			productReference = D96A77651E8594C000F441D3 /* maps-app-iosTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		D96A776F1E8594C000F441D3 /* maps-app-iosUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = D96A777F1E8594C000F441D3 /* Build configuration list for PBXNativeTarget "maps-app-iosUITests" */;
-			buildPhases = (
-				D96A776C1E8594C000F441D3 /* Sources */,
-				D96A776D1E8594C000F441D3 /* Frameworks */,
-				D96A776E1E8594C000F441D3 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				D96A77721E8594C000F441D3 /* PBXTargetDependency */,
-			);
-			name = "maps-app-iosUITests";
-			productName = "maps-app-iosUITests";
-			productReference = D96A77701E8594C000F441D3 /* maps-app-iosUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -735,20 +662,6 @@
 						CreatedOnToolsVersion = 8.2.1;
 						LastSwiftMigration = 1020;
 						ProvisioningStyle = Automatic;
-					};
-					D96A77641E8594C000F441D3 = {
-						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = J8UEUYLV27;
-						LastSwiftMigration = 1020;
-						ProvisioningStyle = Automatic;
-						TestTargetID = D96A77501E8594BF00F441D3;
-					};
-					D96A776F1E8594C000F441D3 = {
-						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = J8UEUYLV27;
-						LastSwiftMigration = 1020;
-						ProvisioningStyle = Automatic;
-						TestTargetID = D96A77501E8594BF00F441D3;
 					};
 				};
 			};
@@ -766,8 +679,6 @@
 			projectRoot = "";
 			targets = (
 				D96A77501E8594BF00F441D3 /* maps-app-ios */,
-				D96A77641E8594C000F441D3 /* maps-app-iosTests */,
-				D96A776F1E8594C000F441D3 /* maps-app-iosUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -793,20 +704,6 @@
 				D95AD1D61F19528C002BC78A /* PortalItemsBrowser.storyboard in Resources */,
 				D96A775A1E8594C000F441D3 /* Main.storyboard in Resources */,
 				D95AD1D81F195575002BC78A /* PortalItemsBrowser.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D96A77631E8594C000F441D3 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D96A776E1E8594C000F441D3 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -924,36 +821,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D96A77611E8594C000F441D3 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				D96A776A1E8594C000F441D3 /* maps_app_iosTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D96A776C1E8594C000F441D3 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				D96A77751E8594C000F441D3 /* maps_app_iosUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		D96A77671E8594C000F441D3 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = D96A77501E8594BF00F441D3 /* maps-app-ios */;
-			targetProxy = D96A77661E8594C000F441D3 /* PBXContainerItemProxy */;
-		};
-		D96A77721E8594C000F441D3 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = D96A77501E8594BF00F441D3 /* maps-app-ios */;
-			targetProxy = D96A77711E8594C000F441D3 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		D96A77581E8594C000F441D3 /* Main.storyboard */ = {
@@ -1133,70 +1001,12 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MARKETING_VERSION = 1.0.1;
 				OTHER_LDFLAGS = "";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.esri.arcgisruntime-example-apps.maps-app";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.esri.arcgisruntime.opensourceapps.maps-app";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "maps-app-ios/3rd Party/maps-app-ios-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
-			};
-			name = Release;
-		};
-		D96A777D1E8594C000F441D3 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				DEVELOPMENT_TEAM = J8UEUYLV27;
-				INFOPLIST_FILE = "maps-app-iosTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.esri.example-apps.maps-app-iosTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/maps-app-ios.app/maps-app-ios";
-			};
-			name = Debug;
-		};
-		D96A777E1E8594C000F441D3 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				DEVELOPMENT_TEAM = J8UEUYLV27;
-				INFOPLIST_FILE = "maps-app-iosTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.esri.example-apps.maps-app-iosTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/maps-app-ios.app/maps-app-ios";
-			};
-			name = Release;
-		};
-		D96A77801E8594C000F441D3 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				DEVELOPMENT_TEAM = J8UEUYLV27;
-				INFOPLIST_FILE = "maps-app-iosUITests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.esri.example-apps.maps-app-iosUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TEST_TARGET_NAME = "maps-app-ios";
-			};
-			name = Debug;
-		};
-		D96A77811E8594C000F441D3 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				DEVELOPMENT_TEAM = J8UEUYLV27;
-				INFOPLIST_FILE = "maps-app-iosUITests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.esri.example-apps.maps-app-iosUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TEST_TARGET_NAME = "maps-app-ios";
 			};
 			name = Release;
 		};
@@ -1217,24 +1027,6 @@
 			buildConfigurations = (
 				D96A777A1E8594C000F441D3 /* Debug */,
 				D96A777B1E8594C000F441D3 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		D96A777C1E8594C000F441D3 /* Build configuration list for PBXNativeTarget "maps-app-iosTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				D96A777D1E8594C000F441D3 /* Debug */,
-				D96A777E1E8594C000F441D3 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		D96A777F1E8594C000F441D3 /* Build configuration list for PBXNativeTarget "maps-app-iosUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				D96A77801E8594C000F441D3 /* Debug */,
-				D96A77811E8594C000F441D3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
