@@ -947,7 +947,7 @@
 				);
 				INFOPLIST_FILE = "maps-app-ios/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.0.3;
 				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.esri.arcgisruntime.opensourceapps.maps-app";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -975,7 +975,7 @@
 				);
 				INFOPLIST_FILE = "maps-app-ios/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.0.3;
 				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.esri.arcgisruntime.opensourceapps.maps-app";
 				PRODUCT_NAME = "$(TARGET_NAME)";
