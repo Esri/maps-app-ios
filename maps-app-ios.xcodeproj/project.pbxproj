@@ -174,10 +174,6 @@
 		D96A77591E8594C000F441D3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D96A775E1E8594C000F441D3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D96A77601E8594C000F441D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D96A77691E8594C000F441D3 /* maps_app_iosTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = maps_app_iosTests.swift; sourceTree = "<group>"; };
-		D96A776B1E8594C000F441D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D96A77741E8594C000F441D3 /* maps_app_iosUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = maps_app_iosUITests.swift; sourceTree = "<group>"; };
-		D96A77761E8594C000F441D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D96A77841E86E88600F441D3 /* AGSLicense+CustomStringConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AGSLicense+CustomStringConvertible.swift"; sourceTree = "<group>"; };
 		D96B73C01EF73760004B6862 /* RoundedImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedImageView.swift; sourceTree = "<group>"; };
 		D96B73C41EF73E03004B6862 /* RoundedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedView.swift; sourceTree = "<group>"; };
@@ -401,8 +397,6 @@
 			children = (
 				9422EDDD2257DB2900F74042 /* ArcGIS.framework */,
 				D96A77531E8594C000F441D3 /* maps-app-ios */,
-				D96A77681E8594C000F441D3 /* maps-app-iosTests */,
-				D96A77731E8594C000F441D3 /* maps-app-iosUITests */,
 				D96A77521E8594C000F441D3 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -425,24 +419,6 @@
 				D9CBE34C1E8B752F00776053 /* Resources */,
 			);
 			path = "maps-app-ios";
-			sourceTree = "<group>";
-		};
-		D96A77681E8594C000F441D3 /* maps-app-iosTests */ = {
-			isa = PBXGroup;
-			children = (
-				D96A77691E8594C000F441D3 /* maps_app_iosTests.swift */,
-				D96A776B1E8594C000F441D3 /* Info.plist */,
-			);
-			path = "maps-app-iosTests";
-			sourceTree = "<group>";
-		};
-		D96A77731E8594C000F441D3 /* maps-app-iosUITests */ = {
-			isa = PBXGroup;
-			children = (
-				D96A77741E8594C000F441D3 /* maps_app_iosUITests.swift */,
-				D96A77761E8594C000F441D3 /* Info.plist */,
-			);
-			path = "maps-app-iosUITests";
 			sourceTree = "<group>";
 		};
 		D96B73C61EF838C8004B6862 /* Basemaps View */ = {
