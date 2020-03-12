@@ -89,7 +89,7 @@ This step is optional during development, but required for deployment.
 3. Set the value of the static variable `licenseKey` to the value from step 1.
 
 ## Learn More
-Learn more about Esri Example Apps [here](https://developers.arcgis.com/example-apps).
+Learn more about Esri open source apps [here](https://developers.arcgis.com/example-apps).
 
 ## Requirements
 * [Xcode](https://itunes.apple.com/us/app/xcode/id497799835?mt=12)
