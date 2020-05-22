@@ -96,7 +96,7 @@ Learn more about ArcGIS open source apps [here](https://developers.arcgis.com/ex
 * [ArcGIS Runtime SDK for iOS](https://developers.arcgis.com/ios/)
 * For directions and to browse Web Maps you will also need an ArcGIS Online Organizational account or an ArcGIS Online Developer account.
 
-**Note:**  Starting from the 100.8 release, the *ArcGIS Runtime SDK for iOS* uses Apple's Metal framework to display maps and scenes. However, Xcode does not support Metal based rendering in iOS 12 simulators on macOS Catalina, or in any version of iOS simulator on macOS Mojave. If you are developing map or scene based apps in these environments, you will need test and debug them on a physical device instead of the simulator.
+**Note:** Starting from the 100.8 release, the *ArcGIS Runtime SDK for iOS* uses Apple's [Metal](https://developer.apple.com/metal/) framework to render maps and scenes. In order to run your app in a simulator you must be developing on **macOS Catalina**, using **Xcode 11**, and simulating **iOS 13**.
 
 ## Contributing
 Anyone and everyone is welcome to [contribute](CONTRIBUTING.md). We do accept pull requests.
