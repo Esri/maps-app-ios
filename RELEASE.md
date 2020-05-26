@@ -1,3 +1,7 @@
+# Release 1.0.4
+
+* Certification for the 100.8.0 release of the ArcGIS Runtime SDK for iOS.
+
 # Release 1.0.3
 
 - Updates minimum deployment target to match that supported by ArcGIS iOS Runtime SDK.
