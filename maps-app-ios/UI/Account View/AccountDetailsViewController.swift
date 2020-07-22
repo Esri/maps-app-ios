@@ -85,13 +85,17 @@ class AccountDetailsViewController: UIViewController {
     }
     
     func showFolderPicker() {
-        mapsAppContext.rootFolder?.load() { error in
+        mapsAppContext.rootFolder?.load() { [weak self] error in
+            guard let self = self else { return }
+
             let picker = UIAlertController(title: "Select Folder", message: nil, preferredStyle: .actionSheet)
             picker.addAction(UIAlertAction(title: "Root Folder", style: .default, handler: { _ in
                 mapsAppContext.currentFolder = mapsAppContext.rootFolder
             }))
 
             defer {
+                picker.popoverPresentationController?.sourceView = self.folderButton
+                picker.popoverPresentationController?.sourceRect = self.folderButton.imageView?.bounds ?? self.folderButton.bounds
                 self.present(picker, animated: true, completion: nil)
             }
             
