@@ -4,6 +4,30 @@ The [Maps App for iOS](https://developers.arcgis.com/example-apps/maps-app-ios/?
 
 ![Maps App for iOS](/docs/images/app-screenshots.png)
 
+<!-- MDTOC maxdepth:6 firsth1:0 numbering:0 flatten:0 bullets:1 updateOnSave:1 -->
+
+- [Features](#features)   
+- [Detailed Documentation](#detailed-documentation)   
+- [Best Practices](#best-practices)   
+- [Get Started](#get-started)   
+   - [Fork the repo](#fork-the-repo)   
+   - [Clone the repo](#clone-the-repo)   
+      - [Command line Git](#command-line-git)   
+   - [Configuring a Remote for a Fork](#configuring-a-remote-for-a-fork)   
+   - [Configure the app](#configure-the-app)   
+      - [1. Register an Application](#1-register-an-application)   
+      - [2. Configuring the project](#2-configuring-the-project)   
+      - [3. License the app for deployment](#3-license-the-app-for-deployment)   
+- [Learn More](#learn-more)   
+- [Requirements](#requirements)   
+- [Contributing](#contributing)   
+- [MDTOC](#mdtoc)   
+- [Licensing](#licensing)   
+   - [3rd Party Component Licensing](#3rd-party-component-licensing)   
+
+<!-- /MDTOC -->
+---
+
 ## Features
 * Place Search
 * Geocode addresses
@@ -13,6 +37,9 @@ The [Maps App for iOS](https://developers.arcgis.com/example-apps/maps-app-ios/?
 * Open Web Maps
 * Work with ArcGIS Online or an on-premise ArcGIS Portal
 * OAuth authentication
+
+## Detailed Documentation
+Read the [docs](./docs/README.md) for a detailed explanation of the application, including its architecture and how it leverages the ArcGIS platform, as well as how you can begin using the app right away.
 
 ## Best Practices
 The project also demonstrates some patterns for building real-world apps around the ArcGIS Runtime SDK.
@@ -55,7 +82,7 @@ The app can be run as is, but it's recommended you do some configuration to set 
 2. Configure the Maps App project to reference that application.
 3. License the app to remove the Developer Mode watermark.
 
-#### 1. Register an Application 
+#### 1. Register an Application
 For OAuth configuration, create a new Application in your ArcGIS Portal to obtain a `Client ID` and configure a `Redirect URL`. The **Client ID** configures the ArcGIS Runtime to show your users, during the log in process, that the application was built by you and can be trusted. The **Redirect URL** configures the OAuth process to then return to your app once authentication is complete.
 
 1. Log in to [https://developers.arcgis.com](https://developers.arcgis.com) with either your ArcGIS Organizational Account or an ArcGIS Developer Account.
@@ -74,7 +101,7 @@ For OAuth configuration, create a new Application in your ArcGIS Portal to obtai
 
 **Configure Client ID**
 
-1. In the Navigator pane, click to expand the group `maps-app-ios/Maps App` to reveal a file named `AppSettings.swift`. 
+1. In the Navigator pane, click to expand the group `maps-app-ios/Maps App` to reveal a file named `AppSettings.swift`.
 2. Within `AppSettings.swift` set the value of the static variable `clientID` to the application's **Client ID** noted above.
 
 ![Configure the License Key](/docs/images/configure-app-settings.png)
@@ -105,6 +132,9 @@ Anyone and everyone is welcome to [contribute](CONTRIBUTING.md). We do accept pu
 2. Report issues
 3. Contribute code
 4. Improve documentation
+
+## MDTOC
+Generation of this and other document's table of contents in this repository was performed using the [MDTOC package for Atom](https://atom.io/packages/atom-mdtoc).
 
 ## Licensing
 Copyright 2017 Esri
