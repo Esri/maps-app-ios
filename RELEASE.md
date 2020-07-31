@@ -1,11 +1,8 @@
-# Release 1.0.6
-
-- Adds doc table of contents to root README.md and docs/index.md
-- Renames docs/index.md to [docs/README.md](/docs/README.md)
-
 # Release 1.0.5
 
 * Adds support for all screen sizes per Apple's new App Store requirements detailed here: [Building Adaptive User Interfaces for iPhone and iPad](https://developer.apple.com/news/?id=01132020b).
+- Adds doc table of contents to root README.md and docs/index.md
+- Renames docs/index.md to [docs/README.md](/docs/README.md)
 
 # Release 1.0.4
 
