@@ -134,7 +134,7 @@ Anyone and everyone is welcome to [contribute](CONTRIBUTING.md). We do accept pu
 4. Improve documentation
 
 ## MDTOC
-Generation of this and other documents' table of contents in this repository was performed using the [MDTOC package for Atom](https://atom.io/packages/atom-mdtoc).
+Generating table of contents for documents in this repository was performed using the [MDTOC package for Atom](https://atom.io/packages/atom-mdtoc).
 
 ## Licensing
 Copyright 2017 Esri
