@@ -1,3 +1,27 @@
+# Contents
+
+<!-- MDTOC maxdepth:6 firsth1:0 numbering:0 flatten:0 bullets:1 updateOnSave:1 -->
+
+- [Description](#description)   
+   - [Using web maps](#using-web-maps)   
+   - [Accessing your organization's basemaps](#accessing-your-organizations-basemaps)   
+   - [Identity](#identity)   
+   - [Place search & geocoding](#place-search-geocoding)   
+   - [Place suggestions](#place-suggestions)   
+   - [Searching from a suggestion](#searching-from-a-suggestion)   
+   - [Reverse geocoding](#reverse-geocoding)   
+   - [Route](#route)   
+- [Architecture](#architecture)   
+   - [App lifecycle](#app-lifecycle)   
+   - [App notifications](#app-notifications)   
+      - [Implementation](#implementation)   
+      - [Example: handling search results](#example-handling-search-results)   
+   - [Using the app](#using-the-app)   
+      - [User interface](#user-interface)   
+
+<!-- /MDTOC -->
+---
+
 ## Description
 
 The Maps App is an open source app to show some good practices when building applications around the ArcGIS Runtime SDK for iOS. It also includes a modular UI, components of which can be re-used in your own applications.
@@ -11,7 +35,7 @@ Follow these links to learn more:
 * [App Architecture](#architecture)
 * [User Interface](#using-the-app)
 
-## Using web maps
+### Using web maps
 
 You can author your own web maps from ArcGIS Online or ArcGIS Pro and share them in your app via your ArcGIS Online organization, this is the central power of the Web GIS model built into ArcGIS. Building an app which uses a web map allows the cartography and map configuration to be completed in ArcGIS Online rather than in code. This then allows the map to change over time, without any code changes or app updates. Learn more about the benefits of developing with web maps [here](https://developers.arcgis.com/web-map-specification/). Also, learn about authoring web maps in [ArcGIS Online](http://doc.arcgis.com/en/arcgis-online/create-maps/make-your-first-map.htm) and [ArcGIS Pro](http://pro.arcgis.com/en/pro-app/help/mapping/map-authoring/author-a-basemap.htm).
 
@@ -23,7 +47,7 @@ let webMap = AGSPortalItem(portal: portal, itemID: "<your map id>")
 mapView.map = AGSMap(item: webMap)
 ```
 
-## Accessing your organization's basemaps
+### Accessing your organization's basemaps
 
 As an administrator of an ArcGIS Online organization or Portal you can configure the basemaps that your users can switch between via a [group](http://doc.arcgis.com/en/arcgis-online/share-maps/share-items.htm). Applications can leverage this configuration using the [Portal API](https://developers.arcgis.com/ios/latest/swift/guide/access-the-arcgis-platform.htm#ESRI_SECTION2_B8EDBBD3D4F1499C80AF43CFA73B8292). The Maps App does this by an async call to find the group containing web maps in the basemap gallery. With the returned group id, the collection of basemaps is retrieved from the portal.
 
@@ -60,7 +84,7 @@ if let basemapGroupQuery = portal.portalInfo?.basemapGalleryGroupQuery {
 }
 ```
 
-## Identity
+### Identity
 
 The Maps App leverages the ArcGIS [identity](https://developers.arcgis.com/authentication/) model to provide access to resources via the the [named user](https://developers.arcgis.com/documentation/core-concepts/security-and-authentication/#named-user-login) login pattern. During the routing workflow, the app prompts you for your organization’s ArcGIS Online credentials used to obtain a token later consumed by the Portal and routing service. The ArcGIS Runtime SDKs provide a simple to use API for dealing with ArcGIS logins.
 
@@ -105,7 +129,7 @@ Note the value for URL Schemes. Combined with the text `auth` to make `maps-app-
 
 For more details on configuring the Maps App for OAuth, see [the main README.md](/README.md#2-configuring-the-project)
 
-## Place search & geocoding
+### Place search & geocoding
 
 [Geocoding](https://developers.arcgis.com/ios/latest/swift/guide/search-for-places-geocoding-.htm) lets you transform an address or a place name to a specific geographic location. The reverse lets you use a geographic location to find a description of the location, like a postal address or place name. In the Maps App, we use a [AGSLocatorTask](https://developers.arcgis.com/ios/latest/swift/guide/search-for-places-geocoding-.htm#ESRI_SECTION1_62AE6A47EB4B403ABBC72337A1255F8A) to perform geocoding and reverse geocoding functions provided by [Esri's World Geocoding Service](https://developers.arcgis.com/features/geocoding/). The `AGSLocatorTask` has various asynchronous methods that we use to provide address suggestions when searching for places or geocoding locations.
 
@@ -141,7 +165,7 @@ func search(searchText:String) {
 
  If the `AGSLocatorTask` above is already loaded, the ArcGIS Runtime SDK doesn't try to load again but moves straight on to the actual geocode.
 
-## Place suggestions
+### Place suggestions
 
 Typing the first few letters of a place into the Map App search box (e.g. “Central Park”) shows a number of suggestions near the device’s location.
 
@@ -194,7 +218,7 @@ func getSuggestions(forSearchText searchText:String) {
 
 Note how the above two patterns work to coalesce loading and asynchronous actions. Understanding this can guide how you might present errors to the user.
 
-## Searching from a suggestion
+### Searching from a suggestion
 
 Once a suggestion in the list has been selected by the user, the suggested address is geocoded using the geocode function of the `AGSLocatorTask`. Along with the address, specific [geocoding parameters](https://developers.arcgis.com/ios/latest/swift/guide/search-for-places-geocoding-.htm#ESRI_SECTION2_48C5C281B21B4BF1BBBDBCEA71F105B9) can be set to tune the results. For example, in the maps app, we set the [preferred location](https://developers.arcgis.com/ios/latest/api-reference/interface_a_g_s_geocode_parameters.html#a8d2dbede94ed26ecde13f9d766d767e2) to prioritize results closer to the center of the map.
 
@@ -220,7 +244,7 @@ func search(suggestion:AGSSuggestResult) {
 }
 ```
 
-## Reverse geocoding
+### Reverse geocoding
 
 The Map App uses the built-in map magnifier to help users fine tune a location on the map for reverse geocoding. The magnifier appears after a long-press on the map view. Once the long-press is released, the map point is reverse geocoded.
 
@@ -255,7 +279,7 @@ func geoView(_ geoView: AGSGeoView, didEndLongPressAtScreenPoint screenPoint: CG
 }
 ```
 
-## Route
+### Route
 
 Getting navigation directions in the Maps App is just as easy in the [Runtime SDK](https://developers.arcgis.com/features/directions/) as it is on [ArcGIS Online](http://doc.arcgis.com/en/arcgis-online/use-maps/get-directions.htm). You can [customize](http://doc.arcgis.com/en/arcgis-online/administer/configure-services.htm#ESRI_SECTION1_567C344D5DEE444988CA2FE5193F3CAD) your navigation service for your organization, add new travel modes that better reflect your organization’s workflows, or remove travel modes that are not suitable for your organization’s workflows.
 
@@ -324,7 +348,7 @@ Components of the app read from and write to the `AppContext`. Changes to the `A
 
 ![App Architecture](/docs/images/app-architecture.png)
 
-## App lifecycle
+### App lifecycle
 
 When the app starts up, the `MapsAppDelegate` instance is created, which instantiates the `AppContext` and `ArcGISServices` singletons.
 
@@ -334,7 +358,7 @@ iOS will then begin setting up the UI. The Maps App is a Single View Application
 
 When the `MapViewController` and UI are initialized, they read the current `AppContext` to initialize their appearance. They then register themselves as observers on specific custom Notifications that indicate changes to the `AppContext` so they can later update their appearance as appropriate whenever the `AppContext` is updated.
 
-## App notifications
+### App notifications
 
 iOS Notifications and the NotificationCenter are used throughout the Maps App to inform the UI that state has changed or ArcGIS Service tasks such as Routing or Geocoding have completed. iOS Notifications are abstracted by a strongly-typed architecture (described below).
 
@@ -346,7 +370,7 @@ Notifications include:
 | `ArcGISServices` | Search Suggestions Available, Search/Geocode completed, Route calculated |
 | `MapViewController` | Mode Changed |
 
-### Implementation
+#### Implementation
 
 Components register interest in a notification by calling an **observe** function and providing a callback block. That block will be called when the notification is received, and is passed strongly typed parameters from the notification.
 
@@ -396,7 +420,7 @@ This pattern turns Apple's _stringly_-typed NSNotification implementation into s
 **Note:** In the above snippet, `deinit` is defined to clear out any observed handler blocks. You should include this `deinit` block on any class that
 makes use of the `MapsAppNotification.observeYZNotification(owner, handlers)` pattern.
 
-### Example: handling search results
+#### Example: handling search results
 
 The MapViewController registers its interest in search results with this code:
 
@@ -450,7 +474,7 @@ The net result is that when the `ArcGISService` singleton completes a search, `M
 
 At no point did the code need to know what the notification's name was nor how to unpack the `userInfo` dictionary and cast its content to `AGSGeocodeResult` or `MapViewMode` as this was all implemented in the `observe` and `post` functions, clearing up the calling code to focus solely on application logic.
 
-# Using the app
+### Using the app
 
 The app operates in one of 3 "modes":
 
@@ -462,7 +486,7 @@ The app allows a user to sign in to ArcGIS Online or an ArcGIS Portal. The user 
 
 If the user's organization or Portal has custom basemaps configured, when signed in, the user will be able to pick from those in the Basemap picker, but otherwise will see just the default ArcGIS Online basemaps.
 
-## User interface
+#### User interface
 
 The main UI component is the Feedback View at the top of the Map View. It reflects the current mode and can be a SearchBar, a Geocode Result, or a Directions Result.
 
