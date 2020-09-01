@@ -1,3 +1,7 @@
+# Release 1.0.6
+
+- Certification for the 100.9.0 release of the ArcGIS Runtime SDK for iOS.
+
 # Release 1.0.5
 
 - Adds support for all screen sizes per Apple's new App Store requirements detailed here: [Building Adaptive User Interfaces for iPhone and iPad](https://developer.apple.com/news/?id=01132020b).
