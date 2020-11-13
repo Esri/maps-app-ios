@@ -51,6 +51,8 @@ The project also demonstrates some patterns for building real-world apps around 
 ## Get Started
 You will need [Xcode](https://itunes.apple.com/us/app/xcode/id497799835?mt=12) and the [ArcGIS Runtime SDK](https://developers.arcgis.com/ios/latest/swift/guide/install.htm#ESRI_SECTION1_D57435A2BEBC4D29AFA3A4CAA722506A) (v100.1 or later) installed locally.
 
+Note that the 100.10.0 release of the ArcGIS Runtime SDK for iOS replaces the installed "fat framework" `ArcGIS.framework` with a new binary framework `ArcGIS.xcframework`.  It also changes the location of the installed framework file and removes the need for the `strip-frameworks.sh` Build Phase.  These changes have been incorporated in the lastest release of Maps App.  If you do not wish to upgrade to the 100.10.0 release of the SDK, but still wish to use the latest Maps App release, you will need to remove the `ArcGIS.xcframework` embedded file, re-add the pre-100.10.0 `ArcGIS.framework` and re-add the Build Phase which executed the `strip-frameworks.sh` shell script.  You will also need to use the 100.9.0 release of the ArcGIS Toolkit for iOS.
+
 ### Fork the repo
 **Fork** the [Maps App](https://github.com/Esri/maps-app-ios/fork) repo
 
