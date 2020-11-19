@@ -1,3 +1,10 @@
+# Release 1.0.7
+
+- The 100.10 release of the ArcGIS Runtime for iOS is now distributed as a binary framework.  This necessitated the following changes in the Maps App Xcode project file:
+    - The `ArcGIS.framework` framework has been replaced with `ArcGIS.xcframework`.
+    - The Build Phase which ran the `strip-frameworks.sh` shell script is no longer necessary.
+- Certification for the 100.10 release of the ArcGIS Runtime SDK for iOS.
+
 # Release 1.0.6
 
 - Certification for the 100.9.0 release of the ArcGIS Runtime SDK for iOS.
