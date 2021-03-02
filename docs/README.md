@@ -49,7 +49,7 @@ mapView.map = AGSMap(item: webMap)
 
 ### Accessing your organization's basemaps
 
-As an administrator of an ArcGIS Online organization or Portal you can configure the basemaps that your users can switch between via a [group](http://doc.arcgis.com/en/arcgis-online/share-maps/share-items.htm). Applications can leverage this configuration using the [Portal API](https://developers.arcgis.com/ios/latest/swift/guide/access-the-arcgis-platform.htm#ESRI_SECTION2_B8EDBBD3D4F1499C80AF43CFA73B8292). The Maps App does this by an async call to find the group containing web maps in the basemap gallery. With the returned group id, the collection of basemaps is retrieved from the portal.
+As an administrator of an ArcGIS Online organization or Portal you can configure the basemaps that your users can switch between via a [group](http://doc.arcgis.com/en/arcgis-online/share-maps/share-items.htm). Applications can leverage this configuration using the [Portal API](https://developers.arcgis.com/ios/arcgis-organization-portals/). The Maps App does this by an async call to find the group containing web maps in the basemap gallery. With the returned group id, the collection of basemaps is retrieved from the portal.
 
 ```swift
 if let basemapGroupQuery = portal.portalInfo?.basemapGalleryGroupQuery {
@@ -131,7 +131,7 @@ For more details on configuring the Maps App for OAuth, see [the main README.md]
 
 ### Place search & geocoding
 
-[Geocoding](https://developers.arcgis.com/ios/latest/swift/guide/search-for-places-geocoding-.htm) lets you transform an address or a place name to a specific geographic location. The reverse lets you use a geographic location to find a description of the location, like a postal address or place name. In the Maps App, we use a [AGSLocatorTask](https://developers.arcgis.com/ios/latest/swift/guide/search-for-places-geocoding-.htm#ESRI_SECTION1_62AE6A47EB4B403ABBC72337A1255F8A) to perform geocoding and reverse geocoding functions provided by [Esri's World Geocoding Service](https://developers.arcgis.com/features/geocoding/). The `AGSLocatorTask` has various asynchronous methods that we use to provide address suggestions when searching for places or geocoding locations.
+[Geocoding](https://developers.arcgis.com/ios/geocode-and-search/) lets you transform an address or a place name to a specific geographic location. The reverse lets you use a geographic location to find a description of the location, like a postal address or place name. In the Maps App, we use a [AGSLocatorTask](https://developers.arcgis.com/ios/geocode-and-search/#locator-task) to perform geocoding and reverse geocoding functions provided by [Esri's World Geocoding Service](https://developers.arcgis.com/features/geocoding/). The `AGSLocatorTask` has various asynchronous methods that we use to provide address suggestions when searching for places or geocoding locations.
 
 You can also provision your own [custom geocode service](https://doc.arcgis.com/en/arcgis-online/administer/configure-services.htm#ESRI_SECTION1_0A9A071A7AB748028C8213D1D863FA18) to support your organization. Maps App reads the first locator from the list of locators provisioned for an ArcGIS Online organization or Portal.
 
@@ -141,7 +141,7 @@ if let geocoderURL = portal.portalInfo?.helperServices?.geocodeServiceURLs?.firs
 }
 ```
 
-Before using the `AGSLocatorTask` to geocode or search for places, it must be LOADED. The loadable pattern is described [here](https://developers.arcgis.com/ios/latest/swift/guide/loadable-pattern.htm).
+Before using the `AGSLocatorTask` to geocode or search for places, it must be LOADED. The loadable pattern is described [here](https://developers.arcgis.com/ios/programming-patterns/loadable/).
 
 The ArcGIS Runtime SDK for iOS is implemented so that any action on a loadable task is queued internally until the task is loaded. This means that you can safely write code like the following and allow the ArcGIS Runtime to handle the load behind the scenes before any geocode request is sent:
 

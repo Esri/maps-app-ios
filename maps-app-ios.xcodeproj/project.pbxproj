@@ -3,11 +3,10 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9422EDDF2257DB2900F74042 /* ArcGIS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9422EDDD2257DB2900F74042 /* ArcGIS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		944FC15320240AA8007535DB /* AppIcon.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 944FC15220240AA7007535DB /* AppIcon.xcassets */; };
 		D90A07C61EF38C1400A9B253 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90A07C51EF38C1400A9B253 /* RoundedButton.swift */; };
 		D90DF41B1EAE595000EC0960 /* AccountDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90DF41A1EAE595000EC0960 /* AccountDetailsViewController.swift */; };
@@ -108,16 +107,18 @@
 		D9FF8D6E1F06CC7A00BD9B04 /* FeedbackMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9FF8D6D1F06CC7A00BD9B04 /* FeedbackMode.swift */; };
 		D9FF8D701F06D0D900BD9B04 /* MapViewController+MapViewModeHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9FF8D6F1F06D0D900BD9B04 /* MapViewController+MapViewModeHistory.swift */; };
 		D9FF8D721F06D49300BD9B04 /* MapViewController+KeyboardTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9FF8D711F06D49300BD9B04 /* MapViewController+KeyboardTracking.swift */; };
+		E4F93A57255C9FFB00298E30 /* ArcGIS.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4F93A56255C9FFB00298E30 /* ArcGIS.xcframework */; };
+		E4F93A58255C9FFB00298E30 /* ArcGIS.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E4F93A56255C9FFB00298E30 /* ArcGIS.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		9422EDD92257DACA00F74042 /* Embed Frameworks */ = {
+		E4F93A59255C9FFB00298E30 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				9422EDDF2257DB2900F74042 /* ArcGIS.framework in Embed Frameworks */,
+				E4F93A58255C9FFB00298E30 /* ArcGIS.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -125,7 +126,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		9422EDDD2257DB2900F74042 /* ArcGIS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ArcGIS.framework; path = $HOME/Library/SDKs/ArcGIS/iOS/Frameworks/Dynamic/ArcGIS.framework; sourceTree = "<absolute>"; };
 		944FC15220240AA7007535DB /* AppIcon.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = AppIcon.xcassets; sourceTree = "<group>"; };
 		D90A07C51EF38C1400A9B253 /* RoundedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		D90DF41A1EAE595000EC0960 /* AccountDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = AccountDetailsViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -234,6 +234,7 @@
 		D9FF8D6D1F06CC7A00BD9B04 /* FeedbackMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackMode.swift; sourceTree = "<group>"; };
 		D9FF8D6F1F06D0D900BD9B04 /* MapViewController+MapViewModeHistory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MapViewController+MapViewModeHistory.swift"; sourceTree = "<group>"; };
 		D9FF8D711F06D49300BD9B04 /* MapViewController+KeyboardTracking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MapViewController+KeyboardTracking.swift"; sourceTree = "<group>"; };
+		E4F93A56255C9FFB00298E30 /* ArcGIS.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = ArcGIS.xcframework; path = $HOME/Library/SDKs/ArcGIS/Frameworks/ArcGIS.xcframework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -241,6 +242,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4F93A57255C9FFB00298E30 /* ArcGIS.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -395,9 +397,9 @@
 		D96A77481E8594BF00F441D3 = {
 			isa = PBXGroup;
 			children = (
-				9422EDDD2257DB2900F74042 /* ArcGIS.framework */,
 				D96A77531E8594C000F441D3 /* maps-app-ios */,
 				D96A77521E8594C000F441D3 /* Products */,
+				E4F93A55255C9FFB00298E30 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -602,6 +604,14 @@
 			path = "MapViewController+AppState";
 			sourceTree = "<group>";
 		};
+		E4F93A55255C9FFB00298E30 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E4F93A56255C9FFB00298E30 /* ArcGIS.xcframework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -612,8 +622,7 @@
 				D96A774D1E8594BF00F441D3 /* Sources */,
 				D96A774E1E8594BF00F441D3 /* Frameworks */,
 				D96A774F1E8594BF00F441D3 /* Resources */,
-				9422EDD92257DACA00F74042 /* Embed Frameworks */,
-				9422EE6B225E5E4F00F74042 /* ShellScript */,
+				E4F93A59255C9FFB00298E30 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -631,7 +640,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0820;
-				LastUpgradeCheck = 1020;
+				LastUpgradeCheck = 1200;
 				ORGANIZATIONNAME = Esri;
 				TargetAttributes = {
 					D96A77501E8594BF00F441D3 = {
@@ -684,26 +693,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		9422EE6B225E5E4F00F74042 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "if [ -e $HOME/.runtime-example-apps/xcode-run-scripts/arcgis-build-number-run-script.sh ]; then\n$HOME/.runtime-example-apps/xcode-run-scripts/arcgis-build-number-run-script.sh -p ios -o $PROJECT_DIR\nelse\necho \"Cannot update ArcGIS build number.\"\nfi\n\nbash \"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/ArcGIS.framework/strip-frameworks.sh\"\n";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D96A774D1E8594BF00F441D3 /* Sources */ = {
@@ -845,6 +834,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -869,7 +859,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -904,6 +894,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -922,10 +913,11 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -941,13 +933,13 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 0;
 				DEVELOPMENT_TEAM = "";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(HOME)/Library/SDKs/ArcGIS/iOS/Frameworks/Dynamic",
-					"$(USER_LIBRARY_DIR)/SDKs/ArcGIS/iOS/Frameworks/Dynamic",
-				);
 				INFOPLIST_FILE = "maps-app-ios/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 1.0.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0.7;
 				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.esri.arcgisruntime.opensourceapps.maps-app";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -969,13 +961,13 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 0;
 				DEVELOPMENT_TEAM = "";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(HOME)/Library/SDKs/ArcGIS/iOS/Frameworks/Dynamic",
-					"$(USER_LIBRARY_DIR)/SDKs/ArcGIS/iOS/Frameworks/Dynamic",
-				);
 				INFOPLIST_FILE = "maps-app-ios/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 1.0.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0.7;
 				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.esri.arcgisruntime.opensourceapps.maps-app";
 				PRODUCT_NAME = "$(TARGET_NAME)";
