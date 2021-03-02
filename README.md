@@ -122,7 +122,7 @@ Learn more about ArcGIS open source apps [here](https://developers.arcgis.com/ex
 ## Requirements
 
 * [Xcode 11 and Swift 5](https://itunes.apple.com/us/app/xcode/id497799835?mt=12)
-* [ArcGIS Runtime SDK for iOS](https://developers.arcgis.com/ios/latest/swift/guide/install.htm#ESRI_SECTION1_D57435A2BEBC4D29AFA3A4CAA722506A), version 100.10.
+* [ArcGIS Runtime SDK for iOS](https://developers.arcgis.com/ios/), version 100.10.
 * For directions and to browse Web Maps you will also need an ArcGIS Online Organizational account or an ArcGIS Online Developer account.
 * Device or Simulator running iOS 13.0 or later.
 
@@ -152,7 +152,7 @@ Unless required by applicable law or agreed to in writing, software distributed 
 
 A copy of the license is available in the repository's [LICENSE](LICENSE) file.
 
-For information about licensing your deployed app, see [License your app](https://developers.arcgis.com/ios/latest/swift/guide/license-your-app.htm).
+For information about licensing your deployed app, see [License your app](https://developers.arcgis.com/ios/license-and-deployment/).
 
 ### 3rd Party Component Licensing
 Some great open source components are available out there for iOS developers. The following have been used in this project, with much gratitude to their authors.
