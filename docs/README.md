@@ -141,7 +141,7 @@ if let geocoderURL = portal.portalInfo?.helperServices?.geocodeServiceURLs?.firs
 }
 ```
 
-Before using the `AGSLocatorTask` to geocode or search for places, it must be LOADED. The loadable pattern is described [here](https://developers.arcgis.com/ios/latest/swift/guide/loadable-pattern.htm).
+Before using the `AGSLocatorTask` to geocode or search for places, it must be LOADED. The loadable pattern is described [here](https://developers.arcgis.com/ios/programming-patterns/loadable/).
 
 The ArcGIS Runtime SDK for iOS is implemented so that any action on a loadable task is queued internally until the task is loaded. This means that you can safely write code like the following and allow the ArcGIS Runtime to handle the load behind the scenes before any geocode request is sent:
 
