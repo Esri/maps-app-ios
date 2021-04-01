@@ -1,3 +1,7 @@
+# Release 1.0.8
+
+-
+
 # Release 1.0.7
 
 - The 100.10 release of the ArcGIS Runtime for iOS is now distributed as a binary framework.  This necessitated the following changes in the Maps App Xcode project file:
