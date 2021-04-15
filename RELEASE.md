@@ -2,6 +2,7 @@
 
 - Certification for the 100.11.0 release of the ArcGIS Runtime SDK for iOS.
 - Replaces unsupported 3rd party `SVProgressHUD` with OSA home-baked Progress View Controller.
+- Introduces `ArcGIS` as a Swift Package Manager dependency.
 
 # Release 1.0.7
 
