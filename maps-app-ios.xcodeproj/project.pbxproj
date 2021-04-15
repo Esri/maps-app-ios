@@ -10,6 +10,7 @@
 		944FC15320240AA8007535DB /* AppIcon.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 944FC15220240AA7007535DB /* AppIcon.xcassets */; };
 		94880BB52616794D009138E8 /* ProgressViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94880BB32616794C009138E8 /* ProgressViewController.xib */; };
 		94880BB62616794D009138E8 /* ProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94880BB42616794D009138E8 /* ProgressViewController.swift */; };
+		94F66B4A262901B50001D252 /* ArcGIS in Frameworks */ = {isa = PBXBuildFile; productRef = 94F66B49262901B50001D252 /* ArcGIS */; };
 		D90A07C61EF38C1400A9B253 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90A07C51EF38C1400A9B253 /* RoundedButton.swift */; };
 		D90DF41B1EAE595000EC0960 /* AccountDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90DF41A1EAE595000EC0960 /* AccountDetailsViewController.swift */; };
 		D91083C01EBC354800BACD96 /* MapViewController+CurrentItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91083BF1EBC354800BACD96 /* MapViewController+CurrentItem.swift */; };
@@ -104,23 +105,7 @@
 		D9FF8D6E1F06CC7A00BD9B04 /* FeedbackMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9FF8D6D1F06CC7A00BD9B04 /* FeedbackMode.swift */; };
 		D9FF8D701F06D0D900BD9B04 /* MapViewController+MapViewModeHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9FF8D6F1F06D0D900BD9B04 /* MapViewController+MapViewModeHistory.swift */; };
 		D9FF8D721F06D49300BD9B04 /* MapViewController+KeyboardTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9FF8D711F06D49300BD9B04 /* MapViewController+KeyboardTracking.swift */; };
-		E4F93A57255C9FFB00298E30 /* ArcGIS.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4F93A56255C9FFB00298E30 /* ArcGIS.xcframework */; };
-		E4F93A58255C9FFB00298E30 /* ArcGIS.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E4F93A56255C9FFB00298E30 /* ArcGIS.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		E4F93A59255C9FFB00298E30 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				E4F93A58255C9FFB00298E30 /* ArcGIS.xcframework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		944FC15220240AA7007535DB /* AppIcon.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = AppIcon.xcassets; sourceTree = "<group>"; };
@@ -230,7 +215,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E4F93A57255C9FFB00298E30 /* ArcGIS.xcframework in Frameworks */,
+				94F66B4A262901B50001D252 /* ArcGIS in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -601,13 +586,15 @@
 				D96A774D1E8594BF00F441D3 /* Sources */,
 				D96A774E1E8594BF00F441D3 /* Frameworks */,
 				D96A774F1E8594BF00F441D3 /* Resources */,
-				E4F93A59255C9FFB00298E30 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = "maps-app-ios";
+			packageProductDependencies = (
+				94F66B49262901B50001D252 /* ArcGIS */,
+			);
 			productName = "maps-app-ios";
 			productReference = D96A77511E8594C000F441D3 /* maps-app-ios.app */;
 			productType = "com.apple.product-type.application";
@@ -638,6 +625,9 @@
 				Base,
 			);
 			mainGroup = D96A77481E8594BF00F441D3;
+			packageReferences = (
+				94F66B48262901B50001D252 /* XCRemoteSwiftPackageReference "arcgis-runtime-ios" */,
+			);
 			productRefGroup = D96A77521E8594C000F441D3 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -976,6 +966,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		94F66B48262901B50001D252 /* XCRemoteSwiftPackageReference "arcgis-runtime-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Esri/arcgis-runtime-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 100.10.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		94F66B49262901B50001D252 /* ArcGIS */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 94F66B48262901B50001D252 /* XCRemoteSwiftPackageReference "arcgis-runtime-ios" */;
+			productName = ArcGIS;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = D96A77491E8594BF00F441D3 /* Project object */;
 }
