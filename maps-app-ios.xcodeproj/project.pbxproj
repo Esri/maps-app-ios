@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		944FC15320240AA8007535DB /* AppIcon.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 944FC15220240AA7007535DB /* AppIcon.xcassets */; };
+		94880BB52616794D009138E8 /* ProgressViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94880BB32616794C009138E8 /* ProgressViewController.xib */; };
+		94880BB62616794D009138E8 /* ProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94880BB42616794D009138E8 /* ProgressViewController.swift */; };
+		94F66B4A262901B50001D252 /* ArcGIS in Frameworks */ = {isa = PBXBuildFile; productRef = 94F66B49262901B50001D252 /* ArcGIS */; };
 		D90A07C61EF38C1400A9B253 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90A07C51EF38C1400A9B253 /* RoundedButton.swift */; };
 		D90DF41B1EAE595000EC0960 /* AccountDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90DF41A1EAE595000EC0960 /* AccountDetailsViewController.swift */; };
 		D91083C01EBC354800BACD96 /* MapViewController+CurrentItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91083BF1EBC354800BACD96 /* MapViewController+CurrentItem.swift */; };
@@ -97,36 +100,17 @@
 		D9CF2A711E9041EA0019701F /* RouteNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CF2A701E9041EA0019701F /* RouteNotifications.swift */; };
 		D9CF2A731E9045A70019701F /* MapsAppStopProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CF2A721E9045A70019701F /* MapsAppStopProvider.swift */; };
 		D9D1F1301E8E1016007BE50D /* MapViewMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D1F12F1E8E1016007BE50D /* MapViewMode.swift */; };
-		D9D756C31F1193E500D52B25 /* SVIndefiniteAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = D9D756BA1F1193E500D52B25 /* SVIndefiniteAnimatedView.m */; };
-		D9D756C41F1193E500D52B25 /* SVProgressAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = D9D756BC1F1193E500D52B25 /* SVProgressAnimatedView.m */; };
-		D9D756C51F1193E500D52B25 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D9D756BE1F1193E500D52B25 /* SVProgressHUD.bundle */; };
-		D9D756C61F1193E500D52B25 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = D9D756C01F1193E500D52B25 /* SVProgressHUD.m */; };
-		D9D756C71F1193E500D52B25 /* SVRadialGradientLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = D9D756C21F1193E500D52B25 /* SVRadialGradientLayer.m */; };
 		D9D756C91F119D2000D52B25 /* MapViewControllerNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D756C81F119D2000D52B25 /* MapViewControllerNotifications.swift */; };
 		D9DE672A1F759378004934AE /* FlexiblePageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9DE67291F759378004934AE /* FlexiblePageControl.swift */; };
 		D9FF8D6E1F06CC7A00BD9B04 /* FeedbackMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9FF8D6D1F06CC7A00BD9B04 /* FeedbackMode.swift */; };
 		D9FF8D701F06D0D900BD9B04 /* MapViewController+MapViewModeHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9FF8D6F1F06D0D900BD9B04 /* MapViewController+MapViewModeHistory.swift */; };
 		D9FF8D721F06D49300BD9B04 /* MapViewController+KeyboardTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9FF8D711F06D49300BD9B04 /* MapViewController+KeyboardTracking.swift */; };
-		E4F93A57255C9FFB00298E30 /* ArcGIS.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4F93A56255C9FFB00298E30 /* ArcGIS.xcframework */; };
-		E4F93A58255C9FFB00298E30 /* ArcGIS.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E4F93A56255C9FFB00298E30 /* ArcGIS.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		E4F93A59255C9FFB00298E30 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				E4F93A58255C9FFB00298E30 /* ArcGIS.xcframework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		944FC15220240AA7007535DB /* AppIcon.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = AppIcon.xcassets; sourceTree = "<group>"; };
+		94880BB32616794C009138E8 /* ProgressViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProgressViewController.xib; sourceTree = "<group>"; };
+		94880BB42616794D009138E8 /* ProgressViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressViewController.swift; sourceTree = "<group>"; };
 		D90A07C51EF38C1400A9B253 /* RoundedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		D90DF41A1EAE595000EC0960 /* AccountDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = AccountDetailsViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		D91083BF1EBC354800BACD96 /* MapViewController+CurrentItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MapViewController+CurrentItem.swift"; sourceTree = "<group>"; };
@@ -218,17 +202,6 @@
 		D9CF2A701E9041EA0019701F /* RouteNotifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteNotifications.swift; sourceTree = "<group>"; };
 		D9CF2A721E9045A70019701F /* MapsAppStopProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = MapsAppStopProvider.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		D9D1F12F1E8E1016007BE50D /* MapViewMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewMode.swift; sourceTree = "<group>"; };
-		D9D756A71F11939500D52B25 /* maps-app-ios-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "maps-app-ios-Bridging-Header.h"; sourceTree = "<group>"; };
-		D9D756B91F1193E500D52B25 /* SVIndefiniteAnimatedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVIndefiniteAnimatedView.h; sourceTree = "<group>"; };
-		D9D756BA1F1193E500D52B25 /* SVIndefiniteAnimatedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVIndefiniteAnimatedView.m; sourceTree = "<group>"; };
-		D9D756BB1F1193E500D52B25 /* SVProgressAnimatedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressAnimatedView.h; sourceTree = "<group>"; };
-		D9D756BC1F1193E500D52B25 /* SVProgressAnimatedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressAnimatedView.m; sourceTree = "<group>"; };
-		D9D756BD1F1193E500D52B25 /* SVProgressHUD-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SVProgressHUD-Prefix.pch"; sourceTree = "<group>"; };
-		D9D756BE1F1193E500D52B25 /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
-		D9D756BF1F1193E500D52B25 /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
-		D9D756C01F1193E500D52B25 /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
-		D9D756C11F1193E500D52B25 /* SVRadialGradientLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVRadialGradientLayer.h; sourceTree = "<group>"; };
-		D9D756C21F1193E500D52B25 /* SVRadialGradientLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVRadialGradientLayer.m; sourceTree = "<group>"; };
 		D9D756C81F119D2000D52B25 /* MapViewControllerNotifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapViewControllerNotifications.swift; path = ../MapViewControllerNotifications.swift; sourceTree = "<group>"; };
 		D9DE67291F759378004934AE /* FlexiblePageControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlexiblePageControl.swift; sourceTree = "<group>"; };
 		D9FF8D6D1F06CC7A00BD9B04 /* FeedbackMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackMode.swift; sourceTree = "<group>"; };
@@ -242,13 +215,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E4F93A57255C9FFB00298E30 /* ArcGIS.xcframework in Frameworks */,
+				94F66B4A262901B50001D252 /* ArcGIS in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		94880BB226167910009138E8 /* Progress */ = {
+			isa = PBXGroup;
+			children = (
+				94880BB42616794D009138E8 /* ProgressViewController.swift */,
+				94880BB32616794C009138E8 /* ProgressViewController.xib */,
+			);
+			path = Progress;
+			sourceTree = "<group>";
+		};
 		D90DF4151EAE545900EC0960 /* MapViewController+GPS */ = {
 			isa = PBXGroup;
 			children = (
@@ -414,6 +396,7 @@
 		D96A77531E8594C000F441D3 /* maps-app-ios */ = {
 			isa = PBXGroup;
 			children = (
+				94880BB226167910009138E8 /* Progress */,
 				D91083BE1EBC2C8C00BACD96 /* Maps App */,
 				D96E97231F21A9F300167C67 /* UI */,
 				D9CF2A6D1E90346A0019701F /* Extensions */,
@@ -559,29 +542,10 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		D9D756B71F1193AA00D52B25 /* SVProgressHUD */ = {
-			isa = PBXGroup;
-			children = (
-				D9D756B91F1193E500D52B25 /* SVIndefiniteAnimatedView.h */,
-				D9D756BA1F1193E500D52B25 /* SVIndefiniteAnimatedView.m */,
-				D9D756BB1F1193E500D52B25 /* SVProgressAnimatedView.h */,
-				D9D756BC1F1193E500D52B25 /* SVProgressAnimatedView.m */,
-				D9D756BD1F1193E500D52B25 /* SVProgressHUD-Prefix.pch */,
-				D9D756BE1F1193E500D52B25 /* SVProgressHUD.bundle */,
-				D9D756BF1F1193E500D52B25 /* SVProgressHUD.h */,
-				D9D756C01F1193E500D52B25 /* SVProgressHUD.m */,
-				D9D756C11F1193E500D52B25 /* SVRadialGradientLayer.h */,
-				D9D756C21F1193E500D52B25 /* SVRadialGradientLayer.m */,
-			);
-			path = SVProgressHUD;
-			sourceTree = "<group>";
-		};
 		D9D756B81F1193B400D52B25 /* 3rd Party */ = {
 			isa = PBXGroup;
 			children = (
-				D9D756A71F11939500D52B25 /* maps-app-ios-Bridging-Header.h */,
 				D9DE672B1F75A611004934AE /* FlexiblePageControl */,
-				D9D756B71F1193AA00D52B25 /* SVProgressHUD */,
 			);
 			path = "3rd Party";
 			sourceTree = "<group>";
@@ -622,13 +586,15 @@
 				D96A774D1E8594BF00F441D3 /* Sources */,
 				D96A774E1E8594BF00F441D3 /* Frameworks */,
 				D96A774F1E8594BF00F441D3 /* Resources */,
-				E4F93A59255C9FFB00298E30 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = "maps-app-ios";
+			packageProductDependencies = (
+				94F66B49262901B50001D252 /* ArcGIS */,
+			);
 			productName = "maps-app-ios";
 			productReference = D96A77511E8594C000F441D3 /* maps-app-ios.app */;
 			productType = "com.apple.product-type.application";
@@ -659,6 +625,9 @@
 				Base,
 			);
 			mainGroup = D96A77481E8594BF00F441D3;
+			packageReferences = (
+				94F66B48262901B50001D252 /* XCRemoteSwiftPackageReference "arcgis-runtime-ios" */,
+			);
 			productRefGroup = D96A77521E8594C000F441D3 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -679,7 +648,6 @@
 				D9C080BD1F01F53C00968FB3 /* Directions.xcassets in Resources */,
 				D9A82E0C1EF475940059244A /* Account.xcassets in Resources */,
 				D928724A1E942CFB00112A53 /* Feedback.xcassets in Resources */,
-				D9D756C51F1193E500D52B25 /* SVProgressHUD.bundle in Resources */,
 				D9430A401EF1D7A2002F6CA1 /* Suggestions.storyboard in Resources */,
 				D9C080B51F01BE7400968FB3 /* Directions.storyboard in Resources */,
 				D96B73C81EF838F4004B6862 /* Basemaps.storyboard in Resources */,
@@ -689,6 +657,7 @@
 				D95AD1D61F19528C002BC78A /* PortalItemsBrowser.storyboard in Resources */,
 				D96A775A1E8594C000F441D3 /* Main.storyboard in Resources */,
 				D95AD1D81F195575002BC78A /* PortalItemsBrowser.xcassets in Resources */,
+				94880BB52616794D009138E8 /* ProgressViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -721,7 +690,6 @@
 				D98D92281EF6F5F9001BFF03 /* NorthArrowView.swift in Sources */,
 				D95AD1CF1F192ACA002BC78A /* MapsAppGlobals.swift in Sources */,
 				D9CF2A731E9045A70019701F /* MapsAppStopProvider.swift in Sources */,
-				D9D756C41F1193E500D52B25 /* SVProgressAnimatedView.m in Sources */,
 				D90A07C61EF38C1400A9B253 /* RoundedButton.swift in Sources */,
 				D9DE672A1F759378004934AE /* FlexiblePageControl.swift in Sources */,
 				D94380D21F1A9530000B58AE /* PortalItemCollectionViewDelegate.swift in Sources */,
@@ -736,7 +704,6 @@
 				D9FF8D6E1F06CC7A00BD9B04 /* FeedbackMode.swift in Sources */,
 				D9CBE34E1E8B77AC00776053 /* AppPreferences.swift in Sources */,
 				D9C080B71F01BEC600968FB3 /* DirectionsDisplayViewController.swift in Sources */,
-				D9D756C61F1193E500D52B25 /* SVProgressHUD.m in Sources */,
 				D98F78B31E89B9A100E7CBC2 /* AGSAppPreferences.swift in Sources */,
 				D920A5821EB6CFCF00D565E2 /* LoginNotifications.swift in Sources */,
 				D979AD3E1F03483C00199AAA /* ASGDirectionManeuverType+CustomStringConvertible.swift in Sources */,
@@ -752,6 +719,7 @@
 				D94E6C621EBBFCA400F07BA6 /* AGSLocationDisplayAutoPanMode+CustomStringConvertible.swift in Sources */,
 				D91083C01EBC354800BACD96 /* MapViewController+CurrentItem.swift in Sources */,
 				D9D756C91F119D2000D52B25 /* MapViewControllerNotifications.swift in Sources */,
+				94880BB62616794D009138E8 /* ProgressViewController.swift in Sources */,
 				D93807751EB83EEB00E03A2F /* PortalItemCollectionCell.swift in Sources */,
 				D9CBE3471E8B6DF300776053 /* Debouncer.swift in Sources */,
 				D920A57C1EB6B10600D565E2 /* MapViewModeNotifications.swift in Sources */,
@@ -761,13 +729,11 @@
 				D90DF41B1EAE595000EC0960 /* AccountDetailsViewController.swift in Sources */,
 				D95AD1C91F19273F002BC78A /* MapsAppDelegate+UserFeedback.swift in Sources */,
 				D9B5B9101F1AD896002FBBA9 /* FeedbackViewController+RelatedViewControllers.swift in Sources */,
-				D9D756C71F1193E500D52B25 /* SVRadialGradientLayer.m in Sources */,
 				D94380D61F1AB4F7000B58AE /* FeedbackContentsSegue.swift in Sources */,
 				D91083C41EBC3C0F00BACD96 /* PortalUserFolderType.swift in Sources */,
 				D95AD1CD1F1928F0002BC78A /* MapsAppDelegate+AppStartup.swift in Sources */,
 				D95AD1C51F17F6B9002BC78A /* ArcGISServices+Search.swift in Sources */,
 				D9CBE33D1E8B4F2A00776053 /* RouteResultViewController.swift in Sources */,
-				D9D756C31F1193E500D52B25 /* SVIndefiniteAnimatedView.m in Sources */,
 				D9822A0F1EA2EC06009FA0E5 /* MapViewController+SearchResultsDisplay.swift in Sources */,
 				D92E2C1C1E94A4F900138F7D /* MapViewController+Touch.swift in Sources */,
 				D9430A3D1EF1D639002F6CA1 /* SuggestionDisplayViewController.swift in Sources */,
@@ -939,12 +905,12 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.7;
+				MARKETING_VERSION = 1.0.8;
 				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.esri.arcgisruntime.opensourceapps.maps-app";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "maps-app-ios/3rd Party/maps-app-ios-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -967,12 +933,12 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.7;
+				MARKETING_VERSION = 1.0.8;
 				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.esri.arcgisruntime.opensourceapps.maps-app";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "maps-app-ios/3rd Party/maps-app-ios-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1000,6 +966,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		94F66B48262901B50001D252 /* XCRemoteSwiftPackageReference "arcgis-runtime-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Esri/arcgis-runtime-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 100.10.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		94F66B49262901B50001D252 /* ArcGIS */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 94F66B48262901B50001D252 /* XCRemoteSwiftPackageReference "arcgis-runtime-ios" */;
+			productName = ArcGIS;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = D96A77491E8594BF00F441D3 /* Project object */;
 }
